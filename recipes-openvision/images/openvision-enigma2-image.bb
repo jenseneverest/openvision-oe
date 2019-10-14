@@ -100,7 +100,6 @@ DEPENDS += "\
 	enigma2-alliance-plugins \
 	enigma2-locale-meta \
 	enigma2-persianempire-plugins \
-	enigma2-pliplugins \
 	enigma2-plugins \
 	v4l-utils \
 	"
