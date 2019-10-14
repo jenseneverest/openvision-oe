@@ -4,12 +4,10 @@ require conf/license/license-close.inc
 
 PACKAGE_ARCH = "all"
 
-PR = "r1"
-
 SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rpi-brcm-firmwares.zip"
 
-SRC_URI[md5sum] = "12dfcfa2587981d4de9fa9b12f58d228"
-SRC_URI[sha256sum] = "fc9b83f87d93120e9c435e95c33368334983b53649ba5a11a2b72a8c351bd6ce"
+SRC_URI[md5sum] = "7bf210101ad113ee3b5ab65f30983365"
+SRC_URI[sha256sum] = "198648797844292be1f5c9812120b9ad391eea14c1096fd01b41ac66562ecfba"
 
 S = "${WORKDIR}"
 
