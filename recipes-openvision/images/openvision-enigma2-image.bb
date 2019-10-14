@@ -49,7 +49,7 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-pictureplayer \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "enigma2-plugin-extensions-pluginskinmover", "", d)} \
 	enigma2-plugin-extensions-socketmmi \
-	enigma2-plugin-skins-pli-hd \
+	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "enigma2-plugin-skins-pli-hd", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "enigma2-plugin-systemplugins-animationsetup", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvb-c", "enigma2-plugin-systemplugins-cablescan" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "ci", "enigma2-plugin-systemplugins-commoninterfaceassignment", "", d)} \
@@ -72,13 +72,11 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-systemplugins-videotune \
 	enigma2-plugin-systemplugins-wirelesslan \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
-	enigma2-plugin-extensions-dlnabrowser \
-	enigma2-plugin-extensions-dlnaserver \
 	enigma2-plugin-extensions-e2iplayer \
 	enigma2-plugin-extensions-e2iplayer-deps \
+	enigma2-plugin-extensions-epgimport \
 	enigma2-plugin-extensions-epgrefresh \
 	enigma2-plugin-extensions-filecommander \
-	enigma2-plugin-extensions-foreca \
 	enigma2-plugin-extensions-keyadder \
 	enigma2-plugin-extensions-openwebif-vision-terminal \
 	enigma2-plugin-extensions-reconstructapsc \
@@ -131,7 +129,7 @@ IMAGE_INSTALL += "\
 	cronie \
 	enigma2 \
 	${ENIGMA2_PLUGINS} \
-	enigma2-locale-meta \
+	enigma2-locale-en \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto libcrypto-compat", "", d)} \
 	libavahi-client \
 	${@bb.utils.contains("MACHINE", "dreamone", "", "openvision-module", d)} \
