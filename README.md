@@ -88,3 +88,15 @@ If you answered something wrong don't worry, just remove "user.ovstep"!
 * If you want to compile images for old machines like dm800/cube/su980, first build for them.
 * If you want to compile images for x64 machines like alienx/kxpx series, first build for them.
 * If you want to compile images for 4K machines with ARM architecture and you get error each time, try compile for a Mipsel machine like dm7020hd first then compile your ARM images.
+
+# Blacklisted companies/teams/persons
+
+There are some stupid companies/teams/persons which want to keep enigma2 closed-source.
+
+Please don't buy their products, don't help them, don't donate anything to them, don't use their images.
+
+If you support them they will grow but we need to fight this kind of behavior together.
+
+* DMM (DreamBox) company which did close their enigma2 sources years ago.
+* PurE2 team which are using everyone's work and trying to close things like using .so libraries, they don't publish their changes.
+* VITMOD which is stealing our sources even our procfs driver without publishing his work.
