@@ -18,8 +18,8 @@ PACKAGES = "${PN}"
 RDEPENDS_${PN} += "softcam-support"
 INSANE_SKIP_${PN} += "already-stripped"
 
-CAMLINK = "${sysconfdir}/init.d/softcam"
-CAMPATH = "${sysconfdir}/init.d/softcam.${CAMNAME}"
+CAMLINK = "$D${sysconfdir}/init.d/softcam"
+CAMPATH = "$D${sysconfdir}/init.d/softcam.${CAMNAME}"
 
 CAMSTART ?= "exec start-stop-daemon -S -x ${bindir}/${CAMNAME}"
 CAMSTOP  ?= "exec start-stop-daemon -K -R 2 -x ${bindir}/${CAMNAME}"

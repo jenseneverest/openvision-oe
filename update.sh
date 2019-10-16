@@ -122,4 +122,5 @@ rm -rf meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-ep
 rm -rf meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-lcd4linux.bb
 rm -rf meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-openwebif.bbappend
 rm -rf meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugins.bb
+rm -rf meta-openpli/recipes-openpli/enigma2-softcams
 rm -rf meta-openpli/recipes-openpli/images
