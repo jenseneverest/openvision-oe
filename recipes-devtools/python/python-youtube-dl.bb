@@ -14,7 +14,7 @@ inherit gitpkgv
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-SRC_URI = "git://github.com/ytdl-org/youtube-dl.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/ytdl-org/youtube-dl.git;protocol=git;branch=master"
 
 S = "${WORKDIR}/git"
 
