@@ -7,7 +7,7 @@ RDEPENDS_${PN} = "enigma2-plugin-extensions-socketmmi"
 
 S = "${WORKDIR}/git"
 
-SRC_URI = "git://github.com/OpenVisionE2/dreamci.git;branch=upcoming;protocol=http"
+SRC_URI = "git://github.com/OpenVisionE2/dreamci.git;protocol=http"
 
 inherit gitpkgv
 
