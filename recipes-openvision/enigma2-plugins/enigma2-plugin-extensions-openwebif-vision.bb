@@ -174,7 +174,7 @@ python do_cleanup () {
         ('purehdse', 'purehdse.png', 'fusionhd.png', 'fusionhd.html'),
         ('revo4k', 'revo4k.png', 'revo.png', 'revo.html'),
         ('galaxy4k', 'galaxy4k.png', 'revo.png', 'revo.html'),
-        ('lunix3-4k', 'lunix3-4k.png', 'qviart1.png', 'qviart1.html'),
+        ('lunix34k', 'lunix34k.png', 'qviart1.png', 'qviart1.html'),
         ('lunix', 'lunix.png', 'qviart1.png', 'qviart1.html'),
         ('lunix4k', 'lunix4k.png', 'qviart3.png', 'qviart3.html'),
         ('sh1', 'sh1.png', 'zgemma1.png', 'zgemma1.html'),

@@ -30,7 +30,7 @@ EXTRA_OECONF_revo4k += " --enable-ext-pid "
 EXTRA_OECONF_tmtwin4k += " --enable-ext-pid "
 EXTRA_OECONF_galaxy4k += " --enable-ext-pid "
 EXTRA_OECONF_tm4ksuper += " --enable-ext-pid "
-EXTRA_OECONF_lunix3-4k += " --enable-ext-pid "
+EXTRA_OECONF_lunix34k += " --enable-ext-pid "
 EXTRA_OECONF_gbquad4k += " --enable-ext-pid "
 EXTRA_OECONF_gbue4k += " --enable-ext-pid "
 

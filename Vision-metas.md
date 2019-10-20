@@ -76,7 +76,7 @@
 * iqonios300hd
 * iqonios300hdv2
 * lunix
-* lunix3-4k
+* lunix34k
 * lunix4k
 * mediabox
 * optimussos
