@@ -95,6 +95,7 @@ python do_cleanup () {
         ('gbue4k', 'gbue4k.png', 'gb3.png', 'gb3.html'),
         ('gbtrio4k', 'gbtrio4k.png', 'gb3.png', 'gb3.html'),
         ('gbip4k', 'gbip4k.png', 'gb3.png', 'gb3.html'),
+        ('gbx34k', 'gbx34k.png', 'gb3.png', 'gb3.html'),
         ('formuler1', 'formuler1.png', 'formuler1.png', 'formuler1.html'),
         ('formuler3', 'formuler3.png', 'formuler1.png', 'formuler1.html'),
         ('formuler4', 'formuler4.png', 'formuler1.png', 'formuler1.html'),

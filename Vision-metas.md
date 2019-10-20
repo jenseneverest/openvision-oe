@@ -216,6 +216,7 @@
 * gbx1
 * gbx2
 * gbx3
+* gbx34k
 * gbx3h
 
 # HyperCube

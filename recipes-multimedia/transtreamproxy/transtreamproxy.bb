@@ -33,6 +33,7 @@ EXTRA_OECONF_tm4ksuper += " --enable-ext-pid "
 EXTRA_OECONF_lunix34k += " --enable-ext-pid "
 EXTRA_OECONF_gbquad4k += " --enable-ext-pid "
 EXTRA_OECONF_gbue4k += " --enable-ext-pid "
+EXTRA_OECONF_gbx34k += " --enable-ext-pid "
 
 S = "${WORKDIR}/git"
 
