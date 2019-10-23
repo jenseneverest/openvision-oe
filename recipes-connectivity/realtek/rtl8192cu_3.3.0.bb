@@ -8,15 +8,12 @@ RREPLACES_${PN} = "kernel-module-rtl8192cu"
 
 DEPENDS = "firmware-rtl8192cu"
 
-COMPATIBLE_MACHINE = "dm800|cube|su980"
-
 inherit module
 
 SRC_URI = "http://downloads.pli-images.org/misc/rtl8188C_8192C_8192D_usb_linux_v3.3.0_2971.20111128.tar.gz \
     file://additional_productids.patch \
     file://fix_linking.patch \
     file://add-3.8-support.patch \
-    file://rtl8192cu-gcc5.patch \
     "
 
 S = "${WORKDIR}/rtl8188C_8192C_8192D_usb_linux_v3.3.0_2971.20111128"
