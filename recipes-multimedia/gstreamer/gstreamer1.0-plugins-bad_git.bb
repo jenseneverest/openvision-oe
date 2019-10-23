@@ -11,7 +11,8 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=maste
 			file://003-configure-allow-to-disable-libssh2.patch \
 			file://004-rtmp-fix-seeking-and-potential-segfault.patch \
 			file://005-rtmp-hls-tsdemux-fix.patch \
-			${@bb.utils.contains("MACHINE_FEATURES", "oldkernel", "file://006-fix-build-with-glibc219.patch", "", d)} \
+			file://dvbapi5-fix-old-kernel.patch \
+			${@bb.utils.contains_any("MACHINE", "su980 dm800", "file://006-fix-build-with-glibc219.patch", "", d)} \
 			"
 
 EXTRA_OECONF += " \

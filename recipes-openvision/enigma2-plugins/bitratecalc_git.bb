@@ -12,6 +12,7 @@ PKGV = "git${GITPKGV}"
 SRC_URI = "git://github.com/OpenVisionE2/bitratecalc.git;protocol=http"
 
 CXXFLAGS_append_sh4 += " -std=c++11 "
+CXXFLAGS_append_cube += " -std=c++11 "
 
 S = "${WORKDIR}/git"
 
