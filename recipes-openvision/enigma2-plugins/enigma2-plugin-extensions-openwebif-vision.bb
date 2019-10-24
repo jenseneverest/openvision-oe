@@ -131,7 +131,7 @@ python do_cleanup () {
         ('hd2400', 'hd2400.png', 'hd2400.png', 'hd2400.html'),
         ('hd530c', 'hd530c.png', 'hd530c.png', 'hd530c.html'),
         ('hd60', 'hd60.png', 'hd60.png', 'hd60.html'),
-        ('hd61', 'hd61.png', 'hd60.png', 'hd60.html'),
+        ('hd61', 'hd61.png', 'ax4.png', 'ax4.html'),
         ('multibox', 'multibox.png', 'maxytec1.png', 'maxytec1.html'),
         ('v8plus', 'v8plus.png', 'maxytec1.png', 'maxytec1.html'),
         ('spycat', 'spycat.png', 'xcore1.png', 'xcore1.html'),
@@ -355,6 +355,11 @@ python do_cleanup () {
         ('mago', 'mago.png', 'relook.png', 'relook.html'),
         ('tyrant', 'tyrant.png', 'tyrant.png', 'tyrant.html'),
         ('marvel1', 'marvel1.png', 'visionnet.png', 'visionnet.html'),
+        ('raspberrypi', 'raspberrypi.png', 'dmm1.png', 'dmm1.html'),
+        ('raspberrypi0', 'raspberrypi0.png', 'dmm1.png', 'dmm1.html'),
+        ('raspberrypi2', 'raspberrypi2.png', 'dmm1.png', 'dmm1.html'),
+        ('raspberrypi3', 'raspberrypi3.png', 'dmm1.png', 'dmm1.html'),
+        ('raspberrypi4', 'raspberrypi4.png', 'dmm1.png', 'dmm1.html'),
     ]
 
     import os
