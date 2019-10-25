@@ -240,7 +240,6 @@ fi
 if [ $META = "Dinobot" ]
 then
 	MACHINE=anadol4k $IMAGECMD
-	MACHINE=anadol4kcombo $IMAGECMD
 	MACHINE=anadol4kv2 $IMAGECMD
 	MACHINE=anadolprohd5 $IMAGECMD
 	MACHINE=arivacombo $IMAGECMD
@@ -258,11 +257,9 @@ then
 	MACHINE=dinoboth265 $IMAGECMD
 	MACHINE=dinobotu43 $IMAGECMD
 	MACHINE=dinobotu55 $IMAGECMD
-	MACHINE=ferguson4k $IMAGECMD
 	MACHINE=iziboxecohd $IMAGECMD
 	MACHINE=iziboxx3 $IMAGECMD
 	MACHINE=jdhdduo $IMAGECMD
-	MACHINE=mediabox4k $IMAGECMD
 	MACHINE=protek4kx1 $IMAGECMD
 	MACHINE=spycatminiv2 $IMAGECMD
 	MACHINE=turing $IMAGECMD

@@ -108,7 +108,6 @@
 
 # Dinobot
 * anadol4k
-* anadol4kcombo
 * anadol4kv2
 * anadolprohd5
 * arivacombo
@@ -126,11 +125,9 @@
 * dinoboth265
 * dinobotu43
 * dinobotu55
-* ferguson4k
 * iziboxecohd
 * iziboxx3
 * jdhdduo
-* mediabox4k
 * protek4kx1
 * spycatminiv2
 * turing
