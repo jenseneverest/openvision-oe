@@ -124,3 +124,4 @@ rm -rf meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-op
 rm -rf meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugins.bb
 rm -rf meta-openpli/recipes-openpli/enigma2-softcams
 rm -rf meta-openpli/recipes-openpli/images
+rm -rf meta-openpli/recipes-openpli/streamproxy
