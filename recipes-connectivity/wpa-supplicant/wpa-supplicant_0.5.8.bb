@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=c54ce9345727175ff66d17b67ff51f58 \
 HOMEPAGE = "http://hostap.epitest.fi/wpa_supplicant/"
 DEPENDS = "openssl ${@bb.utils.contains("MACHINE_FEATURES", "madwifi", "madwifi-ng", "", d)}"
 
-COMPATIBLE_MACHINE = "dm800|cube|su980"
+COMPATIBLE_MACHINE = "^(dm800|cube|su980)$"
 
 SRC_URI = "http://hostap.epitest.fi/releases/wpa_supplicant-${PV}.tar.gz \
     file://defconfig-openssl \

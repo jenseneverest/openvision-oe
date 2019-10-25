@@ -2,7 +2,7 @@ SUMMARY = "Small command line utility used to perform frequency scans for DVB an
 DESCRIPTION = "Wscan is a dvb channel scanner that doesn't require an initial frequency table"
 HOMEPAGE = "http://wirbel.htpc-forum.de/w_scan/index2.html"
 MAINTAINER = "wirbel <w_scan@gmx-topmail.de>"
-COMPATIBLE_MACHINE = "dm800|cube|su980"
+COMPATIBLE_MACHINE = "^(dm800|cube|su980)$"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=892f569a555ba9c07a568a7c0c4fa63a"
 
