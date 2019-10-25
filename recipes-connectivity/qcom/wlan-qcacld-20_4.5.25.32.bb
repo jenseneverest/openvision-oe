@@ -18,6 +18,10 @@ SRC_URI_append_spycat4kmini += "file://qcacld-2.0-support-xc7439.patch"
 SRC_URI_append_spycat4k += "file://qcacld-2.0-support-xc7439.patch"
 SRC_URI_append_spycat4kcombo += "file://qcacld-2.0-support-xc7439.patch"
 
+EXTRA_OEMAKE_append_spycat4kmini += " CONFIG_CLD_HL_SDIO_CORE=y"
+EXTRA_OEMAKE_append_spycat4k += " CONFIG_CLD_HL_SDIO_CORE=y"
+EXTRA_OEMAKE_append_spycat4kcombo += " CONFIG_CLD_HL_SDIO_CORE=y"
+
 S = "${WORKDIR}/qcacld-2.0-${PV}"
 
 do_install() {

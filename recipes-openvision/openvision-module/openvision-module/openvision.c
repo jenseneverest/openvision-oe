@@ -15,40 +15,40 @@
 #endif
 
 static struct proc_dir_entry* Our_Proc_Dir;
-static struct proc_dir_entry *proc_openvisionmodule;
+static struct proc_dir_entry *proc_openvision;
 
-DEFINE_MUTEX(openvisionmodule_table_mutex);
+DEFINE_MUTEX(openvision_table_mutex);
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(3,10,1)
-static int openvisionmodule_read_proc (char *page, char **start, off_t off, int count, int *eof, void *data_unused)
+static int openvision_read_proc (char *page, char **start, off_t off, int count, int *eof, void *data_unused)
 {
         int len;
         off_t   begin = 0;
 
-        mutex_lock(&openvisionmodule_table_mutex);
+        mutex_lock(&openvision_table_mutex);
 
         len = sprintf(page, "https://openvision.tech\n");
-        mutex_unlock(&openvisionmodule_table_mutex);
+        mutex_unlock(&openvision_table_mutex);
         if (off >= len+begin)
                 return 0;
         *start = page + (off-begin);
         return ((count < begin+len-off) ? count : begin+len-off);
 }
 
-static int __init init_openvisionmodule(void)
+static int __init init_openvision(void)
 {
 
-		if ((proc_openvisionmodule = create_proc_entry( "stb/info/openvision", 0666, NULL )))
-                proc_openvisionmodule->read_proc = openvisionmodule_read_proc;
+		if ((proc_openvision = create_proc_entry( "stb/info/openvision", 0666, NULL )))
+                proc_openvision->read_proc = openvision_read_proc;
         return 0;
 }
 
-static void __exit cleanup_openvisionmodule(void)
+static void __exit cleanup_openvision(void)
 {
         remove_proc_entry( "stb/info/openvision", NULL);
 }
 #else
-static int proc_openvisionmodule_show(struct seq_file *seq, void *v)
+static int proc_openvision_show(struct seq_file *seq, void *v)
 {
         off_t   begin = 0;
 
@@ -56,33 +56,33 @@ static int proc_openvisionmodule_show(struct seq_file *seq, void *v)
         return 0;
 }
 
-int proc_openvisionmodule_open(struct inode *inode, struct file *file)
+int proc_openvision_open(struct inode *inode, struct file *file)
 { 
-	return single_open(file, proc_openvisionmodule_show, PDE_DATA(inode));
+	return single_open(file, proc_openvision_show, PDE_DATA(inode));
 }
 
 static const struct file_operations proc_fops = {
 	.owner		= THIS_MODULE,
-	.open		= proc_openvisionmodule_open,
+	.open		= proc_openvision_open,
 	.read		= seq_read,
 	.llseek		= seq_lseek,
 	.release	= single_release,
 };
 
-static int __init init_openvisionmodule(void)
+static int __init init_openvision(void)
 {
 
-	proc_openvisionmodule = proc_create_data( "stb/info/openvision", 0666, NULL, &proc_fops, NULL );
+	proc_openvision = proc_create_data( "stb/info/openvision", 0666, NULL, &proc_fops, NULL );
         return 0;
 }
 
-static void __exit cleanup_openvisionmodule(void)
+static void __exit cleanup_openvision(void)
 {
         remove_proc_entry( "stb/info/openvision", NULL);
 }
 #endif
-module_init(init_openvisionmodule);
-module_exit(cleanup_openvisionmodule);
+module_init(init_openvision);
+module_exit(cleanup_openvision);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Open Vision Developers");

@@ -1,5 +1,5 @@
-MODULES	= openvisionmodule
-kmodule_test-y := openvisionmodule.o
+MODULES	= openvision
+kmodule_test-y := openvision.o
 obj-m += $(MODULES:%=%.o)
 BUILD	= $(MODULES:%=%.ko)
 
