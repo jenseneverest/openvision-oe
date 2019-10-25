@@ -4,8 +4,10 @@ PRIORITY = "required"
 MAINTAINER = "Open Vision Developers"
 require conf/license/license-gplv2.inc
 
-PV = "${VISIONVERSION}"
-PR = "${VISIONREVISION}.${DATETIME}"
+PV = "${VISIONVERSION}-${VISIONREVISION}"
+PR = "${DATETIME}"
+
+PR[vardepsxeclude] = "DATETIME"
 
 INSANE_SKIP_${PN} += "file-rdeps"
 
@@ -38,7 +40,7 @@ do_install() {
 	echo "version=${VISIONVERSION}-${VISIONREVISION}" >> ${D}${sysconfdir}/image-version
 	echo "build=${VISIONREVISION}" >> ${D}${sysconfdir}/image-version
 	echo "Python=2.7" >> ${D}${sysconfdir}/image-version
-	echo "date=${DATETIME}" >> ${D}${sysconfdir}/image-version
+	echo "date=${PR}" >> ${D}${sysconfdir}/image-version
 	echo "comment=Open Vision" >> ${D}${sysconfdir}/image-version
 	echo "target=9" >> ${D}${sysconfdir}/image-version
 	echo "creator=Open Vision Developers" >> ${D}${sysconfdir}/image-version
