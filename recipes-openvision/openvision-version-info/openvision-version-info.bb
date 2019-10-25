@@ -5,7 +5,7 @@ MAINTAINER = "Open Vision Developers"
 require conf/license/license-gplv2.inc
 
 PV = "${VISIONVERSION}"
-PR = "${VISIONREVISION}"
+PR = "${VISIONREVISION}.${DATETIME}"
 
 INSANE_SKIP_${PN} += "file-rdeps"
 
@@ -17,8 +17,6 @@ SRC_URI = "file://settings \
 
 FILES_${PN} = "${sysconfdir} /usr"
 
-do_configure[nostamp] = "1"
-
 BB_HASH_IGNORE_MISMATCH = "1"
 
 S = "${WORKDIR}"
@@ -28,8 +26,6 @@ PACKAGES = "${PN}"
 do_compile() {
 	python -O -m compileall ${S}
 }
-
-do_install[vardepsexclude] = "DATETIME"
 
 do_install() {
 	install -d ${D}${sysconfdir}
