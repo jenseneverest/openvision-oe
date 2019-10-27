@@ -96,7 +96,6 @@ RRECOMMENDS_${PN} = "\
 	${@bb.utils.contains("PACKAGECONFIG", "libeplayer", "libeplayer3", "", d)} \
 	"
 
-SRCREV = "${AUTOREV}"
 SRC_URI = "git://github.com/OpenVisionE2/servicemp3epl.git;branch=master"
 
 S = "${WORKDIR}/git"

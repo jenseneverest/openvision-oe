@@ -1,7 +1,5 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-SRC_URI_append_sh4 += "\
-    file://showiframe-sh4.patch \
-"
+SRC_URI_append_sh4 += "file://showiframe-sh4.patch"
 
 INSANE_SKIP_${PN} += "ldflags"

@@ -26,7 +26,6 @@ RRECOMMENDS_${PN} = "\
 	libeplayer3 \
 	"
 
-SRCREV = "${AUTOREV}"
 SRC_URI = "git://github.com/OpenVisionE2/servicemp3epl.git;branch=libeplayer"
 
 S = "${WORKDIR}/git"
