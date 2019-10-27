@@ -3,3 +3,6 @@ SRC_URI = "${@bb.utils.contains("MACHINE_FEATURES", "nogamma", "git://github.com
 EXTRA_OECONF_append += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "nogamma", "--with-boxtype=${MACHINE} --with-amlogic" , "", d)} \
 	"
+
+CXXFLAGS_append_cube += " -std=c++11 -fPIC -fno-strict-aliasing "
+CXXFLAGS_append_su980 += " -std=c++11 -fPIC -fno-strict-aliasing "

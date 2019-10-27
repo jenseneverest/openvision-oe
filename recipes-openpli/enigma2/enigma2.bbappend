@@ -3,15 +3,26 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 MAINTAINER = "Open Vision Developers"
 
 DEPENDS += "\
+	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "libdvbcsa libnl userland ffmpeg e2-rpihddevice", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
+	"
+
+DEPENDS_append_sh4 += "\
+	libmme-image libmme-host \
 	"
 
 RDEPENDS_${PN} += "\
 	enigma2-plugin-extensions-pespeedup \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "glibc-gconv-cp1250", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "libdvbcsa e2-rpihddevice", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	ntpdate \
 	openvision-branding \
+	"
+
+RDEPENDS_${PN}_append_sh4 += "\
+	libmme-host \
+	alsa-utils-amixer-conf \
 	"
 
 RRECOMMENDS_${PN} = "\
@@ -61,6 +72,22 @@ EXTRA_OECONF_append += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "olde2api", "--with-olde2api" , "", d)} \
 	"
 
+EXTRA_OECONF_sh4 = "\
+	--enable-${MACHINE} --with-lcd \
+	--with-libsdl=no --with-boxtype=${MACHINE} \
+	--with-boxbrand="${BOX_BRAND}" \
+	--with-oever="${VISIONVERSION}" \
+	--enable-dependency-tracking \
+	ac_cv_prog_c_openmp=-fopenmp \
+	${@get_crashaddr(d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "7segment 7seg", "--with-7segment" , "", d)} \
+	BUILD_SYS=${BUILD_SYS} \
+	HOST_SYS=${HOST_SYS} \
+	STAGING_INCDIR=${STAGING_INCDIR} \
+	STAGING_LIBDIR=${STAGING_LIBDIR} \
+	"
+
 # some plugins contain so's, their stripped symbols should not end up in the enigma2 package
 FILES_${PN}-dbg += "\
 	${libdir}/enigma2/python/*/.debug \
@@ -104,3 +131,7 @@ python populate_packages_prepend() {
     enigma2_podir = bb.data.expand('${datadir}/enigma2/po', d)
     do_split_packages(d, enigma2_podir, '^(\w+)/[a-zA-Z0-9_/]+.*$', 'enigma2-locale-%s', '%s', recursive=True, match_path=True, prepend=True, extra_depends="enigma2")
 }
+
+CXXFLAGS_append_cube += " -std=c++11 -fPIC -fno-strict-aliasing "
+CXXFLAGS_append_su980 += " -std=c++11 -fPIC -fno-strict-aliasing "
+CXXFLAGS_append_sh4 += " -std=c++11 -fPIC -fno-strict-aliasing "

@@ -20,11 +20,13 @@ SRCREV = "398e8169ea6d3d854af0173b1e66bf13c124f901"
 
 SRC_URI = "git://github.com/OpenVisionE2/smbnetfs.git;branch=master \
 			file://configure.patch \
-			file://Using-PKG_CHECK_MODULES-to-found-headers-and-libraries.patch \
+			${@bb.utils.contains("MACHINE", "su980", "", "file://Using-PKG_CHECK_MODULES-to-found-headers-and-libraries.patch", d)} \
 			file://smbnetfs.common.conf \
 			file://smbnetfs.user.conf \
 			file://init \
 			"
+
+SRC_URI_remove_sh4 += "file://Using-PKG_CHECK_MODULES-to-found-headers-and-libraries.patch"
 
 PACKAGECONFIG = ""
 PACKAGECONFIG[libsecret] = "--with-libsecret=yes,--with-libsecret=no,libsecret"
