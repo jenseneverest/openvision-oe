@@ -101,3 +101,4 @@ If you support them they will grow but we need to fight this kind of behavior to
 * Japhar team, despite the fact that they're supporting clones they are using everyone's work and don't publish their changes.
 * PurE2 team which are using everyone's work and trying to close things like using .so libraries, they don't publish their changes.
 * VITMOD which is stealing our sources even our procfs driver without publishing his work.
+* SatLodge team which are using PLi's but they don't publish their changes.
