@@ -63,6 +63,7 @@ OPTIONAL_PACKAGES += "\
 	nano \
 	nbench-byte \
 	net-tools \
+	netatalk \
 	${@bb.utils.contains("TARGET_FPU", "soft", "", "nodejs", d)} \
 	ntfs-3g \
 	ntp \
