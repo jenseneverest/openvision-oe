@@ -55,52 +55,9 @@ then
 	git submodule foreach git checkout .
 	git pull --rebase
 fi
+cat openvision-oe/Makefile-Vision > Makefile
 sed -i "s#BUILD_DIR = \$(CURDIR)/.*#BUILD_DIR = \$(CURDIR)/${BUILDDIR}#g" Makefile
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/DISTRO = "openpli"/DISTRO = "openvision"/g' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/openpli.conf/openvision.conf/g' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/bitbake openpli/bitbake openvision/g' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/openpli OE/Open Vision OE/g' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/Openembedded for the OpenPLi/OE for Open Vision/g' {} \;
-# Remove existing PLi metas from bblayers.conf
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-amiko/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-axasuhd/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-dream/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-edision/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-formuler/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-gfutures/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-gi/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-gigablue/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-local/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-maxytec/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-miraclebox/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-qviart/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-sab/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-spycat/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-vuplus/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-xp/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-xpeedc/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-xsarius.pli5/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-xtrend/d' {} \;
-find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-zgemma/d' {} \;
 echo ""
-echo -e "${BLUE}Check for dm7020hdv2 required changes ...${NC}"
-if grep -Fqi "DMTYPE" Makefile
-then
-    echo ""
-    echo -e "${BLUE}No need to modify Makefile."
-    echo -e "You can compile dm7020hdv2 image too.${NC}"
-    echo ""
-else
-    echo ""
-    echo -e "${BLUE}We need to modify Makefile ...${NC}"
-    find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/$(MACHINE)/$(MACHINE)$(DMTYPE)/g' {} \;
-    find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/"MACHINE"/"MACHINE DMTYPE"/g' {} \;
-    find -maxdepth 1 -name "Makefile" -type f -exec sed -i "s/.@echo 'export MACHINE' >> $@.*/&\n\t@echo 'export DMTYPE' >> \$\@/" {} \;
-    cat openvision-oe/dm7020hdv2-changes >> Makefile
-    rm -f ${BUILDDIR}/env.source
-    echo -e "${BLUE}Done, now you can compile dm7020hdv2 image too.${NC}"
-    echo ""
-fi
 # Regenerate bblayers.conf so we can add our own
 rm -f ${BUILDDIR}/conf/bblayers.conf
 make init update

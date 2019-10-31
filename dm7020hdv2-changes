@@ -1,6 +1,0 @@
-
-ifeq ($(MACHINE),dm7020hdv2)
-MACHINE=dm7020hd
-DMTYPE=v2
-endif
-export DMTYPE
