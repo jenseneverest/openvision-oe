@@ -6,8 +6,8 @@ PACKAGE_ARCH = "all"
 
 SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rpi-brcm-firmwares.zip"
 
-SRC_URI[md5sum] = "7bf210101ad113ee3b5ab65f30983365"
-SRC_URI[sha256sum] = "198648797844292be1f5c9812120b9ad391eea14c1096fd01b41ac66562ecfba"
+SRC_URI[md5sum] = "1925d9ac839abb583c613b73d9ea35d2"
+SRC_URI[sha256sum] = "b3451bdfbfb4be856ae659260006d4072c146fcacb88e665b1e45c6f1bbf6dde"
 
 S = "${WORKDIR}"
 
