@@ -59,6 +59,8 @@ sed -i "s#BUILD_DIR = \$(CURDIR)/.*#BUILD_DIR = \$(CURDIR)/${BUILDDIR}#g" Makefi
 find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/DISTRO = "openpli"/DISTRO = "openvision"/g' {} \;
 find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/openpli.conf/openvision.conf/g' {} \;
 find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/bitbake openpli/bitbake openvision/g' {} \;
+find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/openpli OE/Open Vision OE/g' {} \;
+find -maxdepth 1 -name "Makefile" -type f -exec sed -i 's/Openembedded for the OpenPLi/OE for Open Vision/g' {} \;
 # Remove existing PLi metas from bblayers.conf
 find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-amiko/d' {} \;
 find -maxdepth 1 -name "Makefile" -type f -exec sed -i '/meta-axasuhd/d' {} \;
