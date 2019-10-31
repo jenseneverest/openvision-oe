@@ -88,7 +88,7 @@ kernel-clean: init
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake -c clean virtual/kernel
 
 version-clean: init
-	@echo 'Cleanup version for $(MACHINE)$(DMTYPE)'
+	@echo 'Cleanup openvision-version-info for $(MACHINE)$(DMTYPE)'
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake -c clean openvision-version-info
 
 update:
