@@ -113,6 +113,7 @@ OPTIONAL_PACKAGES += "\
 	upx \
 	usb-modeswitch \
 	usb-modeswitch-data \
+	ushare \
 	v4l-utils \
 	vim \
 	wget \
