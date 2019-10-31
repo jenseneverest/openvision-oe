@@ -78,6 +78,7 @@
 * lunix
 * lunix34k
 * lunix4k
+* lunixco
 * mediabox
 * optimussos
 * optimussos1
