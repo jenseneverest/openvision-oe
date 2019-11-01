@@ -14,7 +14,6 @@
 #include <linux/seq_file.h>
 #endif
 
-static struct proc_dir_entry* Our_Proc_Dir;
 static struct proc_dir_entry *proc_openvision;
 
 DEFINE_MUTEX(openvision_table_mutex);
@@ -50,8 +49,6 @@ static void __exit cleanup_openvision(void)
 #else
 static int proc_openvision_show(struct seq_file *seq, void *v)
 {
-        off_t   begin = 0;
-
         seq_printf(seq, "https://openvision.tech\n");
         return 0;
 }

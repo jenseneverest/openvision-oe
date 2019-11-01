@@ -130,7 +130,7 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto libcrypto-compat", "", d)} \
 	libavahi-client \
 	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "lirc lirc-plugins", "", d)} \
-	${@bb.utils.contains("MACHINE", "dreamone", "", "openvision-module", d)} \
+	openvision-module \
 	openvision-version-info \
 	settings-autorestore \
 	tuxbox-common \
