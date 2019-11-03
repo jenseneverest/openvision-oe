@@ -22,6 +22,7 @@ OPTIONAL_PACKAGES += "\
 	autossh \
 	ccextractor \
 	ccid \
+	cloudflare-dns \
 	ctorrent \
 	cups \
 	davfs2 \
