@@ -49,6 +49,7 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-moviecut \
 	enigma2-plugin-extensions-openwebif-vision \
 	enigma2-plugin-extensions-pictureplayer \
+	enigma2-plugin-extensions-tmbd \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "enigma2-plugin-extensions-pluginskinmover", "", d)} \
 	enigma2-plugin-extensions-socketmmi \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "enigma2-plugin-skins-pli-hd", "", d)} \
