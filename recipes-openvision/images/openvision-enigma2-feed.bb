@@ -39,6 +39,7 @@ OPTIONAL_PACKAGES += "\
 	exteplayer3 \
 	fuse-exfat \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "gdb", d)} \
+	google-dns \
 	grep \
 	gstplayer \
 	gstreamer1.0-libav \
