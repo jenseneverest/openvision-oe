@@ -301,6 +301,7 @@ if [ $META = "Edision" ]
 then
 	MACHINE=osmega $IMAGECMD
 	MACHINE=osmini $IMAGECMD
+	MACHINE=osmini4k $IMAGECMD
 	MACHINE=osminiplus $IMAGECMD
 	MACHINE=osmio4k $IMAGECMD
 	MACHINE=osmio4kplus $IMAGECMD

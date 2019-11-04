@@ -18,6 +18,11 @@ do_compile() {
 	oe_runmake -C "${STAGING_KERNEL_BUILDDIR}" M="${S}" modules
 }
 
+do_compile_osmini4k() {
+	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
+	oe_runmake -C "${STAGING_KERNEL_DIR}" M="${S}" modules
+}
+
 do_compile_osmio4k() {
 	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
 	oe_runmake -C "${STAGING_KERNEL_DIR}" M="${S}" modules
