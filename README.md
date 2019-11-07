@@ -8,14 +8,6 @@ Do you want to help us grow? Do you want us to extend our projects and make thin
 
 You have the chance to participate in Open Vision and make everything better for everyone: https://forum.openvision.tech/app.php/donate
 
-Do you want to donate anonymously?
-
-bitcoincash: qpsu4jhl5qyze9dklnakjm8mks23lqd0hc49dqf57n
-
-bitcoincore: 19v5Uum2zcuRzYmkekbFeQ5V4nfbB5iLbm
-
-ethereum: 0x6233d20...08EF59d10
-
 # Contribution
 
 Do you want to contribute to Open Vision and you don’t know where to start? https://forum.openvision.tech/viewtopic.php?f=2&t=306 is for you.
