@@ -52,13 +52,17 @@ do_install() {
 	echo "transcoding=${TRANSCODING}" >> ${D}${sysconfdir}/image-version
 	echo "multitranscoding=${MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
 	echo "display-type=${DISPLAY_TYPE}" >> ${D}${sysconfdir}/image-version
-	echo "flash-type=${HAVE_SMALLFLASH}" >> ${D}/etc/image-version
 	echo "${MACHINE}" > ${D}${sysconfdir}/model
 	echo "${BOX_BRAND}" > ${D}${sysconfdir}/brand
 	echo "${VISIONVERSION}" > ${D}${sysconfdir}/visionversion
 	echo "${VISIONREVISION}" > ${D}${sysconfdir}/visionrevision
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "1", "0", d)}" = "1" ]; then
+		echo "small-flash=${HAVE_SMALLFLASH}" >> ${D}/etc/image-version
 		echo "smallflash" > ${D}${sysconfdir}/smallflash
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "middleflash", "1", "0", d)}" = "1" ]; then
+		echo "middle-flash=${HAVE_MIDDLEFLASH}" >> ${D}/etc/image-version
+		echo "middleflash" > ${D}${sysconfdir}/middleflash
 	fi
 	install -d ${D}${sysconfdir}/enigma2
 	install -m 0755 ${WORKDIR}/settings ${D}${sysconfdir}/enigma2

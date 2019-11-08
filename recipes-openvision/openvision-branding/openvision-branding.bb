@@ -53,7 +53,8 @@ EXTRA_OECONF = " \
     --with-ubinize="${UBINIZE_ARGS}" \
     --with-arch="${DEFAULTTUNE}" \
     --with-display-type="${DISPLAY_TYPE}" \
-    --with-flash-type="${HAVE_SMALLFLASH}" \
+    --with-small-flash="${HAVE_SMALLFLASH}" \
+    --with-middle-flash="${HAVE_MIDDLEFLASH}" \
     --with-transcoding="${TRANSCODING}" \
     --with-multitranscoding="${MULTITRANSCODING}" \
     "
