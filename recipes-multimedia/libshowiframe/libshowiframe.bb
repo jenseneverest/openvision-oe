@@ -4,6 +4,8 @@ PRIORITY = "optional"
 LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://showiframe.c;firstline=1;endline=1;md5=22919e57c6dcf1ff48ac50e784f44880"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 PV = "1.0"
 
 PROVIDES =+ " libshowiframe0"
