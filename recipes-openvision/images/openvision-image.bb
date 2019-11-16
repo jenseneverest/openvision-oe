@@ -23,6 +23,8 @@ IMAGE_INSTALL = "\
 	nfs-utils-client \
 	openssh-sftp \
 	openvision-bootlogo \
+	openvision-module \
+	openvision-version-info \
 	opkg \
 	packagegroup-base \
 	packagegroup-core-boot \

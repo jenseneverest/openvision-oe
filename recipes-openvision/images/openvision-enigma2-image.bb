@@ -87,8 +87,11 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-e2iplayer \
 	enigma2-plugin-extensions-e2iplayer-deps \
 	enigma2-plugin-extensions-openwebif-vision-terminal \
+	enigma2-plugin-extensions-xmodem \
+	enigma2-plugin-skins-iflatfhd \
 	enigma2-plugin-skins-octetfhd \
 	enigma2-plugin-softcams-oscam-emu \
+	enigma2-plugin-softcams-ncam \
 	enigma2-plugin-systemplugins-serviceapp", d)} \
 	"
 
@@ -99,7 +102,6 @@ DEPENDS += "\
 	enigma2-locale-meta \
 	enigma2-persianempire-plugins \
 	enigma2-plugins \
-	v4l-utils \
 	"
 
 # These machine feature related plugins should not be enabled for smallflash STBs as there isn't enough space for them!
@@ -125,17 +127,15 @@ MACHINE_FEATURE_RELATED_PLUGINS += "\
 
 IMAGE_INSTALL += "\
 	aio-grab \
+	cloudflare-dns \
 	cronie \
 	enigma2 \
 	${ENIGMA2_PLUGINS} \
-	enigma2-locale-en \
+	enigma2-locale-meta \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto libcrypto-compat", "", d)} \
 	libavahi-client \
 	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "lirc lirc-plugins", "", d)} \
-	openvision-module \
-	openvision-version-info \
 	settings-autorestore \
-	tuxbox-common \
 	tuxbox-links \
 	wget \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
@@ -144,9 +144,16 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	curl \
 	fuse-exfat \
+	hddtemp \
+	libbluray \
+	minidlna \
 	nfs-utils \
 	ntfs-3g \
-	openssh-sftp-server", d)} \
+	openssh-sftp-server \
+	samba-base \
+	usb-modeswitch \
+	usb-modeswitch-data \
+	ushare", d)} \
 	"
 
 export IMAGE_BASENAME = "openvision-enigma2"
