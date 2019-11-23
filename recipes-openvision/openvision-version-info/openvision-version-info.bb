@@ -6,7 +6,6 @@ require conf/license/license-gplv2.inc
 
 PV = "${VISIONVERSION}"
 PR = "${VISIONREVISION}"
-PR[vardepsexclude] += "${DATETIME}"
 
 do_configure[nostamp] = "1"
 do_install[nostamp] = "1"
@@ -69,3 +68,5 @@ do_install() {
 	install -d ${D}${libdir}/python2.7
 	install -m 0644 ${WORKDIR}/ov.pyo ${D}${libdir}/python2.7
 }
+
+do_install[vardepsexclude] += "DATETIME"
