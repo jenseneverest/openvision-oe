@@ -88,6 +88,7 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-e2iplayer-deps \
 	enigma2-plugin-extensions-openwebif-vision-terminal \
 	enigma2-plugin-extensions-xmodem \
+	enigma2-plugin-font-wqy-microhei \
 	enigma2-plugin-skins-octetfhd \
 	enigma2-plugin-softcams-oscam-emu \
 	enigma2-plugin-systemplugins-serviceapp", d)} \
