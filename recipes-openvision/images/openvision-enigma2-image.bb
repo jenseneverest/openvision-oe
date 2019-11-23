@@ -88,10 +88,8 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-e2iplayer-deps \
 	enigma2-plugin-extensions-openwebif-vision-terminal \
 	enigma2-plugin-extensions-xmodem \
-	enigma2-plugin-skins-iflatfhd \
 	enigma2-plugin-skins-octetfhd \
 	enigma2-plugin-softcams-oscam-emu \
-	enigma2-plugin-softcams-ncam \
 	enigma2-plugin-systemplugins-serviceapp", d)} \
 	"
 
@@ -144,8 +142,6 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	curl \
 	fuse-exfat \
-	hddtemp \
-	libbluray \
 	minidlna \
 	nfs-utils \
 	ntfs-3g \
