@@ -50,7 +50,7 @@ case $ACTION in
 		if [ -e /etc/model ]; then
 			stbcheck=`cat /etc/model`
 			# detected multiboot sdcard
-			if [ $stbcheck == "sf8008" ] || [ $stbcheck == "ustym4kpro" ] || [ $stbcheck == "cc1" ] || [ $stbcheck == "gbtrio4k" ] || [ $stbcheck == "gbip4k" ] || [ $stbcheck == "beyonwizv2" ] || [ $stbcheck == "viper4k" ]; then
+			if [ $stbcheck == "sf8008" ] || [ $stbcheck == "sf8008m" ] || [ $stbcheck == "ustym4kpro" ] || [ $stbcheck == "cc1" ] || [ $stbcheck == "gbtrio4k" ] || [ $stbcheck == "gbip4k" ] || [ $stbcheck == "beyonwizv2" ] || [ $stbcheck == "viper4k" ]; then
 
 				if [ ${MDEV} == "sda5" ] ; then
 					# mount micro SD userspace as hdd to avoid drama with epg/backup/etc 

@@ -275,6 +275,7 @@
 * sf4008
 * sf5008
 * sf8008
+* sf8008m
 
 # Odin
 * axase3
@@ -329,6 +330,8 @@
 * ipbox9900
 * octagon1008
 * pace7241
+* qboxhd
+* qboxhd_mini
 * sagemcom88
 * spark
 * spark7162
