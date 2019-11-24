@@ -18,4 +18,4 @@ do_compile() {
 }
 
 PACKAGES = "${PN}"
-FILES_${PN} += "${base_libdir}/firmware"
+FILES_${PN} += "${nonarch_base_libdir}/firmware"

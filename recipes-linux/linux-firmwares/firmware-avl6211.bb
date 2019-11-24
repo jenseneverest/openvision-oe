@@ -12,9 +12,9 @@ SRC_URI[sha256sum] = "c47ba63cce9527c668efe45b86aa5d5aa84c475bc9debce07f18e362c5
 S = "${WORKDIR}"
 
 PACKAGES = "${PN}"
-FILES_${PN} += "${base_libdir}/firmware"
+FILES_${PN} += "${nonarch_base_libdir}/firmware"
 
 do_install() {
-    install -d ${D}${base_libdir}/firmware
-    install -m 0644 dvb-fe-avl6211.fw ${D}${base_libdir}/firmware/dvb-fe-avl6211.fw
+    install -d ${D}${nonarch_base_libdir}/firmware
+    install -m 0644 dvb-fe-avl6211.fw ${D}${nonarch_base_libdir}/firmware/dvb-fe-avl6211.fw
 }

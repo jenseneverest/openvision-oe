@@ -15,7 +15,7 @@ SRC_URI[rtl8723aufw.sha256sum] = "cb6645a70278072041567db2b0c693b609018c6a0b44e9
 S = "${WORKDIR}"
 
 PACKAGES = "${PN}"
-FILES_${PN} += "${base_libdir}/firmware"
+FILES_${PN} += "${nonarch_base_libdir}/firmware"
 
 inherit allarch
 

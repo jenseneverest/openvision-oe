@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "2bed1a398f43146ff0c9e12b70a976043cfee0b699ea0788a7ff50e821
 S = "${WORKDIR}"
 
 PACKAGES = "${PN}"
-FILES_${PN} += "${base_libdir}/firmware"
+FILES_${PN} += "${nonarch_base_libdir}/firmware"
 
 inherit allarch
 

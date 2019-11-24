@@ -18,7 +18,7 @@ EXTRA_OEMAKE = "KERNDIR=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}"
 
 do_compile () {
     unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS CC LD CPP
-    oe_runmake 'MODPATH={D}${base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net' \
+    oe_runmake 'MODPATH={D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net' \
         'KERNEL_SOURCE=${STAGING_KERNEL_DIR}' \
         'LINUX_SRC=${STAGING_KERNEL_DIR}' \
         'KDIR=${STAGING_KERNEL_DIR}' \
@@ -29,8 +29,8 @@ do_compile () {
 }
 
 do_install() {
-    install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
-    install -m 0644 rt73${KERNEL_OBJECT_SUFFIX} ${D}${base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
+    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
+    install -m 0644 rt73${KERNEL_OBJECT_SUFFIX} ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
     install -d ${D}${sysconfdir}/modutils
     echo rt73 > ${D}${sysconfdir}/modutils/rt73
 }

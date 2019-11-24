@@ -12,11 +12,11 @@ SRC_URI[sha256sum] = "e740b46ce11afe5a035273fb3e2f81d78c64c73e0017c82147eccec03c
 S = "${WORKDIR}"
 
 PACKAGES = "${PN}"
-FILES_${PN} += "${base_libdir}/firmware/brcm"
+FILES_${PN} += "${nonarch_base_libdir}/firmware/brcm"
 
 do_install() {
-    install -d ${D}${base_libdir}/firmware/brcm
-    install -m 0644 *.bin ${D}${base_libdir}/firmware/brcm/
-    install -m 0644 *.hcd ${D}${base_libdir}/firmware/brcm/
-    install -m 0644 *.txt ${D}${base_libdir}/firmware/brcm/
+    install -d ${D}${nonarch_base_libdir}/firmware/brcm
+    install -m 0644 *.bin ${D}${nonarch_base_libdir}/firmware/brcm/
+    install -m 0644 *.hcd ${D}${nonarch_base_libdir}/firmware/brcm/
+    install -m 0644 *.txt ${D}${nonarch_base_libdir}/firmware/brcm/
 }

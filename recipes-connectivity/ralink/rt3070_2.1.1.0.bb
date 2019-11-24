@@ -19,7 +19,7 @@ do_install() {
     install -d ${D}${sysconfdir}/Wireless/RT2870STA
     install -m 0644 ${S}/RT2870STA.dat ${D}${sysconfdir}/Wireless/RT2870STA
     install -d ${D}${nonarch_base_libdir}/firmware
-    install -m 0644 ${S}/common/*.bin ${D}${base_libdir}/firmware/
+    install -m 0644 ${S}/common/*.bin ${D}${nonarch_base_libdir}/firmware/
     install -d ${D}${sysconfdir}/modutils
     echo rt3070sta > ${D}${sysconfdir}/modutils/rt3070
 }

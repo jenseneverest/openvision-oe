@@ -23,7 +23,7 @@ do_configure_prepend(){
 }
 do_compile () {
     unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS CC LD CPP
-    oe_runmake 'M={D}${base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/amlogic/wifi' \
+    oe_runmake 'M={D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/amlogic/wifi' \
         'KERNEL_SOURCE=${STAGING_KERNEL_DIR}' \
         'LINUX_SRC=${STAGING_KERNEL_DIR}' \
         'KDIR=${STAGING_KERNEL_DIR}' \

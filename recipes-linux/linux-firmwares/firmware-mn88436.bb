@@ -12,10 +12,10 @@ SRC_URI[sha256sum] = "721c1bb9880592d8b8abb85e659d38f1c0963079d897f04ba3f9df8f12
 S = "${WORKDIR}"
 
 PACKAGES = "${PN}"
-FILES_${PN} += "${base_libdir}/firmware"
+FILES_${PN} += "${nonarch_base_libdir}/firmware"
 
 do_install() {
-    install -d ${D}${base_libdir}/firmware
-    install -m 0644 dvb-fe-mn88436-atsc.fw ${D}${base_libdir}/firmware/dvb-fe-mn88436-atsc.fw
-    install -m 0644 dvb-fe-mn88436-pseq.fw ${D}${base_libdir}/firmware/dvb-fe-mn88436-pseq.fw
+    install -d ${D}${nonarch_base_libdir}/firmware
+    install -m 0644 dvb-fe-mn88436-atsc.fw ${D}${nonarch_base_libdir}/firmware/dvb-fe-mn88436-atsc.fw
+    install -m 0644 dvb-fe-mn88436-pseq.fw ${D}${nonarch_base_libdir}/firmware/dvb-fe-mn88436-pseq.fw
 }

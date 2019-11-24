@@ -8,13 +8,13 @@ SRC_URI[sha256sum] = "924645e1278746b3d1498f14d46c5ed975574e6d577d86cf7dbf6d21a4
 S = "${WORKDIR}"
 
 PACKAGES = "${PN}"
-FILES_${PN} += "${base_libdir}/firmware"
+FILES_${PN} += "${nonarch_base_libdir}/firmware"
 
 inherit allarch
 
 SUMMARY = "Firmware for rtl8723b"
 
 do_install() {
-    install -d ${D}${base_libdir}/firmware/rtl_bt
-    install -m 0644 rtl8723b_fw.bin ${D}${base_libdir}/firmware/rtl_bt
+    install -d ${D}${nonarch_base_libdir}/firmware/rtl_bt
+    install -m 0644 rtl8723b_fw.bin ${D}${nonarch_base_libdir}/firmware/rtl_bt
 }
