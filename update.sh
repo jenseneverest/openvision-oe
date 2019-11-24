@@ -75,7 +75,8 @@ rm -rf meta-openpli/recipes-core/base-files
 rm -rf meta-openpli/recipes-core/busybox
 rm -rf meta-openpli/recipes-extended/tzdata
 rm -rf meta-openpli/recipes-multimedia/tuxtxt
-rm -rf meta-openpli/recipes-openpli/e2openplugins/enigma2-plugin-extensions-openwebif.bb
+rm -rf meta-openpli/recipes-openpli/e2openplugins
+rm -rf meta-openpli/recipes-openpli/enigma2/enigma2.bb
 rm -rf meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-dlnabrowser.bb
 rm -rf meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-dlnaserver.bb
 rm -rf meta-openpli/recipes-openpli/enigma2-plugins/enigma2-plugin-extensions-epgimport-rytec.bb

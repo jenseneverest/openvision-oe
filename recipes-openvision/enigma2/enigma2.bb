@@ -1,8 +1,19 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
-
+SUMMARY = "GUI frontend for Open Source Linux based receivers"
+DESCRIPTION = "Enigma2 is a framebuffer based frontend for DVB functions on Linux settop boxes"
 MAINTAINER = "Open Vision Developers"
+LICENSE = "GPLv2"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-DEPENDS += "\
+DEPENDS = " \
+	avahi \
+	freetype \
+	gettext-native \
+	jpeg \
+	libdreamdvd libdvbsi++ fribidi libmad libpng libsigc++-2.0 giflib libxml2 \
+	openssl libudfread \
+	python-imaging python-twisted python-wifi \
+	swig-native \
+	tuxtxt-enigma2 \
 	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "libdvbcsa libnl userland ffmpeg e2-rpihddevice", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	"
@@ -11,7 +22,12 @@ DEPENDS_append_sh4 += "\
 	libmme-image libmme-host \
 	"
 
-RDEPENDS_${PN} += "\
+RDEPENDS_${PN} = " \
+	alsa-conf \
+	enigma2-fonts \
+	ethtool \
+	glibc-gconv-iso8859-15 \
+	${PYTHON_RDEPS} \
 	enigma2-plugin-extensions-pespeedup \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "glibc-gconv-cp1250", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "libdvbcsa e2-rpihddevice", "", d)} \
@@ -33,19 +49,77 @@ RRECOMMENDS_${PN} = "\
 	virtual/enigma2-mediaservice \
 	"
 
-PYTHON_RDEPS += "\
+PYTHON_RDEPS = " \
+	python-numbers \
+	python-codecs \
+	python-core \
+	python-crypt \
+	python-fcntl \
+	python-lang \
+	python-netclient \
+	python-netserver \
+	python-pickle \
+	python-re \
+	python-shell \
+	python-service-identity \
+	python-threading \
+	python-twisted-core \
+	python-twisted-web \
+	python-xml \
+	python-zlib \
+	python-zopeinterface \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-imaging", d)} \
 	python-process \
 	python-pyusb \
-	python-service-identity \
 	"
+
+# DVD and iso playback is integrated, we need the libraries
+RDEPENDS_${PN} += "libdreamdvd libudfread"
+RRECOMMENDS_${PN} += "libdvdcss"
+
+# We depend on the font which we use for TXT subtitles (defined in skin_subtitles.xml)
+RDEPENDS_${PN} += "font-valis-enigma"
+
+RDEPENDS_${PN} += "${@bb.utils.contains("MACHINE_FEATURES", "blindscan-dvbc", "virtual/blindscan-dvbc" , "", d)}"
+
+DEMUXTOOL ?= "replex"
+
+DESCRIPTION_append_enigma2-plugin-extensions-cutlisteditor = "enables you to cut your movies."
+RDEPENDS_enigma2-plugin-extensions-cutlisteditor = "aio-grab"
+DESCRIPTION_append_enigma2-plugin-extensions-graphmultiepg = "shows a graphical timeline EPG."
+DESCRIPTION_append_enigma2-plugin-extensions-pictureplayer = "displays photos on the TV."
+DESCRIPTION_append_enigma2-plugin-systemplugins-positionersetup = "helps you installing a motorized dish."
+DESCRIPTION_append_enigma2-plugin-systemplugins-satelliteequipmentcontrol = "allows you to fine-tune DiSEqC-settings."
+DESCRIPTION_append_enigma2-plugin-systemplugins-satfinder = "helps you to align your dish."
+DESCRIPTION_append_enigma2-plugin-systemplugins-videomode = "selects advanced video modes"
+RDEPENDS_enigma2-plugin-systemplugins-softwaremanager = "python-twisted-web"
+DESCRIPTION_append_enigma2-plugin-systemplugins-wirelesslan = "helps you configuring your wireless lan"
+RDEPENDS_enigma2-plugin-systemplugins-wirelesslan = "wpa-supplicant wireless-tools python-wifi"
+DESCRIPTION_append_enigma2-plugin-systemplugins-networkwizard = "provides easy step by step network configuration"
+# Note that these tools lack recipes
+RDEPENDS_enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools cdrkit python-imaging ${DEMUXTOOL}"
+RRECOMMENDS_enigma2-plugin-extensions-dvdplayer = "kernel-module-udf"
+RDEPENDS_enigma2-plugin-systemplugins-hotplug = "hotplug-e2-helper"
 
 DESCRIPTION_enigma2-plugin-font-wqy-microhei = "wqy-microhei font supports Chinese EPG"
 PACKAGES =+ "enigma2-plugin-font-wqy-microhei"
 FILES_enigma2-plugin-font-wqy-microhei = "${datadir}/fonts/wqy-microhei.ttc ${datadir}/fonts/fallback.font"
 ALLOW_EMPTY_enigma2-plugin-font-wqy-microhei = "1"
 
-inherit upx_compress
+# Fake package that doesn't actually get built, but allows OE to detect
+# the RDEPENDS for the plugins above, preventing [build-deps] warnings.
+RDEPENDS_${PN}-build-dependencies = "\
+	aio-grab \
+	dvd+rw-tools dvdauthor mjpegtools cdrkit python-imaging ${DEMUXTOOL} \
+	wpa-supplicant wireless-tools python-wifi \
+	python-twisted-web \
+	"
+
+RRECOMMENDS_${PN}-build-dependencies = "\
+	kernel-module-udf \
+	"
+
+inherit gitpkgv pythonnative upx_compress autotools pkgconfig
 
 ENIGMA2_BRANCH ?= "develop"
 PV = "develop+git${SRCPV}"
@@ -53,7 +127,36 @@ PKGV = "develop+git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH}"
 
-EXTRA_OECONF_append += "\
+LDFLAGS_prepend = " -lxml2 "
+
+S = "${WORKDIR}/git"
+
+FILES_${PN} += "${datadir}/keymaps"
+FILES_${PN}-meta = "${datadir}/meta"
+PACKAGES += "${PN}-meta ${PN}-build-dependencies"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+PACKAGES =+ "enigma2-fonts"
+PKGV_enigma2-fonts = "2018.08.15"
+FILES_enigma2-fonts = "${datadir}/fonts"
+
+def get_crashaddr(d):
+    if d.getVar('CRASHADDR', True):
+        return '--with-crashlogemail="${CRASHADDR}"'
+    else:
+        return ''
+
+EXTRA_OECONF = "\
+	--with-libsdl=no --with-boxtype=${MACHINE} \
+	--enable-dependency-tracking \
+	ac_cv_prog_c_openmp=-fopenmp \
+	${@get_crashaddr(d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "7segment 7seg", "--with-7segment" , "", d)} \
+	BUILD_SYS=${BUILD_SYS} \
+	HOST_SYS=${HOST_SYS} \
+	STAGING_INCDIR=${STAGING_INCDIR} \
+	STAGING_LIBDIR=${STAGING_LIBDIR} \
 	--with-boxbrand="${BOX_BRAND}" \
 	--with-oever="${VISIONVERSION}" \
 	${@bb.utils.contains("MACHINE_FEATURES", "bwlcd128", "--with-bwlcd128" , "", d)} \
@@ -89,6 +192,11 @@ EXTRA_OECONF_sh4 = "\
 	STAGING_LIBDIR=${STAGING_LIBDIR} \
 	"
 
+# pass the enigma branch to automake
+EXTRA_OEMAKE = "\
+	ENIGMA2_BRANCH=${ENIGMA2_BRANCH} \
+	"
+
 # some plugins contain so's, their stripped symbols should not end up in the enigma2 package
 FILES_${PN}-dbg += "\
 	${libdir}/enigma2/python/*/.debug \
@@ -122,6 +230,21 @@ FILES_${PN}-src = "\
 	${libdir}/enigma2/python/*/*/*/*/*.py \
 	${libdir}/enigma2/python/*/*/*/*/*/*.py \
 	"
+
+do_install_append() {
+	install -d ${D}${datadir}/keymaps
+	# remove unused .pyc files
+	find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
+	ln -s ${libdir}/enigma2/python/Tools/StbHardware.pyo ${D}${libdir}/enigma2/python/Tools/DreamboxHardware.pyo
+	ln -s ${libdir}/enigma2/python/Components/PackageInfo.pyo ${D}${libdir}/enigma2/python/Components/DreamboxInfoHandler.pyo
+	if [ "${base_libdir}" = "/lib64" ]; then
+		install -d ${D}/usr/lib
+		ln -s ${libdir}/enigma2 ${D}/usr/lib/enigma2
+		ln -s ${libdir}/python2.7 ${D}/usr/lib/python2.7
+	fi
+	# make scripts executable
+	find "${D}" -name '*.sh' -exec chmod a+x '{}' ';'
+}
 
 python populate_packages_prepend() {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
