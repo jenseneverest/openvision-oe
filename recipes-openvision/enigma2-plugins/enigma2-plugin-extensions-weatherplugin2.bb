@@ -10,24 +10,36 @@ PKGV = "1.0+git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenVisionE2/WeatherPlugin2.git;protocol=git"
 
-FILES_${PN} = "/usr/"
+FILES_${PN} = "${libdir}"
+
+RDEPENDS_${PN} = "enigma2-plugin-skincomponents-weathercomponent enigma2-plugin-systemplugins-weathercomponenthandler"
 
 S = "${WORKDIR}/git"
 
 do_compile() {
-	python -O -m compileall ${S}${libdir}/enigma2/python/
+	python -O -m compileall ${S}/usr/lib/
 }
 
 do_install() {
-	install -d ${D}/usr
-	cp -r ${S}/usr/* ${D}/usr/
+	install -d ${D}${libdir}
+	cp -r ${S}/usr/lib/* ${D}${libdir}/
 }
 
 FILES_${PN}-src = "\
-	${libdir}/enigma2/python/Plugins/Extensions/WeatherPlugin2/*.py \
-	${libdir}/enigma2/python/Plugins/SystemPlugins/WeatherComponentHandler/*.py \
-	${libdir}/enigma2/python/Components/*.py \
-	${libdir}/enigma2/python/Components/Sources/*.py \
-	${libdir}/enigma2/python/Components/Renderer/*.py \
-	${libdir}/enigma2/python/Components/Converter/*.py \
-"
+    ${libdir}/enigma2/python/*/*.py \
+    ${libdir}/enigma2/python/*/*/*.py \
+    ${libdir}/enigma2/python/*/*/*/*.py \
+    ${libdir}/enigma2/python/*/*/*/*/*.py \
+    ${libdir}/enigma2/python/*/*/*/*/*/*.py \
+    ${libdir}/enigma2/python/*/*/*/*/*/*/*.py \
+    ${libdir}/enigma2/python/*/*/*/*/*/*/*/*.py \
+    ${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*.py \
+    ${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*/*.py \
+    ${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*/*/*.py \
+    "
+
+python populate_packages_prepend() {
+    enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
+    do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/[a-zA-Z0-9_]+.*$', 'enigma2-plugin-%s', 'Enigma2 Plugin: %s', recursive=True, match_path=True, prepend=True)
+    do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.py$', 'enigma2-plugin-%s-src', 'Enigma2 Plugin: %s', recursive=True, match_path=True, prepend=True)
+}
