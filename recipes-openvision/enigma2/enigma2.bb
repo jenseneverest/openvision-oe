@@ -131,7 +131,7 @@ LDFLAGS_prepend = " -lxml2 "
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} += "${datadir}/keymaps"
+FILES_${PN} += "${datadir}/keymaps ${bindir} /usr/lib"
 FILES_${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -237,7 +237,7 @@ do_install_append() {
 	find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
 	ln -s ${libdir}/enigma2/python/Tools/StbHardware.pyo ${D}${libdir}/enigma2/python/Tools/DreamboxHardware.pyo
 	ln -s ${libdir}/enigma2/python/Components/PackageInfo.pyo ${D}${libdir}/enigma2/python/Components/DreamboxInfoHandler.pyo
-	if [ "${base_libdir}" = "/lib64" ]; then
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "multilib", "1", "0", d)}" = "1" ]; then
 		install -d ${D}/usr/lib
 		ln -s ${libdir}/enigma2 ${D}/usr/lib/enigma2
 		ln -s ${libdir}/python2.7 ${D}/usr/lib/python2.7
