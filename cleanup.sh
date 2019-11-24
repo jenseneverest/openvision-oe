@@ -9,16 +9,25 @@ echo "Welcome to Open Vision's OE cleanup script!"
 echo "After using this script the size of the build folder will be reduced."
 echo -e "First tell us what kind of cleanup do you want?"
 echo -e "Answers are in ${GREEN}green:${NC}"
-echo -e "${GREEN}Fast ${NC}- ${GREEN}Full"
+echo -e "${GREEN}Fast ${NC}- ${GREEN}Full ${NC}- ${RED}Build"
 echo -e ""
 echo -e "${NC}Enter cleanup mode:${GREEN}"
 echo -e ""
 read CLEANMODE
 echo -e "${NC}"
-if [ $CLEANMODE != "Fast" -a $CLEANMODE != "Full" ]
+if [ $CLEANMODE != "Fast" -a $CLEANMODE != "Full" -a $CLEANMODE != "Build" ]
 then
 	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
+	exit 0
+fi
+if [ $CLEANMODE = "Build" ]
+then
+	echo -e "Removing all build folders, it could take hours so please wait ..."
+	cd ..
+	rm -rf build
+	echo ""
+	echo "Done."
 	exit 0
 fi
 echo -e "Now check ${RED}Vision-metas.md ${NC}and enter a specific machine to cleanup:"
