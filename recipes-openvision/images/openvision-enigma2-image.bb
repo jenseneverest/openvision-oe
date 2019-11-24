@@ -136,6 +136,7 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "lirc lirc-plugins", "", d)} \
 	settings-autorestore \
 	tuxbox-links \
+	${@bb.utils.contains_any("MACHINE", "vuuno4kse vuultimo4k vuduo4k", "vuplus-hdmi-in-helper", "", d)} \
 	wget \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
 	${MACHINE_FEATURE_RELATED_PLUGINS} \
