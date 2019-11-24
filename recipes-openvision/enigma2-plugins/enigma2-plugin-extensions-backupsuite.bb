@@ -1,27 +1,29 @@
-DESCRIPTION = "RaedQuickSignal plugin by RAED"
-MAINTAINER = "Open Vision Developers"
+DESCRIPTION = "Backup Suite"
 LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
+MAINTAINER = "Open Vision Developers"
+AUTHOR = "Pedro Newbie <pedro.newbie@gmail.com>"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
-SRC_URI = "git://github.com/OpenVisionE2/RaedQuickSignal;protocol=git"
+SRC_URI = "git://github.com/OpenVisionE2/BackupSuite.git;protocol=git"
 
 # don't inherit allarch, it can't work with arch-dependent RDEPENDS
 inherit gitpkgv distutils-openplugins gettext
 
+RDEPENDS_${PN} = "\
+	mtd-utils \
+	mtd-utils-ubifs \
+	${@bb.utils.contains("IMAGE_FSTYPES", "tar.bz2", "bzip2" , "", d)} \
+	${@bb.utils.contains_any("IMAGE_FSTYPES", "jffs2 ubifs", "dreambox-buildimage mtd-utils-jffs2" , "", d)} \
+	enigma2-plugin-systemplugins-mphelp \
+	"
+
 S = "${WORKDIR}/git"
 
-PV = "5.2+git${SRCPV}"
-PKGV = "5.2+git${GITPKGV}"
+PV = "1.0+git${SRCPV}"
+PKGV = "1.0+git${GITPKGV}"
 
-FILES_${PN} = "/usr/"
-
-do_compile() {
-	python -O -m compileall ${S}/usr/lib/enigma2/python/
-}
-
-do_install() {
-	install -d ${D}/usr
-	cp -r ${S}/usr/* ${D}/usr/
+do_install_append() {
+	find "${D}" -name '*.sh' -exec chmod a+x '{}' ';'
 }
 
 FILES_${PN}-src = "\
