@@ -43,6 +43,7 @@ ENIGMA2_PLUGINS += "\
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "${BACKUPSUITE_CHECK}", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "enigma2-plugin-extensions-cacheflush", "", d)} \
 	enigma2-plugin-extensions-cutlisteditor \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash multilib", "", "enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps", d)} \
 	enigma2-plugin-extensions-graphmultiepg \
 	enigma2-plugin-extensions-mediaplayer \
 	enigma2-plugin-extensions-mediascanner \
@@ -84,8 +85,6 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-systemplugins-mountmanager \
 	enigma2-plugin-systemplugins-terrestrialscan", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
-	enigma2-plugin-extensions-e2iplayer \
-	enigma2-plugin-extensions-e2iplayer-deps \
 	enigma2-plugin-extensions-openwebif-vision-terminal \
 	enigma2-plugin-extensions-xmodem \
 	enigma2-plugin-font-wqy-microhei \
