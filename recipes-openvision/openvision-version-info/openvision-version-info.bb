@@ -48,6 +48,7 @@ do_install() {
 	echo "distro=${DISTRO_NAME}" >> ${D}${sysconfdir}/image-version
 	echo "transcoding=${TRANSCODING}" >> ${D}${sysconfdir}/image-version
 	echo "multitranscoding=${MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
+	echo "multilib=${HAVE_MULTILIB}" >> ${D}${sysconfdir}/image-version
 	echo "display-type=${DISPLAY_TYPE}" >> ${D}${sysconfdir}/image-version
 	echo "${MACHINE}" > ${D}${sysconfdir}/model
 	echo "${BOX_BRAND}" > ${D}${sysconfdir}/brand

@@ -57,6 +57,7 @@ EXTRA_OECONF = " \
     --with-middle-flash="${HAVE_MIDDLEFLASH}" \
     --with-transcoding="${TRANSCODING}" \
     --with-multitranscoding="${MULTITRANSCODING}" \
+    --with-multilib="${HAVE_MULTILIB}" \
     "
 
 FILES_${PN} = "${libdir}/enigma2/python/*.so"
