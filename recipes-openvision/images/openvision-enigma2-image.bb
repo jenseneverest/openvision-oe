@@ -130,8 +130,9 @@ IMAGE_INSTALL += "\
 	enigma2 \
 	${ENIGMA2_PLUGINS} \
 	enigma2-locale-meta \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto libcrypto-compat", "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto", "", d)} \
 	libavahi-client \
+	libcrypto-compat \
 	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "lirc lirc-plugins", "", d)} \
 	settings-autorestore \
 	tuxbox-links \
