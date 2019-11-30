@@ -9,13 +9,13 @@ DEPENDS = " \
 	freetype \
 	gettext-native \
 	jpeg \
-	libdreamdvd libdvbsi++ fribidi libmad libpng libsigc++-2.0 giflib libxml2 \
+	libdreamdvd libdvbsi++ libfribidi libmad libpng libsigc++-2.0 giflib libxml2 \
+	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "libdvbcsa libnl userland ffmpeg e2-rpihddevice", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	openssl libudfread \
 	python-imaging python-twisted python-wifi \
 	swig-native \
 	tuxtxt-enigma2 \
-	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "libdvbcsa libnl userland ffmpeg e2-rpihddevice", "", d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	"
 
 DEPENDS_append_sh4 += "\
@@ -25,20 +25,20 @@ DEPENDS_append_sh4 += "\
 RDEPENDS_${PN} = " \
 	alsa-conf \
 	enigma2-fonts \
+	enigma2-plugin-extensions-pespeedup \
 	ethtool \
 	glibc-gconv-iso8859-15 \
-	${PYTHON_RDEPS} \
-	enigma2-plugin-extensions-pespeedup \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "glibc-gconv-cp1250", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "libdvbcsa e2-rpihddevice", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	ntpdate \
 	openvision-branding \
+	${PYTHON_RDEPS} \
 	"
 
 RDEPENDS_${PN}_append_sh4 += "\
-	libmme-host \
 	alsa-utils-amixer-conf \
+	libmme-host \
 	"
 
 RRECOMMENDS_${PN} = "\
@@ -50,27 +50,29 @@ RRECOMMENDS_${PN} = "\
 	"
 
 PYTHON_RDEPS = " \
-	python-numbers \
 	python-codecs \
 	python-core \
 	python-crypt \
 	python-fcntl \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-imaging", d)} \
+	python-importlib \
 	python-lang \
 	python-netclient \
 	python-netserver \
+	python-numbers \
 	python-pickle \
+	python-process \
+	python-pyusb \
 	python-re \
-	python-shell \
 	python-service-identity \
+	python-shell \
 	python-threading \
 	python-twisted-core \
 	python-twisted-web \
+	python-utf8-hack \
 	python-xml \
 	python-zlib \
 	python-zopeinterface \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-imaging", d)} \
-	python-process \
-	python-pyusb \
 	"
 
 # DVD and iso playback is integrated, we need the libraries
@@ -111,8 +113,8 @@ ALLOW_EMPTY_enigma2-plugin-font-wqy-microhei = "1"
 RDEPENDS_${PN}-build-dependencies = "\
 	aio-grab \
 	dvd+rw-tools dvdauthor mjpegtools cdrkit python-imaging ${DEMUXTOOL} \
-	wpa-supplicant wireless-tools python-wifi \
 	python-twisted-web \
+	wpa-supplicant wireless-tools python-wifi \
 	"
 
 RRECOMMENDS_${PN}-build-dependencies = "\
