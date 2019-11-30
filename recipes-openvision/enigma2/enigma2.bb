@@ -54,7 +54,7 @@ PYTHON_RDEPS = " \
 	python-core \
 	python-crypt \
 	python-fcntl \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-image python-imaging", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-image python-imaging python-service-identity", d)} \
 	python-importlib \
 	python-lang \
 	python-netclient \
@@ -64,7 +64,6 @@ PYTHON_RDEPS = " \
 	python-process \
 	python-pyusb \
 	python-re \
-	python-service-identity \
 	python-shell \
 	python-threading \
 	python-twisted-core \
