@@ -54,7 +54,7 @@ PYTHON_RDEPS = " \
 	python-core \
 	python-crypt \
 	python-fcntl \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-imaging", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-image python-imaging", d)} \
 	python-importlib \
 	python-lang \
 	python-netclient \
