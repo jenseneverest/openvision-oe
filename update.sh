@@ -55,6 +55,7 @@ then
 	git submodule foreach git checkout .
 	git pull --rebase
 fi
+rm -rf build/env.source
 cat openvision-oe/Makefile-Vision > Makefile
 sed -i "s#BUILD_DIR = \$(CURDIR)/.*#BUILD_DIR = \$(CURDIR)/${BUILDDIR}#g" Makefile
 echo ""

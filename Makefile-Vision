@@ -50,22 +50,8 @@ hash = $(shell echo $(1) | $(XSUM) | awk '{print $$1}')
 .DEFAULT_GOAL := all
 all: init
 	@echo
-	@echo "OE for Open Vision $(GIT_BRANCH) environment has been initialized"
-	@echo "properly. Now you can start building your image, by doing either:"
-	@echo
-	@echo " MACHINE=... make image"
-	@echo
-	@echo "	or:"
-	@echo
-	@echo " cd $(BUILD_DIR)"
-	@echo " source env.source"
-	@echo " MACHINE=... bitbake openvision-enigma2-image"
-	@echo
-	@echo "	or, if you want to build not just the image, but the optional packages in the feed as well:"
-	@echo
-	@echo " MACHINE=... make feed"
-	@echo "	or:"
-	@echo " MACHINE=... bitbake openvision-enigma2-feed"
+	@echo "OE for Open Vision $(GIT_BRANCH) environment has been initialized properly."
+	@echo "Now you can start building your image by using image.sh"
 	@echo
 
 $(BBLAYERS):
@@ -115,9 +101,10 @@ BITBAKE_ENV_HASH := $(call hash, \
 
 $(TOPDIR)/env.source: $(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH)
 	@echo 'Generating $@'
-	@echo 'export BB_ENV_EXTRAWHITE="MACHINE DMTYPE"' > $@
+	@echo 'export BB_ENV_EXTRAWHITE="MACHINE DMTYPE BOX_BRAND"' > $@
 	@echo 'export MACHINE' >> $@
 	@echo 'export DMTYPE' >> $@
+	@echo 'export BOX_BRAND' >> $@
 	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
 
 OPENPLI_CONF_HASH := $(call hash, \
