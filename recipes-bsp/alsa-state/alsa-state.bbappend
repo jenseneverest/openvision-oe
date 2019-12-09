@@ -33,4 +33,13 @@ EXTRA_ALSA_kvim2 = "aml905d"
 EXTRA_ALSA_wetekplay = "aml8726"
 EXTRA_ALSA_x8hp = "aml8726"
 
+EXTRA_ALSA_viper4k = "mv200"
+EXTRA_ALSA_cc1 = "mv200"
+EXTRA_ALSA_beyonwizv2 = "mv200"
+EXTRA_ALSA_gbip4k = "mv200"
+EXTRA_ALSA_gbtrio4k = "mv200"
+EXTRA_ALSA_sf8008 = "mv200"
+EXTRA_ALSA_sf8008m = "mv200"
+EXTRA_ALSA_ustym4kpro = "mv200"
+
 require alsa-state-${EXTRA_ALSA}.inc
