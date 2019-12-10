@@ -360,6 +360,10 @@ python do_cleanup () {
         ('raspberrypi2', 'raspberrypi2.png', 'dmm1.png', 'dmm1.html'),
         ('raspberrypi3', 'raspberrypi3.png', 'dmm1.png', 'dmm1.html'),
         ('raspberrypi4', 'raspberrypi4.png', 'dmm1.png', 'dmm1.html'),
+        ('forever_2424hd', 'forever_2424hd.png', 'fulan.png', 'fulan.html'),
+        ('forever_3434hd', 'forever_3434hd.png', 'fulan.png', 'fulan.html'),
+        ('forever_9898hd', 'forever_9898hd.png', 'fulan.png', 'fulan.html'),
+        ('forever_smart', 'forever_smart.png', 'fulan.png', 'fulan.html'),
     ]
 
     import os

@@ -317,6 +317,10 @@
 * cuberevo_9500hd
 * cuberevo_mini
 * cuberevo_mini2
+* forever_2424hd
+* forever_3434hd
+* forever_9898hd
+* forever_smart
 * fortis_hdbox
 * hl101
 * hs7110
