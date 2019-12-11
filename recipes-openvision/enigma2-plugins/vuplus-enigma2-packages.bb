@@ -13,7 +13,7 @@ PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 BRANCH = "vuplus_experimental"
 
-SRC_URI = "git://github.com/OpenVuPlus/dvbapp.git;protocol=http;branch=${BRANCH};tag=${SRCREV}"
+SRC_URI = "git://github.com/OpenVuPlus/dvbapp.git;protocol=http;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 
