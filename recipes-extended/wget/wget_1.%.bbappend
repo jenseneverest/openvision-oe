@@ -1,3 +1,4 @@
+inherit upx_compress
 DEPENDS_remove = "gnutls"
 DEPENDS_append = " openssl"
 EXTRA_OECONF_remove = "--with-ssl=gnutls"
