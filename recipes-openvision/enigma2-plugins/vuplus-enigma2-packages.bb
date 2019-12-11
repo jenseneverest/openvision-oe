@@ -7,11 +7,10 @@ DEPENDS = "python-native"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRCREV = "b0fb2521cedeac8089de73c3b59fd15bda0e99e0"
 inherit gitpkgv
  
-PV = "experimental-git${SRCPV}"
-PKGV = "experimental-git${GITPKGV}"
+PV = "git${SRCPV}"
+PKGV = "git${GITPKGV}"
 BRANCH = "vuplus_experimental"
 
 SRC_URI = "git://github.com/OpenVuPlus/dvbapp.git;protocol=http;branch=${BRANCH};tag=${SRCREV}"

@@ -260,7 +260,6 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-systemplugins-signalfinder \
 	enigma2-plugin-systemplugins-quadpip \
 	enigma2-plugins \
-	enigma2-skins \
 	meta-enigma2-dvdburn \
 	packagegroup-openplugins \
 	picons-enigma2-meta \
