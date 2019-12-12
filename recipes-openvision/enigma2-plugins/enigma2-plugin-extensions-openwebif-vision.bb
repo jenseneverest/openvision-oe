@@ -363,7 +363,7 @@ python do_cleanup () {
         ('forever_2424hd', 'forever_2424hd.png', 'fulan.png', 'fulan.html'),
         ('forever_3434hd', 'forever_3434hd.png', 'fulan.png', 'fulan.html'),
         ('forever_9898hd', 'forever_9898hd.png', 'fulan.png', 'fulan.html'),
-        ('forever_smart', 'forever_smart.png', 'fulan.png', 'fulan.html'),
+        ('forever_nanosmart', 'forever_nanosmart.png', 'fulan.png', 'fulan.html'),
     ]
 
     import os

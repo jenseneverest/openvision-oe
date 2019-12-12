@@ -320,7 +320,7 @@
 * forever_2424hd
 * forever_3434hd
 * forever_9898hd
-* forever_smart
+* forever_nanosmart
 * fortis_hdbox
 * hl101
 * hs7110
