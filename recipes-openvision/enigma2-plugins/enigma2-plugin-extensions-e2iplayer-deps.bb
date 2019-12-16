@@ -16,6 +16,7 @@ RRECOMMENDS_${PN} = " \
 	rtmpdump \
 	duktape \
 	uchardet \
+	cmdwrapper \
 	"
 
 PV = "1.0"
