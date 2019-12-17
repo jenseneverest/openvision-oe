@@ -158,8 +158,8 @@ EXTRA_OECONF = "\
 	HOST_SYS=${HOST_SYS} \
 	STAGING_INCDIR=${STAGING_INCDIR} \
 	STAGING_LIBDIR=${STAGING_LIBDIR} \
-	--with-boxbrand="${BOX_BRAND}" \
-	--with-oever="${VISIONVERSION}" \
+	--with-boxbrand=${BOX_BRAND} \
+	--with-oever=${VISIONVERSION} \
 	${@bb.utils.contains("MACHINE_FEATURES", "bwlcd128", "--with-bwlcd128" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "bwlcd140", "--with-bwlcd140" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "bwlcd255", "--with-bwlcd255" , "", d)} \
@@ -180,8 +180,8 @@ EXTRA_OECONF = "\
 EXTRA_OECONF_sh4 = "\
 	--enable-${MACHINE} --with-lcd \
 	--with-libsdl=no --with-boxtype=${MACHINE} \
-	--with-boxbrand="${BOX_BRAND}" \
-	--with-oever="${VISIONVERSION}" \
+	--with-boxbrand=${BOX_BRAND} \
+	--with-oever=${VISIONVERSION} \
 	--enable-dependency-tracking \
 	ac_cv_prog_c_openmp=-fopenmp \
 	${@get_crashaddr(d)} \
