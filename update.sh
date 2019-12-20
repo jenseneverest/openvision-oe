@@ -76,5 +76,9 @@ rm -rf meta-openpli/recipes-core/base-files
 rm -rf meta-openpli/recipes-core/busybox
 rm -rf meta-openpli/recipes-extended/tzdata
 rm -rf meta-openpli/recipes-linux
+rm -rf meta-openpli/recipes-multimedia/dvblast
 rm -rf meta-openpli/recipes-multimedia/tuxtxt
+rm -rf meta-openpli/recipes-multimedia/vlc/libaacs_git.bb
 rm -rf meta-openpli/recipes-openpli
+rm -rf meta-openpli/recipes-support/libbluray
+rm -rf meta-openpli/recipes-support/libudfread
