@@ -87,7 +87,6 @@ ENIGMA2_PLUGINS += "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	enigma2-plugin-extensions-openwebif-vision-terminal \
 	enigma2-plugin-extensions-xmodem \
-	enigma2-plugin-font-wqy-microhei \
 	enigma2-plugin-skins-octetfhd \
 	enigma2-plugin-softcams-oscam-emu \
 	enigma2-plugin-systemplugins-serviceapp", d)} \
