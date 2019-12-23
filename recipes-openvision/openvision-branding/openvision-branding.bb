@@ -52,6 +52,7 @@ EXTRA_OECONF = " \
     --with-mkubifs="${MKUBIFS_ARGS}" \
     --with-ubinize="${UBINIZE_ARGS}" \
     --with-arch="${DEFAULTTUNE}" \
+    --with-tfpu="${TARGET_FPU}" \
     --with-display-type="${DISPLAY_TYPE}" \
     --with-small-flash="${HAVE_SMALLFLASH}" \
     --with-middle-flash="${HAVE_MIDDLEFLASH}" \

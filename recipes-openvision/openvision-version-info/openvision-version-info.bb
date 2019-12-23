@@ -46,14 +46,9 @@ do_install() {
 	echo "url=https://openvision.tech" >> ${D}${sysconfdir}/image-version
 	echo "catalog=https://github.com/OpenVisionE2" >> ${D}${sysconfdir}/image-version
 	echo "distro=${DISTRO_NAME}" >> ${D}${sysconfdir}/image-version
-	echo "transcoding=${TRANSCODING}" >> ${D}${sysconfdir}/image-version
-	echo "multitranscoding=${MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
-	echo "multilib=${HAVE_MULTILIB}" >> ${D}${sysconfdir}/image-version
+	echo "arch=${DEFAULTTUNE}" >> ${D}${sysconfdir}/image-version
+	echo "fpu=${TARGET_FPU}" >> ${D}${sysconfdir}/image-version
 	echo "display-type=${DISPLAY_TYPE}" >> ${D}${sysconfdir}/image-version
-	echo "${MACHINE}" > ${D}${sysconfdir}/model
-	echo "${BOX_BRAND}" > ${D}${sysconfdir}/brand
-	echo "${VISIONVERSION}" > ${D}${sysconfdir}/visionversion
-	echo "${VISIONREVISION}" > ${D}${sysconfdir}/visionrevision
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "1", "0", d)}" = "1" ]; then
 		echo "small-flash=${HAVE_SMALLFLASH}" >> ${D}/etc/image-version
 		echo "smallflash" > ${D}${sysconfdir}/smallflash
@@ -62,6 +57,13 @@ do_install() {
 		echo "middle-flash=${HAVE_MIDDLEFLASH}" >> ${D}/etc/image-version
 		echo "middleflash" > ${D}${sysconfdir}/middleflash
 	fi
+	echo "transcoding=${TRANSCODING}" >> ${D}${sysconfdir}/image-version
+	echo "multitranscoding=${MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
+	echo "multilib=${HAVE_MULTILIB}" >> ${D}${sysconfdir}/image-version
+	echo "${MACHINE}" > ${D}${sysconfdir}/model
+	echo "${BOX_BRAND}" > ${D}${sysconfdir}/brand
+	echo "${VISIONVERSION}" > ${D}${sysconfdir}/visionversion
+	echo "${VISIONREVISION}" > ${D}${sysconfdir}/visionrevision
 	install -d ${D}${libdir}/python2.7
 	install -m 0644 ${WORKDIR}/ov.pyo ${D}${libdir}/python2.7
 }
