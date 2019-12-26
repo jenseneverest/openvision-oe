@@ -3,7 +3,7 @@ inherit allarch
 
 require conf/license/license-gplv2.inc
 
-RRECOMMENDS_${PN} = " \
+RDEPENDS_${PN} = " \
 	ffmpeg \
 	exteplayer3 \
 	gstplayer \
