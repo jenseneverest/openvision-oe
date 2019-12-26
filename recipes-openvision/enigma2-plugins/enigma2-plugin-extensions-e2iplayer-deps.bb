@@ -17,6 +17,7 @@ RRECOMMENDS_${PN} = " \
 	duktape \
 	uchardet \
 	cmdwrapper \
+	python-pycurl \
 	"
 
 PV = "1.0"
