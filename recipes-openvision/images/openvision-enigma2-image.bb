@@ -81,7 +81,6 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-filecommander \
 	enigma2-plugin-extensions-keyadder \
 	enigma2-plugin-extensions-reconstructapsc \
-	enigma2-plugin-extensions-weatherplugin2 \
 	enigma2-plugin-softcams-oscam \
 	enigma2-plugin-systemplugins-mountmanager \
 	enigma2-plugin-systemplugins-terrestrialscan", d)} \
