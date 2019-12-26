@@ -67,6 +67,7 @@ do_install() {
 	install -d ${D}${libdir}/python2.7
 	install -m 0644 ${WORKDIR}/ov.pyo ${D}${libdir}/python2.7
 }
+
 pkg_postinst_ontarget_${PN} () {
 touch /etc/enigma2/settings
 if ! grep -qs "config.plugins.CacheFlush" cat /etc/enigma2/settings ; then
