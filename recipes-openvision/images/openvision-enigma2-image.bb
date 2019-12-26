@@ -43,7 +43,7 @@ ENIGMA2_PLUGINS += "\
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "${BACKUPSUITE_CHECK}", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "enigma2-plugin-extensions-cacheflush", "", d)} \
 	enigma2-plugin-extensions-cutlisteditor \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash multilib", "", "enigma2-plugin-extensions-e2iplayer enigma2-plugin-extensions-e2iplayer-deps", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash multilib", "", "enigma2-plugin-extensions-e2iplayer", d)} \
 	enigma2-plugin-extensions-graphmultiepg \
 	enigma2-plugin-extensions-mediaplayer \
 	enigma2-plugin-extensions-mediascanner \
