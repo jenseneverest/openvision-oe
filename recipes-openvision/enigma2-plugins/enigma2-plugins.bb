@@ -149,7 +149,6 @@ PROVIDES = "\
     "
 
 DEPENDS = "\
-    bitratecalc \
     dvdbackup \
     enigma2 \
     libshowiframe \
@@ -172,6 +171,7 @@ LDFLAGS += "-ltirpc"
 
 RRECOMMENDS_enigma2-plugin-extensions-transmission = "transmission transmission-client"
 
+DEPENDS_enigma2-plugin-extensions-bitrateviewer = "bitratecalc"
 RDEPENDS_enigma2-plugin-extensions-bitrateviewer = "bitratecalc"
 
 RREPLACES_enigma2-plugin-skincomponents-eventlist = "enigma2-plugin-components-eventlist"
@@ -197,7 +197,7 @@ do_compile_append() {
 }
 
 ALLOW_EMPTY_${PN} = "1"
-PACKAGES += "${PN}-meta ${PN}-build-dependencies enigma2-plugin-skincomponents-channelselectionshorttitle-src enigma2-plugin-skincomponents-eventlist-src enigma2-plugin-skincomponents-eventposition-src enigma2-plugin-skincomponents-weathercomponent-src enigma2-plugin-skincomponents-reftopiconname enigma2-plugin-skincomponents-reftopiconname-src"
+PACKAGES += "${PN}-meta ${PN}-build-dependencies enigma2-plugin-skincomponents-channelselectionshorttitle enigma2-plugin-skincomponents-channelselectionshorttitle-src enigma2-plugin-skincomponents-eventlist enigma2-plugin-skincomponents-eventlist-src enigma2-plugin-skincomponents-eventposition enigma2-plugin-skincomponents-eventposition-src enigma2-plugin-skincomponents-weathercomponent enigma2-plugin-skincomponents-weathercomponent-src enigma2-plugin-skincomponents-reftopiconname enigma2-plugin-skincomponents-reftopiconname-src"
 FILES_${PN}-meta = "${datadir}/meta"
 INSANE_SKIP_${PN} += "build-deps"
 
