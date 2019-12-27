@@ -58,8 +58,6 @@ EXTRA_OECONF = " \
     --with-middle-flash="${HAVE_MIDDLEFLASH}" \
     --with-transcoding="${TRANSCODING}" \
     --with-multitranscoding="${MULTITRANSCODING}" \
-    --with-hdmi-in-hd="${HAVE_HDMI_IN_HD}" \
-    --with-hdmi-in-fhd="${HAVE_HDMI_IN_FHD}" \
     --with-multilib="${HAVE_MULTILIB}" \
     "
 
