@@ -33,6 +33,7 @@ do_install_append() {
 
 FILES_${PN} += "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/*.pyo \
+	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/*.png \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/servicehisilicon.so"
 
 FILES_${PN}-dev += "\
