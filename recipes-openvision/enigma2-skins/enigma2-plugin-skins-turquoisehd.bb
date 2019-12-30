@@ -11,6 +11,8 @@ inherit gitpkgv allarch
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
+RDEPENDS_${PN} = "enigma2-plugin-fonts-conceptotitulrough enigma2-plugin-fonts-lcd enigma2-plugin-fonts-nmsbd2 enigma2-plugin-fonts-verdana"
+
 SRC_URI = "git://github.com/OpenVisionE2/TurquoiseHD-skin.git;protocol=git"
 
 S = "${WORKDIR}/git"

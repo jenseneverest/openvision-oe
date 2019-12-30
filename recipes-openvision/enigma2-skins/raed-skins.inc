@@ -1,4 +1,4 @@
-SUMMARY = "Enigma2 skin ${SKINNAME} by RAED (fairbird) for Open Vision"
+SUMMARY = "Enigma2 Skin ${SKINNAME} by RAED (fairbird) for Open Vision"
 DESCRIPTION = "Modified enigma2 skin for Open Vision by RAED"
 MAINTAINER = "Open Vision Developers"
 SECTION = "base"
