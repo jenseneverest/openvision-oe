@@ -9,7 +9,7 @@ require conf/license/license-gplv2.inc
 inherit gitpkgv gettext allarch
 
 DEPENDS += "gettext-native"
-#RDEPENDS_${PN} = "python-imaging"
+RDEPENDS_${PN} = "enigma2-plugin-fonts-analog enigma2-plugin-fonts-digi enigma2-plugin-fonts-droidsans enigma2-plugin-fonts-handelgotd enigma2-plugin-fonts-meteocons enigma2-plugin-fonts-opensans enigma2-plugin-fonts-raleway enigma2-plugin-fonts-segoe"
 
 PV = "2.2+git${SRCPV}"
 PKGV = "2.2+git${GITPKGV}"
