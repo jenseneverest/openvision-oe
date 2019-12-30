@@ -13,7 +13,7 @@ PKGV = "git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenViX/skins.git;protocol=git"
 
-DEPENDS += "enigma2 font-roboto-enigma font-valis-hd enigma2-plugin-extensions-yahooweather"
+DEPENDS += "enigma2 enigma2-plugin-fonts-roboto font-valis-hd enigma2-plugin-extensions-yahooweather"
 
 # note that enigma2-skins is just an empty package to satisfy silly dependencies.
 ALLOW_EMPTY_${PN} = "1"
@@ -26,11 +26,11 @@ RDEPENDS_enigma2-plugin-skins-openvix-metrixfhd = "enigma2-plugin-skincomponents
 RDEPENDS_enigma2-plugin-skins-openvix-mynovum-fhd2 = "enigma2-plugin-skincomponents-novum"
 RDEPENDS_enigma2-plugin-skins-openvix-mynovum-fhd2-black = "enigma2-plugin-skincomponents-novum"
 RDEPENDS_enigma2-plugin-skins-openvix-novum-fhd-slim = "enigma2-plugin-skincomponents-novum"
-RDEPENDS_enigma2-plugin-skins-openvix-magic-sd = "font-valis-hd-enigma"
-RDEPENDS_enigma2-plugin-skins-openvix-magic-hd-night = "enigma2-plugin-skins-openvix-mhd-common font-valis-hd-enigma"
-RDEPENDS_enigma2-plugin-skins-openvix-magic-hd-noire = "enigma2-plugin-skins-openvix-mhd-common font-valis-hd-enigma"
-RDEPENDS_enigma2-plugin-skins-openvix-vix-day-hd = "enigma2-plugin-skins-openvix-vix-common font-roboto-enigma"
-RDEPENDS_enigma2-plugin-skins-openvix-vix-night-hd = "enigma2-plugin-skins-openvix-vix-common font-roboto-enigma"
+RDEPENDS_enigma2-plugin-skins-openvix-magic-sd = "enigma2-plugin-fonts-valishd"
+RDEPENDS_enigma2-plugin-skins-openvix-magic-hd-night = "enigma2-plugin-skins-openvix-mhd-common enigma2-plugin-fonts-valishd"
+RDEPENDS_enigma2-plugin-skins-openvix-magic-hd-noire = "enigma2-plugin-skins-openvix-mhd-common enigma2-plugin-fonts-valishd"
+RDEPENDS_enigma2-plugin-skins-openvix-vix-day-hd = "enigma2-plugin-skins-openvix-vix-common enigma2-plugin-fonts-roboto"
+RDEPENDS_enigma2-plugin-skins-openvix-vix-night-hd = "enigma2-plugin-skins-openvix-vix-common enigma2-plugin-fonts-roboto"
 RDEPENDS_enigma2-plugin-skins-openvix-vixbmc-night-hd = "enigma2-plugin-skins-openvix-vixbmc-hd-common"
 RDEPENDS_enigma2-plugin-skins-openvix-vixbmc-slim-hd = "enigma2-plugin-skins-openvix-vixbmc-hd-common"
 RDEPENDS_enigma2-plugin-skins-openvix-vixbmc-metropolis = "enigma2-plugin-skins-openvix-vixbmc-hd-common"

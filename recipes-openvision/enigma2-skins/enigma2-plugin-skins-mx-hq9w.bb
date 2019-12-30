@@ -4,7 +4,7 @@ SECTION = "misc"
 PRIORITY = "optional"
 LICENSE = "CLOSED"
 
-RDEPENDS_${PN} += "font-tiny"
+RDEPENDS_${PN} += "enigma2-plugin-fonts-tiny"
 
 inherit gitpkgv allarch
 
