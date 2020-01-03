@@ -1,6 +1,3 @@
-[submodule "meta-broadmedia"]
-	path = meta-broadmedia
-	url = https://github.com/OpenVisionE2/meta-broadmedia.git
 [submodule "meta-ceryon"]
 	path = meta-ceryon
 	url = https://github.com/OpenVisionE2/meta-ceryon.git
