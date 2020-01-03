@@ -1,6 +1,3 @@
-[submodule "meta-ax"]
-	path = meta-ax
-	url = https://github.com/OpenVisionE2/meta-ax.git
 [submodule "meta-beyonwiz"]
 	path = meta-beyonwiz
 	url = https://github.com/OpenVisionE2/meta-beyonwiz.git
