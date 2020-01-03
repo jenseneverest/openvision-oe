@@ -5,9 +5,6 @@
 	path = meta-dream
 	url = https://github.com/OpenVisionE2/meta-dream.git
 	branch = develop
-[submodule "meta-ebox"]
-	path = meta-ebox
-	url = https://github.com/OpenVisionE2/meta-ebox.git
 [submodule "meta-edision"]
 	path = meta-edision
 	url = https://github.com/OpenVisionE2/meta-edision.git
