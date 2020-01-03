@@ -8,9 +8,6 @@
 [submodule "meta-hypercube"]
 	path = meta-hypercube
 	url = https://github.com/OpenVisionE2/meta-hypercube.git
-[submodule "meta-odroid"]
-	path = meta-odroid
-	url = https://github.com/OpenVisionE2/meta-odroid.git
 [submodule "meta-protek"]
 	path = meta-protek
 	url = https://github.com/OpenVisionE2/meta-protek.git
