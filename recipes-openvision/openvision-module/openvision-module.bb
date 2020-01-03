@@ -18,21 +18,6 @@ do_compile() {
 	oe_runmake -C "${STAGING_KERNEL_BUILDDIR}" M="${S}" modules
 }
 
-do_compile_osmini4k() {
-	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
-	oe_runmake -C "${STAGING_KERNEL_DIR}" M="${S}" modules
-}
-
-do_compile_osmio4k() {
-	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
-	oe_runmake -C "${STAGING_KERNEL_DIR}" M="${S}" modules
-}
-
-do_compile_osmio4kplus() {
-	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
-	oe_runmake -C "${STAGING_KERNEL_DIR}" M="${S}" modules
-}
-
 do_install () {
     install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/openvision
     install -m 0644 ${S}/openvision.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/openvision
