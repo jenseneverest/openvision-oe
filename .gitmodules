@@ -1,6 +1,3 @@
-[submodule "meta-ceryon"]
-	path = meta-ceryon
-	url = https://github.com/OpenVisionE2/meta-ceryon.git
 [submodule "meta-clap"]
 	path = meta-clap
 	url = https://github.com/OpenVisionE2/meta-clap.git
