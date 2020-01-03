@@ -5,9 +5,6 @@
 	path = meta-dream
 	url = https://github.com/OpenVisionE2/meta-dream.git
 	branch = develop
-[submodule "meta-edision"]
-	path = meta-edision
-	url = https://github.com/OpenVisionE2/meta-edision.git
 [submodule "meta-entwopia"]
 	path = meta-entwopia
 	url = https://github.com/OpenVisionE2/meta-entwopia.git
