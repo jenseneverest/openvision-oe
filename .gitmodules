@@ -99,9 +99,6 @@
 [submodule "meta-wetek"]
 	path = meta-wetek
 	url = https://github.com/OpenVisionE2/meta-wetek.git
-[submodule "meta-xcore"]
-	path = meta-xcore
-	url = https://github.com/OpenVisionE2/meta-xcore.git
 [submodule "meta-xp"]
 	path = meta-xp
 	url = https://github.com/OpenVisionE2/meta-xp.git
