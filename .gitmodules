@@ -59,9 +59,6 @@
 [submodule "meta-minix"]
 	path = meta-minix
 	url = https://github.com/OpenVisionE2/meta-minix.git
-[submodule "meta-octagon"]
-	path = meta-octagon
-	url = https://github.com/OpenVisionE2/meta-octagon.git
 [submodule "meta-odin"]
 	path = meta-odin
 	url = https://github.com/OpenVisionE2/meta-odin.git
