@@ -1,6 +1,3 @@
-[submodule "meta-blackbox"]
-	path = meta-blackbox
-	url = https://github.com/OpenVisionE2/meta-blackbox.git
 [submodule "meta-broadmedia"]
 	path = meta-broadmedia
 	url = https://github.com/OpenVisionE2/meta-broadmedia.git
