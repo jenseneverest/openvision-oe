@@ -99,9 +99,6 @@
 [submodule "meta-ultramini"]
 	path = meta-ultramini
 	url = https://github.com/OpenVisionE2/meta-ultramini.git
-[submodule "meta-vuplus"]
-	path = meta-vuplus
-	url = https://github.com/OpenVisionE2/meta-vuplus.git
 [submodule "meta-wetek"]
 	path = meta-wetek
 	url = https://github.com/OpenVisionE2/meta-wetek.git
