@@ -8,6 +8,3 @@
 [submodule "meta-hypercube"]
 	path = meta-hypercube
 	url = https://github.com/OpenVisionE2/meta-hypercube.git
-[submodule "meta-xp"]
-	path = meta-xp
-	url = https://github.com/OpenVisionE2/meta-xp.git
