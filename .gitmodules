@@ -38,9 +38,6 @@
 [submodule "meta-formuler"]
 	path = meta-formuler
 	url = https://github.com/OpenVisionE2/meta-formuler.git
-[submodule "meta-gfutures"]
-	path = meta-gfutures
-	url = https://github.com/OpenVisionE2/meta-gfutures.git
 [submodule "meta-hypercube"]
 	path = meta-hypercube
 	url = https://github.com/OpenVisionE2/meta-hypercube.git
