@@ -11,6 +11,28 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
+rm -rf meta-a*
+rm -rf meta-b*
+rm -rf meta-ce*
+rm -rf meta-cl*
+rm -rf meta-da*
+rm -rf meta-di*
+rm -rf meta-e*
+rm -rf meta-f*
+rm -rf meta-g*
+rm -rf meta-i*
+rm -rf meta-l*
+rm -rf meta-m*
+rm -rf meta-o*
+rm -rf meta-p*
+rm -rf meta-r*
+rm -rf meta-s*
+rm -rf meta-t*
+rm -rf meta-u*
+rm -rf meta-v*
+rm -rf meta-w*
+rm -rf meta-x*
+rm -rf meta-z*
 echo "Open Vision by"
 echo "https://github.com/orgs/OpenVisionE2/people"
 echo ""
