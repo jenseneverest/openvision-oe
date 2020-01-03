@@ -4,9 +4,6 @@
 [submodule "meta-ax"]
 	path = meta-ax
 	url = https://github.com/OpenVisionE2/meta-ax.git
-[submodule "meta-azbox"]
-	path = meta-azbox
-	url = https://github.com/OpenVisionE2/meta-azbox.git
 [submodule "meta-beyonwiz"]
 	path = meta-beyonwiz
 	url = https://github.com/OpenVisionE2/meta-beyonwiz.git
