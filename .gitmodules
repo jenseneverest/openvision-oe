@@ -10,3 +10,6 @@
 [submodule "meta-raspberrypi"]
 	path = meta-raspberrypi
 	url = https://github.com/OpenVisionE2/meta-raspberrypi.git
+[submodule "meta-linkdroid"]
+	path = meta-linkdroid
+	url = https://github.com/OpenVisionE2/meta-linkdroid.git
