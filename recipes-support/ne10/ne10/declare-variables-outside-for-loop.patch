@@ -1,0 +1,1205 @@
+diff --git a/modules/math/NE10_abs.c b/modules/math/NE10_abs.c
+index 3650cfd..68079c7 100644
+--- a/modules/math/NE10_abs.c
++++ b/modules/math/NE10_abs.c
+@@ -38,8 +38,9 @@
+ 
+ ne10_result_t ne10_abs_float_c (ne10_float32_t * dst, ne10_float32_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[itr] = fabs (src[itr]);
+     }
+@@ -48,8 +49,9 @@ ne10_result_t ne10_abs_float_c (ne10_float32_t * dst, ne10_float32_t * src, ne10
+ 
+ ne10_result_t ne10_abs_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = fabs (src[ itr ].x);
+         dst[ itr ].y = fabs (src[ itr ].y);
+@@ -59,8 +61,9 @@ ne10_result_t ne10_abs_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, ne10_uin
+ 
+ ne10_result_t ne10_abs_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = fabs (src[ itr ].x);
+         dst[ itr ].y = fabs (src[ itr ].y);
+@@ -71,8 +74,9 @@ ne10_result_t ne10_abs_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, ne10_uin
+ 
+ ne10_result_t ne10_abs_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = fabs (src[ itr ].x);
+         dst[ itr ].y = fabs (src[ itr ].y);
+diff --git a/modules/math/NE10_add.c b/modules/math/NE10_add.c
+index cd637de..555ea97 100644
+--- a/modules/math/NE10_add.c
++++ b/modules/math/NE10_add.c
+@@ -37,8 +37,9 @@
+ 
+ ne10_result_t ne10_add_float_c (ne10_float32_t * dst, ne10_float32_t * src1, ne10_float32_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src1[ itr ] + src2[ itr ];
+     }
+@@ -47,8 +48,9 @@ ne10_result_t ne10_add_float_c (ne10_float32_t * dst, ne10_float32_t * src1, ne1
+ 
+ ne10_result_t ne10_add_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src1, ne10_vec2f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x + src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y + src2[ itr ].y;
+@@ -58,8 +60,9 @@ ne10_result_t ne10_add_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src1, ne10_ve
+ 
+ ne10_result_t ne10_add_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src1, ne10_vec3f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x + src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y + src2[ itr ].y;
+@@ -70,8 +73,9 @@ ne10_result_t ne10_add_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src1, ne10_ve
+ 
+ ne10_result_t ne10_add_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src1, ne10_vec4f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x + src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y + src2[ itr ].y;
+diff --git a/modules/math/NE10_addc.c b/modules/math/NE10_addc.c
+index b92b103..ed28f69 100644
+--- a/modules/math/NE10_addc.c
++++ b/modules/math/NE10_addc.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_addc_float_c (ne10_float32_t * dst, ne10_float32_t * src, const ne10_float32_t cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src[ itr ] + cst;
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_addc_float_c (ne10_float32_t * dst, ne10_float32_t * src, con
+ 
+ ne10_result_t ne10_addc_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, const ne10_vec2f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x + cst->x;
+         dst[ itr ].y = src[ itr ].y + cst->y;
+@@ -57,8 +59,9 @@ ne10_result_t ne10_addc_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, const n
+ 
+ ne10_result_t ne10_addc_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, const ne10_vec3f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x + cst->x;
+         dst[ itr ].y = src[ itr ].y + cst->y;
+@@ -69,8 +72,9 @@ ne10_result_t ne10_addc_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, const n
+ 
+ ne10_result_t ne10_addc_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src, const ne10_vec4f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x + cst->x;
+         dst[ itr ].y = src[ itr ].y + cst->y;
+diff --git a/modules/math/NE10_addmat.c b/modules/math/NE10_addmat.c
+index 12c7f07..d7e9a8a 100644
+--- a/modules/math/NE10_addmat.c
++++ b/modules/math/NE10_addmat.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_addmat_2x2f_c (ne10_mat2x2f_t * dst, ne10_mat2x2f_t * src1, ne10_mat2x2f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 = src1[ itr ].c1.r1 + src2[ itr ].c1.r1;
+         dst[ itr ].c1.r2 = src1[ itr ].c1.r2 + src2[ itr ].c1.r2;
+@@ -50,8 +51,9 @@ ne10_result_t ne10_addmat_2x2f_c (ne10_mat2x2f_t * dst, ne10_mat2x2f_t * src1, n
+ 
+ ne10_result_t ne10_addmat_3x3f_c (ne10_mat3x3f_t * dst, ne10_mat3x3f_t * src1, ne10_mat3x3f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 = src1[ itr ].c1.r1 + src2[ itr ].c1.r1;
+         dst[ itr ].c1.r2 = src1[ itr ].c1.r2 + src2[ itr ].c1.r2;
+@@ -70,8 +72,9 @@ ne10_result_t ne10_addmat_3x3f_c (ne10_mat3x3f_t * dst, ne10_mat3x3f_t * src1, n
+ 
+ ne10_result_t ne10_addmat_4x4f_c (ne10_mat4x4f_t * dst, ne10_mat4x4f_t * src1, ne10_mat4x4f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 = src1[ itr ].c1.r1 + src2[ itr ].c1.r1;
+         dst[ itr ].c1.r2 = src1[ itr ].c1.r2 + src2[ itr ].c1.r2;
+diff --git a/modules/math/NE10_cross.c b/modules/math/NE10_cross.c
+index d1816e4..110d30c 100644
+--- a/modules/math/NE10_cross.c
++++ b/modules/math/NE10_cross.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_cross_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src1, ne10_vec3f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = (src1[ itr ].y * src2[ itr ].z) - (src1[ itr ].z * src2[ itr ].y);
+         dst[ itr ].y = (src1[ itr ].z * src2[ itr ].x) - (src1[ itr ].x * src2[ itr ].z);
+diff --git a/modules/math/NE10_detmat.c b/modules/math/NE10_detmat.c
+index a3dc3fd..ba5a6b9 100644
+--- a/modules/math/NE10_detmat.c
++++ b/modules/math/NE10_detmat.c
+@@ -37,8 +37,9 @@
+ 
+ ne10_result_t ne10_detmat_2x2f_c (ne10_float32_t * dst, ne10_mat2x2f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = DET2x2 (&src[ itr ]);
+     }
+@@ -47,8 +48,9 @@ ne10_result_t ne10_detmat_2x2f_c (ne10_float32_t * dst, ne10_mat2x2f_t * src, ne
+ 
+ ne10_result_t ne10_detmat_3x3f_c (ne10_float32_t * dst, ne10_mat3x3f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = DET3x3 (& (src[ itr ]));
+     }
+@@ -57,8 +59,9 @@ ne10_result_t ne10_detmat_3x3f_c (ne10_float32_t * dst, ne10_mat3x3f_t * src, ne
+ 
+ ne10_result_t ne10_detmat_4x4f_c (ne10_float32_t * dst, ne10_mat4x4f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = DET4x4 (&src[ itr ]);
+     }
+diff --git a/modules/math/NE10_div.c b/modules/math/NE10_div.c
+index 88e3c32..e335e6d 100644
+--- a/modules/math/NE10_div.c
++++ b/modules/math/NE10_div.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_div_float_c (ne10_float32_t * dst, ne10_float32_t * src1, ne10_float32_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src1[ itr ] / src2[ itr ];
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_div_float_c (ne10_float32_t * dst, ne10_float32_t * src1, ne1
+ 
+ ne10_result_t ne10_vdiv_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src1, ne10_vec2f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x / src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y / src2[ itr ].y;
+@@ -57,8 +59,9 @@ ne10_result_t ne10_vdiv_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src1, ne10_v
+ 
+ ne10_result_t ne10_vdiv_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src1, ne10_vec3f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x / src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y / src2[ itr ].y;
+@@ -69,8 +72,9 @@ ne10_result_t ne10_vdiv_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src1, ne10_v
+ 
+ ne10_result_t ne10_vdiv_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src1, ne10_vec4f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x / src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y / src2[ itr ].y;
+diff --git a/modules/math/NE10_divc.c b/modules/math/NE10_divc.c
+index f27cbef..cacf331 100644
+--- a/modules/math/NE10_divc.c
++++ b/modules/math/NE10_divc.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_divc_float_c (ne10_float32_t * dst, ne10_float32_t * src, const ne10_float32_t cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src[ itr ] / cst;
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_divc_float_c (ne10_float32_t * dst, ne10_float32_t * src, con
+ 
+ ne10_result_t ne10_divc_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, const ne10_vec2f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x / cst->x;
+         dst[ itr ].y = src[ itr ].y / cst->y;
+@@ -57,8 +59,9 @@ ne10_result_t ne10_divc_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, const n
+ 
+ ne10_result_t ne10_divc_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, const ne10_vec3f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x / cst->x;
+         dst[ itr ].y = src[ itr ].y / cst->y;
+@@ -69,8 +72,9 @@ ne10_result_t ne10_divc_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, const n
+ 
+ ne10_result_t ne10_divc_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src, const ne10_vec4f_t * cst, ne10_uint32_t count)
+ {
++	    unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr =0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x / cst->x;
+         dst[ itr ].y = src[ itr ].y / cst->y;
+diff --git a/modules/math/NE10_dot.c b/modules/math/NE10_dot.c
+index e1c8adf..5ba6b27 100644
+--- a/modules/math/NE10_dot.c
++++ b/modules/math/NE10_dot.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_dot_vec2f_c (ne10_float32_t * dst, ne10_vec2f_t * src1,  ne10_vec2f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src1[ itr ].x * src2[ itr ].x +
+                      src1[ itr ].y * src2[ itr ].y;
+@@ -47,8 +48,9 @@ ne10_result_t ne10_dot_vec2f_c (ne10_float32_t * dst, ne10_vec2f_t * src1,  ne10
+ 
+ ne10_result_t ne10_dot_vec3f_c (ne10_float32_t * dst, ne10_vec3f_t * src1, ne10_vec3f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src1[ itr ].x * src2[ itr ].x +
+                      src1[ itr ].y * src2[ itr ].y +
+@@ -59,8 +61,9 @@ ne10_result_t ne10_dot_vec3f_c (ne10_float32_t * dst, ne10_vec3f_t * src1, ne10_
+ 
+ ne10_result_t ne10_dot_vec4f_c (ne10_float32_t * dst, ne10_vec4f_t * src1, ne10_vec4f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src1[ itr ].x * src2[ itr ].x +
+                      src1[ itr ].y * src2[ itr ].y +
+diff --git a/modules/math/NE10_identitymat.c b/modules/math/NE10_identitymat.c
+index ff42750..767652e 100644
+--- a/modules/math/NE10_identitymat.c
++++ b/modules/math/NE10_identitymat.c
+@@ -34,7 +34,8 @@
+ 
+ ne10_result_t ne10_identitymat_2x2f_c (ne10_mat2x2f_t * dst, ne10_uint32_t count)
+ {
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++	unsigned int itr;
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 =  1.0f;
+         dst[ itr ].c1.r2 =  0.0f;
+@@ -46,7 +47,8 @@ ne10_result_t ne10_identitymat_2x2f_c (ne10_mat2x2f_t * dst, ne10_uint32_t count
+ 
+ ne10_result_t ne10_identitymat_3x3f_c (ne10_mat3x3f_t * dst, ne10_uint32_t count)
+ {
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++	unsigned int itr;
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 =  1.0f;
+         dst[ itr ].c1.r2 =  0.0f;
+@@ -65,7 +67,8 @@ ne10_result_t ne10_identitymat_3x3f_c (ne10_mat3x3f_t * dst, ne10_uint32_t count
+ 
+ ne10_result_t ne10_identitymat_4x4f_c (ne10_mat4x4f_t * dst, ne10_uint32_t count)
+ {
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++	unsigned int itr;
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 =  1.0f;
+         dst[ itr ].c1.r2 =  0.0f;
+diff --git a/modules/math/NE10_invmat.c b/modules/math/NE10_invmat.c
+index 4698ccc..07770d8 100644
+--- a/modules/math/NE10_invmat.c
++++ b/modules/math/NE10_invmat.c
+@@ -41,10 +41,11 @@
+ 
+ ne10_result_t ne10_invmat_2x2f_c (ne10_mat2x2f_t * dst, ne10_mat2x2f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     ne10_float32_t det = 0.0f;
+ 
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         det = DET2x2 (&src[ itr ]);
+ 
+@@ -76,9 +77,10 @@ ne10_result_t ne10_invmat_3x3f_c (ne10_mat3x3f_t * dst, ne10_mat3x3f_t * src, ne
+ 
+     ne10_float32_t det = 0.0f;
+     ne10_mat2x2f_t A, B, C, D, E, F, G, H, I;
++	unsigned int itr;
+ 
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         det = DET3x3 (&src[ itr ]);
+ 
+@@ -149,8 +151,9 @@ ne10_result_t ne10_invmat_4x4f_c (ne10_mat4x4f_t * dst, ne10_mat4x4f_t * src, ne
+     ne10_float32_t det = 0.0f;
+     ne10_mat3x3f_t A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P;
+ 
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         det = DET4x4 (&src[ itr ]);
+ 
+diff --git a/modules/math/NE10_len.c b/modules/math/NE10_len.c
+index 46645ed..8becf40 100644
+--- a/modules/math/NE10_len.c
++++ b/modules/math/NE10_len.c
+@@ -38,8 +38,9 @@
+ 
+ ne10_result_t ne10_len_vec2f_c (ne10_float32_t * dst, ne10_vec2f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = sqrt (src[ itr ].x * src[ itr ].x +
+                            src[ itr ].y * src[ itr ].y);
+@@ -49,8 +50,9 @@ ne10_result_t ne10_len_vec2f_c (ne10_float32_t * dst, ne10_vec2f_t * src, ne10_u
+ 
+ ne10_result_t ne10_len_vec3f_c (ne10_float32_t * dst, ne10_vec3f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = sqrt (src[ itr ].x * src[ itr ].x +
+                            src[ itr ].y * src[ itr ].y +
+@@ -61,8 +63,9 @@ ne10_result_t ne10_len_vec3f_c (ne10_float32_t * dst, ne10_vec3f_t * src, ne10_u
+ 
+ ne10_result_t ne10_len_vec4f_c (ne10_float32_t * dst, ne10_vec4f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = sqrt (src[ itr ].x * src[ itr ].x +
+                            src[ itr ].y * src[ itr ].y +
+diff --git a/modules/math/NE10_mla.c b/modules/math/NE10_mla.c
+index 218ae9e..1758244 100644
+--- a/modules/math/NE10_mla.c
++++ b/modules/math/NE10_mla.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_mla_float_c (ne10_float32_t * dst, ne10_float32_t * acc, ne10_float32_t * src1, ne10_float32_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = acc[ itr ] + (src1[ itr ] * src2[ itr ]);
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_mla_float_c (ne10_float32_t * dst, ne10_float32_t * acc, ne10
+ 
+ ne10_result_t ne10_vmla_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * acc, ne10_vec2f_t * src1, ne10_vec2f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = acc[ itr ].x + (src1[ itr ].x * src2[ itr ].x);
+         dst[ itr ].y = acc[ itr ].y + (src1[ itr ].y * src2[ itr ].y);
+@@ -57,8 +59,9 @@ ne10_result_t ne10_vmla_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * acc, ne10_ve
+ 
+ ne10_result_t ne10_vmla_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * acc, ne10_vec3f_t * src1, ne10_vec3f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = acc[ itr ].x + (src1[ itr ].x * src2[ itr ].x);
+         dst[ itr ].y = acc[ itr ].y + (src1[ itr ].y * src2[ itr ].y);
+@@ -69,8 +72,9 @@ ne10_result_t ne10_vmla_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * acc, ne10_ve
+ 
+ ne10_result_t ne10_vmla_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * acc, ne10_vec4f_t * src1, ne10_vec4f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = acc[ itr ].x + (src1[ itr ].x * src2[ itr ].x);
+         dst[ itr ].y = acc[ itr ].y + (src1[ itr ].y * src2[ itr ].y);
+diff --git a/modules/math/NE10_mlac.c b/modules/math/NE10_mlac.c
+index 8171820..57a5f34 100644
+--- a/modules/math/NE10_mlac.c
++++ b/modules/math/NE10_mlac.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_mlac_float_c (ne10_float32_t * dst, ne10_float32_t * acc, ne10_float32_t * src, const ne10_float32_t cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstAccSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = acc[ itr ] + (src[ itr ] * cst);
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_mlac_float_c (ne10_float32_t * dst, ne10_float32_t * acc, ne1
+ 
+ ne10_result_t ne10_mlac_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * acc, ne10_vec2f_t * src, const ne10_vec2f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstAccSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = acc[ itr ].x + (src[ itr ].x * cst->x);
+         dst[ itr ].y = acc[ itr ].y + (src[ itr ].y * cst->y);
+@@ -57,8 +59,9 @@ ne10_result_t ne10_mlac_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * acc, ne10_ve
+ 
+ ne10_result_t ne10_mlac_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * acc, ne10_vec3f_t * src, const ne10_vec3f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstAccSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = acc[ itr ].x + (src[ itr ].x * cst->x);
+         dst[ itr ].y = acc[ itr ].y + (src[ itr ].y * cst->y);
+@@ -69,8 +72,9 @@ ne10_result_t ne10_mlac_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * acc, ne10_ve
+ 
+ ne10_result_t ne10_mlac_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * acc, ne10_vec4f_t * src, const ne10_vec4f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstAccSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = acc[ itr ].x + (src[ itr ].x * cst->x);
+         dst[ itr ].y = acc[ itr ].y + (src[ itr ].y * cst->y);
+diff --git a/modules/math/NE10_mul.c b/modules/math/NE10_mul.c
+index 5b8f1f5..3b2ae8d 100644
+--- a/modules/math/NE10_mul.c
++++ b/modules/math/NE10_mul.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_mul_float_c (ne10_float32_t * dst, ne10_float32_t * src1, ne10_float32_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src1[ itr ] * src2[ itr ];
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_mul_float_c (ne10_float32_t * dst, ne10_float32_t * src1, ne1
+ 
+ ne10_result_t ne10_vmul_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src1, ne10_vec2f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x * src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y * src2[ itr ].y;
+@@ -57,8 +59,9 @@ ne10_result_t ne10_vmul_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src1, ne10_v
+ 
+ ne10_result_t ne10_vmul_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src1, ne10_vec3f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x * src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y * src2[ itr ].y;
+@@ -69,8 +72,9 @@ ne10_result_t ne10_vmul_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src1, ne10_v
+ 
+ ne10_result_t ne10_vmul_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src1, ne10_vec4f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x * src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y * src2[ itr ].y;
+diff --git a/modules/math/NE10_mulc.c b/modules/math/NE10_mulc.c
+index 36a3aa1..fd36301 100644
+--- a/modules/math/NE10_mulc.c
++++ b/modules/math/NE10_mulc.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_mulc_float_c (ne10_float32_t * dst, ne10_float32_t * src, const ne10_float32_t cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src[ itr ] * cst;
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_mulc_float_c (ne10_float32_t * dst, ne10_float32_t * src, con
+ 
+ ne10_result_t ne10_mulc_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, const ne10_vec2f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x * cst->x;
+         dst[ itr ].y = src[ itr ].y * cst->y;
+@@ -57,8 +59,9 @@ ne10_result_t ne10_mulc_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, const n
+ 
+ ne10_result_t ne10_mulc_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, const ne10_vec3f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x * cst->x;
+         dst[ itr ].y = src[ itr ].y * cst->y;
+@@ -69,8 +72,9 @@ ne10_result_t ne10_mulc_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, const n
+ 
+ ne10_result_t ne10_mulc_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src, const ne10_vec4f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x * cst->x;
+         dst[ itr ].y = src[ itr ].y * cst->y;
+diff --git a/modules/math/NE10_mulcmatvec.c b/modules/math/NE10_mulcmatvec.c
+index 11c27f0..660e848 100644
+--- a/modules/math/NE10_mulcmatvec.c
++++ b/modules/math/NE10_mulcmatvec.c
+@@ -41,8 +41,9 @@ ne10_result_t ne10_mulcmatvec_cm2x2f_v2f_c (ne10_vec2f_t * dst, const ne10_mat2x
+ #define C1 cst->c2.r1
+ #define D1 cst->c2.r2
+ 
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = A1 * src[ itr ].x + C1 * src[ itr ].y;
+         dst[ itr ].y = B1 * src[ itr ].x + D1 * src[ itr ].y;
+@@ -67,8 +68,9 @@ ne10_result_t ne10_mulcmatvec_cm3x3f_v3f_c (ne10_vec3f_t * dst, const ne10_mat3x
+ #define H1 cst->c3.r2
+ #define I1 cst->c3.r3
+ 
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = A1 * src[ itr ].x + D1 * src[ itr ].y + G1 * src[ itr ].z;
+         dst[ itr ].y = B1 * src[ itr ].x + E1 * src[ itr ].y + H1 * src[ itr ].z;
+@@ -106,8 +108,9 @@ extern ne10_result_t ne10_mulcmatvec_cm4x4f_v4f_c (ne10_vec4f_t * dst, const ne1
+ #define O1 cst->c4.r3
+ #define P1 cst->c4.r4
+ 
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = A1 * src[ itr ].x + E1 * src[ itr ].y + I1 * src[ itr ].z + M1 * src[ itr ].w;
+         dst[ itr ].y = B1 * src[ itr ].x + F1 * src[ itr ].y + J1 * src[ itr ].z + N1 * src[ itr ].w;
+diff --git a/modules/math/NE10_mulmat.c b/modules/math/NE10_mulmat.c
+index 058c5e9..6ab67fc 100644
+--- a/modules/math/NE10_mulmat.c
++++ b/modules/math/NE10_mulmat.c
+@@ -45,8 +45,9 @@ ne10_result_t ne10_mulmat_2x2f_c (ne10_mat2x2f_t * dst, ne10_mat2x2f_t * src1, n
+ #define D1 src1[ itr ].c2.r2
+ #define D2 src2[ itr ].c2.r2
+ 
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 = (A1 * A2) + (C1 * B2);
+         dst[ itr ].c1.r2 = (B1 * A2) + (D1 * B2);
+@@ -87,8 +88,9 @@ ne10_result_t ne10_mulmat_3x3f_c (ne10_mat3x3f_t * dst, ne10_mat3x3f_t * src1, n
+ #define I1 src1[ itr ].c3.r3
+ #define I2 src2[ itr ].c3.r3
+ 
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 = (A1 * A2) + (D1 * B2) + (G1 * C2);
+         dst[ itr ].c1.r2 = (B1 * A2) + (E1 * B2) + (H1 * C2);
+@@ -162,8 +164,9 @@ ne10_result_t ne10_mulmat_4x4f_c (ne10_mat4x4f_t * dst, ne10_mat4x4f_t * src1, n
+ #define P1 src1[ itr ].c4.r4
+ #define P2 src2[ itr ].c4.r4
+ 
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 = (A1 * A2) + (E1 * B2) + (I1 * C2) + (M1 * D2);
+         dst[ itr ].c1.r2 = (B1 * A2) + (F1 * B2) + (J1 * C2) + (N1 * D2);
+diff --git a/modules/math/NE10_normalize.c b/modules/math/NE10_normalize.c
+index 5c0f475..4772f33 100644
+--- a/modules/math/NE10_normalize.c
++++ b/modules/math/NE10_normalize.c
+@@ -39,9 +39,10 @@
+ ne10_result_t ne10_normalize_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, ne10_uint32_t count)
+ {
+     ne10_float32_t len;
+-
++    unsigned int itr;
++    
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         len = sqrt (src[ itr ].x * src[ itr ].x +
+                     src[ itr ].y * src[ itr ].y) ;
+@@ -55,9 +56,10 @@ ne10_result_t ne10_normalize_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, ne
+ ne10_result_t ne10_normalize_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, ne10_uint32_t count)
+ {
+     ne10_float32_t len;
++	unsigned int itr;
+ 
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         len = sqrt (src[ itr ].x * src[ itr ].x +
+                     src[ itr ].y * src[ itr ].y +
+@@ -73,9 +75,10 @@ ne10_result_t ne10_normalize_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, ne
+ ne10_result_t ne10_normalize_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src, ne10_uint32_t count)
+ {
+     ne10_float32_t len;
++	unsigned int itr;
+ 
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         len = sqrt (src[ itr ].x * src[ itr ].x +
+                     src[ itr ].y * src[ itr ].y +
+diff --git a/modules/math/NE10_rsbc.c b/modules/math/NE10_rsbc.c
+index bf013ad..bf446a2 100644
+--- a/modules/math/NE10_rsbc.c
++++ b/modules/math/NE10_rsbc.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_rsbc_float_c (ne10_float32_t * dst, ne10_float32_t * src, const ne10_float32_t cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = cst - src[ itr ];
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_rsbc_float_c (ne10_float32_t * dst, ne10_float32_t * src, con
+ 
+ ne10_result_t ne10_rsbc_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, const ne10_vec2f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = cst->x - src[ itr ].x;
+         dst[ itr ].y = cst->y - src[ itr ].y;
+@@ -57,8 +59,9 @@ ne10_result_t ne10_rsbc_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, const n
+ 
+ ne10_result_t ne10_rsbc_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, const ne10_vec3f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = cst->x - src[ itr ].x;
+         dst[ itr ].y = cst->y - src[ itr ].y;
+@@ -69,8 +72,9 @@ ne10_result_t ne10_rsbc_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, const n
+ 
+ ne10_result_t ne10_rsbc_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src, const ne10_vec4f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = cst->x - src[ itr ].x;
+         dst[ itr ].y = cst->y - src[ itr ].y;
+diff --git a/modules/math/NE10_setc.c b/modules/math/NE10_setc.c
+index b0d4216..735681f 100644
+--- a/modules/math/NE10_setc.c
++++ b/modules/math/NE10_setc.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_setc_float_c (ne10_float32_t * dst, const ne10_float32_t cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[itr] = cst;
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_setc_float_c (ne10_float32_t * dst, const ne10_float32_t cst,
+ 
+ ne10_result_t ne10_setc_vec2f_c (ne10_vec2f_t * dst, const ne10_vec2f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[itr].x = cst->x;
+         dst[itr].y = cst->y;
+@@ -57,8 +59,9 @@ ne10_result_t ne10_setc_vec2f_c (ne10_vec2f_t * dst, const ne10_vec2f_t * cst, n
+ 
+ ne10_result_t ne10_setc_vec3f_c (ne10_vec3f_t * dst, const ne10_vec3f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[itr].x = cst->x;
+         dst[itr].y = cst->y;
+@@ -69,8 +72,9 @@ ne10_result_t ne10_setc_vec3f_c (ne10_vec3f_t * dst, const ne10_vec3f_t * cst, n
+ 
+ ne10_result_t ne10_setc_vec4f_c (ne10_vec4f_t * dst, const ne10_vec4f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[itr].x = cst->x;
+         dst[itr].y = cst->y;
+diff --git a/modules/math/NE10_sub.c b/modules/math/NE10_sub.c
+index 3628e6f..7385e2e 100644
+--- a/modules/math/NE10_sub.c
++++ b/modules/math/NE10_sub.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_sub_float_c (ne10_float32_t * dst, ne10_float32_t * src1, ne10_float32_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src1[ itr ] - src2[ itr ];
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_sub_float_c (ne10_float32_t * dst, ne10_float32_t * src1, ne1
+ 
+ ne10_result_t ne10_sub_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src1, ne10_vec2f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x - src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y - src2[ itr ].y;
+@@ -57,8 +59,9 @@ ne10_result_t ne10_sub_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src1, ne10_ve
+ 
+ ne10_result_t ne10_sub_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src1, ne10_vec3f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x - src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y - src2[ itr ].y;
+@@ -69,8 +72,9 @@ ne10_result_t ne10_sub_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src1, ne10_ve
+ 
+ ne10_result_t ne10_sub_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src1, ne10_vec4f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src1[ itr ].x - src2[ itr ].x;
+         dst[ itr ].y = src1[ itr ].y - src2[ itr ].y;
+diff --git a/modules/math/NE10_subc.c b/modules/math/NE10_subc.c
+index 28758c9..8f2370a 100644
+--- a/modules/math/NE10_subc.c
++++ b/modules/math/NE10_subc.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_subc_float_c (ne10_float32_t * dst, ne10_float32_t * src, const ne10_float32_t cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ] = src[ itr ] - cst;
+     }
+@@ -46,8 +47,9 @@ ne10_result_t ne10_subc_float_c (ne10_float32_t * dst, ne10_float32_t * src, con
+ 
+ ne10_result_t ne10_subc_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, const ne10_vec2f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x - cst->x;
+         dst[ itr ].y = src[ itr ].y - cst->y;
+@@ -57,8 +59,9 @@ ne10_result_t ne10_subc_vec2f_c (ne10_vec2f_t * dst, ne10_vec2f_t * src, const n
+ 
+ ne10_result_t ne10_subc_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, const ne10_vec3f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x - cst->x;
+         dst[ itr ].y = src[ itr ].y - cst->y;
+@@ -69,8 +72,9 @@ ne10_result_t ne10_subc_vec3f_c (ne10_vec3f_t * dst, ne10_vec3f_t * src, const n
+ 
+ ne10_result_t ne10_subc_vec4f_c (ne10_vec4f_t * dst, ne10_vec4f_t * src, const ne10_vec4f_t * cst, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrcCst;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].x = src[ itr ].x - cst->x;
+         dst[ itr ].y = src[ itr ].y - cst->y;
+diff --git a/modules/math/NE10_submat.c b/modules/math/NE10_submat.c
+index 2c78689..b48c727 100644
+--- a/modules/math/NE10_submat.c
++++ b/modules/math/NE10_submat.c
+@@ -36,8 +36,9 @@
+ 
+ ne10_result_t ne10_submat_2x2f_c (ne10_mat2x2f_t * dst, ne10_mat2x2f_t * src1, ne10_mat2x2f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 = src1[ itr ].c1.r1 - src2[ itr ].c1.r1;
+         dst[ itr ].c1.r2 = src1[ itr ].c1.r2 - src2[ itr ].c1.r2;
+@@ -50,8 +51,9 @@ ne10_result_t ne10_submat_2x2f_c (ne10_mat2x2f_t * dst, ne10_mat2x2f_t * src1, n
+ 
+ ne10_result_t ne10_submat_3x3f_c (ne10_mat3x3f_t * dst, ne10_mat3x3f_t * src1, ne10_mat3x3f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 = src1[ itr ].c1.r1 - src2[ itr ].c1.r1;
+         dst[ itr ].c1.r2 = src1[ itr ].c1.r2 - src2[ itr ].c1.r2;
+@@ -70,8 +72,9 @@ ne10_result_t ne10_submat_3x3f_c (ne10_mat3x3f_t * dst, ne10_mat3x3f_t * src1, n
+ 
+ ne10_result_t ne10_submat_4x4f_c (ne10_mat4x4f_t * dst, ne10_mat4x4f_t * src1, ne10_mat4x4f_t * src2, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc1Src2;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 = src1[ itr ].c1.r1 - src2[ itr ].c1.r1;
+         dst[ itr ].c1.r2 = src1[ itr ].c1.r2 - src2[ itr ].c1.r2;
+diff --git a/modules/math/NE10_transmat.c b/modules/math/NE10_transmat.c
+index f516a11..fa7f2c6 100644
+--- a/modules/math/NE10_transmat.c
++++ b/modules/math/NE10_transmat.c
+@@ -44,8 +44,9 @@ inline void swap (ne10_float32_t *a, ne10_float32_t *b)
+ 
+ ne10_result_t ne10_transmat_2x2f_c (ne10_mat2x2f_t * dst, ne10_mat2x2f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 =  src[ itr ].c1.r1;
+         dst[ itr ].c1.r2 =  src[ itr ].c2.r1;
+@@ -57,8 +58,9 @@ ne10_result_t ne10_transmat_2x2f_c (ne10_mat2x2f_t * dst, ne10_mat2x2f_t * src,
+ 
+ ne10_result_t ne10_transmat_3x3f_c (ne10_mat3x3f_t * dst, ne10_mat3x3f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 =  src[ itr ].c1.r1;
+         dst[ itr ].c1.r2 =  src[ itr ].c2.r1;
+@@ -77,8 +79,9 @@ ne10_result_t ne10_transmat_3x3f_c (ne10_mat3x3f_t * dst, ne10_mat3x3f_t * src,
+ 
+ ne10_result_t ne10_transmat_4x4f_c (ne10_mat4x4f_t * dst, ne10_mat4x4f_t * src, ne10_uint32_t count)
+ {
++	unsigned int itr;
+     NE10_CHECKPOINTER_DstSrc;
+-    for ( unsigned int itr = 0; itr < count; itr++ )
++    for ( itr = 0; itr < count; itr++ )
+     {
+         dst[ itr ].c1.r1 =  src[ itr ].c1.r1;
+         dst[ itr ].c1.r2 =  src[ itr ].c2.r1;
+diff --git a/samples/NE10_sample_complex_fft.c b/samples/NE10_sample_complex_fft.c
+index bd5603e..6b615be 100644
+--- a/samples/NE10_sample_complex_fft.c
++++ b/samples/NE10_sample_complex_fft.c
+@@ -43,6 +43,7 @@
+  */
+ int complex_fft_sample_main(void)
+ {
++	int i;
+     ne10_fft_cpx_float32_t src[SAMPLES]; // A source array of input data
+     ne10_fft_cpx_float32_t dst[SAMPLES]; // A destination array for the transformed data
+     ne10_fft_cfg_float32_t cfg;          // An FFT "configuration structure"
+@@ -60,7 +61,7 @@ int complex_fft_sample_main(void)
+     cfg = ne10_fft_alloc_c2c_float32 (SAMPLES);
+ 
+     // Generate test input values (with both real and imaginary components)
+-    for (int i = 0; i < SAMPLES; i++)
++    for (i = 0; i < SAMPLES; i++)
+     {
+         src[i].r = (ne10_float32_t) rand() / RAND_MAX * 50.0f;
+         src[i].i = (ne10_float32_t) rand() / RAND_MAX * 50.0f;
+@@ -70,7 +71,7 @@ int complex_fft_sample_main(void)
+     ne10_fft_c2c_1d_float32 (dst, src, cfg, 0);
+ 
+     // Display the results
+-    for (int i = 0; i < SAMPLES; i++)
++    for (i = 0; i < SAMPLES; i++)
+     {
+         printf( "IN[%2d]: %10.4f + %10.4fi\t", i, src[i].r, src[i].i);
+         printf("OUT[%2d]: %10.4f + %10.4fi\n", i, dst[i].r, dst[i].i);
+diff --git a/samples/NE10_sample_fir.c b/samples/NE10_sample_fir.c
+index 8a2e2f9..4fdefbe 100644
+--- a/samples/NE10_sample_fir.c
++++ b/samples/NE10_sample_fir.c
+@@ -46,6 +46,7 @@
+  */
+ int fir_sample_main(void)
+ {
++	int i, b;
+     ne10_float32_t src[BUFFSIZE]; // A source array of input data
+     ne10_float32_t dst[BUFFSIZE]; // A destination array for the transformed data
+     ne10_float32_t st[NUMTAPS + BLOCKSIZE - 1]; // A "state" buffer for use within the FIR
+@@ -69,20 +70,20 @@ int fir_sample_main(void)
+     }
+ 
+     // Generate test coefficient values
+-    for (int i = 0; i < NUMTAPS; i++)
++    for (i = 0; i < NUMTAPS; i++)
+     {
+         coeffs[i] = (ne10_float32_t) rand() / RAND_MAX * 5.0f;
+     }
+ 
+     // Generate test input values
+-    for (int i = 0; i < BUFFSIZE; i++)
++    for (i = 0; i < BUFFSIZE; i++)
+     {
+         src[i] = (ne10_float32_t) rand() / RAND_MAX * 20.0f;
+     }
+ 
+     // Perform the FIR filtering of the input buffer in `NUMBLOCKS` blocks of `BLOCKSIZE`
+     // elements using the parameters set up in the FIR instance structure `cfg`.
+-    for (int b = 0; b < NUMBLOCKS; b++)
++    for (b = 0; b < NUMBLOCKS; b++)
+     {
+         ne10_fir_float (&cfg, src + (b * BLOCKSIZE), dst + (b * BLOCKSIZE), BLOCKSIZE);
+     }
+@@ -90,11 +91,11 @@ int fir_sample_main(void)
+     // Display the results (dst[i] = b[0] * src[i] + b[1] * src[i - 1] + b[2] * src[i - 2]
+     //                               + ... + b[NUMTAPS - 1] * src[i - (NUMTAPS - 1)])
+     printf("Coefficients:\n");
+-    for (int i = NUMTAPS - 1; i >= 0; i--)
++    for (i = NUMTAPS - 1; i >= 0; i--)
+     {
+         printf("\tb[%d] = %5.4f\n", NUMTAPS - (i + 1), coeffs[i]);
+     }
+-    for (int i = 0; i < BUFFSIZE; i++)
++    for (i = 0; i < BUFFSIZE; i++)
+     {
+         printf( "IN[%2d]: %9.4f\t", i, src[i]);
+         printf("OUT[%2d]: %9.4f\n", i, dst[i]);
+diff --git a/samples/NE10_sample_intro.c b/samples/NE10_sample_intro.c
+index 419adf8..53aff99 100644
+--- a/samples/NE10_sample_intro.c
++++ b/samples/NE10_sample_intro.c
+@@ -44,12 +44,13 @@
+  */
+ void test_add_dynamic (void)
+ {
++	int i;
+     ne10_float32_t src[ARR_LEN]; // A source array of scalar floats
+     ne10_float32_t cst;          // A constant scalar to add to the elements in `src`
+     ne10_float32_t dst[ARR_LEN]; // A destination array for the results of the addition
+ 
+     // Generate test input values for `src` and `cst` using `rand()`
+-    for (int i = 0; i < ARR_LEN; i++)
++    for (i = 0; i < ARR_LEN; i++)
+     {
+         src[i] = (ne10_float32_t) rand() / RAND_MAX * 5.0f;
+     }
+@@ -61,7 +62,7 @@ void test_add_dynamic (void)
+ 
+     // Display the results
+     printf("test_intro[test_add_dynamic]:\n");
+-    for (int i = 0; i < ARR_LEN; i++)
++    for (i = 0; i < ARR_LEN; i++)
+     {
+         printf("\tne10_addc_float:\t%f + %f = %f\n", src[i], cst, dst[i]);
+     }
+@@ -73,12 +74,13 @@ void test_add_dynamic (void)
+  */
+ void test_add_static (void)
+ {
++	int i;
+     ne10_float32_t src[ARR_LEN];
+     ne10_float32_t cst;
+     ne10_float32_t dst_c[ARR_LEN];
+     ne10_float32_t dst_neon[ARR_LEN];
+ 
+-    for (int i = 0; i < ARR_LEN; i++)
++    for (i = 0; i < ARR_LEN; i++)
+     {
+         src[i] = (ne10_float32_t) rand() / RAND_MAX * 5.0f;
+     }
+@@ -88,7 +90,7 @@ void test_add_static (void)
+     ne10_addc_float_neon (dst_neon, src, cst, ARR_LEN);
+ 
+     printf("test_intro[test_add_static]:\n");
+-    for (int i = 0; i < ARR_LEN; i++)
++    for (i = 0; i < ARR_LEN; i++)
+     {
+         printf("\tne10_addc_float_c:\t%f + %f = %f\n", src[i], cst, dst_c[i]);
+         printf("\tne10_addc_float_neon:\t%f + %f = %f\n", src[i], cst, dst_neon[i]);
+diff --git a/samples/NE10_sample_matrix_multiply.c b/samples/NE10_sample_matrix_multiply.c
+index 3bd6c1d..65e3f4d 100644
+--- a/samples/NE10_sample_matrix_multiply.c
++++ b/samples/NE10_sample_matrix_multiply.c
+@@ -58,7 +58,8 @@ int matrix_multiply_sample_main(void)
+     }
+ 
+     // Generate test input values
+-    for (int i = 0; i < MATRICES; i++)
++    int i;
++    for (i = 0; i < MATRICES; i++)
+     {
+         initialise_matrix(&src[i]);
+         initialise_matrix(&mul[i]);
+@@ -68,7 +69,7 @@ int matrix_multiply_sample_main(void)
+     ne10_mulmat_3x3f (dst, src, mul, MATRICES);
+ 
+     // Display the results (src[i] * mul[i] == dst[i])
+-    for (int i = 0; i < MATRICES; i++)
++    for (i = 0; i < MATRICES; i++)
+     {
+         printf("[ %5.2f %5.2f %5.2f     [ %5.2f %5.2f %5.2f     [ %5.2f %5.2f %5.2f\n",
+             src[i].c1.r1, src[i].c2.r1, src[i].c3.r1,
