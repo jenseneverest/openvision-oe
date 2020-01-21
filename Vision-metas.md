@@ -1,23 +1,41 @@
-# Here is the list of what we support:
+# Here is the list of what 7.3 supports:
 
 # Cube
 * cube
 
 # Dreambox
-* dm500hd
-* dm500hdv2
-* dm520
-* dm7020hd
-* dm7020hdv2
-* dm7080
 * dm800
-* dm8000
-* dm800se
-* dm800sev2
-* dm820
-* dm900
-* dm920
-* dreamone
 
 # HyperCube
 * su980
+
+# Linkdroid
+* alien4
+* alien5
+* c300
+* c300pro
+* c400plus
+* k1plus
+* k1pro
+* k2pro
+* k2prov2
+* k3pro
+* kvim2
+
+# MINIX
+* x8hp
+
+# Odroid
+* odroidc2
+
+# RaspberryPi
+* raspberrypi
+* raspberrypi0
+* raspberrypi2
+* raspberrypi3
+* raspberrypi4
+
+# WeTek
+* wetekhub
+* wetekplay
+* wetekplay2

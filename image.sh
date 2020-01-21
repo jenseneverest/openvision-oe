@@ -22,7 +22,8 @@ fi
 echo -e "Check ${NC}Vision-metas.md ${BLUE}and enter a meta or a specific machine to compile."
 echo -e "Answers are in ${GREEN}green:${NC}"
 echo -e ""
-echo -e "${GREEN}Cube ${NC}- ${GREEN}Dreambox ${NC}- ${GREEN}HyperCube ${NC}- ${GREEN}Specific"
+echo -e "${GREEN}Cube ${NC}- ${GREEN}Dreambox ${NC}- ${GREEN}HyperCube ${NC}- ${GREEN}Linkdroid"
+echo -e "MINIX ${NC}- ${GREEN}Odroid ${NC}- ${GREEN}RaspberryPi ${NC}- ${GREEN}WeTek ${NC}- ${GREEN}Specific"
 echo -e ""
 echo -e "${GREEN}Specific${BLUE}: You have a specific machine in mind, Check ${NC}Vision-metas.md"
 echo -e ""
@@ -30,7 +31,7 @@ echo -e "${BLUE}Enter the meta name:${NC}"
 echo -e "${GREEN}"
 read META
 echo -e "${NC}"
-if [ $META != "Cube" -a $META != "Dreambox" -a $META != "HyperCube" -a $META != "Specific" ]
+if [ $META != "Cube" -a $META != "Dreambox" -a $META != "HyperCube" -a $META != "Linkdroid" -a $META != "MINIX" -a $META != "Odroid" -a $META != "RaspberryPi" -a $META != "WeTek" -a $META != "Specific" ]
 then
 	echo -e "${BLUE}Not a valid answer!${NC}"
 	echo -e ""
@@ -129,24 +130,47 @@ then
 fi
 if [ $META = "Dreambox" ]
 then
-	MACHINE=dm500hd $IMAGECMD
-	MACHINE=dm500hdv2 $IMAGECMD
-	MACHINE=dm520 $IMAGECMD
-	MACHINE=dm7020hd $IMAGECMD
-	MACHINE=dm7020hdv2 $IMAGECMD
-	MACHINE=dm7080 $IMAGECMD
 	MACHINE=dm800 $IMAGECMD
-	MACHINE=dm8000 $IMAGECMD
-	MACHINE=dm800se $IMAGECMD
-	MACHINE=dm800sev2 $IMAGECMD
-	MACHINE=dm820 $IMAGECMD
-	MACHINE=dm900 $IMAGECMD
-	MACHINE=dm920 $IMAGECMD
-	MACHINE=dreamone $IMAGECMD
 fi
 if [ $META = "HyperCube" ]
 then
 	MACHINE=su980 $IMAGECMD
+fi
+if [ $META = "Linkdroid" ]
+then
+	MACHINE=alien4 $IMAGECMD
+	MACHINE=alien5 $IMAGECMD
+	MACHINE=c300 $IMAGECMD
+	MACHINE=c300pro $IMAGECMD
+	MACHINE=c400plus $IMAGECMD
+	MACHINE=k1plus $IMAGECMD
+	MACHINE=k1pro $IMAGECMD
+	MACHINE=k2pro $IMAGECMD
+	MACHINE=k2prov2 $IMAGECMD
+	MACHINE=k3pro $IMAGECMD
+	MACHINE=kvim2 $IMAGECMD
+fi
+if [ $META = "MINIX" ]
+then
+	MACHINE=x8hp $IMAGECMD
+fi
+if [ $META = "Odroid" ]
+then
+	MACHINE=odroidc2 $IMAGECMD
+fi
+if [ $META = "RaspberryPi" ]
+then
+	MACHINE=raspberrypi $IMAGECMD
+	MACHINE=raspberrypi0 $IMAGECMD
+	MACHINE=raspberrypi2 $IMAGECMD
+	MACHINE=raspberrypi3 $IMAGECMD
+	MACHINE=raspberrypi4 $IMAGECMD
+fi
+if [ $META = "WeTek" ]
+then
+	MACHINE=wetekhub $IMAGECMD
+	MACHINE=wetekplay $IMAGECMD
+	MACHINE=wetekplay2 $IMAGECMD
 fi
 echo -e ""
 echo -e "${BLUE}Done, the compiled image is in ${NC}build/tmp/deploy/images/${GREEN}$MACHINE$MACHINESPECIFIC ${BLUE}folder!"
