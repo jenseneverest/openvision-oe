@@ -133,7 +133,6 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto", "", d)} \
 	libavahi-client \
 	libcrypto-compat \
-	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "lirc lirc-plugins", "", d)} \
 	settings-autorestore \
 	tuxbox-links \
 	${@bb.utils.contains_any("MACHINE", "vuuno4kse vuultimo4k vuduo4k", "vuplus-hdmi-in-helper", "", d)} \

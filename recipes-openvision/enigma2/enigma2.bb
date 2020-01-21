@@ -4,13 +4,12 @@ MAINTAINER = "Open Vision Developers"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-DEPENDS = " \
+DEPENDS = "\
 	avahi \
 	freetype \
 	gettext-native \
 	jpeg \
 	libdreamdvd libdvbsi++ libfribidi libmad libpng libsigc++-2.0 giflib libxml2 \
-	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "libdvbcsa libnl userland ffmpeg e2-rpihddevice", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	openssl libudfread \
 	python-imaging python-twisted python-wifi \
@@ -19,17 +18,25 @@ DEPENDS = " \
 	"
 
 DEPENDS_append_sh4 += "\
-	libmme-image libmme-host \
+	libmme-image \
+	libmme-host \
 	"
 
-RDEPENDS_${PN} = " \
+DEPENDS_append_rpi += "\
+	e2-rpihddevice \
+	ffmpeg \
+	libdvbcsa \
+	libnl \
+	userland \
+	"
+
+RDEPENDS_${PN} = "\
 	alsa-conf \
 	enigma2-fonts \
 	enigma2-plugin-extensions-pespeedup \
 	ethtool \
 	glibc-gconv-iso8859-15 \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "glibc-gconv-cp1250", d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "rpi-vision", "libdvbcsa e2-rpihddevice", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	ntpdate \
 	openvision-branding \
@@ -41,6 +48,11 @@ RDEPENDS_${PN}_append_sh4 += "\
 	libmme-host \
 	"
 
+RDEPENDS_${PN}_append_rpi += "\
+	e2-rpihddevice \
+	libdvbcsa \
+	"
+
 RRECOMMENDS_${PN} = "\
 	hotplug-e2-helper \
 	glibc-gconv-utf-16 \
@@ -49,7 +61,7 @@ RRECOMMENDS_${PN} = "\
 	virtual/enigma2-mediaservice \
 	"
 
-PYTHON_RDEPS = " \
+PYTHON_RDEPS = "\
 	python-codecs \
 	python-core \
 	python-crypt \
@@ -116,9 +128,7 @@ RDEPENDS_${PN}-build-dependencies = "\
 	wpa-supplicant wireless-tools python-wifi \
 	"
 
-RRECOMMENDS_${PN}-build-dependencies = "\
-	kernel-module-udf \
-	"
+RRECOMMENDS_${PN}-build-dependencies = "kernel-module-udf"
 
 inherit gitpkgv pythonnative upx_compress autotools pkgconfig
 
