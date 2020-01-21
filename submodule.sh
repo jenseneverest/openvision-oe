@@ -59,14 +59,20 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-dream
-	echo "Checking out meta-dream develop branch:"
+	cd meta-dm800
+	echo "Checking out meta-dm800 develop branch:"
 	git checkout develop
 	git pull
 	echo -e "\n"
 	cd ..
 	cd meta-hypercube
 	echo "Checking out meta-hypercube develop branch:"
+	git checkout develop
+	git pull
+	echo -e "\n"
+	cd ..
+	cd meta-raspberrypi
+	echo "Checking out meta-raspberrypi develop branch:"
 	git checkout develop
 	git pull
 	echo -e "\n"
