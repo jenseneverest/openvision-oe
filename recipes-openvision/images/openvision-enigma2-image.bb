@@ -11,7 +11,7 @@ KERNEL_WIFI_DRIVERS += "\
 	firmware-rtl8712u \
 	firmware-zd1211 \
 	${@bb.utils.contains_any("MACHINE", "c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 cube su980 et13000 alien5 alien4 sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
-	${@bb.utils.contains_any("MACHINE", "c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 cube su980 et13000 alien5 alien4 sf5008 beyonwizu4 hs7429 hs7420 hs7119 hs7110 fortis_hdbox cuberevo_mini cuberevo_mini2 cuberevo cuberevo_9500hd cuberevo_3000hd cuberevo_250hd cuberevo_2000hd atevio7500 hs7810a hs7819 ipbox55 ipbox9900 ipbox99 tf7700 ufs910 ufs912 dreamone et1x000", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
+	${@bb.utils.contains_any("MACHINE", "c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 cube su980 et13000 alien5 alien4 sf5008 beyonwizu4 hs7429 hs7420 hs7119 hs7110 fortis_hdbox cuberevo_mini cuberevo_mini2 cuberevo cuberevo_9500hd cuberevo_3000hd cuberevo_250hd cuberevo_2000hd atevio7500 hs7810a hs7819 ipbox55 ipbox9900 ipbox99 tf7700 ufs910 ufs912 dreamone et1x000 forever_2424hd forever_3434hd forever_9898hd forever_nanosmart", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
     "
 
 KERNEL_WIFI_DRIVERS_remove_sh4 += "\
@@ -24,7 +24,7 @@ EXTRA_KERNEL_WIFI_DRIVERS += "\
 	firmware-rtl8188eu \
 	firmware-rtl8192cu \
 	${@bb.utils.contains_any("MACHINE", "ventonhdx beyonwizt3 mbtwin sezam5000hd c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 alien4 dm500hdv2 dm800sev2 dm7020hd dm7020hdv2 dm8000 dm7080 dm520 dm820 azboxme azboxminime ebox5000 cube force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1plus optimussos1 optimussos2 worldvisionf1plus worldvisionf1 tmtwin tmsingle tmnano tmnano3t tmnano2t tmnano2super tm2t optimussos3plus optimussos2plus wetekplay wetekplay2 wetekhub ebox5100 ebox7358 eboxlumi ixusszero ixussone x8hp maram9 su980 vusolo vuduo vuuno vuultimo dreamone gb800se et5x00 et6x00 et9x00 gb800solo gb800ue", "", "kernel-module-r8188eu", d)} \
-	${@bb.utils.contains_any("MACHINE", "c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 alien4 cube wetekplay wetekplay2 wetekhub odroidc2 ixussone ixusszero su980 maram9 et13000 x8hp sf5008 beyonwizu4 dreamone et1x000", "", "kernel-module-rtl8192cu", d)} \
+	${@bb.utils.contains_any("MACHINE", "c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 alien4 cube wetekplay wetekplay2 wetekhub odroidc2 ixussone ixusszero su980 maram9 et13000 x8hp sf5008 beyonwizu4 dreamone et1x000 forever_2424hd forever_3434hd forever_9898hd forever_nanosmart", "", "kernel-module-rtl8192cu", d)} \
 	"
 
 EXTRA_KERNEL_WIFI_DRIVERS_remove_sh4 += "kernel-module-r8188eu"
