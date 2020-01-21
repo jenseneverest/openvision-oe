@@ -26,4 +26,3 @@ do_install() {
     install -m 755 ${S}/hairtunes ${D}/${bindir}
 }
 
-INSANE_SKIP_${PN} += "already-stripped ldflags"

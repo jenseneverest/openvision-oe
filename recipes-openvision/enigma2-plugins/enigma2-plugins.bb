@@ -199,7 +199,6 @@ do_compile_append() {
 ALLOW_EMPTY_${PN} = "1"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies enigma2-plugin-skincomponents-channelselectionshorttitle enigma2-plugin-skincomponents-channelselectionshorttitle-src enigma2-plugin-skincomponents-eventlist enigma2-plugin-skincomponents-eventlist-src enigma2-plugin-skincomponents-eventposition enigma2-plugin-skincomponents-eventposition-src enigma2-plugin-skincomponents-weathercomponent enigma2-plugin-skincomponents-weathercomponent-src enigma2-plugin-skincomponents-reftopiconname enigma2-plugin-skincomponents-reftopiconname-src"
 FILES_${PN}-meta = "${datadir}/meta"
-INSANE_SKIP_${PN} += "build-deps"
 
 EXTRA_OECONF = "\
     BUILD_SYS=${BUILD_SYS} \

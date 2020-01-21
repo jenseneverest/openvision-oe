@@ -103,7 +103,6 @@ pkg_postinst_${PN} () {
     exit 0
 }
 
-INSANE_SKIP_${PN} += "already-stripped"
 
 do_rm_work() {
 }

@@ -46,4 +46,3 @@ exit 0
 do_package_qa() {
 }
 
-INSANE_SKIP_${PN} += "already-stripped"

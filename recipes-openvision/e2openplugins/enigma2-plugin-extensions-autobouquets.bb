@@ -17,7 +17,6 @@ AUTOBOUQUETS_BRANCH ?= "release"
 PV = "2.2+git${SRCPV}"
 PKGV = "2.2+git${GITPKGV}"
 
-INSANE_SKIP_${PN} += "already-stripped"
 
 SRC_URI="git://github.com/LraiZer/AutoBouquets.git;branch=${AUTOBOUQUETS_BRANCH}"
 

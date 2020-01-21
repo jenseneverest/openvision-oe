@@ -20,4 +20,3 @@ do_configure_prepend() {
 }
 
 CPPFLAGS_append = " -DPNG_ARM_NEON_OPT=0"
-INSANE_SKIP_${PN} = "already-stripped"

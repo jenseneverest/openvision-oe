@@ -83,9 +83,6 @@ python populate_packages_prepend() {
 FILES_${MLPREFIX}libasound-module-rate-lavcrate += "${libdir}/alsa-lib/*rate_lavcrate_*.so"
 FILES_${MLPREFIX}libasound-module-rate-samplerate += "${libdir}/alsa-lib/*rate_samplerate_*.so"
 FILES_${MLPREFIX}libasound-module-rate-speexrate += "${libdir}/alsa-lib/*rate_speexrate_*.so"
-INSANE_SKIP_${MLPREFIX}libasound-module-rate-lavcrate = "dev-so"
-INSANE_SKIP_${MLPREFIX}libasound-module-rate-samplerate = "dev-so"
-INSANE_SKIP_${MLPREFIX}libasound-module-rate-speexrate = "dev-so"
 
 # 50-pulseaudio.conf defines a device named "pulse" that applications can use
 # if they explicitly want to use the PulseAudio plugin.

@@ -65,4 +65,3 @@ do_install_append() {
 }
 
 FILES_${PN}-dev_append = " ${includedir}/linux/tc_ematch/*.h ${includedir}/linux/nl80211.h"
-INSANE_SKIP_${PN}-dev = "dev-elf"

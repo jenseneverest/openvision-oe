@@ -15,7 +15,6 @@ inherit autotools pkgconfig
 
 PACKAGES = "${PN}-dbg ${PN} ${PN}-doc ${PN}-dev"
 
-INSANE_SKIP_${PN} = "dev-so"
 
 RRECOMMENDS_${PN} = "kernel-module-appletalk"
 

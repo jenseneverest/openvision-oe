@@ -145,8 +145,6 @@ FILES_${PN}-apps = "${bindir}/* ${datadir}/OpenCV"
 FILES_${PN}-java = "${datadir}/OpenCV/java"
 FILES_${PN}-samples = "${datadir}/OpenCV/samples/"
 
-INSANE_SKIP_${PN}-java = "libdir"
-INSANE_SKIP_${PN}-dbg = "libdir"
 
 ALLOW_EMPTY_${PN} = "1"
 

@@ -23,7 +23,6 @@ INITSCRIPT_PARAMS = "defaults 20"
 
 PACKAGES = "${PN}-atalkd ${PN}-pap ${PN}-timelord ${PN}-dbg ${PN} ${PN}-doc ${PN}-dev ${PN}-staticdev"
 
-INSANE_SKIP_${PN} = "dev-so"
 
 RRECOMMENDS_${PN}-atalkd = "kernel-module-appletalk"
 

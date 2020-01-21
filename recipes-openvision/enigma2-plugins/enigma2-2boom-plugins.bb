@@ -77,7 +77,6 @@ do_compile_append() {
 }
 
 ALLOW_EMPTY_${PN} = "1"
-INSANE_SKIP_${PN} += "build-deps"
 
 EXTRA_OECONF = "\
     BUILD_SYS=${BUILD_SYS} \

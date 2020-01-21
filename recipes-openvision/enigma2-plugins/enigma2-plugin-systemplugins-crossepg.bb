@@ -20,7 +20,6 @@ ALLOW_EMPTY_${PN} = "1"
 CFLAGS_append = " -I${STAGING_INCDIR}/libxml2/ -I${STAGING_INCDIR}/${PYTHON_DIR}/"
 
 # prevent lots of QA warnings
-INSANE_SKIP_${PN} += "already-stripped file-rdeps"
 
 S = "${WORKDIR}/git"
 

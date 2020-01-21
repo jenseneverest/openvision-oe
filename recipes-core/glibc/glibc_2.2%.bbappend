@@ -5,4 +5,3 @@ SRC_URI_append_sh4 += "\
     file://sh4-trap.patch \
 "
 
-INSANE_SKIP_${PN} += "textrel"

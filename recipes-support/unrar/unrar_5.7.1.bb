@@ -26,4 +26,3 @@ do_install() {
     oe_runmake install
 }
 
-INSANE_SKIP_${PN} = "already-stripped ldflags"
