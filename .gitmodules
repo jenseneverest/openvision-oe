@@ -13,3 +13,6 @@
 [submodule "meta-linkdroid"]
 	path = meta-linkdroid
 	url = https://github.com/OpenVisionE2/meta-linkdroid.git
+[submodule "meta-minix"]
+	path = meta-minix
+	url = https://github.com/OpenVisionE2/meta-minix.git
