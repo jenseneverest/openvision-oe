@@ -4,7 +4,7 @@ require conf/license/openvision-gplv2.inc
 
 inherit allarch
 
-PV = "20190802"
+PV = "20200104"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
