@@ -26,7 +26,6 @@ rm -rf meta-ma*
 rm -rf meta-oc*
 rm -rf meta-odi*
 rm -rf meta-p*
-rm -rf meta-r*
 rm -rf meta-s*
 rm -rf meta-t*
 rm -rf meta-u*
