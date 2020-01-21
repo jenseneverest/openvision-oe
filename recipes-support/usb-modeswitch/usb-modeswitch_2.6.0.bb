@@ -5,10 +5,12 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 DEPENDS = "libusb1"
 
 SRC_URI = "http://www.draisberghof.de/usb_modeswitch/${BP}.tar.bz2"
-SRC_URI[md5sum] = "16b9a8efa1bf8fbd7d5612757eae4f26"
-SRC_URI[sha256sum] = "abffac09c87eacd78e101545967dc25af7e989745b4276756d45dbf4008a2ea6"
+SRC_URI[md5sum] = "be73dcc84025794081a1d4d4e5a75e4c"
+SRC_URI[sha256sum] = "c215236e6bada6e659fc195a31d611ea298a4bdb4d57a0d68c553b56585f8ba3"
 
-inherit pkgconfig
+inherit pkgconfig systemd
+
+SYSTEMD_SERVICE_${PN} = "usb_modeswitch@.service"
 
 EXTRA_OEMAKE = "TCL=${bindir}/tclsh"
 
@@ -18,4 +20,8 @@ RRECOMMENDS_${PN} = "usb-modeswitch-data"
 
 do_install() {
     oe_runmake DESTDIR=${D} install
+    if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
+        install -d ${D}/${systemd_unitdir}/system
+        install -m 644 ${S}/usb_modeswitch@.service ${D}/${systemd_unitdir}/system
+    fi
 }
