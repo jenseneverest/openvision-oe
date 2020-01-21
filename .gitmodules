@@ -1,10 +1,6 @@
 [submodule "meta-cube"]
 	path = meta-cube
 	url = https://github.com/OpenVisionE2/meta-cube.git
-[submodule "meta-dream"]
-	path = meta-dream
-	url = https://github.com/OpenVisionE2/meta-dream.git
-	branch = develop
 [submodule "meta-hypercube"]
 	path = meta-hypercube
 	url = https://github.com/OpenVisionE2/meta-hypercube.git
