@@ -1,15 +1,12 @@
 [submodule "meta-cube"]
 	path = meta-cube
 	url = https://github.com/OpenVisionE2/meta-cube.git
-[submodule "meta-hypercube"]
-	path = meta-hypercube
-	url = https://github.com/OpenVisionE2/meta-hypercube.git
 [submodule "meta-dm800"]
 	path = meta-dm800
 	url = https://github.com/OpenVisionE2/meta-dm800.git
-[submodule "meta-raspberrypi"]
-	path = meta-raspberrypi
-	url = https://github.com/OpenVisionE2/meta-raspberrypi.git
+[submodule "meta-hypercube"]
+	path = meta-hypercube
+	url = https://github.com/OpenVisionE2/meta-hypercube.git
 [submodule "meta-linkdroid"]
 	path = meta-linkdroid
 	url = https://github.com/OpenVisionE2/meta-linkdroid.git
@@ -19,6 +16,9 @@
 [submodule "meta-odroid"]
 	path = meta-odroid
 	url = https://github.com/OpenVisionE2/meta-odroid.git
+[submodule "meta-raspberrypi"]
+	path = meta-raspberrypi
+	url = https://github.com/OpenVisionE2/meta-raspberrypi.git
 [submodule "meta-wetek"]
 	path = meta-wetek
 	url = https://github.com/OpenVisionE2/meta-wetek.git
