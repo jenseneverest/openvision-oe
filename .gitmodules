@@ -16,3 +16,6 @@
 [submodule "meta-minix"]
 	path = meta-minix
 	url = https://github.com/OpenVisionE2/meta-minix.git
+[submodule "meta-odroid"]
+	path = meta-odroid
+	url = https://github.com/OpenVisionE2/meta-odroid.git
