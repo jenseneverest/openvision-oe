@@ -120,8 +120,6 @@ PROVIDES = "\
     enigma2-plugin-extensions-virtualzap \
     enigma2-plugin-extensions-vlcplayer \
     enigma2-plugin-extensions-weatherplugin \
-    enigma2-plugin-extensions-webadmin \
-    enigma2-plugin-extensions-webbouqueteditor \
     enigma2-plugin-extensions-webcamviewer \
     enigma2-plugin-extensions-werbezapper \
     enigma2-plugin-extensions-youtubeplayer \
