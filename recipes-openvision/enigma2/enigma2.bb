@@ -69,6 +69,7 @@ PYTHON_RDEPS = "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-image python-imaging python-service-identity", d)} \
 	python-importlib \
 	python-lang \
+	python-mmap \
 	python-netclient \
 	python-netserver \
 	python-numbers \
