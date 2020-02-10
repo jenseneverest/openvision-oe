@@ -254,6 +254,8 @@ do_install_append() {
 	fi
 	# make scripts executable
 	find "${D}" -name '*.sh' -exec chmod a+x '{}' ';'
+	# Seems more plugins are still using "Ipkg" import so create a SymLink for it.
+	ln -s ${libdir}/enigma2/python/Components/Opkg.pyo ${D}${libdir}/enigma2/python/Components/Ipkg.pyo
 }
 
 python populate_packages_prepend() {
