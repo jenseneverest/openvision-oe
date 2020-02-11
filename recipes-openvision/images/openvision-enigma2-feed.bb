@@ -74,7 +74,7 @@ OPTIONAL_PACKAGES += "\
 	net-tools \
 	ntfs-3g \
 	ntp \
-	nodejs \
+	${@bb.utils.contains("TARGET_FPU", "soft", "", "nodejs", d)} \
 	ofgwrite \
 	openmultiboot \
 	openresolv \
