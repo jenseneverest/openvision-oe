@@ -42,7 +42,6 @@ OPTIONAL_PACKAGES += "\
 	dvblast \
 	dvbsnoop \
 	dvdfs \
-	edid-decode \
 	evtest \
 	exfat-utils \
 	exteplayer3 \
@@ -51,7 +50,7 @@ OPTIONAL_PACKAGES += "\
 	google-dns \
 	grep \
 	gstplayer \
-	gstreamer1.0-libav \
+	${@bb.utils.contains("MACHINE_FEATURES", "hisil", "", "gstreamer1.0-libav", d)} \
 	hddtemp \
 	inadyn-mt \
 	inetutils \
@@ -74,7 +73,6 @@ OPTIONAL_PACKAGES += "\
 	net-tools \
 	ntfs-3g \
 	ntp \
-	${@bb.utils.contains("TARGET_FPU", "soft", "", "nodejs", d)} \
 	ofgwrite \
 	openmultiboot \
 	openresolv \
@@ -145,7 +143,6 @@ EXTRA_WIFI_DRIVERS += "\
 	firmware-rtl8192cufw \
 	firmware-rtl8192eu \
 	${@ 'mt7601u' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.2') < 0) else '' } \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 dm900 dm920 xpeedlx3 sezammarvel mbultra beyonwizt4 atemionemesis vuuno4kse vuzero4k vuduo2 vusolo2 vusolose vuzero force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1 optimussos1plus optimussos2 optimussos2plus optimussos3plus tm2t tmnano2super tmnano2t tmnano3t tmnano tmsingle tmtwin worldvisionf1 worldvisionf1plus", "", "mt7603u", d)} \
 	rt3070 \
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8188fu", d)} \
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8723a", d)} \
