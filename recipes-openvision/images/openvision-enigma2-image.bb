@@ -92,7 +92,8 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-openwebif-vision-terminal \
 	enigma2-plugin-extensions-xmodem \
 	enigma2-plugin-skins-octetfhd \
-	enigma2-plugin-softcams-oscam-emu", d)} \
+	enigma2-plugin-softcams-oscam-emu \
+	enigma2-plugin-systemplugins-autobouquetsmaker", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash libeplayer", "", "enigma2-plugin-systemplugins-serviceapp", d)} \
 	"
 
