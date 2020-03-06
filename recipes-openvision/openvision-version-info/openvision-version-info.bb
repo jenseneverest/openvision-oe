@@ -10,7 +10,6 @@ PR = "${VISIONREVISION}"
 do_configure[nostamp] = "1"
 do_install[nostamp] = "1"
 
-
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SRC_URI = "file://ov.py"
