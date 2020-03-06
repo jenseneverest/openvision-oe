@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit autotools-brokensep gitpkgv pythonnative gettext
+inherit autotools-brokensep gitpkgv pythonnative gettext rm_python_pyc
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -23,6 +23,7 @@ PROVIDES = "\
     enigma2-plugin-extensions-dlnabrowser \
     enigma2-plugin-extensions-dlnaserver \
     enigma2-plugin-extensions-fempa \
+    enigma2-plugin-extensions-gbipboxclient \
     enigma2-plugin-extensions-lcd4linux \
     enigma2-plugin-extensions-ondemand \
     enigma2-plugin-extensions-rcuselect \
@@ -69,6 +70,7 @@ DEPENDS = "\
     bluez-conf \
     bluez-hidd \
     ${@bb.utils.contains("MACHINE_FEATURES", "legacykernel", "" , "bridge-utils hostapd", d)} \
+    cifs-utils \
     djmount \
     enigma2-plugin-systemplugins-autobouquetsmaker \
     hddtemp \
@@ -88,6 +90,8 @@ RDEPENDS_enigma2-plugin-extensions-dlnabrowser = "djmount fuse-utils libfuse2 li
 DESCRIPTION_enigma2-plugin-extensions-dlnaserver = "this is dlna server using minidlna"
 RDEPENDS_enigma2-plugin-extensions-dlnaserver = "minidlna"
 DESCRIPTION_enigma2-plugin-extensions-fempa = "Norwegian P4 FEM PAA radio show player."
+DESCRIPTION_enigma2-plugin-extensions-gbipboxclient = "GigaBlue IPBox Client"
+RDEPENDS_enigma2-plugin-extensions-gbipboxclient = "cifs-utils"
 DESCRIPTION_enigma2-plugin-extensions-lcd4linux = "Web/DPF/Samsung LCD control"
 DEPENDS_enigma2-plugin-extensions-lcd4linux = "bitratecalc lcd4linux png-util"
 RDEPENDS_enigma2-plugin-extensions-lcd4linux = "bitratecalc lcd4linux python-icalendar python-pyusb python-codecs python-datetime python-imaging python-textutils python-twisted-web python-shell python-ctypes libusb1 python-mutagen python-zlib python-email python-subprocess python-simplejson python-soco"
@@ -145,11 +149,6 @@ EXTRA_OECONF = "\
     "
 
 do_install_append() {
-    # remove unused .pyc files
-    find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
-    # make scripts executable
-    find "${D}" -name '*.sh' -exec chmod a+x '{}' ';'
-
     if [ "${MACHINE}" == "dm800" ]
     then
         rm -Rf ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/SatipClient
