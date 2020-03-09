@@ -9,7 +9,7 @@ SRC_URI = "git://github.com/christophecvr/gstreamer1.0-plugin-subsink.git;protoc
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv
+inherit gitpkgv autotools pkgconfig
 
 GSTVERSION = "1.0"
 
@@ -17,8 +17,6 @@ PV = "${GSTVERSION}+git${SRCPV}"
 PKGV = "${GSTVERSION}+git${GITPKGV}"
 
 EXTRA_OECONF = "--with-gstversion=${GSTVERSION}"
-
-inherit autotools pkgconfig
 
 FILES_${PN} = "${libdir}/gstreamer-${GSTVERSION}/*.so*"
 FILES_${PN}-dev += "${libdir}/gstreamer-${GSTVERSION}/*.la"

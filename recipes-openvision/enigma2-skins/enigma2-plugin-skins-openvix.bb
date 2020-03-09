@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://README.md;startline=1;endline=6;md5=f9196ec9a7923f62b
 PACKAGES = "${PN} ${PN}-meta enigma2-plugin-skincomponents-metrix-src enigma2-plugin-skincomponents-novum-src"
 PACKAGES_DYNAMIC = "enigma2-plugin-skins-openvix-*"
 
-inherit gitpkgv autotools-brokensep
+inherit gitpkgv autotools-brokensep rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -51,15 +51,6 @@ FILES_enigma2-plugin-skincomponents-novum-src += "${libdir}/enigma2/python/Compo
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF += "--with-skins1080"
-
-do_install_append() {
-    # remove unused .pyc files
-    find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
-}
-
-do_compile_append() {
-    python -O -m compileall ${S}
-}
 
 python populate_packages_prepend() {
     enigma2_skindir = bb.data.expand('${datadir}/enigma2', d)

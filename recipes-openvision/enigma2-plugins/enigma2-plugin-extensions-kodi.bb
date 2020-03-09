@@ -1,11 +1,11 @@
-inherit gitpkgv autotools
-
 DESCRIPTION = "Enigma2 plugin to launch and play media from Kodi"
 AUTHOR = "Maroš Ondrášek <mx3ldev@gmail.com>"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+inherit gitpkgv autotools rm_python_pyc compile_python_pyo no_python_src
 
 RRECOMMENDS_${PN} = "enigma2-plugin-extensions-subssupport virtual/kodi"
 

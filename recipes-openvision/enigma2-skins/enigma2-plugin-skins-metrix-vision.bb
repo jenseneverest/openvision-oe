@@ -6,7 +6,7 @@ LICENSE = "proprietary"
 
 require conf/license/license-gplv2.inc
 
-inherit gitpkgv gettext allarch
+inherit gitpkgv gettext allarch rm_python_pyc compile_python_pyo no_python_src
 
 DEPENDS += "gettext-native"
 RDEPENDS_${PN} = "enigma2-plugin-fonts-analog enigma2-plugin-fonts-digi enigma2-plugin-fonts-droidsans enigma2-plugin-fonts-handelgotd enigma2-plugin-fonts-meteocons enigma2-plugin-fonts-opensans enigma2-plugin-fonts-raleway enigma2-plugin-fonts-segoe"
@@ -25,16 +25,10 @@ S = "${WORKDIR}/git"
 
 FILES_enigma2-plugin-skins-metrix-vision-fhd-icons = "${datadir}/enigma2/MetrixHD/FHD"
 FILES_enigma2-plugin-skins-metrix-vision-uhd-icons = "${datadir}/enigma2/MetrixHD/UHD"
-FILES_${PN}-src = "\
-    ${libdir}/enigma2/python/Components/Converter/*.py \
-    ${libdir}/enigma2/python/Components/Renderer/*.py \
-    ${libdir}/enigma2/python/Plugins/Extensions/MyMetrixLite/*.py \
-    "
 
 FILES_${PN} = "${libdir} ${datadir}"
 
 do_compile() {
-	python -O -m compileall ${S}/usr
 	for f in $(find ${S}/locale -name *.po ); do
 		l=$(echo ${f%} | sed 's/\.po//' | sed 's/.*locale\///')
 		mkdir -p ${S}${libdir}/enigma2/python/Plugins/Extensions/MyMetrixLite/locale/${l%}/LC_MESSAGES

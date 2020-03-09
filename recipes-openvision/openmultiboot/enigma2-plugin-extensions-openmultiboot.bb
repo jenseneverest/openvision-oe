@@ -5,12 +5,10 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 SRC_URI = "git://github.com/Dima73/pli-openmultibootmanager.git"
 S = "${WORKDIR}/git"
 
-inherit gitpkgv
+inherit gitpkgv distutils-openplugins
 
 PV = "1+git${SRCPV}"
 PKGV = "1+git${GITPKGV}"
-
-inherit distutils-openplugins
 
 RRECOMMENDS_${PN} = "python-subprocess mtd-utils mtd-utils-ubifs kernel-module-nandsim openmultiboot"
 
@@ -44,5 +42,4 @@ rm -rf /sbin/open-multiboot-branding-helper.py
 chown -Rh root:root ${libdir}/enigma2/python/Plugins/Extensions/OpenMultiboot
 rm -rf ${libdir}/enigma2/python/Plugins/Extensions/OpenMultiboot
 exit 0
-
 }

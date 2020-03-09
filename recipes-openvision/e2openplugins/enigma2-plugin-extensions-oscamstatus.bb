@@ -2,6 +2,7 @@ MODULE = "OscamStatus"
 DESCRIPTION = "shows status of your oscam server"
 
 inherit gitpkgv
+
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 

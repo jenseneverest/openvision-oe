@@ -100,7 +100,7 @@ SRC_URI = "git://github.com/OpenVisionE2/servicemp3epl.git;branch=master"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pythonnative pkgconfig
+inherit autotools gitpkgv pythonnative pkgconfig rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -112,14 +112,9 @@ EXTRA_OECONF = "\
 	STAGING_LIBDIR=${STAGING_LIBDIR} \
 	"
 
-do_install_append() {
-	rm ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.pyc
-}
-
 FILES_${PN} = "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.pyo \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/servicemp3.so"
 
 FILES_${PN}-dev = "\
-	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/*.py \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceMP3/servicemp3.la"

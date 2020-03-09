@@ -4,6 +4,8 @@ PRIORITY = "required"
 MAINTAINER = "Open Vision Developers"
 require conf/license/license-gplv2.inc
 
+inherit rm_python_pyc compile_python_pyo no_python_src
+
 PV = "${VISIONVERSION}"
 PR = "${VISIONREVISION}"
 
@@ -21,10 +23,6 @@ BB_HASH_IGNORE_MISMATCH = "1"
 S = "${WORKDIR}"
 
 PACKAGES = "${PN}"
-
-do_compile() {
-	python -O -m compileall ${S}
-}
 
 do_install() {
 	install -d ${D}${sysconfdir}

@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/LraiZer/RadiotimesXmltvEmulator"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fc178bcd425090939a8b634d1d6a9594"
 
-inherit gitpkgv
+inherit gitpkgv rm_python_pyc compile_python_pyo no_python_src
 
 PV = "1.0.0+gitr${SRCPV}"
 PKGV = "1.0.0+gitr${GITPKGV}"
@@ -26,11 +26,6 @@ do_install() {
 
 pkg_postrm_${PN}() {
 rm -fr ${libdir}/enigma2/python/Plugins/SystemPlugins/RadiotimesXmltvEmulator > /dev/null 2>&1
-}
-
-# Just a quick hack to "compile" the python parts.
-do_compile_append() {
-    python -O -m compileall ${S}
 }
 
 python populate_packages_prepend() {

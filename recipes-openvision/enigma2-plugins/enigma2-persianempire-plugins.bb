@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit autotools-brokensep gitpkgv pythonnative gettext
+inherit autotools-brokensep gitpkgv pythonnative gettext rm_python_pyc compile_python_pyo
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -69,10 +69,6 @@ DESCRIPTION_enigma2-plugin-systemplugins-satelliteeditor = "Satellites Editor"
 DESCRIPTION_enigma2-plugin-systemplugins-serviceeditor = "Services Editor"
 RDEPENDS_enigma2-plugin-systemplugins-serviceeditor = "enigma2-plugin-systemplugins-satelliteeditor"
 
-do_compile_append() {
-    python -O -m compileall ${S}
-}
-
 ALLOW_EMPTY_${PN} = "1"
 
 EXTRA_OECONF = "\
@@ -84,13 +80,6 @@ EXTRA_OECONF = "\
     --with-boxbrand=${BOX_BRAND} \
     --with-arch=${TARGET_ARCH} \
     "
-
-do_install_append() {
-    # remove unused .pyc files
-    find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
-    # make scripts executable
-    find "${D}" -name '*.sh' -exec chmod a+x '{}' ';'
-}
 
 do_package_qa() {
 }

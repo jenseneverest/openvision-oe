@@ -8,7 +8,8 @@ SRC_URI = "git://github.com/OpenVuPlus/dvbapp.git;protocol=http;branch=${BRANCH}
         file://move-youtube-menu-entry.patch \
 "
 
-inherit gitpkgv
+inherit gitpkgv rm_python_pyc compile_python_pyo no_python_src
+
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
@@ -20,18 +21,16 @@ FILES_${PN}     = "${libdir}/enigma2/python/Plugins/Extensions/HbbTV/* \
 
 do_install() {
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/HbbTV
-	install -m 0644 ${S}/lib/python/Plugins/Extensions/HbbTV/*.py ${D}${libdir}/enigma2/python/Plugins/Extensions/HbbTV
+	install -m 0644 ${S}/lib/python/Plugins/Extensions/HbbTV/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/HbbTV
 	install -m 0644 ${S}/lib/python/Plugins/Extensions/HbbTV/keymap.xml ${D}${libdir}/enigma2/python/Plugins/Extensions/HbbTV
 
 	install -d ${D}${libdir}/enigma2/python/Components/Sources
-	install -m 0644 ${S}/lib/python/Components/Sources/HbbtvApplication.py ${D}${libdir}/enigma2/python/Components/Sources
+	install -m 0644 ${S}/lib/python/Components/Sources/HbbtvApplication.pyo ${D}${libdir}/enigma2/python/Components/Sources
 	install -d ${D}${libdir}/enigma2/python/Components/Converter
-	install -m 0644 ${S}/lib/python/Components/Converter/HbbtvApplicationInfo.py ${D}${libdir}/enigma2/python/Components/Converter
+	install -m 0644 ${S}/lib/python/Components/Converter/HbbtvApplicationInfo.pyo ${D}${libdir}/enigma2/python/Components/Converter
 
 	install -m 0755 -d ${D}${libdir}/enigma2/python/Plugins/Extensions/HbbTV/locale
-	cp -av ${S}/lib/python/Plugins/Extensions/HbbTV/locale/*.po ${D}${libdir}/enigma2/python/Plugins/Extensions/HbbTV/locale
-
-	python -O -m compileall ${D}${libdir}/enigma2/python/Plugins/
+	cp -av ${S}/lib/python/Plugins/Extensions/HbbTV/locale/*.mo ${D}${libdir}/enigma2/python/Plugins/Extensions/HbbTV/locale
 }
 
 do_install_append() {

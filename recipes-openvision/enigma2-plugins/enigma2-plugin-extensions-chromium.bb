@@ -3,6 +3,8 @@ SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
 
+inherit rm_python_pyc compile_python_pyo no_python_src
+
 PV = "1.0"
 PR = "20170324_r0"
 SRC_URI = "http://code.vuplus.com/download/chromium/e2plugin-chromium-vuplus_${PR}.tar.gz"

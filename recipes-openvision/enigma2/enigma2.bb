@@ -131,7 +131,7 @@ RDEPENDS_${PN}-build-dependencies = "\
 
 RRECOMMENDS_${PN}-build-dependencies = "kernel-module-udf"
 
-inherit gitpkgv pythonnative upx_compress autotools pkgconfig
+inherit gitpkgv pythonnative upx_compress autotools pkgconfig rm_python_pyc
 
 ENIGMA2_BRANCH ?= "develop"
 PV = "develop+git${SRCPV}"
@@ -211,12 +211,16 @@ EXTRA_OEMAKE = "\
 
 # some plugins contain so's, their stripped symbols should not end up in the enigma2 package
 FILES_${PN}-dbg += "\
-	${libdir}/enigma2/python/*/.debug \
+	${libdir}/enigma2/python/*.debug \
 	${libdir}/enigma2/python/*/*.debug \
-	${libdir}/enigma2/python/*/*/*/.debug \
-	${libdir}/enigma2/python/*/*/*/*/.debug \
-	${libdir}/enigma2/python/*/*/*/*/*/.debug \
-	${libdir}/enigma2/python/*/*/*/*/*/*/.debug \
+	${libdir}/enigma2/python/*/*/*.debug \
+	${libdir}/enigma2/python/*/*/*/*.debug \
+	${libdir}/enigma2/python/*/*/*/*/*.debug \
+	${libdir}/enigma2/python/*/*/*/*/*/*.debug \
+	${libdir}/enigma2/python/*/*/*/*/*/*/*.debug \
+	${libdir}/enigma2/python/*/*/*/*/*/*/*/*.debug \
+	${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*.debug \
+	${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*/*.debug \
 	"
 
 # Swig generated 200k enigma.py file has no purpose for end users
@@ -241,19 +245,19 @@ FILES_${PN}-src = "\
 	${libdir}/enigma2/python/*/*/*/*.py \
 	${libdir}/enigma2/python/*/*/*/*/*.py \
 	${libdir}/enigma2/python/*/*/*/*/*/*.py \
+	${libdir}/enigma2/python/*/*/*/*/*/*/*.py \
+	${libdir}/enigma2/python/*/*/*/*/*/*/*/*.py \
+	${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*.py \
+	${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*/*.py \
 	"
 
 do_install_append() {
 	install -d ${D}${datadir}/keymaps
-	# remove unused .pyc files
-	find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "multilib", "1", "0", d)}" = "1" ]; then
 		install -d ${D}/usr/lib
 		ln -s ${libdir}/enigma2 ${D}/usr/lib/enigma2
 		ln -s ${libdir}/python2.7 ${D}/usr/lib/python2.7
 	fi
-	# make scripts executable
-	find "${D}" -name '*.sh' -exec chmod a+x '{}' ';'
 	# Seems more plugins are still using "Ipkg" import so create a SymLink for it.
 	ln -s ${libdir}/enigma2/python/Components/Opkg.pyo ${D}${libdir}/enigma2/python/Components/Ipkg.pyo
 }

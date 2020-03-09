@@ -2,6 +2,7 @@ DESCRIPTION = "Control your receiver with a browser"
 MAINTAINER = "Open Vision Developers"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://README;firstline=10;lastline=12;md5=9c14f792d0aeb54e15490a28c89087f7"
+
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "python-cheetah-native"
@@ -29,11 +30,9 @@ SRC_URI = "git://github.com/OpenVisionE2/OpenWebif.git;protocol=git"
 SRC_URI_append_sh4 += " file://revert_grab_for_sh4.patch "
 
 S="${WORKDIR}/git"
-		
-# Just a quick hack to "compile" it
+
 do_compile() {
 	cheetah-compile -R --nobackup ${S}/plugin
-	python -O -m compileall ${S}
 }
 
 PLUGINPATH = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif"
@@ -360,6 +359,7 @@ python do_cleanup () {
         ('forever_3434hd', 'forever_3434hd.png', 'fulan.png', 'fulan.html'),
         ('forever_9898hd', 'forever_9898hd.png', 'fulan.png', 'fulan.html'),
         ('forever_nanosmart', 'forever_nanosmart.png', 'fulan.png', 'fulan.html'),
+
     ]
 
     import os

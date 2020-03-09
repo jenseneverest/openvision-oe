@@ -46,11 +46,11 @@ OPTIONAL_PACKAGES += "\
 	exfat-utils \
 	exteplayer3 \
 	fuse-exfat \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "gdb", d)} \
+	gdb \
 	google-dns \
 	grep \
 	gstplayer \
-	${@bb.utils.contains("MACHINE_FEATURES", "hisil", "", "gstreamer1.0-libav", d)} \
+	gstreamer1.0-libav \
 	hddtemp \
 	inadyn-mt \
 	inetutils \
@@ -130,12 +130,6 @@ OPTIONAL_PACKAGES += "\
 	${OPTIONAL_BSP_PACKAGES} \
 	"
 
-OPTIONAL_PACKAGES_remove_sh4 += "\
-	lirc \
-	nodejs \
-	rclone \
-	"
-
 EXTRA_WIFI_DRIVERS += "\
 	firmware-mt7601u \
 	firmware-rt3070 \
@@ -147,12 +141,12 @@ EXTRA_WIFI_DRIVERS += "\
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8188fu", d)} \
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8723a", d)} \
 	${@ 'rt8723bs' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.12') < 0) else '' } \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 ixusszero ixussone dm820 dm7080 dm520", "", "rt8812au", d)} \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "", "rt8822bu", d)} \
+	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8812au", d)} \
+	rt8822bu \
 	${@ 'rtl8188eu' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '3.12') < 0) else '' } \
-	${@bb.utils.contains_any("MACHINE", "et5x00 et6x00 et9x00 vuduo vusolo vuuno vuultimo osmio4k osmio4kplus osmini4k cube su980 dm800 dm500hd dm500hdv2 dm800se dm800sev2 dm7020hd dm7020hdv2 dm8000 force1 force1plus iqonios100hd iqonios200hd iqonios300hd iqonios300hdv2 mediabox optimussos1 optimussos1plus optimussos2 optimussos2plus optimussos3plus tm2t tmnano2super tmnano2t tmnano3t tmnano tmsingle tmtwin worldvisionf1 worldvisionf1plus azboxhd azboxme azboxminime maram9 c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 alien4 ixusszero ixussone ventonhdx sezam5000hd mbtwin beyonwizt3 gb800ue gb800solo gb800se dm820 dm7080 dm520 x8hp wetekhub wetekplay2 wetekplay", "", "rtl8189es", d)} \
+	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 alien4 x8hp wetekhub wetekplay2 wetekplay", "", "rtl8189es", d)} \
 	rtl8192cu \
-	${@bb.utils.contains_any("MACHINE", "osmio4k osmio4kplus osmini4k dm800", "", "rt8814au rtl8192eu", d)} \
+	${@bb.utils.contains_any("MACHINE", "dm800", "", "rt8814au rtl8192eu", d)} \
 	"
 
 EXTRA_WIFI_DRIVERS_remove_cube += "\
@@ -173,19 +167,12 @@ EXTRA_WIFI_DRIVERS_remove_su980 += "\
 	rt8822bu \
 	"
 
-EXTRA_WIFI_DRIVERS_remove_sh4 += "\
-	mt7603u \
-	rt8814au \
-	rtl8189es \
-	"
-
 OPTIONAL_BSP_ENIGMA2_PACKAGES ?= ""
 
 ENIGMA2_OPTIONAL += "\
 	channelsettings-enigma2-meta \
 	dvb-usb-drivers-meta \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "bwlcd96 bwlcd128 bwlcd140 bwlcd255 colorlcd220 colorlcd390 colorlcd400 colorlcd480 colorlcd720 colorlcd800", "enigma2-display-skins", "", d)} \
-	${@bb.utils.contains("EXTRA_IMAGEDEPENDS", "vuplus-tuner-turbo", "enigma2-plugin-drivers-dvb-usb-turbo", "", d)} \
 	enigma2-plugin-drivers-usbserial \
 	enigma2-plugin-extensions-arabicsavior \
 	enigma2-plugin-extensions-automatic-fullbackup \
@@ -204,7 +191,6 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-extensions-install-ffmpeg \
 	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "enigma2-plugin-extensions-install-gstplayer", d)} \
 	enigma2-plugin-extensions-keyadder \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "azbox", "enigma2-plugin-extensions-keymapconfig enigma2-plugin-extensions-rsiconfig enigma2-plugin-extensions-rsimediacenter enigma2-plugin-systemplugins-ofwlauncher enigma2-plugin-extensions-aziptv enigma2-plugin-extensions-azplay", "", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "colorlcd colorlcd220 colorlcd390 colorlcd400 colorlcd480 colorlcd720 colorlcd800 bwlcd140 bwlcd255", "enigma2-plugin-extensions-lcd4linux", "", d)} \
 	enigma2-plugin-extensions-managerautofs \
 	enigma2-plugin-extensions-merlininfo \
@@ -252,7 +238,6 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-systemplugins-extnumberzap \
 	enigma2-plugin-systemplugins-extrafancontrol \
 	enigma2-plugin-systemplugins-hrtunerproxy \
-	${@bb.utils.contains("MACHINE_FEATURES", "micom", "enigma2-plugin-systemplugins-micomupgrade" , "", d)} \
 	enigma2-plugin-systemplugins-mountmanager \
 	enigma2-plugin-systemplugins-netspeedtest \
 	enigma2-plugin-systemplugins-newvirtualkeyboard \

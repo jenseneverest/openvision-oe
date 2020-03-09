@@ -6,7 +6,7 @@ RDEPENDS_enigma2-plugin-extensions-openuitzendinggemist = "python-argparse"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit allarch pythonnative gitpkgv autotools-brokensep
+inherit allarch pythonnative gitpkgv autotools-brokensep rm_python_pyc compile_python_pyo no_python_src
 
 PV = "2+git${SRCPV}"
 PKGV = "2+git${GITPKGV}"
@@ -22,7 +22,6 @@ FILES_enigma2-plugin-extensions-openuitzendinggemist = "${libdir}/enigma2/python
 
 do_install_append() {
 	rm -rf ${D}${libdir}/enigma2/python/Plugins/Extensions/UShare
-	find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
 }
 
 # Nothing of this recipe should end up in sysroot, so blank it away.

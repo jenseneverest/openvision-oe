@@ -6,14 +6,12 @@ LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=4fbd65380cdd255951079008b364516c"
 DEPENDS += "libxml2 zlib python swig-native curl python"
 RDEPENDS_${PN} += "libcurl enigma2 python-compression python-lzma xz"
 
-inherit gitpkgv
+inherit gitpkgv python-dir rm_python_pyc compile_python_pyo no_python_src
 
 SRC_URI = "git://github.com/oe-alliance/e2openplugin-CrossEPG.git;protocol=git"
 
 PV = "0.8.6+gitr${SRCPV}"
 PKGV = "0.8.6+gitr${GITPKGV}"
-
-inherit python-dir
 
 ALLOW_EMPTY_${PN} = "1"
 
@@ -34,11 +32,6 @@ do_install() {
 
 pkg_postrm_${PN}() {
 rm -fr ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG > /dev/null 2>&1
-}
-
-# Just a quick hack to "compile" the python parts.
-do_compile_append() {
-    python -O -m compileall ${S}
 }
 
 python populate_packages_prepend() {

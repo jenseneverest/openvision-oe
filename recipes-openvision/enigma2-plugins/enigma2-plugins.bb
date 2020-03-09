@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit autotools-brokensep gitpkgv pythonnative pkgconfig gettext
+inherit autotools-brokensep gitpkgv pythonnative pkgconfig gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -190,10 +190,6 @@ FILES_enigma2-plugin-skincomponents-weathercomponent-src += " ${libdir}/enigma2/
 FILES_enigma2-plugin-skincomponents-reftopiconname += " ${libdir}/enigma2/python/Components/Converter/RefToPiconName.pyo"
 FILES_enigma2-plugin-skincomponents-reftopiconname-src += " ${libdir}/enigma2/python/Components/Converter/RefToPiconName.py"
 
-do_compile_append() {
-    python -O -m compileall ${S}
-}
-
 ALLOW_EMPTY_${PN} = "1"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies enigma2-plugin-skincomponents-channelselectionshorttitle enigma2-plugin-skincomponents-channelselectionshorttitle-src enigma2-plugin-skincomponents-eventlist enigma2-plugin-skincomponents-eventlist-src enigma2-plugin-skincomponents-eventposition enigma2-plugin-skincomponents-eventposition-src enigma2-plugin-skincomponents-weathercomponent enigma2-plugin-skincomponents-weathercomponent-src enigma2-plugin-skincomponents-reftopiconname enigma2-plugin-skincomponents-reftopiconname-src"
 FILES_${PN}-meta = "${datadir}/meta"
@@ -208,13 +204,6 @@ EXTRA_OECONF = "\
     --with-boxbrand=${BOX_BRAND} \
     --with-arch=${TARGET_ARCH} \
     "
-
-do_install_append() {
-    # remove unused .pyc files
-    find ${D}${libdir}/enigma2/python/ -name '*.pyc' -exec rm {} \;
-    # make scripts executable
-    find "${D}" -name '*.sh' -exec chmod a+x '{}' ';'
-}
 
 do_package_qa() {
 }

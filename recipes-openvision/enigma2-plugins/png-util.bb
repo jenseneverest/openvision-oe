@@ -12,7 +12,7 @@ SRC_URI = "\
 
 S = "${WORKDIR}/${P}"
 
-inherit distutils
+inherit distutils rm_python_pyc compile_python_pyo no_python_src
 
 do_compile() {
 	swig -python -c++ ${WORKDIR}/png_util.i

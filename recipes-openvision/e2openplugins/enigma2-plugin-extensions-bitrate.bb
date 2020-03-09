@@ -2,9 +2,7 @@ MODULE = "Bitrate"
 DESCRIPTION = "Bitrate viewer"
 
 require conf/license/license-gplv2.inc
-
 require openplugins-replace-vision.inc
-
 require openplugins.inc
 
 inherit autotools gettext

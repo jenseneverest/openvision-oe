@@ -3,7 +3,7 @@ SECTION = "base"
 PRIORITY = "optional"
 LICENSE = "CLOSED"
 
-inherit gitpkgv autotools pkgconfig
+inherit gitpkgv autotools pkgconfig rm_python_pyc compile_python_pyo no_python_src
 
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
@@ -17,9 +17,6 @@ RDEPENDS_${PN}  = "qtwebkit"
 S = "${WORKDIR}/git/qthbbtv${VER}"
 
 QtHbbtv = "enigma2/python/Plugins/Extensions/QtHbbtv"
-
-do_compile () {
-}
 
 FILES_${PN} =  " \
 	${bindir} \

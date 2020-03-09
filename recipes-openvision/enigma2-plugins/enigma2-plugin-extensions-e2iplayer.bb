@@ -8,26 +8,18 @@ SRC_URI = "git://github.com/persianpros/e2iplayer.git;protocol=http"
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv
+inherit gitpkgv allarch distutils-openplugins gettext
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
-
-inherit allarch distutils-openplugins gettext
-
-RCONFLICTS_${PN} = "enigma2-plugin-extensions-iptvplayer"
-RREPLACES_${PN} = "enigma2-plugin-extensions-iptvplayer"
 
 DEPENDS = "gettext-native python"
 
 RDEPENDS_${PN} = " \
 	cmdwrapper \
 	duktape \
-	exteplayer3 \
 	f4mdump \
 	ffmpeg \
-	gst-ifdsrc \
-	gstplayer \
 	hlsdl \
 	iptvsubparser \
 	lsdir \
@@ -43,21 +35,10 @@ RDEPENDS_${PN} = " \
 	rtmpdump \
 	uchardet \
 	wget \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "exteplayer3 gst-ifdsrc gstplayer", d)} \
 	"
-
-PACKAGES =+ " ${PN}-src"
 
 RDEPENDS_{PN}-src = "${PN}"
-
-FILES_${PN}-src = " \
-	${libdir}/enigma2/python/Plugins/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*/*/*/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*-py2.7.egg-info/* \
-	${libdir}/enigma2/python/Plugins/*/locale/*/LC_MESSAGES/*.po \
-	"
 
 deltask package_qa
 

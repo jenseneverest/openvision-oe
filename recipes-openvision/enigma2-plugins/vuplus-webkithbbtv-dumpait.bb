@@ -8,8 +8,6 @@ inherit autotools-brokensep pkgconfig gitpkgv
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-PACKAGES += " ${PN}-src"
-
 DEPENDS = "libdvbsi++"
 
 SRC_URI = "git://github.com/OpenVuPlus/dumpait.git;protocol=http"

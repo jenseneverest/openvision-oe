@@ -4,7 +4,7 @@ MAINTAINER = "oe-alliance"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-inherit gitpkgv
+inherit gitpkgv autotools-brokensep pkgconfig
 
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
@@ -14,8 +14,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 DEPENDS = "freetype"
 
 SRC_URI = "git://github.com/oe-alliance/openmultiboot.git;protocol=git"
-
-inherit autotools-brokensep pkgconfig
 
 S = "${WORKDIR}/git"
 

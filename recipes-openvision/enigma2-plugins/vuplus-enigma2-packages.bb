@@ -7,7 +7,7 @@ DEPENDS = "python-native"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit gitpkgv
+inherit gitpkgv rm_python_pyc compile_python_pyo no_python_src no_python_src
  
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -21,13 +21,11 @@ do_install() {
 	install -d  ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/ManualFancontrol
 	install -d  ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/LEDBrightnessSetup
 
-	install -m 0644 ${S}/lib/python/Plugins/SystemPlugins/ManualFancontrol/*.py \
+	install -m 0644 ${S}/lib/python/Plugins/SystemPlugins/ManualFancontrol/*.pyo \
 	${D}${libdir}/enigma2/python/Plugins/SystemPlugins/ManualFancontrol
 
-	install -m 0644 ${S}/lib/python/Plugins/SystemPlugins/LEDBrightnessSetup/*.py \
+	install -m 0644 ${S}/lib/python/Plugins/SystemPlugins/LEDBrightnessSetup/*.pyo \
 	${D}${libdir}/enigma2/python/Plugins/SystemPlugins/LEDBrightnessSetup
-	
-	python -O -m compileall ${D}${libdir}/enigma2/python/Plugins/
 }
 
 FILES_enigma2-plugin-systemplugins-manualfancontrol = "${libdir}/enigma2/python/Plugins/SystemPlugins/ManualFancontrol"

@@ -10,7 +10,8 @@ SRC_URI = "git://github.com/OpenVuPlus/dumpait.git"
 S = "${WORKDIR}/git"
 DESTDIR = "enigma2/python/Plugins/Extensions/HbbTV"
 
-inherit gitpkgv
+inherit gitpkgv autotools-brokensep pkgconfig
+
 SRCREV = "1adfdd7dadb760a8ff2107dce60e2f99ca74fa5d"
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -18,8 +19,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RREPLACES_${PN} = "vuplus-opera-dumpait"
 RCONFLICTS_${PN} = "vuplus-opera-dumpait"
-
-inherit autotools-brokensep pkgconfig
 
 do_install() {
 	install -d ${D}${libdir}/${DESTDIR}

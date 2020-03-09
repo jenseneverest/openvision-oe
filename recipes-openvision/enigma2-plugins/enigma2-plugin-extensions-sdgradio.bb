@@ -17,8 +17,6 @@ PKGV = "1+git${GITPKGV}"
 
 RDEPENDS_${PN} = "python-core rtl-sdr redsea dab-cmdline-sdgradio dab-cmdline-sdgradio-pcm dab-cmdline-sdgradio-wav"
 
-PACKAGES =+ "${PN}-src"
-
 RDEPENDS_{PN}-src = "${PN}"
 
 FILES_${PN}-src = "${libdir}/enigma2/python/Plugins/Extensions/SDGRadio/*.py"

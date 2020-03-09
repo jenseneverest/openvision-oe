@@ -1,5 +1,5 @@
 DESCRIPTION = "servicelibeplayer backend for enigma2"
-AUTHOR = "OpenVision"
+MAINTAINER = "Open Vision Developers"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
@@ -22,7 +22,6 @@ RDEPENDS_${PN} = "\
 
 RRECOMMENDS_${PN} = "\
 	glib-networking \
-	virtual/gstreamer${GST_VERSION}-dvbmediasink \
 	libeplayer3 \
 	"
 
@@ -30,7 +29,7 @@ SRC_URI = "git://github.com/OpenVisionE2/servicemp3epl.git;branch=libeplayer"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pythonnative pkgconfig
+inherit autotools gitpkgv pythonnative pkgconfig rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -42,14 +41,9 @@ EXTRA_OECONF = "\
 	STAGING_LIBDIR=${STAGING_LIBDIR} \
 	"
 
-do_install_append() {
-	rm ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/Servicelibpl/*.pyc
-}
-
 FILES_${PN} = "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/Servicelibpl/*.pyo \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/Servicelibpl/servicelibpl.so"
 
 FILES_${PN}-dev = "\
-	${libdir}/enigma2/python/Plugins/SystemPlugins/Servicelibpl/*.py \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/Servicelibpl/servicelibpl.la"

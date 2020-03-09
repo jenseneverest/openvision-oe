@@ -7,26 +7,12 @@ RDEPENDS_${PN} = "smartmontools libcrypto-compat"
 
 SRC_URI = "git://github.com/OpenVisionE2/merlininfo.git;protocol=git"
 
-# don't inherit allarch, it can't work with arch-dependent RDEPENDS
 inherit gitpkgv distutils-openplugins gettext
 
 S = "${WORKDIR}/git"
 
 PV = "2.1+git${SRCPV}"
 PKGV = "2.1+git${GITPKGV}"
-
-FILES_${PN}-src = "\
-    ${libdir}/enigma2/python/*/*.py \
-    ${libdir}/enigma2/python/*/*/*.py \
-    ${libdir}/enigma2/python/*/*/*/*.py \
-    ${libdir}/enigma2/python/*/*/*/*/*.py \
-    ${libdir}/enigma2/python/*/*/*/*/*/*.py \
-    ${libdir}/enigma2/python/*/*/*/*/*/*/*.py \
-    ${libdir}/enigma2/python/*/*/*/*/*/*/*/*.py \
-    ${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*.py \
-    ${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*/*.py \
-    ${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*/*/*.py \
-    "
 
 python populate_packages_prepend() {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
