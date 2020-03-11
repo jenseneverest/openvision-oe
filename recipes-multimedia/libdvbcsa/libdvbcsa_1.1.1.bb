@@ -1,9 +1,9 @@
-SUMMARY = "Open implementation of the DVB Common Scrambling Algorithm, encrypt and decrypt "
+SUMMARY = "Open implementation of the DVB Common Scrambling Algorithm, encrypt and decrypt"
 SECTION = "libs/multimedia"
 LICENSE = "LGPLv2.1+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
-PV = "1.1.0"
+PV = "1.1.1"
 
 SRC_URI += "git://github.com/OpenVisionE2/libdvbcsa.git"
 
