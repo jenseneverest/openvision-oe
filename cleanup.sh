@@ -70,6 +70,10 @@ rm -rf build/tmp/pkgdata/$MACHINE
 echo ""
 echo "pkgdata cleaned!"
 echo ""
+rm -rf build/tmp/rootfs-initramfs/$MACHINE
+echo ""
+echo "rootfs-initramfs cleaned!"
+echo ""
 rm -rf build/tmp/sstate-control/*$MACHINE*
 echo ""
 echo "sstate-control cleaned!"
