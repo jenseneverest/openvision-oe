@@ -2,6 +2,8 @@ DESCRIPTION = "Library that implements bitrate calculations from enigma2"
 LICENSE = "CC-BY-NC-ND-4.0"
 LIC_FILES_CHKSUM = "file://${OPENPLI_BASE}/meta-openpli/licenses/CC-BY-NC-ND-4.0;md5=8009795292660aa9c8da059e5b1581c1"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 DEPENDS = "enigma2"
 
 inherit gitpkgv autotools pythonnative pkgconfig
