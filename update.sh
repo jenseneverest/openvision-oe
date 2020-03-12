@@ -82,6 +82,8 @@ sed -i "s#BUILD_DIR = \$(CURDIR)/.*#BUILD_DIR = \$(CURDIR)/${BUILDDIR}#g" Makefi
 echo ""
 # Regenerate bblayers.conf so we can add our own
 rm -f ${BUILDDIR}/conf/bblayers.conf
+rm -f ${BUILDDIR}/conf/local.conf
+rm -f ${BUILDDIR}/conf/openvision.conf
 make init update
 echo ""
 for i in ${METAS}

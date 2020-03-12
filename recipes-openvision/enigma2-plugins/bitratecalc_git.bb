@@ -18,4 +18,3 @@ CXXFLAGS_append_su980 += " -std=c++11 "
 S = "${WORKDIR}/git"
 
 FILES_${PN} = "${libdir}/bitratecalc.so"
-

@@ -123,7 +123,7 @@ $(TOPDIR)/conf/openvision.conf: $(DEPDIR)/.openvision.conf.$(OPENPLI_CONF_HASH)
 	@test -d $(@D) || mkdir -p $(@D)
 	@echo 'SSTATE_DIR = "$(SSTATE_DIR)"' >> $@
 	@echo 'TMPDIR = "$(TMPDIR)"' >> $@
-	@echo 'BB_GENERATE_MIRROR_TARBALLS = "0"' >> $@
+	@echo 'BB_GENERATE_MIRROR_TARBALLS = "1"' >> $@
 	@echo 'BBINCLUDELOGS = "yes"' >> $@
 	@echo 'CONF_VERSION = "1"' >> $@
 	@echo 'DISTRO = "openvision"' >> $@
@@ -141,6 +141,8 @@ $(TOPDIR)/conf/local.conf: $(DEPDIR)/.local.conf.$(LOCAL_CONF_HASH)
 	@test -d $(@D) || mkdir -p $(@D)
 	@echo 'TOPDIR = "$(TOPDIR)"' > $@
 	@echo 'require $(TOPDIR)/conf/openvision.conf' >> $@
+	@echo 'SOURCE_MIRROR_URL ?= "file://$(DL_DIR)/"' >> $@
+	@echo 'INHERIT += "own-mirrors"' >> $@
 
 $(TOPDIR)/conf/site.conf: $(CURDIR)/site.conf
 	@ln -s ../../site.conf $@
