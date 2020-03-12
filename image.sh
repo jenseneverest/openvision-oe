@@ -55,6 +55,7 @@ fi
 echo -e "${BLUE}First update everything, please wait ...${NC}"
 /bin/sh update.sh
 sleep 0.1
+gnome-terminal --tab --title="GitHub keep alive terminal" --command="ping github.com"
 echo -e ""
 echo -e "${BLUE}Updated.${NC}"
 echo -e ""
