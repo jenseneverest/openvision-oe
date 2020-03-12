@@ -54,6 +54,7 @@ then
 fi
 echo -e "${BLUE}First update everything, please wait ...${NC}"
 /bin/sh update.sh
+sleep 0.1
 echo -e ""
 echo -e "${BLUE}Updated.${NC}"
 echo -e ""
