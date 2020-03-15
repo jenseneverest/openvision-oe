@@ -3,24 +3,21 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://Android.mk;md5=235cc8d87e0fb1c956be4af0d07074fb"
 CAF_MIRROR = "https://www.codeaurora.org/cgit/external/wlan"
 
-inherit module
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-COMPATIBLE_MACHINE = "^(osmio4k|osmio4kplus|osmini4k|spycat4kmini|spycat4k|spycat4kcombo)$"
+inherit module machine_kernel_pr
+
+COMPATIBLE_MACHINE = "^(osmio4k|osmio4kplus|osmini4k|spycat4k|spycat4kcombo|spycat4kmini)$"
 
 SRC_URI = "${CAF_MIRROR}/qcacld-2.0/snapshot/qcacld-2.0-${PV}.tar.gz \
     file://qcacld-2.0-support.patch \
+    ${@bb.utils.contains_any("MACHINE", "spycat4k spycat4kcombo spycat4kmini", "file://qcacld-2.0-support-xc7439.patch", "", d)} \
 "
 
 SRC_URI[md5sum] = "a8773ee40f603c33c604a38aa26bcdc5"
 SRC_URI[sha256sum] = "2f675a3efc879c37960e88e0cb4ae72ab06fad295a8dbe7e00ab832742dffe5d"
 
-SRC_URI_append_spycat4kmini += "file://qcacld-2.0-support-xc7439.patch"
-SRC_URI_append_spycat4k += "file://qcacld-2.0-support-xc7439.patch"
-SRC_URI_append_spycat4kcombo += "file://qcacld-2.0-support-xc7439.patch"
-
-EXTRA_OEMAKE_append_spycat4kmini += " CONFIG_CLD_HL_SDIO_CORE=y"
-EXTRA_OEMAKE_append_spycat4k += " CONFIG_CLD_HL_SDIO_CORE=y"
-EXTRA_OEMAKE_append_spycat4kcombo += " CONFIG_CLD_HL_SDIO_CORE=y"
+#EXTRA_OEMAKE_append += "${@bb.utils.contains_any("MACHINE", "spycat4k spycat4kcombo spycat4kmini", " CONFIG_CLD_HL_SDIO_CORE=y", "", d)}"
 
 S = "${WORKDIR}/qcacld-2.0-${PV}"
 
