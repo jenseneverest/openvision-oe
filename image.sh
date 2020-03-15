@@ -33,7 +33,7 @@ read META
 echo -e "${NC}"
 if [ $META != "Cube" -a $META != "Dreambox" -a $META != "HyperCube" -a $META != "Linkdroid" -a $META != "MINIX" -a $META != "Odroid" -a $META != "RaspberryPi" -a $META != "WeTek" -a $META != "Specific" ]
 then
-	echo -e "${BLUE}Not a valid answer!${NC}"
+	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
 	exit 0
 fi
@@ -48,7 +48,7 @@ read IMAGETYPE
 echo -e "${NC}"
 if [ $IMAGETYPE != "Vision" -a $IMAGETYPE != "Feed" -a $IMAGETYPE != "Kernel-Clean" -a $IMAGETYPE != "Version-Clean" ]
 then
-	echo -e "${BLUE}Not a valid answer!${NC}"
+	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
 	exit 0
 fi
@@ -85,7 +85,7 @@ then
 	    echo -e "${NC}"
 	    if [ $OWNFEED != "Yes" -a $OWNFEED != "No" ]
 	    then
-		echo -e "${BLUE}Not a valid answer!${NC}"
+		echo -e "${RED}Not a valid answer!${NC}"
 		echo -e ""
 		exit 0
 	    fi
@@ -176,4 +176,4 @@ then
 fi
 echo -e ""
 echo -e "${BLUE}Done, the compiled image is in ${NC}build/tmp/deploy/images/${GREEN}$MACHINE$MACHINESPECIFIC ${BLUE}folder!"
-echo -e "It's a zipped file like ${NC}openvision-enigma2-develop-multilanguage-${GREEN}${VISIONVERSION}-r${VISIONREVISION}${NC}-${RED}$MACHINE$MACHINESPECIFIC${NC}.zip"
+echo -e "It's a zipped file like ${NC}openvision-enigma2-develop-english|multilanguage|extralanguage-${GREEN}${VISIONVERSION}-r${VISIONREVISION}${NC}-${RED}$MACHINE$MACHINESPECIFIC${NC}.zip"
