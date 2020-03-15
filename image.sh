@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
 VISIONVERSION=`cat conf/distro/openvision-common.conf | grep -oP '(?<=VISIONVERSION = ")[0-9].[0-9]*'`
-VISIONREVISION=`cat conf/distro/openvision-common.conf | grep -oP '(?<=VISIONREVISION = "r)[0-9][0-9]'`
+VISIONREVISION=`cat conf/distro/openvision-common.conf | grep -oP '(?<=VISIONREVISION = "r)[0-9]*'`
 echo -e "${BLUE}Welcome to Open Vision ${GREEN}${VISIONVERSION}-r${VISIONREVISION} ${BLUE}image compile script!"
 echo -e ""
 echo -e "First we need to check your Ubuntu 18.04.x"
