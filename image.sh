@@ -36,7 +36,7 @@ echo -e "Check ${NC}Vision-metas.md ${BLUE}and enter a meta or a specific machin
 echo -e "Answers are in ${GREEN}green:${NC}"
 echo -e ""
 echo -e "${GREEN}Cube ${NC}- ${GREEN}Dreambox ${NC}- ${GREEN}HyperCube ${NC}- ${GREEN}Linkdroid"
-echo -e "MINIX ${NC}- ${GREEN}Odroid ${NC}- ${GREEN}RaspberryPi ${NC}- ${GREEN}WeTek ${NC}- ${GREEN}Specific"
+echo -e "MINIX ${NC}- ${GREEN}Odroid ${NC}- ${GREEN}RPi ${NC}- ${GREEN}WeTek ${NC}- ${GREEN}Specific"
 echo -e ""
 echo -e "${GREEN}Specific${BLUE}: You have a specific machine in mind, Check ${NC}Vision-metas.md"
 echo -e ""
@@ -44,7 +44,7 @@ echo -e "${BLUE}Enter the meta name:${NC}"
 echo -e "${GREEN}"
 read META
 echo -e "${NC}"
-if [ $META != "Cube" -a $META != "Dreambox" -a $META != "HyperCube" -a $META != "Linkdroid" -a $META != "MINIX" -a $META != "Odroid" -a $META != "RaspberryPi" -a $META != "WeTek" -a $META != "Specific" ]
+if [ $META != "Cube" -a $META != "Dreambox" -a $META != "HyperCube" -a $META != "Linkdroid" -a $META != "MINIX" -a $META != "Odroid" -a $META != "RPi" -a $META != "WeTek" -a $META != "Specific" ]
 then
 	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
@@ -173,7 +173,7 @@ if [ $META = "Odroid" ]
 then
 	MACHINE=odroidc2 $IMAGECMD
 fi
-if [ $META = "RaspberryPi" ]
+if [ $META = "RPi" ]
 then
 	MACHINE=raspberrypi $IMAGECMD
 	MACHINE=raspberrypi0 $IMAGECMD

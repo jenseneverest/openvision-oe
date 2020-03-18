@@ -56,6 +56,7 @@ do_install() {
 	echo "transcoding=${TRANSCODING}" >> ${D}${sysconfdir}/image-version
 	echo "multitranscoding=${MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
 	echo "multilib=${HAVE_MULTILIB}" >> ${D}${sysconfdir}/image-version
+	echo "python3=${HAVE_PYTHON3}" >> ${D}${sysconfdir}/image-version
 	echo "${MACHINE}" > ${D}${sysconfdir}/model
 	echo "${BOX_BRAND}" > ${D}${sysconfdir}/brand
 	echo "${VISIONVERSION}" > ${D}${sysconfdir}/visionversion
