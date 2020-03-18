@@ -96,7 +96,7 @@ then
 	echo -e "\n"
 	cd ..
 	cd meta-wetek
-	echo "Checking out meta-raspberrypi develop branch:"
+	echo "Checking out meta-wetek develop branch:"
 	git checkout develop
 	git pull
 	echo -e "\n"
