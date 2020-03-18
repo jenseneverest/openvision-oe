@@ -28,6 +28,7 @@ EXTRA_OECONF = " \
     STAGING_LIBDIR=${STAGING_LIBDIR} \
     --with-visionversion="${VISIONVERSION}" \
     --with-visionrevision="${VISIONREVISION}" \
+    --with-developername="${DEVELOPER_NAME}" \
     --with-boxbrand="${BOX_BRAND}" \
     --with-oever="${VISIONVERSION}" \
     --with-distro="${DISTRO_NAME}" \
