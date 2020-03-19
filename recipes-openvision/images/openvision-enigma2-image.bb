@@ -41,6 +41,7 @@ ENIGMA2_PLUGINS += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "dvb-c", "enigma2-plugin-systemplugins-cablescan" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "ci", "enigma2-plugin-systemplugins-commoninterfaceassignment", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "blindscan-dvbs", "${BLINDSCAN_CHECK}" , "", d)} \
+	enigma2-plugin-systemplugins-fastscan \
 	enigma2-plugin-systemplugins-hdmicec \
 	enigma2-plugin-systemplugins-hotplug \
 	enigma2-plugin-systemplugins-networkbrowser \
