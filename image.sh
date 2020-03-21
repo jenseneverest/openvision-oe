@@ -21,7 +21,7 @@ else
 fi
 DEVELOPERNAME=`git config user.name`
 if [ "${DEVELOPERNAME}" != '' ]; then
-	echo -e "DEVELOPER_NAME = '${DEVELOPERNAME}'" > conf/distro/developer.conf
+	echo "DEVELOPER_NAME = '${DEVELOPERNAME}'" > conf/distro/developer.conf
 else
 	echo -e "${RED}You don't have a git username!${NC}"
 	echo -e ""
@@ -30,7 +30,7 @@ else
 	read GITUSERNAME
 	echo -e "${NC}"
 	git config --global user.name "${GITUSERNAME}"
-	echo -e "DEVELOPER_NAME = '${GITUSERNAME}'" > conf/distro/developer.conf
+	echo "DEVELOPER_NAME = '${GITUSERNAME}'" > conf/distro/developer.conf
 fi
 echo -e "Check ${NC}Vision-metas.md ${BLUE}and enter a meta or a specific machine to compile."
 echo -e "Answers are in ${GREEN}green:${NC}"
