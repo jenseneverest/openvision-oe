@@ -5,6 +5,8 @@ MAINTAINER = "Open Vision Developers"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
+RDEPENDS_${PN} = "ovlock"
+
 SRC_URI = "file://openvision.c file://Makefile"
 
 S = "${WORKDIR}"

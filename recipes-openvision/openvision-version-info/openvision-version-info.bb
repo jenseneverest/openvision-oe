@@ -4,19 +4,15 @@ PRIORITY = "required"
 MAINTAINER = "Open Vision Developers"
 require conf/license/license-gplv2.inc
 
-inherit rm_python_pyc compile_python_pyo no_python_src
-
 PV = "${VISIONVERSION}"
 PR = "${VISIONREVISION}"
 
 do_configure[nostamp] = "1"
-do_install[nostamp] = "1"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRC_URI = "file://ov.py"
 
-FILES_${PN} = "${sysconfdir} /usr"
+FILES_${PN} = "${sysconfdir}"
 
 BB_HASH_IGNORE_MISMATCH = "1"
 
@@ -27,14 +23,20 @@ PACKAGES = "${PN}"
 do_install() {
 	install -d ${D}${sysconfdir}
 	echo "STB=${MACHINE}" > ${D}${sysconfdir}/image-version
-	echo "Brand=${BOX_BRAND}" > ${D}${sysconfdir}/image-version
+	echo "Brand=${BOX_BRAND}" >> ${D}${sysconfdir}/image-version
 	echo "box_type=${MACHINE}" >> ${D}${sysconfdir}/image-version
 	echo "build_type=0" >> ${D}${sysconfdir}/image-version
 	echo "machine_brand=${BOX_BRAND}" >> ${D}${sysconfdir}/image-version
 	echo "machine_name=${MACHINE}" >> ${D}${sysconfdir}/image-version
 	echo "version=${VISIONVERSION}-${VISIONREVISION}" >> ${D}${sysconfdir}/image-version
+	echo "visionversion=${VISIONVERSION}" >> ${D}${sysconfdir}/image-version
+	echo "visionrevision=${VISIONREVISION}" >> ${D}${sysconfdir}/image-version
 	echo "build=${VISIONREVISION}" >> ${D}${sysconfdir}/image-version
-	echo "Python=2.7" >> ${D}${sysconfdir}/image-version
+	if [ "${@bb.utils.contains("DISTRO_FEATURES", "python3", "1", "0", d)}" = "1" ]; then
+		echo "Python=3.8" >> ${D}${sysconfdir}/image-version
+	else
+		echo "Python=2.7" >> ${D}${sysconfdir}/image-version
+	fi
 	echo "date=${DATETIME}" >> ${D}${sysconfdir}/image-version
 	echo "comment=Open Vision" >> ${D}${sysconfdir}/image-version
 	echo "target=9" >> ${D}${sysconfdir}/image-version
@@ -53,16 +55,17 @@ do_install() {
 		echo "middle-flash=${HAVE_MIDDLEFLASH}" >> ${D}/etc/image-version
 		echo "middleflash" > ${D}${sysconfdir}/middleflash
 	fi
-	echo "transcoding=${TRANSCODING}" >> ${D}${sysconfdir}/image-version
-	echo "multitranscoding=${MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "transcoding", "1", "0", d)}" = "1" ]; then
+		echo "transcoding=${TRANSCODING}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "multitranscoding", "1", "0", d)}" = "1" ]; then
+		echo "multitranscoding=${MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
+	fi
 	echo "multilib=${HAVE_MULTILIB}" >> ${D}${sysconfdir}/image-version
-	echo "python3=${HAVE_PYTHON3}" >> ${D}${sysconfdir}/image-version
 	echo "${MACHINE}" > ${D}${sysconfdir}/model
 	echo "${BOX_BRAND}" > ${D}${sysconfdir}/brand
 	echo "${VISIONVERSION}" > ${D}${sysconfdir}/visionversion
 	echo "${VISIONREVISION}" > ${D}${sysconfdir}/visionrevision
-	install -d ${D}${libdir}/python2.7
-	install -m 0644 ${WORKDIR}/ov.pyo ${D}${libdir}/python2.7
 }
 
 pkg_postinst_ontarget_${PN} () {
