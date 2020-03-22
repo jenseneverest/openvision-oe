@@ -1,8 +1,9 @@
---- e2openplugin-OpenWebif/plugin/controllers/models/grab.py	2019-01-17 11:19:09.834754194 +0100
-+++ e2openplugin-OpenWebif.new/plugin/controllers/models/grab.py	2019-01-17 11:18:12.222232844 +0100
-@@ -9,102 +9,93 @@
- #                                                                            #
+diff -Naur OpenWebif/plugin/controllers/models/grab.py OpenWebif-PersianPrince/plugin/controllers/models/grab.py
+--- OpenWebif/plugin/controllers/models/grab.py	2020-03-22 19:21:46.838392735 +0430
++++ OpenWebif-PersianPrince/plugin/controllers/models/grab.py	2020-03-22 19:24:21.447689000 +0430
+@@ -10,102 +10,93 @@
  ##############################################################################
+ from __future__ import print_function
  from enigma import eConsoleAppContainer
 -from Screens.InfoBar import InfoBar
 -from twisted.web import resource, server
@@ -78,7 +79,7 @@
 -		self.container.setBufferSize(32768)
 -		if mode == "lcd":
 -			if self.container.execute(command):
--				raise Exception, "failed to execute: ", command
+-				raise Exception("failed to execute: ", command)
 -			sref = 'lcdshot'
 +		try:
 +			ref = self.session.nav.getCurrentlyPlayingServiceReference().toString()
@@ -121,7 +122,7 @@
 +		return server.NOT_DONE_YET
 +
 +	def grabData(self, data):
-+		print "[W] grab:", data,
++		print("[OpenWebif] grab:", data)
  
 -	def grabFinished(self, retval=None):
 +	def grabFinished(self, retval = None):
@@ -139,17 +140,17 @@
 +			self.request.setHeader('Cache-Control','no-store, no-cache, must-revalidate, post-check=0, pre-check=0')
 +			self.request.setHeader('Pragma','no-cache')
 +			self.request.write(data)
-+		except Exception, error:
++		except Exception as error:
 +			self.request.setResponseCode(http.OK)
 +			self.request.write("Error creating screenshot:\n %s" % error)
 +		try:
 +			os.unlink(self.filepath)
 +		except:
-+			print "Failed to remove:", self.filepath
++			print("[OpenWebif] Failed to remove:", self.filepath)
  		try:
  			self.request.finish()
- 		except RuntimeError, error:
- 			print "[OpenWebif] grabFinished error: %s" % error
+ 		except RuntimeError as error:
+ 			print("[OpenWebif] grabFinished error: %s" % error)
 -		# Break the chain of ownership
  		del self.request
 -
