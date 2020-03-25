@@ -10,15 +10,15 @@ KERNEL_WIFI_DRIVERS += "\
 	firmware-rt73 \
 	firmware-rtl8712u \
 	firmware-zd1211 \
-	${@bb.utils.contains_any("MACHINE", "c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 cube su980 alien5 alien4", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
-	${@bb.utils.contains_any("MACHINE", "c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 cube su980 alien5 alien4", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
+	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube su980 alien5", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
+	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube su980 alien5", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
     "
 
 EXTRA_KERNEL_WIFI_DRIVERS += "\
 	firmware-rtl8188eu \
 	firmware-rtl8192cu \
-	${@bb.utils.contains_any("MACHINE", "c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 alien4 cube wetekplay wetekplay2 wetekhub x8hp su980", "", "kernel-module-r8188eu", d)} \
-	${@bb.utils.contains_any("MACHINE", "c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 alien4 cube wetekplay wetekplay2 wetekhub odroidc2 su980 x8hp", "", "kernel-module-rtl8192cu", d)} \
+	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube wetekplay wetekplay2 wetekhub x8hp su980", "", "kernel-module-r8188eu", d)} \
+	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube wetekplay wetekplay2 wetekhub odroidc2 su980 x8hp", "", "kernel-module-rtl8192cu", d)} \
 	"
 
 BLINDSCAN_CHECK = "${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "enigma2-plugin-systemplugins-dmblindscan", "enigma2-plugin-systemplugins-blindscan", d)}"

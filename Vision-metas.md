@@ -10,17 +10,12 @@
 * su980
 
 # Linkdroid
-* alien4
 * alien5
-* c300
-* c300pro
-* c400plus
 * k1plus
 * k1pro
 * k2pro
 * k2prov2
 * k3pro
-* kvim2
 
 # MINIX
 * x8hp

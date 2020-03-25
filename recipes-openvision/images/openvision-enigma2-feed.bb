@@ -146,7 +146,7 @@ EXTRA_WIFI_DRIVERS += "\
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8812au", d)} \
 	rt8822bu \
 	${@ 'rtl8188eu' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '3.12') < 0) else '' } \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 c300 c300pro c400plus k1plus k1pro k2pro k2prov2 k3pro kvim2 alien4 x8hp wetekhub wetekplay2 wetekplay", "", "rtl8189es", d)} \
+	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 k1plus k1pro k2pro k2prov2 k3pro x8hp wetekhub wetekplay2 wetekplay", "", "rtl8189es", d)} \
 	rtl8192cu \
 	${@bb.utils.contains_any("MACHINE", "dm800", "", "rt8814au rtl8192eu", d)} \
 	"
