@@ -39,6 +39,7 @@ OPTIONAL_PACKAGES += "\
 	djmount \
 	dosfstools \
 	dreamci \
+	dvb-firmwares \
 	dvblast \
 	dvbsnoop \
 	dvdfs \
@@ -98,6 +99,7 @@ OPTIONAL_PACKAGES += "\
 	python-singledispatch \
 	python-websocket \
 	${@bb.utils.contains("TARGET_FPU", "soft", "", "rclone", d)} \
+	rpi-firmwares \
 	rsync \
 	rtorrent \
 	sabnzbd \

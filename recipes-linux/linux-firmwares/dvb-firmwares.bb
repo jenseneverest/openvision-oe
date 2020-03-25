@@ -1,16 +1,16 @@
-SUMMARY = "Firmware files for RPi"
+SUMMARY = "DVB Firmware files"
 LICENSE = "CLOSED"
 require conf/license/license-close.inc
 
 PACKAGE_ARCH = "all"
 INSANE_SKIP_${PN} = "arch"
 
-SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rpi-firmwares.tar.xz"
+SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/dvb-firmwares.tar.xz"
 
-SRC_URI[md5sum] = "aa9d913a81b8d50904227fb79b42c65a"
-SRC_URI[sha256sum] = "8e5161479bbce2b43127b9636f3997cc5bbf08ebc38370e6c51c42d95c0c40e2"
+SRC_URI[md5sum] = "99a49e8012d5079b688d9bc420783297"
+SRC_URI[sha256sum] = "d5f88aeb7b7a1206fa011af218c228ee74e514f730705be865f674f741614a0f"
 
-S = "${WORKDIR}/rpi-firmwares"
+S = "${WORKDIR}/dvb-firmwares"
 
 PACKAGES = "${PN}"
 FILES_${PN} += "${nonarch_base_libdir}/firmware"
