@@ -9,6 +9,8 @@ VISIONVERSION=`cat conf/distro/openvision-common.conf | grep -oP '(?<=VISIONVERS
 VISIONREVISION=`cat conf/distro/openvision-common.conf | grep -oP '(?<=VISIONREVISION = "r)[0-9]*'`
 echo -e "${BLUE}Welcome to Open Vision ${GREEN}${VISIONVERSION}-r${VISIONREVISION} ${BLUE}image compile script!"
 echo -e ""
+echo -e "${RED}Notice: this script is case sensitive!${NC}"
+echo -e ""
 echo -e "First we need to check your Ubuntu 18.04.x"
 echo -e ""
 if [ -f user.ovstep ]; then
