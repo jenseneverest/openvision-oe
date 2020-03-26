@@ -26,18 +26,18 @@ EXTRA_OEMAKE += " \
     CROSS_COMPILE=${TARGET_PREFIX} \
     DEPMOD=echo \
     INSTALL_MOD_PATH=${D} \
-    KDIR=${STAGING_KERNEL_DIR} \
+    KDIR=${STAGING_KERNEL_BUILDDIR} \
     M=${M} \
 "
 
 do_compile() {
     unset CC CFLAGS CPP CPPFLAGS CXX CXXFLAGS CCLD LDFLAGS
-    oe_runmake -C ${STAGING_KERNEL_DIR} modules
+    oe_runmake -C ${STAGING_KERNEL_BUILDDIR} modules
 }
 
 do_install() {
     unset CC CFLAGS CPP CPPFLAGS CXX CXXFLAGS CCLD LDFLAGS
-    oe_runmake -C ${STAGING_KERNEL_DIR} modules_install
+    oe_runmake -C ${STAGING_KERNEL_BUILDDIR} modules_install
 
     install -d ${D}${sysconfdir}/modules-load.d
     echo dhd > ${D}${sysconfdir}/modules-load.d/00-${BPN}.conf
@@ -52,8 +52,3 @@ if [ -z "$D" ]; then
 	depmod -a ${KERNEL_VERSION}
 fi
 }
-
-export KCFLAGS = "-Wno-error=stringop-overflow \
-                  -Wno-error=address-of-packed-member \
-                  -Wno-error=missing-attributes \
-                  "
