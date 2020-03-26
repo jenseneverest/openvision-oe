@@ -48,7 +48,7 @@ read CONFLICTMODE
 echo -e "${NC}"
 if [ $CONFLICTMODE != "Yes" -a $CONFLICTMODE != "No" ]
 then
-	echo -e "${BLUE}Not a valid answer!${NC}"
+	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
 	exit 0
 fi
