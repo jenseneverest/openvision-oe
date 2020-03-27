@@ -7,8 +7,8 @@ INSANE_SKIP_${PN} = "arch"
 
 SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/dvb-firmwares.tar.xz"
 
-SRC_URI[md5sum] = "99a49e8012d5079b688d9bc420783297"
-SRC_URI[sha256sum] = "d5f88aeb7b7a1206fa011af218c228ee74e514f730705be865f674f741614a0f"
+SRC_URI[md5sum] = "12ba0deb967063aba55df92adb445dc6"
+SRC_URI[sha256sum] = "53784ca28c964bde9843f7ffcffb798dd62e4ab3f5ba9b43eef4060943868bac"
 
 S = "${WORKDIR}/dvb-firmwares"
 
