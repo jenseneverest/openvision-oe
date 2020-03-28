@@ -14,7 +14,6 @@ DEPENDS = "openvision-enigma2-image"
 
 OPTIONAL_PACKAGES_BROKEN = ""
 OPTIONAL_PACKAGES ?= ""
-OPTIONAL_BSP_PACKAGES ?= ""
 
 # Get the kernel version, we need it to build conditionally on kernel version.
 # NB: this only works in the feed, as the kernel needs to be build before the headers are available.
@@ -39,7 +38,6 @@ OPTIONAL_PACKAGES += "\
 	djmount \
 	dosfstools \
 	dreamci \
-	dvb-firmwares \
 	dvblast \
 	dvbsnoop \
 	dvdfs \
@@ -100,7 +98,6 @@ OPTIONAL_PACKAGES += "\
 	python-websocket \
 	python-youtube-dl \
 	${@bb.utils.contains("TARGET_FPU", "soft", "", "rclone", d)} \
-	rpi-firmwares \
 	rsync \
 	rtorrent \
 	sabnzbd \
@@ -130,15 +127,38 @@ OPTIONAL_PACKAGES += "\
 	zeroconf \
 	zip \
 	zsh \
-	${OPTIONAL_BSP_PACKAGES} \
+	"
+
+FIRMWARE_PACKAGES += "\
+	dvb-firmwares \
+	firmware-carl9170 \
+	firmware-htc7010 \
+	firmware-htc9271 \
+	firmware-mt7601u \
+	firmware-rt2870 \
+	firmware-rt3070 \
+	firmware-rt73 \
+	firmware-rt8188fu \
+	firmware-rtl8188eu \
+	firmware-rtl8192cu \
+	firmware-rtl8192cufw \
+	firmware-rtl8192eu \
+	firmware-rtl8712u \
+	firmware-zd1211 \
+	rpi-firmwares \
+	"
+
+KERNEL_WIFI_DRIVERS += "\
+	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube su980 alien5", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
+	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube su980 alien5", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
+    "
+
+EXTRA_KERNEL_WIFI_DRIVERS += "\
+	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube wetekplay wetekplay2 wetekhub x8hp su980", "", "kernel-module-r8188eu", d)} \
+	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube wetekplay wetekplay2 wetekhub odroidc2 su980 x8hp", "", "kernel-module-rtl8192cu", d)} \
 	"
 
 EXTRA_WIFI_DRIVERS += "\
-	firmware-mt7601u \
-	firmware-rt3070 \
-	firmware-rt8188fu \
-	firmware-rtl8192cufw \
-	firmware-rtl8192eu \
 	${@ 'mt7601u' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.2') < 0) else '' } \
 	rt3070 \
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8188fu", d)} \
@@ -169,8 +189,6 @@ EXTRA_WIFI_DRIVERS_remove_su980 += "\
 	rt8814au \
 	rt8822bu \
 	"
-
-OPTIONAL_BSP_ENIGMA2_PACKAGES ?= ""
 
 ENIGMA2_OPTIONAL += "\
 	channelsettings-enigma2-meta \
@@ -255,7 +273,6 @@ ENIGMA2_OPTIONAL += "\
 	packagegroup-openplugins \
 	picons-enigma2-meta \
 	softcams-enigma2-meta \
-	${OPTIONAL_BSP_ENIGMA2_PACKAGES} \
 	"
 
-DEPENDS += "${OPTIONAL_PACKAGES} ${ENIGMA2_OPTIONAL} ${EXTRA_WIFI_DRIVERS} enigma2-2boom-plugins"	
+DEPENDS += "${ENIGMA2_OPTIONAL} ${EXTRA_KERNEL_WIFI_DRIVERS} ${EXTRA_WIFI_DRIVERS} ${FIRMWARE_PACKAGES} ${KERNEL_WIFI_DRIVERS} ${OPTIONAL_PACKAGES} enigma2-2boom-plugins"	
