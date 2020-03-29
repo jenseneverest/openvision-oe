@@ -254,6 +254,7 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-skins-universehd \
 	enigma2-plugin-skins-xionhdf \
 	enigma2-plugin-skins-whitetransfhd-raed \
+	enigma2-plugin-skins-wowcataclysmfhd-raed \
 	enigma2-plugin-systemplugins-crossepg \
 	enigma2-plugin-systemplugins-extnumberzap \
 	enigma2-plugin-systemplugins-extrafancontrol \
