@@ -82,6 +82,10 @@ IMAGE_INSTALL += "\
 	enigma2-locale-meta \
 	${ENIGMA2_PLUGINS} \
 	${@bb.utils.contains("DEVELOPER_NAME", "persianprince", "enigma2-plugin-extensions-persianpalace", "", d)} \
+	frequency-xml-list-atsc \
+	frequency-xml-list-cables \
+	frequency-xml-list-satellites \
+	frequency-xml-list-terrestrial \
 	libavahi-client \
 	libcrypto-compat \
 	settings-autorestore \
