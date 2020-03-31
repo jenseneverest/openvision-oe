@@ -227,6 +227,7 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-extensions-youtube \
 	enigma2-plugin-security-firewall \
 	enigma2-plugin-skins-arctic-raed \
+	enigma2-plugin-skins-atilehd-raed \
 	enigma2-plugin-skins-blacktransfhd-raed \
 	enigma2-plugin-skins-bundesligafhd-raed \
 	enigma2-plugin-skins-cinogripli \
