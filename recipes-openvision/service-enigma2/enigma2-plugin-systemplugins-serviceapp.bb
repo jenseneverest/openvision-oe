@@ -25,7 +25,9 @@ pkg_postinst_${PN}_exteplayeronly() {
 	fi
 }
 
-SRC_URI = "git://github.com/mx3L/serviceapp.git;branch=develop"
+SRC_URI = "git://github.com/mx3L/serviceapp.git;branch=develop \
+    file://remove-deprecated-sFileSize.patch \
+    "
 
 S = "${WORKDIR}/git"
 
