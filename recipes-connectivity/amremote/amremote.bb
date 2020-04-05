@@ -31,7 +31,7 @@ do_install() {
 	install -m 0644 ${S}/alien5.conf ${D}${sysconfdir}/amremote/remote.conf
     elif [ "${MACHINE}" = "k1pro" -o "${MACHINE}" = "k2pro" -o "${MACHINE}" = "k2prov2" -o "${MACHINE}" = "k3pro" ]; then
 	install -m 0644 ${S}/k1pro.conf ${D}${sysconfdir}/amremote/remote.conf
-    elif [ "${MACHINE}" = "k1plus" ]; then
+    elif [ "${MACHINE}" = "k1plus" -o "${MACHINE}" = "k1plusv2" ]; then
 	install -m 0644 ${S}/k1plus.conf ${D}${sysconfdir}/amremote/remote.conf
     elif [ "${MACHINE}" = "wetekplay" ]; then
 	install -m 0644 ${S}/wetek.conf ${D}${sysconfdir}/amremote/wetek.conf

@@ -9,9 +9,10 @@ EXTRA_ALSA_wetekplay2 = "amls905"
 EXTRA_ALSA_wetekhub = "amls905"
 
 EXTRA_ALSA_alien5 = "aml905d"
-EXTRA_ALSA_k1plus = "aml905d"
+EXTRA_ALSA_k1plus = "amls905"
+EXTRA_ALSA_k1plusv2 = "aml905d"
 EXTRA_ALSA_k1pro = "aml905d"
-EXTRA_ALSA_k2pro = "aml905d"
+EXTRA_ALSA_k2pro = "amls905"
 EXTRA_ALSA_k2prov2 = "aml905d"
 EXTRA_ALSA_k3pro = "aml905d"
 

@@ -147,13 +147,13 @@ FIRMWARE_PACKAGES += "\
 	"
 
 KERNEL_WIFI_DRIVERS += "\
-	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube su980 alien5", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
-	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube su980 alien5", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
+	${@bb.utils.contains_any("MACHINE", "k1plus k1plusv2 k1pro k2pro k2prov2 k3pro cube su980 alien5", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
+	${@bb.utils.contains_any("MACHINE", "k1plus k1plusv2 k1pro k2pro k2prov2 k3pro cube su980 alien5", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
     "
 
 EXTRA_KERNEL_WIFI_DRIVERS += "\
-	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube wetekplay wetekplay2 wetekhub x8hp su980", "", "kernel-module-r8188eu", d)} \
-	${@bb.utils.contains_any("MACHINE", "k1plus k1pro k2pro k2prov2 k3pro cube wetekplay wetekplay2 wetekhub odroidc2 su980 x8hp", "", "kernel-module-rtl8192cu", d)} \
+	${@bb.utils.contains_any("MACHINE", "k1plus k1plusv2 k1pro k2pro k2prov2 k3pro cube wetekplay wetekplay2 wetekhub x8hp su980", "", "kernel-module-r8188eu", d)} \
+	${@bb.utils.contains_any("MACHINE", "k1plus k1plusv2 k1pro k2pro k2prov2 k3pro cube wetekplay wetekplay2 wetekhub odroidc2 su980 x8hp", "", "kernel-module-rtl8192cu", d)} \
 	"
 
 EXTRA_WIFI_DRIVERS += "\
@@ -165,7 +165,7 @@ EXTRA_WIFI_DRIVERS += "\
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8812au", d)} \
 	rt8822bu \
 	${@ 'rtl8188eu' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '3.12') < 0) else '' } \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 k1plus k1pro k2pro k2prov2 k3pro x8hp wetekhub wetekplay2 wetekplay", "", "rtl8189es", d)} \
+	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 k1plus k1plusv2 k1pro k2pro k2prov2 k3pro x8hp wetekhub wetekplay2 wetekplay", "", "rtl8189es", d)} \
 	rtl8192cu \
 	${@bb.utils.contains_any("MACHINE", "dm800", "", "rt8814au rtl8192eu", d)} \
 	"

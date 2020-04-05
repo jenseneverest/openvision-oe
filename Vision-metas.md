@@ -12,6 +12,7 @@
 # Linkdroid
 * alien5
 * k1plus
+* k1plusv2
 * k1pro
 * k2pro
 * k2prov2

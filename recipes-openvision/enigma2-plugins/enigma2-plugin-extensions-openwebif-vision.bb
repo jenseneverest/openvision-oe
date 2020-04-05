@@ -201,6 +201,7 @@ python do_cleanup () {
         ('k2pro', 'k2pro.png', 'k1pro.png', 'k1pro.html'),
         ('k2prov2', 'k2pro.png', 'k1pro.png', 'k1pro.html'),
         ('k1plus', 'k1plus.png', 'k1pro.png', 'k1pro.html'),
+        ('k1plusv2', 'k1plus.png', 'k1pro.png', 'k1pro.html'),
         ('k3pro', 'k3pro.png', 'k3pro.png', 'k3pro.html'),
         ('e4hd', 'e4hd.png', 'e4hd.png', 'e4hd.html'),
         ('e4hdhybrid', 'e4hdhybrid.png', 'e4hd.png', 'e4hd.html'),
