@@ -331,7 +331,7 @@ python do_cleanup () {
         ('sf4008', 'sf4008.png', 'sf3038.png', 'sf3038.html'),
         ('sf5008', 'sf5008.png', 'sf5008.png', 'sf5008.html'),
         ('sf8008', 'sf8008.png', 'sf8008.png', 'sf8008.html'),
-        ('sf8008m', 'sf8008.png', 'sf8008.png', 'sf8008.html'),
+        ('sf8008m', 'sf8008m.png', 'sf8008.png', 'sf8008.html'),
         ('sf98', 'sf98.png', 'sf98.png', 'sf98.html'),
         ('bre2ze', 'bre2ze.png', 'wwio1.png', 'wwio1.html'),
         ('bre2ze4k', 'bre2ze4k.png', 'wwio1.png', 'wwio1.html'),
