@@ -15,6 +15,6 @@ S = "${WORKDIR}"
 PACKAGES = "${PN}"
 
 do_install() {
-	install -d ${D}${libdir}/python2.7
-	install -m 0644 ${WORKDIR}/ov.pyo ${D}${libdir}/python2.7
+	install -d ${D}${libdir}/${PYTHONPATHVERSION}
+	install -m 0644 ${WORKDIR}/ov.pyo ${D}${libdir}/${PYTHONPATHVERSION}
 }

@@ -256,7 +256,7 @@ do_install_append() {
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "multilib", "1", "0", d)}" = "1" ]; then
 		install -d ${D}/usr/lib
 		ln -s ${libdir}/enigma2 ${D}/usr/lib/enigma2
-		ln -s ${libdir}/python2.7 ${D}/usr/lib/python2.7
+		ln -s ${libdir}/${PYTHONPATHVERSION} ${D}/usr/lib/${PYTHONPATHVERSION}
 	fi
 	# Seems more plugins are still using "Ipkg" import so create a SymLink for it.
 	ln -s ${libdir}/enigma2/python/Components/Opkg.pyo ${D}${libdir}/enigma2/python/Components/Ipkg.pyo
