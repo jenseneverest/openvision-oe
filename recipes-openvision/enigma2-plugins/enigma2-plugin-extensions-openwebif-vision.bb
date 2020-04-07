@@ -186,7 +186,7 @@ python do_cleanup () {
         ('h5', 'h5.png', 'zgemma3.png', 'zgemma3.html'),
         ('h6', 'h5.png', 'zgemma3.png', 'zgemma3.html'),
         ('h7', 'h7.png', 'zgemma3.png', 'zgemma3.html'),
-        ('h9', 'h9.png', 'zgemma6.png', 'zgemma6.html'),
+        ('h9', 'h9.png', 'zgemma3.png', 'zgemma3.html'),
         ('h9combo', 'h9combo.png', 'zgemma3.png', 'zgemma3.html'),
         ('h10', 'h10.png', 'zgemma7.png', 'zgemma7.html'),
         ('i55plus', 'i55plus.png', 'zgemma3.png', 'zgemma3.html'),
