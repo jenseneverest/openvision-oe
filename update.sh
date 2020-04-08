@@ -104,7 +104,7 @@ rm -rf meta-openpli/recipes-mediacenter
 rm -rf meta-openpli/recipes-multimedia/dvblast
 rm -rf meta-openpli/recipes-multimedia/tuxbox
 rm -rf meta-openpli/recipes-multimedia/tuxtxt
-rm -rf meta-openpli/recipes-multimedia/vlc/libaacs_git.bb
+rm -rf meta-openpli/recipes-multimedia/vlc
 rm -rf meta-openpli/recipes-openpli
 rm -rf meta-openpli/recipes-support/libbluray
 rm -rf meta-openpli/recipes-support/libudfread
