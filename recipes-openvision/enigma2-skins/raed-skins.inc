@@ -14,7 +14,7 @@ inherit gitpkgv allarch
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-RDEPENDS_${PN} = "enigma2-plugin-extensions-weatherplugin2"
+RDEPENDS_${PN} = "enigma2-plugin-extensions-weatherplugin2 enigma2-plugin-extensions-openvisionskintools"
 
 SRC_URI = "git://github.com/OpenVisionE2/RAED-Mod-Skins.git;protocol=git"
 
