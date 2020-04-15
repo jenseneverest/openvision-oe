@@ -60,7 +60,6 @@ EXTRA_OECONF = " \
     --with-transcoding="${TRANSCODING}" \
     --with-multitranscoding="${MULTITRANSCODING}" \
     --with-multilib="${HAVE_MULTILIB}" \
-    --with-python3="${HAVE_PYTHON3}" \
     "
 
 FILES_${PN} = "${libdir}/enigma2/python/*.so"
