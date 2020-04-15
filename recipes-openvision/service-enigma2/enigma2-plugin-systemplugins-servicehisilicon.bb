@@ -30,6 +30,7 @@ EXTRA_OECONF = "\
 FILES_${PN} += "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/*.pyo \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/*.png \
+	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/*/*/*/*.mo \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/servicehisilicon.so"
 
 FILES_${PN}-dev += "\
