@@ -56,7 +56,7 @@ RDEPENDS_${PN}_append_rpi += "\
 RRECOMMENDS_${PN} = "\
 	hotplug-e2-helper \
 	glibc-gconv-utf-16 \
-	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "ofgwrite", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "ofgwrite", d)} \
 	python-sendfile \
 	virtual/enigma2-mediaservice \
 	"
