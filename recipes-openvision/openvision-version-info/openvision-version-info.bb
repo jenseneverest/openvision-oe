@@ -53,10 +53,10 @@ do_install() {
 		echo "middleflash" > ${D}${sysconfdir}/middleflash
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "transcoding", "1", "0", d)}" = "1" ]; then
-		echo "transcoding=${TRANSCODING}" >> ${D}${sysconfdir}/image-version
+		echo "transcoding=${HAVE_TRANSCODING}" >> ${D}${sysconfdir}/image-version
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "multitranscoding", "1", "0", d)}" = "1" ]; then
-		echo "multitranscoding=${MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
+		echo "multitranscoding=${HAVE_MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
 	fi
 	echo "multilib=${HAVE_MULTILIB}" >> ${D}${sysconfdir}/image-version
 	echo "${MACHINE}" > ${D}${sysconfdir}/model

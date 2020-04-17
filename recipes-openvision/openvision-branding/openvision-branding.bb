@@ -57,8 +57,8 @@ EXTRA_OECONF = " \
     --with-display-type="${DISPLAY_TYPE}" \
     --with-small-flash="${HAVE_SMALLFLASH}" \
     --with-middle-flash="${HAVE_MIDDLEFLASH}" \
-    --with-transcoding="${TRANSCODING}" \
-    --with-multitranscoding="${MULTITRANSCODING}" \
+    --with-transcoding="${HAVE_TRANSCODING}" \
+    --with-multitranscoding="${HAVE_MULTITRANSCODING}" \
     --with-multilib="${HAVE_MULTILIB}" \
     "
 
