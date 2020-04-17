@@ -47,25 +47,6 @@ case $ACTION in
 			# Already mounted
 			exit 0
 		fi
-		if [ -e /etc/model ]; then
-			stbcheck=`cat /etc/model`
-			# detected multiboot sdcard
-			if [ $stbcheck == "sf8008" ] || [ $stbcheck == "sf8008m" ] || [ $stbcheck == "ustym4kpro" ] || [ $stbcheck == "cc1" ] || [ $stbcheck == "gbtrio4k" ] || [ $stbcheck == "gbip4k" ] || [ $stbcheck == "beyonwizv2" ] || [ $stbcheck == "viper4k" ]; then
-
-				if [ ${MDEV} == "sda5" ] ; then
-					# mount micro SD userspace as hdd to avoid drama with epg/backup/etc 
-					mkdir -p /media/hdd
-					mount -t ext4 /dev/sda5  /media/hdd
-				fi
-				DEVCHECK=`expr substr $MDEV 1 3`
-				if [ "${DEVCHECK}" == "sda" ] ; then
-					DEVSIZE=`cat /sys/block/sda/sda1/size`
-					if [ $DEVSIZE == "65536" ]  || [ $DEVSIZE == "16384" ]; then
-						BLACKLISTED=`echo ${BLACKLISTED} sda`
-					fi
-				fi
-			fi
-		fi
 		DEVCHECK=`expr substr $MDEV 1 7`
 		DEVCHECK2=`expr substr $MDEV 1 3`
 		# blacklisted devices
