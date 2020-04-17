@@ -12,9 +12,6 @@ PKGV = "${DATE}"
 # required in bitbake 1.32-
 PKGV[vardepsexclude] += "DATE"
 
-# switch to this in bitbake 1.34+
-BB_HASH_IGNORE_MISMATCH = "1"
-
 S = "${WORKDIR}"
 
 INITSCRIPT_NAME = "bootlogo"

@@ -11,10 +11,7 @@ do_configure[nostamp] = "1"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-
 FILES_${PN} = "${sysconfdir}"
-
-BB_HASH_IGNORE_MISMATCH = "1"
 
 S = "${WORKDIR}"
 

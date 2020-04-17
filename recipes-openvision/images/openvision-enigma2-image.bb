@@ -1,7 +1,5 @@
 require openvision-image.bb
 
-BB_HASH_IGNORE_MISMATCH = "1"
-
 BLINDSCAN_CHECK = "${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "enigma2-plugin-systemplugins-dmblindscan", "enigma2-plugin-systemplugins-blindscan", d)}"
 
 ENIGMA2_PLUGINS += "\
