@@ -108,3 +108,4 @@ rm -rf meta-openpli/recipes-multimedia/vlc
 rm -rf meta-openpli/recipes-openpli
 rm -rf meta-openpli/recipes-support/libbluray
 rm -rf meta-openpli/recipes-support/libudfread
+rm -rf meta-openpli/recipes-support/partitions-by-name
