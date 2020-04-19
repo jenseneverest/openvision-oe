@@ -6,9 +6,7 @@ inherit allarch
 
 FILES_${PN} = "/"
 
-do_compile() {
-	true
-}
+do_compile[noexec] = "1"
 
 do_install() {
 	install -m 0755 -d "${D}${sysconfdir}"
@@ -16,10 +14,10 @@ do_install() {
 	install -m 0755 -d "${D}${sysconfdir}/tuxbox/scce"
 	install -m 0755 -d "${D}/usr/keys"
 	install -m 0755 -d "${D}${bindir}"
-	install -m 0755 -d "${D}/var"
+	install -m 0755 -d "${D}${localstatedir}"
 
-	ln -s "${sysconfdir}/tuxbox/scce"	"${D}/var/"
-	ln -s "/usr/keys"			"${D}/var/"
-	ln -s "${bindir}"			"${D}/var/"
-	ln -s "${sysconfdir}"			"${D}/var/"
+	ln -s "${sysconfdir}/tuxbox/scce"	"${D}${localstatedir}/"
+	ln -s "/usr/keys"			"${D}${localstatedir}/"
+	ln -s "${bindir}"			"${D}${localstatedir}/"
+	ln -s "${sysconfdir}"			"${D}${localstatedir}/"
 }

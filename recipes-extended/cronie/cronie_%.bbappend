@@ -13,7 +13,7 @@ do_install_append() {
 	install -d ${D}${sysconfdir}/default/
 	install -m 0644 ${S}/crond.sysconfig ${D}${sysconfdir}/default/crond
 
-	# Remove /var/spool/cron as it respectively a link to ${sysconfdir}/cron is part of tuxbox-links
+	# Remove ${localstatedir}/spool/cron as it respectively a link to ${sysconfdir}/cron is part of tuxbox-links
 	rm -rf ${D}${localstatedir}/spool/cron 2>/dev/null || true
 
 	# Only install systemd service if we enable systemd
@@ -52,7 +52,7 @@ do_install_append() {
 	chown root:crontab ${D}${bindir}/crontab
 	chmod 2755 ${D}${bindir}/crontab
 
-	# allow 'crontab' group write to /var/spool/cron/crontabs
+	# allow 'crontab' group write to ${localstatedir}/spool/cron/crontabs
 	chown root:crontab ${D}${sysconfdir}/cron
 	chown root:crontab ${D}${sysconfdir}/cron/crontabs
 	chmod 770 ${D}${sysconfdir}/cron

@@ -126,7 +126,7 @@ do_install_append () {
 			> ${D}${sysconfdir}/tmpfiles.d/nscd.conf
 	else
 		install -d ${D}${sysconfdir}/default/volatiles
-		echo "d root root 0755 /var/run/nscd none" \
+		echo "d root root 0755 ${localstatedir}/run/nscd none" \
 			> ${D}${sysconfdir}/default/volatiles/98_nscd
 	fi
 }
