@@ -30,6 +30,7 @@ PROVIDES = "\
     enigma2-plugin-extensions-rezap \
     enigma2-plugin-extensions-streamtv \
     enigma2-plugin-extensions-tunerserver \
+    enigma2-plugin-extensions-usbsafe \
     enigma2-plugin-extensions-webbrowser \
     enigma2-plugin-systemplugins-abmcustommiximporter \
     enigma2-plugin-systemplugins-audioeffect \
@@ -56,6 +57,9 @@ PROVIDES = "\
     enigma2-plugin-systemplugins-ventonfancontrol \
     enigma2-plugin-systemplugins-vpledcontrol \
     enigma2-plugin-systemplugins-vuduofancontrol \
+    enigma2-plugin-systemplugins-wetekaudio \
+    enigma2-plugin-systemplugins-wetekfrq \
+    enigma2-plugin-systemplugins-weteksync \
     ${@bb.utils.contains("MACHINE_FEATURES", "legacykernel", "" , "enigma2-plugin-systemplugins-wirelessaccesspoint", d)} \
     enigma2-plugin-systemplugins-xtrendfancontrol \
     enigma2-plugin-systemplugins-xtrendremote \
