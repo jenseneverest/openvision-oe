@@ -28,13 +28,16 @@ do_install() {
 	echo "machine_name=${MACHINE}" >> ${D}${sysconfdir}/image-version
 	echo "version=${VISIONVERSION}-${VISIONREVISION}" >> ${D}${sysconfdir}/image-version
 	echo "visionversion=${VISIONVERSION}" >> ${D}${sysconfdir}/image-version
+	echo "${VISIONVERSION}" > ${D}${sysconfdir}/openvision/visionversion
 	echo "visionrevision=${VISIONREVISION}" >> ${D}${sysconfdir}/image-version
+	echo "${VISIONREVISION}" > ${D}${sysconfdir}/openvision/visionrevision
+	echo "visionlanguage=${VISIONLANGUAGE}" >> ${D}${sysconfdir}/image-version
+	echo "${VISIONLANGUAGE}" > ${D}${sysconfdir}/openvision/visionlanguage
+	echo "compiledby=${DEVELOPER_NAME}" >> ${D}${sysconfdir}/image-version
+	echo "${DEVELOPER_NAME}" > ${D}${sysconfdir}/openvision/developername
+	echo "feedsurl=${DISTRO_FEED_URI}" >> ${D}${sysconfdir}/image-version
+	echo "${DISTRO_FEED_URI}" > ${D}${sysconfdir}/openvision/feedsurl
 	echo "build=${VISIONREVISION}" >> ${D}${sysconfdir}/image-version
-	if [ "${@bb.utils.contains("DISTRO_FEATURES", "python3", "1", "0", d)}" = "1" ]; then
-		echo "Python=3.8" >> ${D}${sysconfdir}/image-version
-	else
-		echo "Python=2.7" >> ${D}${sysconfdir}/image-version
-	fi
 	echo "date=${DATETIME}" >> ${D}${sysconfdir}/image-version
 	echo "comment=Open Vision" >> ${D}${sysconfdir}/image-version
 	echo "target=9" >> ${D}${sysconfdir}/image-version
@@ -42,7 +45,17 @@ do_install() {
 	echo "url=https://openvision.tech" >> ${D}${sysconfdir}/image-version
 	echo "catalog=https://github.com/OpenVisionE2" >> ${D}${sysconfdir}/image-version
 	echo "distro=${DISTRO_NAME}" >> ${D}${sysconfdir}/image-version
-	echo "arch=${DEFAULTTUNE}" >> ${D}${sysconfdir}/image-version
+	echo "${DISTRO_NAME}" > ${D}${sysconfdir}/openvision/distro
+	echo "oe=${BUILD_VERSION}" >> ${D}${sysconfdir}/image-version
+	echo "${BUILD_VERSION}" > ${D}${sysconfdir}/openvision/oe
+	echo "python=${PREFERRED_VERSION_python}" >> ${D}${sysconfdir}/image-version
+	echo "${PREFERRED_VERSION_python}" > ${D}${sysconfdir}/openvision/python
+	echo "mediaservice=${PREFERRED_PROVIDER_virtual/enigma2-mediaservice}" >> ${D}${sysconfdir}/image-version
+	echo "${PREFERRED_PROVIDER_virtual/enigma2-mediaservice}" > ${D}${sysconfdir}/openvision/mediaservice
+	echo "multilib=${HAVE_MULTILIB}" >> ${D}${sysconfdir}/image-version
+	echo "${HAVE_MULTILIB}" >> ${D}${sysconfdir}/openvision/multilib
+	echo "architecture=${DEFAULTTUNE}" >> ${D}${sysconfdir}/image-version
+	echo "${DEFAULTTUNE}" > ${D}${sysconfdir}/openvision/architecture
 	echo "fpu=${TARGET_FPU}" >> ${D}${sysconfdir}/image-version
 	echo "display-type=${DISPLAY_TYPE}" >> ${D}${sysconfdir}/image-version
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "1", "0", d)}" = "1" ]; then
@@ -59,11 +72,8 @@ do_install() {
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "multitranscoding", "1", "0", d)}" = "1" ]; then
 		echo "multitranscoding=${HAVE_MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
 	fi
-	echo "multilib=${HAVE_MULTILIB}" >> ${D}${sysconfdir}/image-version
 	echo "${MACHINE}" > ${D}${sysconfdir}/openvision/model
 	echo "${BOX_BRAND}" > ${D}${sysconfdir}/openvision/brand
-	echo "${VISIONVERSION}" > ${D}${sysconfdir}/openvision/visionversion
-	echo "${VISIONREVISION}" > ${D}${sysconfdir}/openvision/visionrevision
 }
 
 pkg_postinst_ontarget_${PN} () {
