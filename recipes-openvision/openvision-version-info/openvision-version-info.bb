@@ -19,6 +19,7 @@ PACKAGES = "${PN}"
 
 do_install() {
 	install -d ${D}${sysconfdir}
+	install -d ${D}${sysconfdir}/openvision
 	echo "STB=${MACHINE}" > ${D}${sysconfdir}/image-version
 	echo "Brand=${BOX_BRAND}" >> ${D}${sysconfdir}/image-version
 	echo "box_type=${MACHINE}" >> ${D}${sysconfdir}/image-version
@@ -46,11 +47,11 @@ do_install() {
 	echo "display-type=${DISPLAY_TYPE}" >> ${D}${sysconfdir}/image-version
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "1", "0", d)}" = "1" ]; then
 		echo "small-flash=${HAVE_SMALLFLASH}" >> ${D}/etc/image-version
-		echo "smallflash" > ${D}${sysconfdir}/smallflash
+		echo "smallflash" > ${D}${sysconfdir}/openvision/smallflash
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "middleflash", "1", "0", d)}" = "1" ]; then
 		echo "middle-flash=${HAVE_MIDDLEFLASH}" >> ${D}/etc/image-version
-		echo "middleflash" > ${D}${sysconfdir}/middleflash
+		echo "middleflash" > ${D}${sysconfdir}/openvision/middleflash
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "transcoding", "1", "0", d)}" = "1" ]; then
 		echo "transcoding=${HAVE_TRANSCODING}" >> ${D}${sysconfdir}/image-version
@@ -59,10 +60,10 @@ do_install() {
 		echo "multitranscoding=${HAVE_MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
 	fi
 	echo "multilib=${HAVE_MULTILIB}" >> ${D}${sysconfdir}/image-version
-	echo "${MACHINE}" > ${D}${sysconfdir}/model
-	echo "${BOX_BRAND}" > ${D}${sysconfdir}/brand
-	echo "${VISIONVERSION}" > ${D}${sysconfdir}/visionversion
-	echo "${VISIONREVISION}" > ${D}${sysconfdir}/visionrevision
+	echo "${MACHINE}" > ${D}${sysconfdir}/openvision/model
+	echo "${BOX_BRAND}" > ${D}${sysconfdir}/openvision/brand
+	echo "${VISIONVERSION}" > ${D}${sysconfdir}/openvision/visionversion
+	echo "${VISIONREVISION}" > ${D}${sysconfdir}/openvision/visionrevision
 }
 
 pkg_postinst_ontarget_${PN} () {
