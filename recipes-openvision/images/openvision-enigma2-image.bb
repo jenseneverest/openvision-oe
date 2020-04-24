@@ -61,6 +61,11 @@ DEPENDS += "\
 	enigma2-plugins \
 	"
 
+RDEPENDS += "\
+	${@bb.utils.contains("MACHINE_FEATURES", "emmc", "dosfstools mtools e2fsprogs-resize2fs partitions-by-name" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "fastboot", "dosfstools mtools android-tools" , "", d)} \
+	"
+
 # These machine feature related plugins should not be enabled for smallflash STBs as there isn't enough space for them!
 MACHINE_FEATURE_RELATED_PLUGINS += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "bluetooth", "enigma2-plugin-extensions-btdevicesmanager", "", d)} \
@@ -94,7 +99,6 @@ IMAGE_INSTALL += "\
 	ntp", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	curl \
-	libbluray \
 	nfs-utils \
 	openssh-sftp-server \
 	samba-base \
