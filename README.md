@@ -69,9 +69,11 @@ Always go with "Vision" first, compile and test the image then go with "Feed".
 
 If you want to compile an image for only 1 machine just choose "Specific".
 
-If you want to go clean again, do not remove your "sources" directoy! Never!
+If you want to go clean again, do not remove your "sources" directoy! NEVER!
 
 If you answered something wrong don't worry, just remove "user.ovstep"!
+
+After each OE update you have to remove your "build" folder then use "image.sh" again but you should not remove your "build" folder all the time! Only after OE updates otherwise the compile process will take hours to complete instead of minutes.
 
 # Hints for multiple architectures
 
