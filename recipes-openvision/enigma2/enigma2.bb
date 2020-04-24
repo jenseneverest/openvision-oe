@@ -41,6 +41,7 @@ RDEPENDS_${PN} = "\
 	ntpdate \
 	openvision-branding \
 	${PYTHON_RDEPS} \
+	${@bb.utils.contains("MACHINE_FEATURES", "emmc", "bzip2 rsync", "", d)} \
 	"
 
 RDEPENDS_${PN}_append_sh4 += "\
