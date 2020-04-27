@@ -11,7 +11,7 @@ inherit gitpkgv pkgconfig rm_python_pyc compile_python_pyo no_python_src
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-SRC_URI = "git://github.com/OpenAZBox/AZPlay.git;protocol=git"
+SRC_URI = "git://github.com/OpenVisionE2/AZPlay.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
