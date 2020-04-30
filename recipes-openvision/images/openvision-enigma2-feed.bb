@@ -121,8 +121,9 @@ OPTIONAL_PACKAGES += "\
 	ushare \
 	v4l-utils \
 	vim \
-	wscan \
+	${@ 'wireguard-tools' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '3.14') >= 0) else '' } \
 	wireless-tools \
+	wscan \
 	yafc \
 	zeroconf \
 	zip \
@@ -157,7 +158,6 @@ EXTRA_KERNEL_WIFI_DRIVERS += "\
 	"
 
 EXTRA_WIFI_DRIVERS += "\
-	${@ 'wireguard-tools' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '3.14') >= 0) else '' } \
 	${@ 'mt7601u' if (bb.utils.vercmp_string("${KERNEL_VERSION}" or "0", '4.2') < 0) else '' } \
 	rt3070 \
 	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8188fu", d)} \
