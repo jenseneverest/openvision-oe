@@ -1,5 +1,4 @@
 DESCRIPTION = "Open Vision branding lib"
-MAINTAINER = "Open Vision Developers"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "python"

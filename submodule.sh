@@ -5,7 +5,7 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
-echo "This is only for Open Vision Developers with push access"
+echo "This is only for Open Vision developers with push access"
 echo ""
 echo -e "First choose what kind of submodule update do you want?"
 echo -e "Answers are in ${GREEN}green:${NC}"

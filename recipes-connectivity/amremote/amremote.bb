@@ -1,6 +1,5 @@
 SUMMARY = "AML remote setup"
 LICENSE = "GPLv2"
-MAINTAINER = "Open Vision Developers"
 SECTION = "base"
 PRIORITY = "required"
 

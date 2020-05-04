@@ -1,7 +1,6 @@
 DESCRIPTION = "Open Vision version info"
 SECTION = "base"
 PRIORITY = "required"
-MAINTAINER = "Open Vision Developers"
 require conf/license/license-gplv2.inc
 
 PV = "${VISIONVERSION}"
@@ -41,7 +40,7 @@ do_install() {
 	echo "date=${DATETIME}" >> ${D}${sysconfdir}/image-version
 	echo "comment=Open Vision" >> ${D}${sysconfdir}/image-version
 	echo "target=9" >> ${D}${sysconfdir}/image-version
-	echo "creator=Open Vision Developers" >> ${D}${sysconfdir}/image-version
+	echo "creator=Open Vision developers" >> ${D}${sysconfdir}/image-version
 	echo "url=https://openvision.tech" >> ${D}${sysconfdir}/image-version
 	echo "catalog=https://github.com/OpenVisionE2" >> ${D}${sysconfdir}/image-version
 	echo "distro=${DISTRO_NAME}" >> ${D}${sysconfdir}/image-version

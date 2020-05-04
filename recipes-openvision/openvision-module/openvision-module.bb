@@ -1,7 +1,6 @@
 SECTION = "kernel/modules"
 LICENSE = "CLOSED"
 PRIORITY = "required"
-MAINTAINER = "Open Vision Developers"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 

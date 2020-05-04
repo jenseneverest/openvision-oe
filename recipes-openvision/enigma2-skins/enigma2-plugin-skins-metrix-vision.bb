@@ -1,5 +1,4 @@
 SUMMARY = "Enigma2 Skin MetrixHD"
-MAINTAINER = "Open Vision Developers"
 SECTION = "base"
 PRIORITY = "required"
 LICENSE = "proprietary"

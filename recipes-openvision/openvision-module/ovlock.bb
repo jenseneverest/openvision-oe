@@ -1,7 +1,6 @@
 DESCRIPTION = "ovlock"
 SECTION = "base"
 PRIORITY = "required"
-MAINTAINER = "Open Vision Developers"
 require conf/license/license-gplv2.inc
 
 inherit rm_python_pyc compile_python_pyo no_python_src

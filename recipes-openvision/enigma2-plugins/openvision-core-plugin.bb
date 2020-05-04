@@ -1,5 +1,4 @@
 SUMMARY = "Open Vision core plugin"
-MAINTAINER = "Open Vision Developers"
 
 require conf/license/license-gplv2.inc
 

@@ -1,4 +1,3 @@
-MAINTAINER = "Open Vision Developers"
 require conf/license/openvision-gplv2.inc
 require softcam.inc
 inherit cmake gitpkgv upx_compress

@@ -1,6 +1,5 @@
 DESCRIPTION = "KeyAdder for Add BISS, PowerVU, Irdeto and Tandberg keys to current service."
 LICENSE = "GPLv3"
-MAINTAINER = "Open Vision Developers"
 AUTHOR = "RAED"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 

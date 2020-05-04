@@ -1,5 +1,4 @@
 SUMMARY = "Display skins for enigma2"
-MAINTAINER = "Open Vision Developers"
 PACKAGES = "${PN}-meta ${PN}"
 PACKAGES_DYNAMIC = "enigma2-plugin-display-*"
 LICENSE = "GPLv3"
