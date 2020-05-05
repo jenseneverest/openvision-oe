@@ -19,6 +19,25 @@ do_compile() {
 	oe_runmake -C "${STAGING_KERNEL_BUILDDIR}" M="${S}" modules
 }
 
+do_compile_dreamone() {
+	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
+	oe_runmake -C "${STAGING_KERNEL_DIR}" M="${S}" modules
+}
+
+do_configure[nostamp] = "1"
+
+do_configure_prepend(){
+    sed -i "s/@VISIONVERSION@-@VISIONREVISION@/${VISIONVERSION}-${VISIONREVISION}/" "${S}/openvision.c"
+    sed -i "s/@MACHINE@/${MACHINE}/" "${S}/openvision.c"
+    sed -i "s/@BOX_BRAND@/${BOX_BRAND}/" "${S}/openvision.c"
+    sed -i "s/@VISIONLANGUAGE@/${VISIONLANGUAGE}/" "${S}/openvision.c"
+    sed -i "s/@BUILD_VERSION@/${BUILD_VERSION}/" "${S}/openvision.c"
+    sed -i "s/@PREFERRED_VERSION_python@/${PREFERRED_VERSION_python}/" "${S}/openvision.c"
+    sed -i "s/@HAVE_MULTILIB@/${HAVE_MULTILIB}/" "${S}/openvision.c"
+    sed -i "s/@DEFAULTTUNE@/${DEFAULTTUNE}/" "${S}/openvision.c"
+    sed -i "s/@DEVELOPER_NAME@/${DEVELOPER_NAME}/" "${S}/openvision.c"
+}
+
 do_install () {
     install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/openvision
     install -m 0644 ${S}/openvision.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/openvision
