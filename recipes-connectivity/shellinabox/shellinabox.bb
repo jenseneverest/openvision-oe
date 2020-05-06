@@ -15,7 +15,7 @@ SRC_URI = " \
            file://shellinabox.init \
           "
 
-inherit autotools-brokensep update-rc.d systemd
+inherit autotools-brokensep update-rc.d systemd upx_compress
 
 EXTRA_OECONF = "--disable-runtime-loading --disable-utmp"
 
