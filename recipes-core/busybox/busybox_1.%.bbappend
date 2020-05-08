@@ -24,7 +24,7 @@ SRC_URI += "\
 	file://inetd.conf \
 	${@bb.utils.contains("MACHINE_FEATURES", "oldkernel", "file://old_kernel.patch", "", d)} \
 	file://0001-Prevent-telnet-connections-from-the-internet-to-the-stb.patch \
-	file://0002-Extended-network-interfaces-support.patch \
+	${@bb.utils.contains("MACHINE_FEATURES", "oldkernel", "", "file://0002-Extended-network-interfaces-support.patch", d)} \
 	"
 
 # we do not really depend on mtd-utils, but as mtd-utils replaces 
