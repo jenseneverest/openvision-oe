@@ -55,13 +55,13 @@ fi
 echo -e "${BLUE}Now choose whether you want to compile Open Vision or the online feeds."
 echo -e "Answers are in ${GREEN}green:${NC}"
 echo -e ""
-echo -e "${GREEN}Vision ${NC}- ${GREEN}Feed ${NC}- ${GREEN}Kernel-Clean ${NC}- ${GREEN}Version-Clean${NC}"
+echo -e "${GREEN}Vision ${NC}- ${GREEN}Feed ${NC}- ${GREEN}Kernel-Clean${NC}"
 echo -e ""
 echo -e "${BLUE}Enter image type:${NC}"
 echo -e "${GREEN}"
 read IMAGETYPE
 echo -e "${NC}"
-if [ $IMAGETYPE != "Vision" -a $IMAGETYPE != "Feed" -a $IMAGETYPE != "Kernel-Clean" -a $IMAGETYPE != "Version-Clean" ]
+if [ $IMAGETYPE != "Vision" -a $IMAGETYPE != "Feed" -a $IMAGETYPE != "Kernel-Clean" ]
 then
 	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
@@ -125,10 +125,6 @@ fi
 if [ $IMAGETYPE = "Kernel-Clean" ]
 then
 	IMAGECMD='make kernel-clean'
-fi
-if [ $IMAGETYPE = "Version-Clean" ]
-then
-	IMAGECMD='make version-clean'
 fi
 cd ..
 if [ $META = "Specific" ]

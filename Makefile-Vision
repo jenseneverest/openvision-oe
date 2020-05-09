@@ -73,10 +73,6 @@ kernel-clean: init
 	@echo 'Cleanup kernel for $(MACHINE)$(DMTYPE)'
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake -c clean virtual/kernel
 
-version-clean: init
-	@echo 'Cleanup openvision-version-info for $(MACHINE)$(DMTYPE)'
-	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake -c clean openvision-version-info
-
 update:
 	@echo 'Updating Git repositories...'
 	@HASH=`$(XSUM) $(MAKEFILE_LIST)`; \
