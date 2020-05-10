@@ -25,7 +25,7 @@ do_install() {
 # Install static regulatory DB in /lib/firmware for kernel to load.
 # This requires Linux kernel >= v4.15.
 # For kernel <= v4.14, inherit the kernel_wireless_regdb.bbclass in kernel's recipe.
-PACKAGES =+ "${PN}-static"
+PACKAGES += "${PN}-static"
 RCONFLICTS_${PN} = "${PN}-static"
 
 FILES_${PN}-static = " \

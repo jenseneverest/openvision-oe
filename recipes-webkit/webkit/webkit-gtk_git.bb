@@ -87,7 +87,7 @@ do_install_append() {
         install -m 0755 ${WORKDIR}/build/Programs/GtkLauncher ${D}${bindir}/webkit.launcher
 }
 
-PACKAGES =+ "${PN}-webinspector bjavascriptcore"
+PACKAGES += "${PN}-webinspector bjavascriptcore"
 FILES_libjavascriptcore = "${libdir}/libjavascriptcoregtk-1.0.so.*"
 FILES_${PN}-webinspector = "${datadir}/webkitgtk-*/webinspector/"
 FILES_${PN} += "${datadir}/webkitgtk-*/resources/error.html \

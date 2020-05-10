@@ -20,7 +20,7 @@ do_install() {
     echo rt5370sta > ${D}${sysconfdir}/modutils/rt5370
 }
 
-PACKAGES =+ "${PN}-firmware"
+PACKAGES += "${PN}-firmware"
 FILES_${PN}-firmware = "${sysconfdir}/Wireless"
 
 RDEPENDS_${PN} = "${PN}-firmware"

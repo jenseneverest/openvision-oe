@@ -35,7 +35,7 @@ do_install() {
     echo rt3070sta > ${D}${sysconfdir}/modutils/rt3070
 }
 
-PACKAGES =+ "${PN}-firmware"
+PACKAGES += "${PN}-firmware"
 FILES_${PN}-firmware = "${sysconfdir}/Wireless ${nonarch_base_libdir}/firmware"
 
 RDEPENDS_${PN} = "${PN}-firmware"

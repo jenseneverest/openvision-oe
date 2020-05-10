@@ -395,8 +395,8 @@ python do_cleanup () {
 }
 
 addtask do_cleanup after do_populate_sysroot before do_package
-RPROVIDES_${PN} =+ "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${PN}-vxg ${PN}-terminal ${PN}-themes ${PN}-webtv", "${PN}-terminal", d)}"
-PACKAGES =+ "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${PN}-vxg ${PN}-terminal ${PN}-themes ${PN}-webtv", "", d)}"
+RPROVIDES_${PN} += "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${PN}-vxg ${PN}-terminal ${PN}-themes ${PN}-webtv", "${PN}-terminal", d)}"
+PACKAGES += "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${PN}-vxg ${PN}-terminal ${PN}-themes ${PN}-webtv", "", d)}"
 FILES_${PN}-vxg = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/vxg", "", d)}"
 FILES_${PN}-themes = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/themes", "", d)}"
 FILES_${PN}-webtv = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/webtv", "", d)}"
@@ -405,4 +405,4 @@ DESCRIPTION_${PN}-terminal = "${@bb.utils.contains("MACHINE_FEATURES", "smallfla
 RDEPENDS_${PN}-terminal = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "${PN} shellinabox", d)}"
 RREPLACES_${PN}-terminal = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "enigma2-plugin-extensions-openwebif-terminal", d)}"
 RCONFLICTS_${PN}-terminal = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "enigma2-plugin-extensions-openwebif-terminal", d)}"
-RPROVIDES_${PN}-terminal =+ "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "enigma2-plugin-extensions-openwebif-terminal", d)}"
+RPROVIDES_${PN}-terminal += "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "enigma2-plugin-extensions-openwebif-terminal", d)}"

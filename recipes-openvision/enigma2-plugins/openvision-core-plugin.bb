@@ -29,9 +29,9 @@ EXTRA_OECONF = "\
     STAGING_LIBDIR=${STAGING_LIBDIR} \
     "
 
-PACKAGES =+ "enigma2-plugin-systemplugins-visioncore"
-PACKAGES =+ "enigma2-plugin-systemplugins-visioncore-src"
-PACKAGES =+ "enigma2-plugin-systemplugins-visioncore-po"
+PACKAGES += "enigma2-plugin-systemplugins-visioncore"
+PACKAGES += "enigma2-plugin-systemplugins-visioncore-src"
+PACKAGES += "enigma2-plugin-systemplugins-visioncore-po"
 CONFFILES_enigma2-plugin-systemplugins-visioncore += "${sysconfdir}/exports"
 FILES_enigma2-plugin-systemplugins-visioncore = "${sysconfdir} ${libdir}"
 

@@ -117,7 +117,7 @@ RRECOMMENDS_enigma2-plugin-extensions-dvdplayer = "kernel-module-udf"
 RDEPENDS_enigma2-plugin-systemplugins-hotplug = "hotplug-e2-helper"
 
 DESCRIPTION_enigma2-plugin-font-wqy-microhei = "wqy-microhei font supports Chinese EPG"
-PACKAGES =+ "enigma2-plugin-font-wqy-microhei"
+PACKAGES += "enigma2-plugin-font-wqy-microhei"
 FILES_enigma2-plugin-font-wqy-microhei = "${datadir}/fonts/wqy-microhei.ttc ${datadir}/fonts/fallback.font"
 ALLOW_EMPTY_enigma2-plugin-font-wqy-microhei = "1"
 
@@ -149,7 +149,7 @@ FILES_${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PACKAGES =+ "enigma2-fonts"
+PACKAGES += "enigma2-fonts"
 PKGV_enigma2-fonts = "2018.08.15"
 FILES_enigma2-fonts = "${datadir}/fonts"
 

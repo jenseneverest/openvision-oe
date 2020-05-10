@@ -37,7 +37,7 @@ do_install() {
     oe_runmake 'DESTDIR=${D}' install
 }
 
-PACKAGES =+ "${PN}-ri-docs ${PN}-rdoc"
+PACKAGES += "${PN}-ri-docs ${PN}-rdoc"
 
 SUMMARY_${PN}-ri-docs = "ri (Ruby Interactive) documentation for the Ruby standard library"
 RDEPENDS_${PN}-ri-docs = "${PN}"

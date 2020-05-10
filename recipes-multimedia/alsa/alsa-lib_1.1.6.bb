@@ -18,7 +18,7 @@ EXTRA_OECONF += " \
     --disable-python \
 "
 
-PACKAGES =+ "alsa-server alsa-conf alsa-doc"
+PACKAGES += "alsa-server alsa-conf alsa-doc"
 
 FILES_alsa-server = "${bindir}/*"
 FILES_alsa-conf = "${datadir}/alsa/"

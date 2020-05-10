@@ -35,7 +35,7 @@ INITSCRIPT_PARAMS_${PN}-mdev = "start 04 S ."
 
 RDEPENDS_${PN} += "${@bb.utils.contains("MACHINE_FEATURES", "oldkernel", "", "odhcp6c", d)}"
 
-PACKAGES =+ "${PN}-inetd"
+PACKAGES += "${PN}-inetd"
 INITSCRIPT_PACKAGES += "${PN}-inetd"
 INITSCRIPT_NAME_${PN}-inetd = "inetd.${BPN}" 
 CONFFILES_${PN}-inetd = "${sysconfdir}/inetd.conf"

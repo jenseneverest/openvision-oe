@@ -9,5 +9,5 @@ do_install_append() {
 	fi
 }
 
-PACKAGES =+ "e2fsprogs-e4defrag"
+PACKAGES += "e2fsprogs-e4defrag"
 FILES_e2fsprogs-e4defrag = "${sbindir}/e4defrag"

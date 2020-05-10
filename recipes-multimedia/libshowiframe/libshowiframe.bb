@@ -8,8 +8,8 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PV = "1.0"
 
-PROVIDES =+ " libshowiframe0"
-PACKAGES =+ " libshowiframe0"
+PROVIDES += " libshowiframe0"
+PACKAGES += " libshowiframe0"
 
 SRC_URI = "file://showiframe.c file://showiframe.h"
 

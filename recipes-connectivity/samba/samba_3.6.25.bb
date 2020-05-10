@@ -119,7 +119,7 @@ EXTRA_OECONF = " \
     linux_getgrouplist_ok=no \
 "
 
-PACKAGES =+ "${PN}-base smbclient ${PN}-base-dbg ${PN}-advanced winbind libwinbind libnss-winbind libsmbclient"
+PACKAGES += "${PN}-base smbclient ${PN}-base-dbg ${PN}-advanced winbind libwinbind libnss-winbind libsmbclient"
 
 FILES_${PN}-base       = "${sbindir}/smbd ${sbindir}/nmbd \
                           ${sysconfdir}/samba/smb.conf \

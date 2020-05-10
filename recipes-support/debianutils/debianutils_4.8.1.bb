@@ -30,7 +30,7 @@ do_install_append() {
 
 # Note that we package the update-alternatives name.
 #
-PACKAGES =+ "${PN}-run-parts"
+PACKAGES += "${PN}-run-parts"
 FILES_${PN}-run-parts = "${base_bindir}/run-parts.debianutils"
 
 RDEPENDS_${PN} += "${PN}-run-parts"

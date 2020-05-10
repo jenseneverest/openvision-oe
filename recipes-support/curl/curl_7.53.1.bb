@@ -66,7 +66,7 @@ do_install_append_class-target() {
 	sed -i -e 's,${STAGING_DIR_HOST},,g' ${D}${bindir}/curl-config
 }
 
-PACKAGES =+ "lib${BPN}"
+PACKAGES += "lib${BPN}"
 
 FILES_lib${BPN} = "${libdir}/lib*.so.*"
 RRECOMMENDS_lib${BPN} += "ca-certificates"
