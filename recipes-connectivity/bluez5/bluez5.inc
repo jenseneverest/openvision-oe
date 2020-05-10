@@ -101,7 +101,7 @@ do_install_append() {
 	#sed -i -e '1s,#!.*python.*,#!${bindir}/python3,' ${D}${libdir}/bluez/test/*
 }
 
-PACKAGES =+ "${PN}-testtools ${PN}-obex ${PN}-noinst-tools"
+PACKAGES += "${PN}-testtools ${PN}-obex ${PN}-noinst-tools"
 
 FILES_${PN} += " \
     ${libdir}/bluetooth/plugins/*.so \

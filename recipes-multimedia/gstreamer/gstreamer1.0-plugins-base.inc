@@ -7,7 +7,7 @@ DEPENDS += "util-linux iso-codes zlib"
 
 inherit gettext gobject-introspection
 
-PACKAGES_DYNAMIC =+ "^libgst.*"
+PACKAGES_DYNAMIC += "^libgst.*"
 
 PACKAGECONFIG ??= " \
 	${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \

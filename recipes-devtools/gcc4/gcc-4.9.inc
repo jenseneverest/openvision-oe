@@ -10,7 +10,7 @@ BINV = "4.9.4"
 
 FILESEXTRAPATHS =. "${FILE_DIRNAME}/gcc-4.9:"
 
-DEPENDS =+ "mpfr gmp libmpc zlib"
+DEPENDS += "mpfr gmp libmpc zlib"
 NATIVEDEPS = "mpfr-native gmp-native libmpc-native zlib-native"
 
 LICENSE = "GPL-3.0-with-GCC-exception & GPLv3"
