@@ -96,7 +96,7 @@ IMAGE_INSTALL += "\
 	wget \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
 	${MACHINE_FEATURE_RELATED_PLUGINS} \
-	ntp", d)} \
+	ntpdate", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	curl \
 	nfs-utils \

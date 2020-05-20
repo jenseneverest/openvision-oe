@@ -25,6 +25,7 @@ SRC_URI += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "oldkernel", "file://old_kernel.patch", "", d)} \
 	file://0001-Prevent-telnet-connections-from-the-internet-to-the-stb.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "oldkernel", "", "file://0002-Extended-network-interfaces-support.patch", d)} \
+	file://ntp.script \
 	"
 
 # we do not really depend on mtd-utils, but as mtd-utils replaces 
@@ -58,6 +59,8 @@ do_install_append() {
 	install -d ${D}${sysconfdir}/mdev
 	install -m 0755 ${WORKDIR}/mdev-mount.sh ${D}${sysconfdir}/mdev
 	sed -i "/[/][s][h]*$/d" ${D}${sysconfdir}/busybox.links.nosuid
+	install -d ${D}${sysconfdir}/udhcpc.d
+	install -m 0755 ${WORKDIR}/ntp.script ${D}${sysconfdir}/udhcpc.d/55ntp
 }
 
 do_configure_prepend_sh4 () {
