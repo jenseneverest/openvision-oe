@@ -81,6 +81,7 @@ IMAGE_INSTALL += "\
 	aio-grab \
 	cloudflare-dns \
 	cronie \
+	dhrystone \
 	enigma2 \
 	enigma2-locale-meta \
 	${ENIGMA2_PLUGINS} \
