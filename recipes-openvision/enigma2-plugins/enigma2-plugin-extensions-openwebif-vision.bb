@@ -156,7 +156,6 @@ python do_cleanup () {
         ('dm820', 'dm820.png', 'dmm2.png', 'dmm2.html'),
         ('dm900', 'dm900.png', 'dmm2.png', 'dmm2.html'),
         ('dm920', 'dm920.png', 'dmm2.png', 'dmm2.html'),
-        ('dreamone', 'dreamone.png', 'dmm2.png', 'dmm2.html'),
         ('wetekplay', 'wetekplay.png', 'wetek.png', 'wetek.html'),
         ('wetekplay2', 'wetekplay2.png', 'wetek2.png', 'wetek2.html'),
         ('wetekhub', 'wetekhub.png', 'wetek3.png', 'wetek3.html'),
