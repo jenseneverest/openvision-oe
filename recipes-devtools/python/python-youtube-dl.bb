@@ -34,7 +34,6 @@ do_install_append() {
 
 RDEPENDS_${PN} = " \
     python-email \
-    python-gdata \
     python-subprocess \
     python-unixadmin \
     python-ctypes \
