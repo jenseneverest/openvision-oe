@@ -77,6 +77,7 @@ rm -rf meta-openpli/recipes-connectivity/openssl/libcrypto-compat_1.0.2.bb
 rm -rf meta-openpli/recipes-connectivity/realtek
 rm -rf meta-openpli/recipes-core/base-files
 rm -rf meta-openpli/recipes-core/busybox
+rm -rf meta-openpli/recipes-devtools/python/python-transmissionrpc_hg.bb
 rm -rf meta-openpli/recipes-extended/tzdata
 rm -rf meta-openpli/recipes-linux
 rm -rf meta-openpli/recipes-mediacenter
