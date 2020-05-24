@@ -9,6 +9,12 @@ Open Vision 7.3 (Old) enigma2 images [![Build Status](https://travis-ci.org/Open
 
 You could use https://sourceforge.net/projects/win32diskimager/ or similar tools to write the image on a sdcard.
 
+# Login
+
+Username: root
+
+Password: openvision
+
 # Support
 
 Please use our forum at https://forum.openvision.tech or our issue page at https://github.com/OpenVisionE2/openvision-oe/issues
