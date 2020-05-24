@@ -45,6 +45,7 @@ do_configure_prepend() {
     cp ${F}/SoftCam.Key ${S}/SoftCam.Key
     perl -i -pe 's:Schimmelreiter:smod:g' ${S}/globals.h
     perl -i -pe 's:Schimmelreiter:oe-alliance:g' ${S}/webif/status/status.html
+    perl -i -pe 's:oscam oscam-smod oscam-smod-ipv4only oscam-atv:oscam-smod oscam-smod-ipv4only:g' ${S}/files/softcam.oscam
 }
 
 do_compile_prepend() {
