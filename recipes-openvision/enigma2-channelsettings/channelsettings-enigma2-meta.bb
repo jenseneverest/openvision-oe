@@ -3,6 +3,7 @@ require conf/license/openvision-gplv2.inc
 DESCRIPTION = "meta file for settings"
 
 DEPENDS = "\
+	enigma2-plugin-extensions-ngsetting \
 	enigma2-plugin-settings-chveneburi \
 	enigma2-plugin-settings-ciefp-19e.16e.13e.0.8w \
 	enigma2-plugin-settings-ciefp-19e.16e.13e.1.9e.0.8w \
