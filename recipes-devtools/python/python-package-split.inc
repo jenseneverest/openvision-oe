@@ -4,7 +4,7 @@ RDEPENDS_{PN}-src = "${PN}"
 
 SSTATE_DUPWHITELIST += "${STAGING_LIBDIR}/${PYTHONPATHVERSION}/site-packages/tests/__init__.py ${STAGING_LIBDIR}/${PYTHONPATHVERSION}/site-packages/tests/__init__.pyo"
 
-FILES_${PN}-src = " \
+FILES_${PN}-src += "\
     ${PYTHON_SITEPACKAGES_DIR}/*.py \
     ${PYTHON_SITEPACKAGES_DIR}/*/*.py \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*.py \
@@ -25,9 +25,14 @@ FILES_${PN}-src = " \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*.h \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.h \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.h \
+    ${PYTHON_SITEPACKAGES_DIR}/*.exe \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*.exe \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*.exe \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.exe \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.exe \
     "
 
-FILES_${PN}-test += " \
+FILES_${PN}-test += "\
     ${PYTHON_SITEPACKAGES_DIR}/test \
     ${PYTHON_SITEPACKAGES_DIR}/tests \
     ${PYTHON_SITEPACKAGES_DIR}/Test \
@@ -43,7 +48,7 @@ FILES_${PN}-test += " \
 "
 
 # some txt files which should go into -doc
-FILES_${PN}-doc += " \
+FILES_${PN}-doc += "\
     ${PYTHON_SITEPACKAGES_DIR}/*-info \
     ${PYTHON_SITEPACKAGES_DIR}/*/*-info \
     ${PYTHON_SITEPACKAGES_DIR}/*-INFO \
@@ -66,7 +71,7 @@ FILES_${PN}-doc += " \
     ${PYTHON_SITEPACKAGES_DIR}/README \
     "
 
-FILES_${PN}-dbg += " \
+FILES_${PN}-dbg += "\
     ${PYTHON_SITEPACKAGES_DIR}/*.debug \
     ${PYTHON_SITEPACKAGES_DIR}/*/*.debug \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*.debug \

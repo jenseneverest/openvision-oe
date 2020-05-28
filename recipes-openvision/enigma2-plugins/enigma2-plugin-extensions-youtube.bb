@@ -37,5 +37,5 @@ do_install_append() {
 
 FILES_${PN} = "${sysconfdir} ${libdir}"
 
-RDEPENDS_{PN}-src = "${PN}"
+RDEPENDS_{PN}-src += "${PN}"
 FILES_${PN}-src = "${libdir}/enigma2/python/Plugins/Extensions/YouTube/*.py"

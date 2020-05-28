@@ -1,4 +1,3 @@
-
 # duplicated split_and_strip_files, but this one removes all src from the dist package
 
 python split_and_strip_files () {
