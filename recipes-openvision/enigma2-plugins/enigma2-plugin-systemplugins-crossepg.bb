@@ -3,23 +3,22 @@ HOMEPAGE = "https://github.com/oe-alliance/e2openplugin-CrossEPG"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=4fbd65380cdd255951079008b364516c"
 
-DEPENDS += "libxml2 zlib python swig-native curl python"
-RDEPENDS_${PN} += "libcurl enigma2 python-compression python-lzma xz"
+DEPENDS += "libxml2 zlib swig-native curl python"
+RDEPENDS_${PN} += "libcurl enigma2 python-compression python-lzma xz python-core"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit gitpkgv python-dir rm_python_pyc compile_python_pyo no_python_src
 
-SRC_URI = "git://github.com/oe-alliance/e2openplugin-CrossEPG.git;protocol=git"
+PV = "0.8.7+gitr${SRCPV}"
+PKGV = "0.8.7+gitr${GITPKGV}"
 
-PV = "0.8.6+gitr${SRCPV}"
-PKGV = "0.8.6+gitr${GITPKGV}"
-
-ALLOW_EMPTY_${PN} = "1"
-
-CFLAGS_append = " -I${STAGING_INCDIR}/libxml2/ -I${STAGING_INCDIR}/${PYTHON_DIR}/"
-
-# prevent lots of QA warnings
+SRC_URI = "git://github.com/OpenVisionE2/CrossEPG.git;protocol=git"
 
 S = "${WORKDIR}/git"
+
+CFLAGS_append = " -I${STAGING_INCDIR}/libxml2/ -I${STAGING_INCDIR}/${PYTHON_DIR}/"
+CFLAGS_append = " ${@bb.utils.contains_any('BOX_BRAND', 'xtrend xp gfutures formuler airdigital', ' -DNO_DVB_POLL' , '', d)}"
 
 do_compile() {
     echo ${PV} > ${S}/VERSION
@@ -28,10 +27,11 @@ do_compile() {
 
 do_install() {
     oe_runmake 'D=${D}' install
+    mv ${D}/usr/crossepg/libcrossepg.so ${D}${libdir}/
 }
 
 pkg_postrm_${PN}() {
-rm -fr ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG > /dev/null 2>&1
+    rm -fr ${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG > /dev/null 2>&1
 }
 
 python populate_packages_prepend() {
@@ -44,7 +44,8 @@ python populate_packages_prepend() {
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\/.*\.po$', 'enigma2-plugin-%s-po', '%s (translations)', recursive=True, match_path=True, prepend=True)
 }
 
-FILES_${PN}_append = " /usr/crossepg ${libdir}/${PYTHONPATHVERSION}"
+ALLOW_EMPTY_${PN} = "1"
+FILES_${PN}_append = " /usr/crossepg ${libdir}/libcrossepg.so ${libdir}/${PYTHONPATHVERSION}"
 FILES_${PN}-src_append = " ${libdir}/${PYTHONPATHVERSION}/crossepg.py"
-FILES_${PN}-dbg_append = " /usr/crossepg/scripts/mhw2epgdownloader/.debug"
-FILES_${PN}-dbg += "/usr/crossepg/scripts/mhw2epgdownloader/.debug"
+FILES_${PN}-dbg_append = " /usr/crossepg/scripts/mhw2epgdownloader/.debug /usr/crossepg/scripts/mhw2epgdownloader/.debug"
+FILES_SOLIBSDEV = ""
