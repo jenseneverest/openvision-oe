@@ -34,9 +34,11 @@ FILES_${PN} = "${bindir}/oscam-emu ${sysconfdir}/tuxbox/config/oscam-emu/* ${sys
 EXTRA_OECMAKE += "\
 	-DOSCAM_SYSTEM_NAME=Tuxbox \
 	-DWEBIF=1 \
+	-DWEBIF_LIVELOG=1 \
+	-DWEBIF_JQUERY=1 \
 	-DWITH_STAPI=0 \
 	-DHAVE_LIBUSB=1 \
-	-DSTATIC_LIBUSB=1 \
+	-DSTATIC_LIBUSB=0 \
 	-DWITH_SSL=1 \
 	-DIPV6SUPPORT=1 \
 	-DCLOCKFIX=0 \
@@ -45,7 +47,7 @@ EXTRA_OECMAKE += "\
 	-DCARDREADER_PCSC=1 \
 	-DCW_CYCLE_CHECK=1 \
 	-DCS_CACHEEX=1 \
-	-DMODULE_CONSTCW=1 \	
+	-DMODULE_CONSTCW=1 \
 	"
 
 do_install() {
