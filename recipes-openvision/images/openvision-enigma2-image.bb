@@ -43,7 +43,6 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-systemplugins-osd3dsetup \
 	enigma2-plugin-systemplugins-terrestrialscan", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
-	enigma2-plugin-extensions-autotimer \
 	enigma2-plugin-extensions-filecommander \
 	enigma2-plugin-extensions-keyadder \
 	enigma2-plugin-extensions-openwebif-vision-terminal \
