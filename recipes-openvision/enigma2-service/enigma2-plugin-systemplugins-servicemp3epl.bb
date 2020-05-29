@@ -8,8 +8,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 PROVIDES += "virtual/enigma2-mediaservice"
 RPROVIDES_${PN} += "virtual/enigma2-mediaservice"
 
-CXXFLAGS_append_sh4 += " -std=c++11 -fPIC -fno-strict-aliasing "
-
 GST_BASE_RDEPS = "\
 	gstreamer${GST_VERSION}-plugins-base-alsa \
 	gstreamer${GST_VERSION}-plugins-base-app \

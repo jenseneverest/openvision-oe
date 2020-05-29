@@ -32,8 +32,6 @@ SRC_URI += "\
 # include/mtd/* we cannot build in parallel with mtd-utils
 DEPENDS += "mtd-utils"
 
-INITSCRIPT_PARAMS_${PN}-mdev = "start 04 S ."
-
 RDEPENDS_${PN} += "${@bb.utils.contains("MACHINE_FEATURES", "oldkernel", "", "odhcp6c", d)}"
 
 PACKAGES += "${PN}-inetd"
@@ -53,16 +51,9 @@ pkg_postinst_${PN}_append () {
 }
 
 do_install_append() {
-	if grep -q "CONFIG_CRONTAB=y" ${WORKDIR}/defconfig; then
-		install -d ${D}${sysconfdir}/cron/crontabs
-	fi
 	install -d ${D}${sysconfdir}/mdev
 	install -m 0755 ${WORKDIR}/mdev-mount.sh ${D}${sysconfdir}/mdev
 	sed -i "/[/][s][h]*$/d" ${D}${sysconfdir}/busybox.links.nosuid
 	install -d ${D}${sysconfdir}/udhcpc.d
 	install -m 0755 ${WORKDIR}/ntp.script ${D}${sysconfdir}/udhcpc.d/55ntp
-}
-
-do_configure_prepend_sh4 () {
-	sed -i 's/^# CONFIG_FEATURE_SWAPON_PRI is not set/CONFIG_FEATURE_SWAPON_PRI=y/g' ${WORKDIR}/defconfig
 }

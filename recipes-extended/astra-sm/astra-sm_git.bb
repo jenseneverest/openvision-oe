@@ -30,5 +30,7 @@ FILES_${PN}-dev += "${datadir}"
 INITSCRIPT_NAME = "astra-sm"
 INITSCRIPT_PARAMS = "defaults"
 
+CFLAGS_FOR_BUILD += "-std=c99"
+
 CONFFILES += "${sysconfdir}/astra/astra-sm.lua"
 CONFFILES += "${sysconfdir}/astra/astra-sm.conf"

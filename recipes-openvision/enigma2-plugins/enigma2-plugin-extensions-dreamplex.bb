@@ -17,8 +17,6 @@ SRC_URI = " \
 	file://blue.patch;patch=1 \
 	"
 
-SRC_URI_append_sh4 = " file://sparkfix.patch;patch=1 "
-
 EXTRA_OECONF = " \
     BUILD_SYS=${BUILD_SYS} \
     HOST_SYS=${HOST_SYS} \

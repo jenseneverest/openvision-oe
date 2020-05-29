@@ -26,8 +26,6 @@ SRC_URI = "git://github.com/OpenVisionE2/smbnetfs.git;branch=master \
 			file://init \
 			"
 
-SRC_URI_remove_sh4 += "file://Using-PKG_CHECK_MODULES-to-found-headers-and-libraries.patch"
-
 PACKAGECONFIG = ""
 PACKAGECONFIG[libsecret] = "--with-libsecret=yes,--with-libsecret=no,libsecret"
 

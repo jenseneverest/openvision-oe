@@ -16,11 +16,6 @@ DEPENDS = "\
 	tuxtxt-enigma2 \
 	"
 
-DEPENDS_append_sh4 += "\
-	libmme-image \
-	libmme-host \
-	"
-
 DEPENDS_append_rpi += "\
 	e2-rpihddevice \
 	ffmpeg \
@@ -41,11 +36,6 @@ RDEPENDS_${PN} = "\
 	openvision-branding \
 	${PYTHON_RDEPS} \
 	${@bb.utils.contains("MACHINE_FEATURES", "emmc", "bzip2 rsync", "", d)} \
-	"
-
-RDEPENDS_${PN}_append_sh4 += "\
-	alsa-utils-amixer-conf \
-	libmme-host \
 	"
 
 RDEPENDS_${PN}_append_rpi += "\
@@ -190,22 +180,6 @@ EXTRA_OECONF = "\
 	${@bb.utils.contains("MACHINE_FEATURES", "olde2api", "--with-olde2api" , "", d)} \
 	"
 
-EXTRA_OECONF_sh4 = "\
-	--enable-${MACHINE} --with-lcd \
-	--with-libsdl=no --with-boxtype=${MACHINE} \
-	--with-boxbrand=${BOX_BRAND} \
-	--with-oever=${VISIONVERSION} \
-	--enable-dependency-tracking \
-	ac_cv_prog_c_openmp=-fopenmp \
-	${@get_crashaddr(d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "7segment 7seg", "--with-7segment" , "", d)} \
-	BUILD_SYS=${BUILD_SYS} \
-	HOST_SYS=${HOST_SYS} \
-	STAGING_INCDIR=${STAGING_INCDIR} \
-	STAGING_LIBDIR=${STAGING_LIBDIR} \
-	"
-
 # pass the enigma branch to automake
 EXTRA_OEMAKE = "\
 	ENIGMA2_BRANCH=${ENIGMA2_BRANCH} \
@@ -276,4 +250,3 @@ python populate_packages_prepend() {
 
 CXXFLAGS_append_cube += " -std=c++11 -fPIC -fno-strict-aliasing "
 CXXFLAGS_append_su980 += " -std=c++11 -fPIC -fno-strict-aliasing "
-CXXFLAGS_append_sh4 += " -std=c++11 -fPIC -fno-strict-aliasing "
