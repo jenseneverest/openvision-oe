@@ -19,6 +19,9 @@ Is your model a smallflash or middleflash? You'll see this in the About screen.
 **Enigma2**
 Date is important.
 
+**Logs**
+We need some logs for understanding what's wrong and you could learn how to get them in https://forum.openvision.tech/viewtopic.php?f=15&t=446 but please don't remove sections from the crashlogs, sometimes we need all the logs or even a full dmesg to understand what's happening.
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 
