@@ -29,7 +29,7 @@ do_install() {
     oe_runmake 'D=${D}' install
     mv ${D}/usr/crossepg/libcrossepg.so ${D}${libdir}/
 
-    find ${S}/po -name \*.po -execdir sh -c 'msgfmt "$0" -o `basename $0 .po`.mo' '{}' \;
+    find ${S}/po -type f -name \*.po -execdir sh -c 'msgfmt "$0" -o `basename $0 .po`.mo' '{}' \;
 
     install -d ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/ar/LC_MESSAGES
     install -m 644 ${S}/po/ar.mo ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/CrossEPG/po/ar/LC_MESSAGES/CrossEPG.mo
