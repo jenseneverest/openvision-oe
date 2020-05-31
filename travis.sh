@@ -7,7 +7,7 @@ SRC_DIR=${1-$(pwd)}
 
 mkdir -p $SRC_DIR
 cd $SRC_DIR
-git clone -b develop --depth 1 https://github.com/OpenPLi/openpli-oe-core.git
+git clone -b develop --depth 1 https://github.com/persianpros/openpli-oe-core.git
 cd openpli-oe-core
 make init update
 git clone --depth 1 https://github.com/OpenVisionE2/openvision-oe.git

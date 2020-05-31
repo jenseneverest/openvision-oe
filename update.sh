@@ -71,22 +71,4 @@ do
 done
 echo "BBLAYERS_append = \" ${SCRIPTPATH}\"" >> ${BUILDDIR}/conf/bblayers.conf
 cp -f openvision-oe/conf/license/LICENSE-CLOSE meta-openpli/licenses
-rm -rf meta-openpli/classes/distutils-openplugins.bbclass
-rm -rf meta-openpli/recipes-connectivity/mediatek
-rm -rf meta-openpli/recipes-connectivity/openssl/libcrypto-compat_1.0.2.bb
-rm -rf meta-openpli/recipes-connectivity/realtek
-rm -rf meta-openpli/recipes-core/base-files
-rm -rf meta-openpli/recipes-core/busybox
-rm -rf meta-openpli/recipes-devtools/python/python-transmissionrpc_hg.bb
-rm -rf meta-openpli/recipes-extended/tzdata
-rm -rf meta-openpli/recipes-linux
-rm -rf meta-openpli/recipes-mediacenter
-rm -rf meta-openpli/recipes-multimedia/cdparanoia
-rm -rf meta-openpli/recipes-multimedia/dvblast
-rm -rf meta-openpli/recipes-multimedia/tuxbox
-rm -rf meta-openpli/recipes-multimedia/tuxtxt
-rm -rf meta-openpli/recipes-multimedia/vlc
-rm -rf meta-openpli/recipes-openpli
-rm -rf meta-openpli/recipes-support/libbluray
-rm -rf meta-openpli/recipes-support/libudfread
-rm -rf meta-openpli/recipes-support/partitions-by-name
+find ./.git/ -type f -name "config" | xargs -L1 sed -i 's|https://github.com/OpenPLi/openpli-oe-core.git|https://github.com/persianpros/openpli-oe-core.git|g'

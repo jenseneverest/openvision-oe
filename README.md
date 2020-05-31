@@ -46,7 +46,7 @@ You could compile Open Vision for so many brands/models:
 
 1. Clone openpli-oe-core somewhere:
 ```
-git clone -b develop --depth 1 https://github.com/OpenPLi/openpli-oe-core.git
+git clone --depth 1 https://github.com/persianpros/openpli-oe-core.git
 ```
 2. Enter the openpli-oe-core directory:
 ```
