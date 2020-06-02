@@ -1,0 +1,12 @@
+diff -Nur mt7601u.old/os/linux/config.mk mt7601u/os/linux/config.mk
+--- mt7601u.old/os/linux/config.mk	2019-09-28 15:22:35.582782708 +0200
++++ mt7601u/os/linux/config.mk	2019-09-28 15:23:32.638534822 +0200
+@@ -218,7 +218,7 @@
+ CC := $(CROSS_COMPILE)gcc
+ LD := $(CROSS_COMPILE)ld
+ 
+-WFLAGS := -DAGGREGATION_SUPPORT -DPIGGYBACK_SUPPORT -DWMM_SUPPORT  -DLINUX -Wall -Wstrict-prototypes -Wno-trigraphs
++WFLAGS := -DAGGREGATION_SUPPORT -DPIGGYBACK_SUPPORT -DWMM_SUPPORT  -DLINUX -Wall -Wstrict-prototypes -Wno-trigraphs -Wno-incompatible-pointer-types
+ WFLAGS += -DSYSTEM_LOG_SUPPORT -DRT28xx_MODE=$(RT28xx_MODE) -DCHIPSET=$(MODULE) -DRESOURCE_PRE_ALLOC
+ #WFLAGS += -DFPGA_MODE
+ WFLAGS += -I$(RT28xx_DIR)/include

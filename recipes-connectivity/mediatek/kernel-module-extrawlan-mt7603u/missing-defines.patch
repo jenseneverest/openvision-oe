@@ -1,0 +1,22 @@
+diff -Nur mt7603u.old/include/cfg80211.h mt7603u/include/cfg80211.h
+--- mt7603u.old/include/cfg80211.h	2019-09-28 13:35:16.934679553 +0200
++++ mt7603u/include/cfg80211.h	2019-09-28 15:49:42.743992157 +0200
+@@ -24,6 +24,18 @@
+ 
+ #ifdef RT_CFG80211_SUPPORT
+ 
++#ifndef IEEE80211_NUM_BANDS
++#define IEEE80211_NUM_BANDS NUM_NL80211_BANDS
++#endif
++
++#ifndef IEEE80211_BAND_2GHZ
++#define IEEE80211_BAND_2GHZ IEEE80211_BAND_2G
++#endif
++
++#ifndef IEEE80211_BAND_5GHZ
++#define IEEE80211_BAND_5GHZ IEEE80211_BAND_5G
++#endif
++
+ #include <linux/ieee80211.h>
+ 
+ #if (LINUX_VERSION_CODE >= KERNEL_VERSION(3,8,0))

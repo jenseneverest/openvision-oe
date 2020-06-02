@@ -1,0 +1,12 @@
+diff -Nur rt3070.old/os/linux/config.mk rt3070/os/linux/config.mk
+--- rt3070.old/os/linux/config.mk	2019-09-28 13:35:30.442617837 +0200
++++ rt3070/os/linux/config.mk	2019-09-28 15:38:34.698818248 +0200
+@@ -190,7 +190,7 @@
+ CC := $(CROSS_COMPILE)gcc
+ LD := $(CROSS_COMPILE)ld
+ 
+-WFLAGS := -DAGGREGATION_SUPPORT -DPIGGYBACK_SUPPORT -DWMM_SUPPORT  -DLINUX -Wall -Wstrict-prototypes -Wno-trigraphs 
++WFLAGS := -DAGGREGATION_SUPPORT -DPIGGYBACK_SUPPORT -DWMM_SUPPORT  -DLINUX -Wall -Wstrict-prototypes -Wno-trigraphs -Wno-incompatible-pointer-types
+ WFLAGS += -DSYSTEM_LOG_SUPPORT  -DRT28xx_MODE=$(RT28xx_MODE) -DCHIPSET=$(CHIPSET) -DRESOURCE_PRE_ALLOC
+ 
+ ifeq ($(HAS_RESOURCE_BOOT_ALLOC),y)

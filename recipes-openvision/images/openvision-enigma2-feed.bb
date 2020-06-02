@@ -17,7 +17,7 @@ OPTIONAL_PACKAGES ?= ""
 
 # Get the kernel version, we need it to build conditionally on kernel version.
 # NB: this only works in the feed, as the kernel needs to be build before the headers are available.
-export KERNEL_VERSION = "${@oe.utils.read_file('${STAGING_KERNEL_BUILDDIR}/kernel-abiversion')}"
+export KERNEL_VERSION = "${@oe.utils.read_file('${PKGDATA_DIR}/kernel-depmod/kernel-abiversion')}"
 
 OPTIONAL_PACKAGES += "\
 	astra-sm \
@@ -93,7 +93,7 @@ OPTIONAL_PACKAGES += "\
 	python-singledispatch \
 	python-websocket \
 	python-youtube-dl \
-	${@bb.utils.contains("TARGET_FPU", "soft", "", "rclone", d)} \
+	rclone \
 	rsync \
 	rtorrent \
 	sabnzbd \
@@ -117,7 +117,6 @@ OPTIONAL_PACKAGES += "\
 	ushare \
 	v4l-utils \
 	vim \
-	${@ 'wireguard-tools' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.14') >= 0) else '' } \
 	wireless-tools \
 	wscan \
 	yafc \
@@ -140,49 +139,40 @@ FIRMWARE_PACKAGES += "\
 	firmware-rtl8192cufw \
 	firmware-rtl8192eu \
 	firmware-rtl8712u \
+	firmware-rtl8723bu \
 	firmware-zd1211 \
 	"
 
 KERNEL_WIFI_DRIVERS += "\
-	${@bb.utils.contains_any("MACHINE", "k1plus k1plusv2 k1pro k2pro k2prov2 k3pro cube su980 alien5", "", "kernel-module-ath9k-htc kernel-module-carl9170 kernel-module-r8712u", d)} \
-	${@bb.utils.contains_any("MACHINE", "k1plus k1plusv2 k1pro k2pro k2prov2 k3pro cube su980 alien5", "", "kernel-module-rtl8187 kernel-module-zd1211rw", d)} \
-    "
+	kernel-module-ath9k-htc \
+	kernel-module-carl9170 \
+	kernel-module-r8712u \
+	kernel-module-rtl8187 \
+	kernel-module-zd1211rw \
+	"
 
 EXTRA_KERNEL_WIFI_DRIVERS += "\
-	${@bb.utils.contains_any("MACHINE", "k1plus k1plusv2 k1pro k2pro k2prov2 k3pro cube wetekplay wetekplay2 wetekhub x8hp su980", "", "kernel-module-r8188eu", d)} \
-	${@bb.utils.contains_any("MACHINE", "k1plus k1plusv2 k1pro k2pro k2prov2 k3pro cube wetekplay wetekplay2 wetekhub odroidc2 su980 x8hp", "", "kernel-module-rtl8192cu", d)} \
+	kernel-module-r8188eu \
+	kernel-module-rtl8192cu \
 	"
 
 EXTRA_WIFI_DRIVERS += "\
-	${@ 'mt7601u' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.2') < 0) else '' } \
-	rt3070 \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8188fu", d)} \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8723a", d)} \
-	${@ 'rt8723bs' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.12') < 0) else '' } \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800", "", "rt8812au", d)} \
-	rt8822bu \
-	${@ 'rtl8188eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.12') < 0) else '' } \
-	${@bb.utils.contains_any("MACHINE", "cube su980 dm800 k1plus k1plusv2 k1pro k2pro k2prov2 k3pro x8hp wetekhub wetekplay2 wetekplay", "", "rtl8189es", d)} \
-	rtl8192cu \
-	${@bb.utils.contains_any("MACHINE", "dm800", "", "rt8814au rtl8192eu", d)} \
-	"
-
-EXTRA_WIFI_DRIVERS_remove_cube += "\
-	rt8723bs \
-	rt8814au \
-	rt8822bu \
-	"
-
-EXTRA_WIFI_DRIVERS_remove_dm800 += "\
-	rt8723bs \
-	rt8814au \
-	rt8822bu \
-	"
-
-EXTRA_WIFI_DRIVERS_remove_su980 += "\
-	rt8723bs \
-	rt8814au \
-	rt8822bu \
+	${@ 'kernel-module-extrawlan-mt7601u' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.2') < 0) else '' } \
+	${@ 'kernel-module-extrawlan-mt7610u' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.19') < 0) else '' } \
+	kernel-module-extrawlan-rt3070 \
+	${@ 'kernel-module-extrawlan-rt3573' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.12') < 0) else '' } \
+	${@ 'kernel-module-extrawlan-rt5572' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.10') < 0) else '' } \
+	kernel-module-extrawlan-rt8188fu \
+	${@ 'kernel-module-extrawlan-rt8723a' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.5') < 0) else '' } \
+	${@ 'kernel-module-extrawlan-rt8723bs' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.12') < 0) else '' } \
+	${@ 'kernel-module-extrawlan-rt8723bu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.6') < 0) else '' } \
+	kernel-module-extrawlan-rt8812au \
+	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "kernel-module-extrawlan-rt8822bu", d)} \
+	${@ 'kernel-module-extrawlan-rtl8188eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.12') < 0) else '' } \
+	${@bb.utils.contains("MACHINE_FEATURES", "sh4stb", "", "kernel-module-extrawlan-rtl8189es", d)} \
+	kernel-module-extrawlan-rtl8192cu \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "sh4stb", "", "kernel-module-extrawlan-rt8814au", d)} \
+	${@ 'kernel-module-extrawlan-rtl8192eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.7') < 0) else '' } \
 	"
 
 ENIGMA2_OPTIONAL += "\

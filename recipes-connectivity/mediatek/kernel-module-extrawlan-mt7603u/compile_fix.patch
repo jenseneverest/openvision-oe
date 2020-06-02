@@ -1,0 +1,12 @@
+diff -Nur mt7603u.old/os/linux/config.mk mt7603u/os/linux/config.mk
+--- mt7603u.old/os/linux/config.mk	2019-09-27 14:23:23.117706530 +0200
++++ mt7603u/os/linux/config.mk	2019-09-28 11:52:27.821618235 +0200
+@@ -2377,7 +2377,7 @@
+ endif
+ 
+ 
+-EXTRA_CFLAGS += -I$(RT28xx_DIR)/include -I$(LINUX_SRC)/include -I$(RT28xx_DIR)/include -I$(LINUX_SRC)/arch/arm/include $(WFLAGS)
++EXTRA_CFLAGS += -I$(RT28xx_DIR)/include -I$(LINUX_SRC)/include -I$(RT28xx_DIR)/include -I$(LINUX_SRC)/arch/arm/include $(WFLAGS) -w
+ export EXTRA_CFLAGS
+ 
+ ifeq ($(PLATFORM),MT7620)
