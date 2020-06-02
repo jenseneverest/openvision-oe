@@ -12,8 +12,8 @@ SRC_URI = "git://github.com/mx3L/subssupport;protocol=git;branch=master"
 
 S = "${WORKDIR}/git"
 
-PV = "1.5.7+git${SRCPV}"
-PKGV = "1.5.7+git${GITPKGV}"
+PV = "1.5.8+git${SRCPV}"
+PKGV = "1.5.8+git${GITPKGV}"
 
 FILES_${PN} = "${libdir}/enigma2/python/Plugins/Extensions/SubsSupport \
 ${localstatedir}/lib/subssupport"
