@@ -90,6 +90,7 @@ IMAGE_INSTALL += "\
 	frequency-xml-list-cables \
 	frequency-xml-list-satellites \
 	frequency-xml-list-terrestrial \
+	${@bb.utils.contains("KERNEL_MODULE_AUTOLOAD", "xfs", "kernel-module-xfs", "", d)} \
 	libavahi-client \
 	libcrypto-compat \
 	settings-autorestore \
