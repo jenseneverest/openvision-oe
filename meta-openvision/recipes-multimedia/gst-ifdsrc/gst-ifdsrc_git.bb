@@ -8,9 +8,8 @@ inherit gitpkgv autotools pkgconfig
 
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
-PR = "r0"
 
-SRC_URI = "git://gitlab.com/e2i/gst-ifdsrc.git;protocol=http"
+SRC_URI = "git://github.com/OpenVisionE2/gst-ifdsrc.git"
 
 S = "${WORKDIR}/git/"
 

@@ -5,8 +5,6 @@ LICENSE = "libgsm"
 
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=fc1372895b173aaf543a122db37e04f5"
 
-INC_PR = "r2"
-
 SRC_URI = "http://www.quut.com/gsm/gsm-${PV}.tar.gz \
 		file://01_makefile.patch \
 		file://02_cplusplus.patch \

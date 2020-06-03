@@ -11,7 +11,7 @@ inherit gitpkgv
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
-SRC_URI = "git://code.videolan.org/videolan/bitstream.git;protocol=https"
+SRC_URI = "git://github.com/OpenVisionE2/bitstream.git"
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep pkgconfig

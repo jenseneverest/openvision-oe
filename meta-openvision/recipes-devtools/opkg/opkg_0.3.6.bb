@@ -19,6 +19,7 @@ SRC_URI = "http://downloads.yoctoproject.org/releases/${BPN}/${BPN}-${PV}.tar.gz
            file://0002-opkg-symlink-to-directory-workarounds.patch \
            file://0003-fix-installation-sequence-errors.patch \
            file://modprobe \
+           ${@bb.utils.contains("MACHINE", "dm800", "file://revert-commit-7a8c2f6.patch", "", d)} \
 "
 
 SRC_URI[md5sum] = "79e04307f6f54db431c251772d7d987c"

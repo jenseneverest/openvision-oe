@@ -21,7 +21,6 @@ RDEPENDS_${PN} = "\
 RRECOMMENDS_${PN} = "unrar"
 
 PV = "0.4.9"
-PR = "r1"
 
 inherit update-rc.d
 

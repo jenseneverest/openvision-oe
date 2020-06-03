@@ -7,8 +7,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 DEPENDS = "libvorbis libogg libao zlib libmikmod flac audiofile virtual/libiconv faad2 curl \
            ${@base_conditional('ENTERPRISE_DISTRO', '1', '', 'libmad libid3tag lame', d)}"
 
-PR = "r1"
-
 SRC_URI = "http://www.musicpd.org/download/mpd/0.16/mpd-${PV}.tar.bz2 \
 		file://mpd.conf \
 		file://mpd.init \

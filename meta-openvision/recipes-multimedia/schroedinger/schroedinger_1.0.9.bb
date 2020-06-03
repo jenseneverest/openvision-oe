@@ -1,7 +1,5 @@
 require schroedinger.inc
 
-PR = "${INC_PR}.0"
-
 inherit autotools
 
 SRC_URI[schroedingertargz.md5sum] = "d67ec48b7c506db8c8b49156bf409e60"

@@ -13,6 +13,8 @@ PKGV = "1.0+git${GITPKGV}"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git"
 
+SRC_URI_su980 = "${GITHUB_URI}/oe-alliance/${BPN}.git"
+
 S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig

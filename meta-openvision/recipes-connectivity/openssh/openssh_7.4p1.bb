@@ -33,7 +33,7 @@ PAM_SRC_URI = "file://sshd"
 SRC_URI[md5sum] = "b2db2a83caf66a208bb78d6d287cdaa3"
 SRC_URI[sha256sum] = "1b1fc4a14e2024293181924ed24872e6f2e06293f3e8926a376b8aec481f19d1"
 
-inherit useradd update-rc.d update-alternatives systemd
+inherit useradd update-rc.d update-alternatives systemd upx_compress
 
 USERADD_PACKAGES = "${PN}-sshd"
 USERADD_PARAM_${PN}-sshd = "--system --no-create-home --home-dir ${localstatedir}/run/sshd --shell /bin/false --user-group sshd"

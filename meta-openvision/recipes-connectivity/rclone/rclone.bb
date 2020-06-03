@@ -30,8 +30,7 @@ GO_IMPORT = "github.com/rclone/rclone"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/COPYING;md5=bed161b82a1ecab65ff7ba3c3b960439"
 
-inherit go
-inherit gitpkgv
+inherit go gitpkgv upx_compress
 
 PV = "1.x+git${SRCPV}"
 PKGV = "1.x+git${GITPKGV}"

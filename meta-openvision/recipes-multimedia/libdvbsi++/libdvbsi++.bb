@@ -9,7 +9,7 @@ PKGV = "0.3.9+git${GITPKGV}"
 
 # make the origin overridable from OE config, for local mirroring
 SRC_ORIGIN ?= "git://git.opendreambox.org/git/obi/libdvbsi++.git"
-SRC_URI := "${SRC_ORIGIN} "
+SRC_URI = "git://github.com/OpenVisionE2/libdvbsi.git"
 
 S = "${WORKDIR}/git"
 

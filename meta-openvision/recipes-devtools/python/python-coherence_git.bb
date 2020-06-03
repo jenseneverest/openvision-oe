@@ -5,7 +5,6 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=3f7c147addd67ce1d53239c68a6b7022"
 DEPENDS = "libxml2"
 PV = "0.6.7"
-PR = "r3"
 
 SRC_URI = "git://github.com/sreichholf/coherence.git;protocol=git"
 

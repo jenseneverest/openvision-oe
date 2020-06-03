@@ -2,8 +2,6 @@ HOMEPAGE = "http://schrodinger.sourceforge.net/"
 LICENSE = "GPLv2+"
 DEPENDS = "liboil orc-native orc alsa-lib"
 
-INC_PR = "r1"
-
 LIC_FILES_CHKSUM = "file://COPYING.GPL;md5=e181e3b7c66f5f96921d813c1074f833"
 
 SRC_URI = "http://www.diracvideo.org/download/schroedinger/${P}.tar.gz;name=schroedingertargz"

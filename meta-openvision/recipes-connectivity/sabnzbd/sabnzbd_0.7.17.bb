@@ -2,8 +2,6 @@ MAINTAINER = "team@sabnzbd.org"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=183ca88c5404ea8f9e484ad8d271aab3"
 
-PR = "r1"
-
 DEPENDS = "python"
 RDEPENDS_${PN} = "\
 	python-core python-shell python-compression python-crypt python-ctypes python-sqlite3 \

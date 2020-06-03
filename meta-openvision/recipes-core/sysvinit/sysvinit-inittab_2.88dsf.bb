@@ -2,7 +2,6 @@ DESCRIPTION = "Inittab for sysvinit"
 
 require conf/license/openvision-gplv2.inc
 
-PR = "r6"
 
 SRC_URI = "file://inittab"
 
