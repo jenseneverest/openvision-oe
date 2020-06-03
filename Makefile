@@ -23,7 +23,16 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-networking \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/meta-openembedded/meta-webserver \
-	$(CURDIR)/meta-qt5
+	$(CURDIR)/meta-qt5 \
+	$(CURDIR)/meta-openvision \
+	$(CURDIR)/meta-cube \
+	$(CURDIR)/meta-dm800 \
+	$(CURDIR)/meta-hypercube \
+	$(CURDIR)/meta-linkdroid \
+	$(CURDIR)/meta-minix \
+	$(CURDIR)/meta-odroid \
+	$(CURDIR)/meta-raspberrypi \
+	$(CURDIR)/meta-wetek
 
 CONFFILES = \
 	$(TOPDIR)/env.source \
