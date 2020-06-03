@@ -103,8 +103,8 @@ DESCRIPTION_append_enigma2-plugin-systemplugins-wirelesslan = "helps you configu
 RDEPENDS_enigma2-plugin-systemplugins-wirelesslan = "wpa-supplicant wireless-tools python-wifi"
 DESCRIPTION_append_enigma2-plugin-systemplugins-networkwizard = "provides easy step by step network configuration"
 # Note that these tools lack recipes
-RDEPENDS_enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools cdrkit python-imaging ${DEMUXTOOL}"
-RRECOMMENDS_enigma2-plugin-extensions-dvdplayer = "kernel-module-udf"
+RDEPENDS_enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools cdrkit python-imaging ${DEMUXTOOL} kernel-module-pktcdvd"
+RDEPENDS_enigma2-plugin-extensions-dvdplayer = "kernel-module-udf"
 RDEPENDS_enigma2-plugin-systemplugins-hotplug = "hotplug-e2-helper"
 
 DESCRIPTION_enigma2-plugin-font-wqy-microhei = "wqy-microhei font supports Chinese EPG"
@@ -120,8 +120,6 @@ RDEPENDS_${PN}-build-dependencies = "\
 	python-twisted-web \
 	wpa-supplicant wireless-tools python-wifi \
 	"
-
-RRECOMMENDS_${PN}-build-dependencies = "kernel-module-udf"
 
 inherit gitpkgv pythonnative upx_compress autotools pkgconfig rm_python_pyc
 

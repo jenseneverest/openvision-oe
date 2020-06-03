@@ -13,6 +13,8 @@ ${SAMBA_MIRROR}    http://mirror.internode.on.net/pub/samba \n \
 ${SAMBA_MIRROR}    http://www.mirrorservice.org/sites/ftp.samba.org \n \
 "
 
+RDEPENDS_${PN} += "kernel-module-cifs"
+
 SRC_URI = "${SAMBA_MIRROR}/stable/samba-${PV}.tar.gz \
            file://config-h.patch \
            file://fhs-filespaths.patch;patchdir=.. \

@@ -101,6 +101,7 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	curl \
 	nfs-utils \
+	ntfs-3g \
 	openssh-sftp-server \
 	samba-base \
 	v4l-utils", d)} \
