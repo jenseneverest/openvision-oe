@@ -5,8 +5,8 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
-VISIONVERSION=`cat conf/distro/openvision-common.conf | grep -oP '(?<=VISIONVERSION = ")[0-9].[0-9]*'`
-VISIONREVISION=`cat conf/distro/openvision-common.conf | grep -oP '(?<=VISIONREVISION = "r)[0-9]*'`
+VISIONVERSION=`cat meta-openvision/conf/distro/openvision-common.conf | grep -oP '(?<=VISIONVERSION = ")[0-9].[0-9]*'`
+VISIONREVISION=`cat meta-openvision/conf/distro/openvision-common.conf | grep -oP '(?<=VISIONREVISION = "r)[0-9]*'`
 echo -e "${BLUE}Welcome to Open Vision ${GREEN}${VISIONVERSION}-r${VISIONREVISION} ${BLUE}image compile script!"
 echo -e ""
 echo -e "${RED}Notice: this script is case sensitive!${NC}"
@@ -23,7 +23,7 @@ else
 fi
 DEVELOPERNAME=`git config user.name`
 if [ "${DEVELOPERNAME}" != '' ]; then
-	echo "DEVELOPER_NAME = '${DEVELOPERNAME}'" > conf/distro/developer.conf
+	echo "DEVELOPER_NAME = '${DEVELOPERNAME}'" > meta-openvision/conf/distro/developer.conf
 else
 	echo -e "${RED}You don't have a git username!${NC}"
 	echo -e ""
@@ -32,7 +32,7 @@ else
 	read GITUSERNAME
 	echo -e "${NC}"
 	git config --global user.name "${GITUSERNAME}"
-	echo "DEVELOPER_NAME = '${GITUSERNAME}'" > conf/distro/developer.conf
+	echo "DEVELOPER_NAME = '${GITUSERNAME}'" > meta-openvision/conf/distro/developer.conf
 fi
 echo -e "Check ${NC}Vision-metas.md ${BLUE}and enter a meta or a specific machine to compile."
 echo -e "Answers are in ${GREEN}green:${NC}"
@@ -114,8 +114,8 @@ then
 		echo -e "${GREEN}"
 		read USERURL
 		echo -e "${NC}"
-		sed -i '1 s/#//g' conf/distro/openvision-testers.conf
-		sed -i "s|openvisiontesters|$USERURL|g" conf/distro/openvision-testers.conf
+		sed -i '1 s/#//g' meta-openvision/conf/distro/openvision-testers.conf
+		sed -i "s|openvisiontesters|$USERURL|g" meta-openvision/conf/distro/openvision-testers.conf
 		echo "feed-is-set-to=${USERURL}" >> user.ovstep
 		echo -e "${BLUE}Done!${GREEN} $USERURL ${BLUE}is now set as your custom feed.${NC}"
 		echo -e ""
@@ -126,7 +126,6 @@ if [ $IMAGETYPE = "Kernel-Clean" ]
 then
 	IMAGECMD='make kernel-clean'
 fi
-cd ..
 if [ $META = "Specific" ]
 then
 	echo -e "${BLUE}Enter your specific machine name exactly like what you see in ${NC}Vision-metas.md"

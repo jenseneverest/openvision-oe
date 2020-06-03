@@ -24,7 +24,6 @@ fi
 if [ $CLEANMODE = "TMP" ]
 then
 	echo -e "Removing tmp folder, it could take hours so please wait ..."
-	cd ..
 	rm -rf build/tmp
 	echo ""
 	echo "Done."
@@ -33,7 +32,6 @@ fi
 if [ $CLEANMODE = "Build" ]
 then
 	echo -e "Removing all build folders, it could take hours so please wait ..."
-	cd ..
 	rm -rf build
 	echo ""
 	echo "Done."
@@ -44,7 +42,6 @@ echo -e "${GREEN}"
 read MACHINE
 echo -e "${NC}"
 echo -e "Removing ${GREEN}$MACHINE${NC} build folders, please wait ..."
-cd ..
 echo ""
 rm -rf build/tmp/buildstats/*
 echo ""

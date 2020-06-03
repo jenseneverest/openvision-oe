@@ -44,15 +44,7 @@ You could compile Open Vision for so many brands/models:
 
 # How to build an Open Vision image (on native Ubuntu Desktop 18.04.x LTS x64)
 
-1. Clone openpli-oe-core somewhere:
-```
-git clone --depth 1 https://github.com/persianpros/openpli-oe-core.git
-```
-2. Enter the openpli-oe-core directory:
-```
-cd openpli-oe-core
-```
-3. Clone openvision-oe:
+1. Clone openvision-oe:
 ```
 git clone --depth 1 https://github.com/OpenVisionE2/openvision-oe.git
 ```

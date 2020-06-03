@@ -1,7 +1,7 @@
 # bitbake fix:
 ```
-export PATH=/location/openpli-oe-core/bitbake/bin:$PATH
-export BBPATH=/location/openpli-oe-core/bitbake/bin
+export PATH=/location/openvision-oe/bitbake/bin:$PATH
+export BBPATH=/location/openvision-oe/bitbake/bin
 ```
 (Replace "location" with your path)
 

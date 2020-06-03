@@ -1,0 +1,21 @@
+diff --git a/Makefile.am b/Makefile.am
+index de76fc5..395b8c4 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,4 +1,4 @@
+-SUBDIRS = doc src
++SUBDIRS = src
+ 
+ noinst_DATA = dvdauthor.spec
+ 
+diff --git a/configure.ac b/configure.ac
+index 1194059..8decf23 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -135,4 +135,4 @@ ifdef([AM_PATH_XML2],
+ 
+ AC_CHECK_DECLS(O_BINARY, , , [ #include <fcntl.h> ] )
+ 
+-AC_OUTPUT(Makefile doc/Makefile src/Makefile)
++AC_OUTPUT(Makefile src/Makefile)
+
