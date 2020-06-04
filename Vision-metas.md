@@ -1,4 +1,4 @@
-# Here is the list of what 7.3 supports:
+# Here is the list of what 7.4 supports:
 
 # Cube
 * cube
