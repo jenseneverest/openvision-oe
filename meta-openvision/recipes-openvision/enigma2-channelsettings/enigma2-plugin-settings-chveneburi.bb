@@ -12,9 +12,12 @@ SRC_URI = "git://github.com/audi06/chveneburi_Settings.git"
 
 S = "${WORKDIR}/git/E2_Sat_Settings_Motor_100.5E-30W"
 
-FILES_${PN} = "${sysconfdir}/enigma2/*"
+FILES_${PN} = "${sysconfdir}/enigma2/"
 
 do_install () {
 	install -d ${D}${sysconfdir}/enigma2
 	cp -r ${S}/* ${D}${sysconfdir}/enigma2
+	if [ -e ${D}${sysconfdir}/enigma2/satellites.xml ]; then
+		rm -f ${D}${sysconfdir}/enigma2/satellites.xml
+	fi
 }
