@@ -27,6 +27,7 @@ do_install() {
     install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/XStreamity
     cp -rf ${S}/XStreamity/usr/lib/enigma2/python/Components/Converter/* ${D}${libdir}/enigma2/python/Components/Converter/
     cp -rf ${S}/XStreamity/usr/lib/enigma2/python/Components/Renderer/* ${D}${libdir}/enigma2/python/Components/Renderer/
+    rm -f ${S}/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/owibranding.pyo
     cp -rf ${S}/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/* ${D}${libdir}/enigma2/python/Plugins/Extensions/XStreamity/
 }
 
@@ -46,8 +47,8 @@ fi
 pkg_postrm_${PN} () {
 #!/bin/sh
 rm -rf ${libdir}/enigma2/python/Plugins/Extensions/XStreamity > /dev/null 2>&1
-rm -f ${libdir}/enigma2/python/Components/Renderer/xRunningText.py* > /dev/null 2>&1
-rm -f ${libdir}/enigma2/python/Components/Converter/xServiceInfo.py* > /dev/null 2>&1
+rm -f ${libdir}/enigma2/python/Components/Renderer/xRunningText.pyo > /dev/null 2>&1
+rm -f ${libdir}/enigma2/python/Components/Converter/xServiceInfo.pyo > /dev/null 2>&1
 rm -rf ${sysconfdir}/enigma2/X-Streamity
 rm -rf ${sysconfdir}/enigma2/xstreamity
 }
