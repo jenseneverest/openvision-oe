@@ -1,14 +1,14 @@
 ---
-name: Bug report for Open Vision 7.3
+name: Bug report for Open Vision 7.4
 about: Create a report to help us improve
-title: Bug report for Open Vision 7.3
+title: Bug report for Open Vision 7.4
 labels: bug
 assignees: ''
 
 ---
 
 **Open Vision revision**
-Tell us it's OV 7.3-rx?
+Tell us it's OV 7.4-rx?
 
 **STB name**
 Check https://github.com/OpenVisionE2/openvision-oe/blob/develop/Vision-metas.md and tell us what's your model exactly like you see in our "Vision-metas.md" file.
