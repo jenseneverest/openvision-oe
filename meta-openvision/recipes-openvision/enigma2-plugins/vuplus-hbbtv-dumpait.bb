@@ -12,7 +12,6 @@ DESTDIR = "enigma2/python/Plugins/Extensions/HbbTV"
 
 inherit gitpkgv autotools-brokensep pkgconfig
 
-SRCREV = "1adfdd7dadb760a8ff2107dce60e2f99ca74fa5d"
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"

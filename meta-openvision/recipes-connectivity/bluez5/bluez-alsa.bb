@@ -7,7 +7,6 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=88dc1c98120259ae67b82222d7aff5c1"
 
 DEPENDS = "alsa-lib bluez5 glib-2.0 sbc"
 
-SRCREV = "49e3502eba94714b2a18f93deb6c66ddba73bd74"
 SRC_URI = "git://github.com/Arkq/bluez-alsa.git;protocol=https;branch=master \
            file://bluez-alsa.service \
            file://init \
