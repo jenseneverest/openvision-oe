@@ -70,6 +70,7 @@ PYTHON_RDEPS = "\
 	python-re \
 	python-service-identity \
 	python-shell \
+	python-six \
 	python-threading \
 	python-twisted-core \
 	python-twisted-web \

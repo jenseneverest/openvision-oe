@@ -26,9 +26,9 @@ OPTIONAL_PACKAGES += "\
 	ccextractor \
 	ccid \
 	cdtextinfo \
-	cloudflare-dns \
 	ctorrent \
 	cups \
+	curl \
 	davfs2 \
 	diffutils \
 	djmount \
@@ -66,6 +66,7 @@ OPTIONAL_PACKAGES += "\
 	nano \
 	nbench-byte \
 	net-tools \
+	nfs-utils \
 	ntfs-3g \
 	ntp \
 	ofgwrite \
@@ -78,7 +79,9 @@ OPTIONAL_PACKAGES += "\
 	procps \
 	pv \
 	pyload \
+	python-attrs \
 	python-beautifulsoup4 \
+	python-bluetool \
 	python-futures \
 	python-iso3166 \
 	python-iso639 \
@@ -87,11 +90,15 @@ OPTIONAL_PACKAGES += "\
 	python-lxml \
 	python-mechanize \
 	python-ntplib \
+	python-pexpect \
 	python-pip \
+	python-pyasn1-modules \
 	python-pyexecjs \
 	python-requests \
+	python-soco \
 	python-singledispatch \
-	python-websocket \
+	python-ujson \
+	python-websocket-client \
 	python-youtube-dl \
 	rclone \
 	rsync \
