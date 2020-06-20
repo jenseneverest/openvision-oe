@@ -174,11 +174,11 @@ EXTRA_WIFI_DRIVERS += "\
 	${@ 'kernel-module-extrawlan-rt8723bs' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.12') < 0) else '' } \
 	${@ 'kernel-module-extrawlan-rt8723bu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.6') < 0) else '' } \
 	${@ 'kernel-module-extrawlan-rt8812au' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.0') < 0) else '' } \
+	${@ 'kernel-module-extrawlan-rt8814au' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.0') < 0) else '' } \
 	kernel-module-extrawlan-rt8822bu \
 	${@ 'kernel-module-extrawlan-rtl8188eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '3.12') < 0) else '' } \
 	kernel-module-extrawlan-rtl8189es \
 	kernel-module-extrawlan-rtl8192cu \
-	${@ 'kernel-module-extrawlan-rt8814au' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.0') < 0) else '' } \
 	${@ 'kernel-module-extrawlan-rtl8192eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.7') < 0) else '' } \
 	"
 
