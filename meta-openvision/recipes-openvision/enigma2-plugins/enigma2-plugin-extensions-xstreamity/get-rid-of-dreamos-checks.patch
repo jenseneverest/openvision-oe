@@ -1,12 +1,12 @@
 diff -Naur XStreamity-master/XStreamity/usr/lib/enigma2/python/Components/Renderer/xRunningText.py XStreamity-PersianPrince/XStreamity/usr/lib/enigma2/python/Components/Renderer/xRunningText.py
---- XStreamity-master/XStreamity/usr/lib/enigma2/python/Components/Renderer/xRunningText.py	2020-06-15 02:50:35.000000000 +0430
-+++ XStreamity-PersianPrince/XStreamity/usr/lib/enigma2/python/Components/Renderer/xRunningText.py	2020-06-19 19:52:27.280819205 +0430
+--- XStreamity-master/XStreamity/usr/lib/enigma2/python/Components/Renderer/xRunningText.py	2020-06-20 04:02:50.000000000 +0430
++++ XStreamity-PersianPrince/XStreamity/usr/lib/enigma2/python/Components/Renderer/xRunningText.py	2020-06-20 21:13:33.476342504 +0430
 @@ -35,7 +35,7 @@
  from Renderer import Renderer
  from skin import parseColor, parseFont
  
 -import Plugins.Extensions.XStreamity.owibranding as xowibranding
-+#from enigma import getBoxBrand
++#import Plugins.Extensions.XStreamity.owibranding as xowibranding
  
  
  # scroll type:
@@ -27,7 +27,7 @@ diff -Naur XStreamity-master/XStreamity/usr/lib/enigma2/python/Components/Render
 +		self.mTimer.callback.append(self.movingLoop)
 +#		except:
 +#			try:
-+#				if getBoxBrand() == "dreambox":
++#				if xowibranding.getMachineBrand() == "Dream Multimedia" or xowibranding.getOEVersion() == "OE 2.2":
 +#					self.mTimer_conn = self.mTimer.timeout.connect(self.movingLoop)
 +#			except:
 +#				pass
@@ -46,98 +46,8 @@ diff -Naur XStreamity-master/XStreamity/usr/lib/enigma2/python/Components/Render
 -				self.mTimer_conn = self.mTimer.timeout.disconnect(self.movingLoop)
 +		self.mTimer.callback.remove(self.movingLoop)
 +#		except:
-+#			if getBoxBrand() == "dreambox":
++#			if getMachineBrand() == "Dream Multimedia" or getOEVersion() == "OE 2.2":
 +#				self.mTimer_conn = self.mTimer.timeout.disconnect(self.movingLoop)
  				
  		
  		self.mTimer = None
-diff -Naur XStreamity-master/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/RecordDateInput.py XStreamity-PersianPrince/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/RecordDateInput.py
---- XStreamity-master/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/RecordDateInput.py	2020-06-15 02:50:35.000000000 +0430
-+++ XStreamity-PersianPrince/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/RecordDateInput.py	2020-06-19 19:51:38.677378337 +0430
-@@ -4,7 +4,7 @@
- # for localized messages
- from . import _
- 
--import owibranding
-+#from enigma import getBoxBrand
- from Screens.Screen import Screen
- from Components.config import config, ConfigClock, ConfigDateTime, getConfigListEntry
- from Components.ActionMap import  ActionMap
-@@ -19,12 +19,12 @@
- 		Screen.__init__(self, session)
- 		
- 		skin = skin_path + 'settings.xml'
--		try:
--			from boxbranding import getImageDistro, getImageVersion, getOEVersion
--		except:
-+#		try:
-+#			from boxbranding import getImageDistro, getImageVersion, getOEVersion
-+#		except:
- 			
--			if owibranding.getMachineBrand() == "Dream Multimedia" or owibranding.getOEVersion() == "OE 2.2":
--				skin = skin_path + 'DreamOS/settings.xml'
-+#			if getBoxBrand() == "dreambox":
-+#				skin = skin_path + 'DreamOS/settings.xml'
- 	
- 		with open(skin, 'r') as f:
- 			self.skin = f.read()
-diff -Naur XStreamity-master/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/server.py XStreamity-PersianPrince/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/server.py
---- XStreamity-master/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/server.py	2020-06-15 02:50:35.000000000 +0430
-+++ XStreamity-PersianPrince/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/server.py	2020-06-19 19:51:39.753365681 +0430
-@@ -4,7 +4,7 @@
- # for localized messages     
- from . import _
- 
--import owibranding
-+#from enigma import getBoxBrand
- 
- from collections import OrderedDict
- from Components.ActionMap import ActionMap
-@@ -28,12 +28,12 @@
- 		
- 		skin = skin_path + 'settings.xml'
- 		
--		try:
--			from boxbranding import getImageDistro, getImageVersion, getOEVersion
--		except:
-+#		try:
-+#			from boxbranding import getImageDistro, getImageVersion, getOEVersion
-+#		except:
- 			
--			if owibranding.getMachineBrand() == "Dream Multimedia" or owibranding.getOEVersion() == "OE 2.2":
--				skin = skin_path + 'DreamOS/settings.xml'
-+#			if getBoxBrand() == "dreambox":
-+#				skin = skin_path + 'DreamOS/settings.xml'
- 
- 		with open(skin, 'r') as f:
- 			self.skin = f.read()
-diff -Naur XStreamity-master/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/settings.py XStreamity-PersianPrince/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/settings.py
---- XStreamity-master/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/settings.py	2020-06-15 02:50:35.000000000 +0430
-+++ XStreamity-PersianPrince/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/settings.py	2020-06-19 19:51:37.921387236 +0430
-@@ -4,7 +4,7 @@
- # for localized messages     
- from . import _
- 
--import owibranding
-+#from enigma import getBoxBrand
- 
- from Components.ActionMap import ActionMap
- from Components.ConfigList import ConfigListScreen 
-@@ -31,12 +31,12 @@
- 		
- 		skin = skin_path + 'settings.xml'
- 		
--		try:
--			from boxbranding import getImageDistro, getImageVersion, getOEVersion
--		except:
-+#		try:
-+#			from boxbranding import getImageDistro, getImageVersion, getOEVersion
-+#		except:
- 			
--			if owibranding.getMachineBrand() == "Dream Multimedia" or owibranding.getOEVersion() == "OE 2.2":
--				skin = skin_path + 'DreamOS/settings.xml'
-+#			if getBoxBrand() == "dreambox":
-+#				skin = skin_path + 'DreamOS/settings.xml'
- 	
- 		with open(skin, 'r') as f:
- 			self.skin = f.read()
