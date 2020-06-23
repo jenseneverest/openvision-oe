@@ -4,18 +4,11 @@ SECTION = "kernel/modules"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ffa10f40b98be2c2bc9608f56827ed23"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 inherit module machine_kernel_pr
 
-SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rtl8822bu-driver-1.0.0.9-20180511a.zip \
-    file://0001-fix-compile-with-4-7-x-kernel.patch \
-    file://add-linux-4.19-support.patch \
-    file://add-linux-4.20-support.patch \
-    file://add-linux-5.0-support.patch \
-    file://add-linux-5.1-support.patch \
-    file://add-linux-5.2-support.patch \
-"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rtl8822bu-driver-1.0.0.9-20180511a.zip"
 
 SRC_URI[md5sum] = "b5c5427f41422f0195b4947f28e877f8"
 SRC_URI[sha256sum] = "09e600076691d792c2827886972c509996007c5f6dc1afe92dd66fb9ee798864"

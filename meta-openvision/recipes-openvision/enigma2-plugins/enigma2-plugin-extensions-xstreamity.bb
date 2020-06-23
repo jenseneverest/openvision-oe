@@ -33,17 +33,17 @@ do_install() {
 
 pkg_preinst_${PN}() {
 #!/bin/sh
-if [ -f "/etc/enigma2/X-Streamity/playlists.json" ]
+if [ -f "${sysconfdir}/enigma2/X-Streamity/playlists.json" ]
 	then
 	rm -f /etc/enigma2/X-Streamity/playlists.json > /dev/null 2>&1
 fi
 
-if [ -f "/etc/enigma2/xstreamity/playlists.json" ]
+if [ -f "${sysconfdir}/enigma2/xstreamity/playlists.json" ]
 	then
 	rm -f /etc/enigma2/xstreamity/playlists.json > /dev/null 2>&1
 fi
 
-if [ -f "/etc/enigma2/xstreamity/x-playlists.json" ]
+if [ -f "${sysconfdir}/enigma2/xstreamity/x-playlists.json" ]
 	then
 	rm -f /etc/enigma2/xstreamity/x-playlists.json > /dev/null 2>&1
 fi

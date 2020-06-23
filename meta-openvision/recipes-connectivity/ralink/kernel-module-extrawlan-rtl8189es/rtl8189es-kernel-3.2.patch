@@ -6,7 +6,7 @@ index a54d1b6..44cc1e4 100644
  #endif /* Linux kernel >= 4.0.0 */
  
  #include <rtw_wifi_regd.h>
-+#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 3, 0))
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 5, 0))
 +#include <linux/nl80211.h>
 +#else
  #include <uapi/linux/nl80211.h>
