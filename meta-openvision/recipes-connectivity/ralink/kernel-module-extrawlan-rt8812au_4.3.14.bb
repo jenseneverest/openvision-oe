@@ -26,8 +26,6 @@ SRC_URI = "http://source.mynonpublic.com/rtl8812AU-driver-4.3.14.zip \
 SRC_URI[md5sum] = "0f36c65f154971c3b305a1705f9e500f"
 SRC_URI[sha256sum] = "e1ab86b4aca9ee599141d2d23dd5c989e0a6d004c8b87a487b370e80a4aba7e2"
 
-SRC_URI_append_sh4 = "file://fix_sh4_build.patch"
-
 EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}"
 
 S = "${WORKDIR}/rtl8812AU-driver-4.3.14"
