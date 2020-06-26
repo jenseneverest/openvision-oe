@@ -360,7 +360,7 @@ python do_cleanup () {
     target_box = 'unknown.png'
     target_remote = 'ow_remote.png'
     target_keymap = ''
-    exception = ''
+    exception = []
 
     for x in boxtypes:
         if x[0] == d.getVar('MACHINE', True):
@@ -368,21 +368,21 @@ python do_cleanup () {
             target_remote = x[2]
             target_keymap = x[3]
             if x[0] == 'et6x00':
-                exception = 'et6500.png'
+                exception = [et6500.png]
             elif x[0] == 'et9x00':
-                exception = 'et9500.png'
+                exception = [et9500.png]
             elif x[0] == 'azboxhd':
-                exception = 'azboxelite.png'
+                exception = [azboxelite.png]
             break
 
     for root, dirs, files in os.walk(images + 'boxes', topdown=False):
         for name in files:
-            if target_box != name and name != 'unknown.png' and exception != name:
+            if target_box != name and name != 'unknown.png' and name not in exception:
                 os.remove(os.path.join(root, name))
 
     for root, dirs, files in os.walk(images + 'remotes', topdown=False):
         for name in files:
-            if target_remote != name and name != 'ow_remote.png' and exception != name:
+            if target_remote != name and name != 'ow_remote.png' and name not in exception:
                 os.remove(os.path.join(root, name))
 
     for root, dirs, files in os.walk(keymaps + 'remotes', topdown=False):
