@@ -45,7 +45,7 @@ do_install_append() {
 
 PACKAGES =+ " ${PN}-sample "
 
-RRECOMMENDS_${PN} = "kernel-module-tun"
+RDEPENDS_${PN} = "kernel-module-tun"
 
 FILES_${PN}-dbg += "${libdir}/openvpn/plugins/.debug"
 FILES_${PN} += "${systemd_unitdir}/system/openvpn@.service \
