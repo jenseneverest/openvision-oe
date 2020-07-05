@@ -104,7 +104,6 @@ IMAGE_INSTALL += "\
 	nfs-utils \
 	ntfs-3g \
 	openssh-sftp-server \
-	samba-base \
 	v4l-utils", d)} \
 	"
 
