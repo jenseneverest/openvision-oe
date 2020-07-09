@@ -101,10 +101,10 @@ IMAGE_INSTALL += "\
 	ntpdate", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	curl \
+	dvbfetool \
 	nfs-utils \
 	ntfs-3g \
-	openssh-sftp-server \
-	v4l-utils", d)} \
+	openssh-sftp-server", d)} \
 	"
 
 export IMAGE_BASENAME = "openvision-enigma2"
