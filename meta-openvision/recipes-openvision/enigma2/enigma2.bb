@@ -124,7 +124,7 @@ RDEPENDS_${PN}-build-dependencies = "\
 
 inherit gitpkgv pythonnative upx_compress autotools pkgconfig rm_python_pyc
 
-ENIGMA2_BRANCH ?= "develop"
+ENIGMA2_BRANCH = "develop"
 PV = "develop+git${SRCPV}"
 PKGV = "develop+git${GITPKGV}"
 
@@ -233,8 +233,6 @@ do_install_append() {
 		ln -s ${libdir}/enigma2 ${D}/usr/lib/enigma2
 		ln -s ${libdir}/${PYTHONPATHVERSION} ${D}/usr/lib/${PYTHONPATHVERSION}
 	fi
-	# Seems more plugins are still using "Ipkg" import so create a SymLink for it.
-	ln -s ${libdir}/enigma2/python/Components/Opkg.pyo ${D}${libdir}/enigma2/python/Components/Ipkg.pyo
 }
 
 python populate_packages_prepend() {
