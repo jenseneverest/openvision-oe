@@ -45,6 +45,7 @@ ENIGMA2_PLUGINS += "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	enigma2-plugin-extensions-filecommander \
 	enigma2-plugin-extensions-keyadder \
+	enigma2-plugin-extensions-openmultiboot \
 	enigma2-plugin-extensions-openwebif-terminal \
 	enigma2-plugin-skins-octetfhd \
 	enigma2-plugin-softcams-oscam \
