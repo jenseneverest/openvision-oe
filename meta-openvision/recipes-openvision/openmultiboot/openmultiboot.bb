@@ -15,13 +15,14 @@ SRC_URI = "git://github.com/OpenVisionE2/openmultiboot.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
-EXTRA_OEMAKE = " \
+EXTRA_OEMAKE = "\
     'CFLAGS=${CFLAGS} \
     -I=${includedir}/freetype2 \
     -DOMB_DEFAULT_TIMER=10 \
     ${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "-DOMB_HAVE_TEXTLCD" , "", d)} \
     ${@bb.utils.contains("IMAGE_FSTYPES", "ubi", "-DOMB_FLASH_UBI" , "", d)} \
     ${@bb.utils.contains("IMAGE_FSTYPES", "jffs2", "-DOMB_FLASH_JFFS2" , "", d)} \
+    ${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "-DOMB_DREAMBOX", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "mmc", "-DOMB_MMCBLK", "", d)} \
     -DOMB_KERNEL_MTD=\"/dev/${MTD_KERNEL}\"' \
     'LDFLAGS= -lfreetype ${LDFLAGS}' \

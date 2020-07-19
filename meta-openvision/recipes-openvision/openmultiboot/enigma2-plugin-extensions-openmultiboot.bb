@@ -15,7 +15,12 @@ S = "${WORKDIR}/git"
 
 DEPENDS = "python lzo"
 
-RDEPENDS_${PN} = "kernel-module-nandsim openmultiboot enigma2 lzo"
+RDEPENDS_${PN} = "\
+    ${@bb.utils.contains("IMAGE_FSTYPES", "jffs2", "kernel-module-block2mtd kernel-module-nandsim" , "", d)} \
+    ${@bb.utils.contains("IMAGE_FSTYPES", "ubi", "kernel-module-nandsim" , "", d)} \
+    lzo \
+    openmultiboot \
+    "
 
 EXTRA_OECONF = "\
     --with-po \
