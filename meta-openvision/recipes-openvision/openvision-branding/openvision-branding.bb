@@ -70,6 +70,7 @@ EXTRA_OECONF = " \
     --with-wol="${HAVE_WOL}" \
     --with-ci="${HAVE_CI}" \
     --with-blindscanbinary="${BLINDSCAN_BINARY}" \
+    --with-socfamily="${SOC_FAMILY}" \
     "
 
 FILES_${PN} = "${libdir}/enigma2/python/*.so"
