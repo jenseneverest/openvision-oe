@@ -59,6 +59,16 @@ EXTRA_OECONF = " \
     --with-transcoding="${HAVE_TRANSCODING}" \
     --with-multitranscoding="${HAVE_MULTITRANSCODING}" \
     --with-multilib="${HAVE_MULTILIB}" \
+    --with-hdmi="${HAVE_HDMI}" \
+    --with-yuv="${HAVE_YUV}" \
+    --with-rca="${HAVE_RCA}" \
+    --with-av-jack="${HAVE_AV_JACK}" \
+    --with-scart="${HAVE_SCART}" \
+    --with-dvi="${HAVE_DVI}" \
+    --with-hdmi-in-hd="${HAVE_HDMI_IN_HD}" \
+    --with-hdmi-in-fhd="${HAVE_HDMI_IN_FHD}" \
+    --with-wol="${HAVE_WOL}" \
+    --with-ci="${HAVE_CI}" \
     "
 
 FILES_${PN} = "${libdir}/enigma2/python/*.so"
