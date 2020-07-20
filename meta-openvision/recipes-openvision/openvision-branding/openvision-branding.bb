@@ -35,7 +35,7 @@ EXTRA_OECONF = " \
     --with-brandoem="${BOX_BRAND}" \
     --with-machinebrand="${BOX_BRAND}" \
     --with-machinename="${MACHINE}" \
-    --with-machinebuild="${MACHINE}" \
+    --with-machinebuild="${STB_PLATFORM}" \
     --with-machinemake="${MACHINE}" \
     --with-imageversion="${DISTRO_VERSION}" \
     --with-imagebuild="${BUILD_VERSION}" \
@@ -69,6 +69,7 @@ EXTRA_OECONF = " \
     --with-hdmi-in-fhd="${HAVE_HDMI_IN_FHD}" \
     --with-wol="${HAVE_WOL}" \
     --with-ci="${HAVE_CI}" \
+    --with-blindscanbinary="${BLINDSCAN_BINARY}" \
     "
 
 FILES_${PN} = "${libdir}/enigma2/python/*.so"
