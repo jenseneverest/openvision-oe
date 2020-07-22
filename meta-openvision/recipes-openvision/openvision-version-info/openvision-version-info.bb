@@ -93,6 +93,9 @@ do_install() {
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "DVI", "1", "0", d)}" = "1" ]; then
 		echo "DVI=${HAVE_DVI}" >> ${D}${sysconfdir}/image-version
 	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "SVIDEO", "1", "0", d)}" = "1" ]; then
+		echo "SVIDEO=${HAVE_SVIDEO}" >> ${D}${sysconfdir}/image-version
+	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "HDMI-IN-HD", "1", "0", d)}" = "1" ]; then
 		echo "HDMI-IN-HD=${HAVE_HDMI_IN_HD}" >> ${D}${sysconfdir}/image-version
 	fi

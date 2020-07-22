@@ -63,6 +63,7 @@ EXTRA_OECONF = " \
     --with-av-jack="${HAVE_AV_JACK}" \
     --with-scart="${HAVE_SCART}" \
     --with-dvi="${HAVE_DVI}" \
+    --with-svideo="${HAVE_SVIDEO}" \
     --with-hdmi-in-hd="${HAVE_HDMI_IN_HD}" \
     --with-hdmi-in-fhd="${HAVE_HDMI_IN_FHD}" \
     --with-wol="${HAVE_WOL}" \
