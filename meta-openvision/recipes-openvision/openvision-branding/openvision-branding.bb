@@ -7,8 +7,6 @@ require conf/license/openvision-gplv2.inc
 
 inherit autotools-brokensep gitpkgv pythonnative
 
-PACKAGES += " ${PN}-src"
-
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
@@ -71,6 +69,7 @@ EXTRA_OECONF = " \
     --with-ci="${HAVE_CI}" \
     --with-blindscanbinary="${BLINDSCAN_BINARY}" \
     --with-socfamily="${SOC_FAMILY}" \
+    --with-vfd-symbol="${HAVE_VFDSYMBOL}" \
     "
 
 FILES_${PN} = "${libdir}/enigma2/python/*.so"

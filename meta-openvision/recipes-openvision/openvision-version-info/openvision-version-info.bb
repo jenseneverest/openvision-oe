@@ -55,8 +55,12 @@ do_install() {
 	echo "${HAVE_MULTILIB}" >> ${D}${sysconfdir}/openvision/multilib
 	echo "architecture=${DEFAULTTUNE}" >> ${D}${sysconfdir}/image-version
 	echo "${DEFAULTTUNE}" > ${D}${sysconfdir}/openvision/architecture
+	echo "socfamily=${SOC_FAMILY}" >> ${D}${sysconfdir}/image-version
+	echo "${SOC_FAMILY}" > ${D}${sysconfdir}/openvision/socfamily
 	echo "fpu=${TARGET_FPU}" >> ${D}${sysconfdir}/image-version
 	echo "display-type=${DISPLAY_TYPE}" >> ${D}${sysconfdir}/image-version
+	echo "blindscanbinary=${BLINDSCAN_BINARY}" >> ${D}${sysconfdir}/image-version
+	echo "${BLINDSCAN_BINARY}" > ${D}${sysconfdir}/openvision/blindscanbinary
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "1", "0", d)}" = "1" ]; then
 		echo "small-flash=${HAVE_SMALLFLASH}" >> ${D}/etc/image-version
 		echo "smallflash" > ${D}${sysconfdir}/openvision/smallflash
@@ -70,6 +74,39 @@ do_install() {
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "multitranscoding", "1", "0", d)}" = "1" ]; then
 		echo "multitranscoding=${HAVE_MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "HDMI", "1", "0", d)}" = "1" ]; then
+		echo "HDMI=${HAVE_HDMI}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "YUV", "1", "0", d)}" = "1" ]; then
+		echo "YUV=${HAVE_YUV}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "RCA", "1", "0", d)}" = "1" ]; then
+		echo "RCA=${HAVE_RCA}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "AV_JACK", "1", "0", d)}" = "1" ]; then
+		echo "AV_JACK=${HAVE_AV_JACK}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "SCART", "1", "0", d)}" = "1" ]; then
+		echo "SCART=${HAVE_SCART}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "DVI", "1", "0", d)}" = "1" ]; then
+		echo "DVI=${HAVE_DVI}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "HDMI-IN-HD", "1", "0", d)}" = "1" ]; then
+		echo "HDMI-IN-HD=${HAVE_HDMI_IN_HD}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "HDMI-IN-FHD", "1", "0", d)}" = "1" ]; then
+		echo "HDMI-IN-FHD=${HAVE_HDMI_IN_FHD}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "wol", "1", "0", d)}" = "1" ]; then
+		echo "wol=${HAVE_WOL}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "ci", "1", "0", d)}" = "1" ]; then
+		echo "ci=${HAVE_CI}" >> ${D}${sysconfdir}/image-version
+	fi
+	if [ "${@bb.utils.contains("MACHINE_FEATURES", "vfdsymbol", "1", "0", d)}" = "1" ]; then
+		echo "vfdsymbol=${HAVE_VFDSYMBOL}" >> ${D}${sysconfdir}/image-version
 	fi
 	echo "${MACHINE}" > ${D}${sysconfdir}/openvision/model
 	echo "${BOX_BRAND}" > ${D}${sysconfdir}/openvision/brand
