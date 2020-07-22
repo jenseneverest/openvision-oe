@@ -25,11 +25,13 @@ do_configure_prepend(){
     sed -i "s/@VISIONVERSION@-@VISIONREVISION@/${VISIONVERSION}-${VISIONREVISION}/" "${S}/openvision.c"
     sed -i "s/@MACHINE@/${MACHINE}/" "${S}/openvision.c"
     sed -i "s/@BOX_BRAND@/${BOX_BRAND}/" "${S}/openvision.c"
+    sed -i "s/@STB_PLATFORM@/${STB_PLATFORM}/" "${S}/openvision.c"
     sed -i "s/@VISIONLANGUAGE@/${VISIONLANGUAGE}/" "${S}/openvision.c"
     sed -i "s/@BUILD_VERSION@/${BUILD_VERSION}/" "${S}/openvision.c"
     sed -i "s/@PREFERRED_VERSION_python@/${PREFERRED_VERSION_python}/" "${S}/openvision.c"
     sed -i "s/@HAVE_MULTILIB@/${HAVE_MULTILIB}/" "${S}/openvision.c"
     sed -i "s/@DEFAULTTUNE@/${DEFAULTTUNE}/" "${S}/openvision.c"
+    sed -i "s/@SOC_FAMILY@/${SOC_FAMILY}/" "${S}/openvision.c"
     sed -i "s/@DEVELOPER_NAME@/${DEVELOPER_NAME}/" "${S}/openvision.c"
 }
 

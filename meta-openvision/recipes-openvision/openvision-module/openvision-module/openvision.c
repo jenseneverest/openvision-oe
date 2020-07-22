@@ -71,6 +71,7 @@ static int __init init_openvision(void)
 	printk(KERN_INFO "Open Vision @VISIONVERSION@-@VISIONREVISION@\n");
 	printk(KERN_INFO "STB=@MACHINE@\n");
 	printk(KERN_INFO "Brand/Meta=@BOX_BRAND@\n");
+	printk(KERN_INFO "Platform=@STB_PLATFORM@\n");
 	printk(KERN_INFO "creator=Open Vision developers\n");
 	printk(KERN_INFO "url=https://openvision.tech\n");
 	printk(KERN_INFO "catalog=https://github.com/OpenVisionE2\n");
@@ -79,6 +80,7 @@ static int __init init_openvision(void)
 	printk(KERN_INFO "python=@PREFERRED_VERSION_python@\n");
 	printk(KERN_INFO "multilib=@HAVE_MULTILIB@\n");
 	printk(KERN_INFO "architecture=@DEFAULTTUNE@\n");
+	printk(KERN_INFO "socfamily=@SOC_FAMILY@\n");
 	printk(KERN_INFO "compiledby=@DEVELOPER_NAME@\n");
 	proc_openvision = proc_create_data( "stb/info/openvision", 0666, NULL, &proc_fops, NULL );
         return 0;
