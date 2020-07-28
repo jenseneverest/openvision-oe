@@ -20,7 +20,11 @@ do_install() {
 	install -d ${D}${sysconfdir}
 	install -d ${D}${sysconfdir}/openvision
 	echo "STB=${MACHINE}" > ${D}${sysconfdir}/image-version
+	echo "${MACHINE}" > ${D}${sysconfdir}/openvision/model
 	echo "Brand=${BOX_BRAND}" >> ${D}${sysconfdir}/image-version
+	echo "${BOX_BRAND}" > ${D}${sysconfdir}/openvision/brand
+	echo "Platform=${STB_PLATFORM}" >> ${D}${sysconfdir}/image-version
+	echo "${STB_PLATFORM}" > ${D}${sysconfdir}/openvision/platform
 	echo "box_type=${MACHINE}" >> ${D}${sysconfdir}/image-version
 	echo "build_type=0" >> ${D}${sysconfdir}/image-version
 	echo "machine_brand=${BOX_BRAND}" >> ${D}${sysconfdir}/image-version
@@ -111,8 +115,6 @@ do_install() {
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "vfdsymbol", "1", "0", d)}" = "1" ]; then
 		echo "vfdsymbol=${HAVE_VFDSYMBOL}" >> ${D}${sysconfdir}/image-version
 	fi
-	echo "${MACHINE}" > ${D}${sysconfdir}/openvision/model
-	echo "${BOX_BRAND}" > ${D}${sysconfdir}/openvision/brand
 }
 
 pkg_postinst_ontarget_${PN} () {

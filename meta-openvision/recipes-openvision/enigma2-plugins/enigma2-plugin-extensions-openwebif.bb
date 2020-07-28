@@ -27,7 +27,7 @@ PKGV = "git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenVisionE2/OpenWebif.git;protocol=git"
 
-S="${WORKDIR}/git"
+S = "${WORKDIR}/git"
 
 do_compile() {
 	cheetah-compile -R --nobackup ${S}/plugin
