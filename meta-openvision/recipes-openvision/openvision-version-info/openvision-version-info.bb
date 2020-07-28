@@ -127,6 +127,7 @@ do_install() {
 	echo "${KERNEL_FILE}" > ${D}${sysconfdir}/openvision/kernelfile
 	echo "${MKUBIFS_ARGS}" > ${D}${sysconfdir}/openvision/mkubifs
 	echo "${UBINIZE_ARGS}" > ${D}${sysconfdir}/openvision/ubinize
+	echo "${FORCE}" > ${D}${sysconfdir}/openvision/forcemode
 }
 
 pkg_postinst_ontarget_${PN} () {

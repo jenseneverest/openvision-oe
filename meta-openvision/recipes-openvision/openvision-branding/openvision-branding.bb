@@ -49,6 +49,7 @@ EXTRA_OECONF = " \
     --with-kernelfile="${KERNEL_FILE}" \
     --with-mkubifs="${MKUBIFS_ARGS}" \
     --with-ubinize="${UBINIZE_ARGS}" \
+    --with-forcemode="${FORCE}" \
     --with-arch="${DEFAULTTUNE}" \
     --with-tfpu="${TARGET_FPU}" \
     --with-display-type="${DISPLAY_TYPE}" \
