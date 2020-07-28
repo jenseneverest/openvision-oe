@@ -1,9 +1,9 @@
-DESCRIPTION = "Backup Suite"
+DESCRIPTION = "Backup Suite for Open Vision"
 LICENSE = "GPLv3"
 AUTHOR = "Pedro Newbie <pedro.newbie@gmail.com>"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
-SRC_URI = "git://github.com/OpenVisionE2/BackupSuite.git;protocol=git"
+SRC_URI = "git://github.com/OpenVisionE2/BackupSuite.git;branch=develop;protocol=git"
 
 # don't inherit allarch, it can't work with arch-dependent RDEPENDS
 inherit gitpkgv distutils-openplugins gettext
@@ -18,8 +18,8 @@ RDEPENDS_${PN} = "\
 
 S = "${WORKDIR}/git"
 
-PV = "1.0+git${SRCPV}"
-PKGV = "1.0+git${GITPKGV}"
+PV = "git${SRCPV}"
+PKGV = "git${GITPKGV}"
 
 python populate_packages_prepend() {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
