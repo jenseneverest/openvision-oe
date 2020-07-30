@@ -15,7 +15,6 @@ S = "${WORKDIR}/git"
 
 PROVIDES = "\
     enigma2-plugin-extensions-arbouquet \
-    enigma2-plugin-extensions-ecccam \
     enigma2-plugin-extensions-epanel \
     enigma2-plugin-extensions-epgdd \
     enigma2-plugin-extensions-ipktools \
@@ -41,7 +40,6 @@ DEPENDS = "\
     "
 
 DESCRIPTION_enigma2-plugin-extensions-arbouquet = "Add remove bouquet plugin by 2boom"
-DESCRIPTION_enigma2-plugin-extensions-ecccam = "Easy edit CCcam.cfg plugin by 2boom"
 DESCRIPTION_enigma2-plugin-extensions-epanel = "epanel plugin by 2boom"
 FILES_enigma2-plugin-extensions-epanel_append = "/usr/script/*.sh"
 RDEPENDS_enigma2-plugin-extensions-epanel = "ntpdate python-requests"

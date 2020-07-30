@@ -17,7 +17,6 @@ PROVIDES = "\
     enigma2-plugin-extensions-airplayer \
     enigma2-plugin-extensions-blockcontent \
     enigma2-plugin-extensions-camrestart \
-    enigma2-plugin-extensions-cccaminfo \
     enigma2-plugin-extensions-deviceinfo \
     enigma2-plugin-extensions-fontmagnifier \
     enigma2-plugin-extensions-localemanager \
@@ -51,7 +50,6 @@ DEPENDS = "\
 
 RDEPENDS_enigma2-plugin-extensions-airplayer = "python-ctypes python-misc python-shell python-subprocess gst-plugins-bad-fragmented hairtunes"
 DESCRIPTION_enigma2-plugin-extensions-blockcontent = "Block Content for enigma2"
-DESCRIPTION_enigma2-plugin-extensions-cccaminfo = "cccaminfo GUI that allows you to check the CCcam status"
 FILES_enigma2-plugin-extensions-deviceinfo_append = "${libdir}/enigma2/python/Components/Converter/ProgressDiskSpaceInfo.pyo"
 FILES_enigma2-plugin-extensions-deviceinfo-src_append = "${libdir}/enigma2/python/Components/Converter/ProgressDiskSpaceInfo.py"
 RDEPENDS_enigma2-plugin-extensions-deviceinfo = "hddtemp"
