@@ -50,8 +50,7 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-openwebif-terminal \
 	enigma2-plugin-softcams-oscam \
 	enigma2-plugin-systemplugins-autobouquetsmaker \
-	enigma2-plugin-systemplugins-serviceapp \
-	openvision-core-plugin", d)} \
+	enigma2-plugin-systemplugins-serviceapp", d)} \
 	"
 
 DEPENDS += "\
