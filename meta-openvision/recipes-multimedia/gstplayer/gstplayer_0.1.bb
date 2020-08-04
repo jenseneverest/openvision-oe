@@ -14,7 +14,7 @@ SRC_URI = "git://gitlab.com/e2i/gstplayer.git;protocol=http \
 	file://0011-increase-eos-fix-timeout-to-10s.patch \
 	"
 
-S = "${WORKDIR}/git/"
+S = "${WORKDIR}/git"
 
 do_compile() {
     cd ${S}/gst-1.0
@@ -26,7 +26,7 @@ do_install() {
     install -m 0755 ${S}/gst-1.0/gstplayer_gst-1.0 ${D}${bindir}/gstplayer
 }
 
-pkg_postinst_${PN}() {
+pkg_postinst_ontarget_${PN}() {
     ln -sf gstplayer ${bindir}/gstplayer_gst-1.0
 }
 
