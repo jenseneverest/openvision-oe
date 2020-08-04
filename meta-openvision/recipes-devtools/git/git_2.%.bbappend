@@ -1,5 +1,5 @@
-SRC_URI += " \
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+
+SRC_URI += "\
 	file://receive_timeout.patch \
 	"
-
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"

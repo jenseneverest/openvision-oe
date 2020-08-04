@@ -1,4 +1,1 @@
-
-SRC_URI += " \
-	file://python-daap.patch \
-"
+SRC_URI += "file://python-daap.patch"

@@ -2,6 +2,6 @@
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-SRC_URI += " \
+SRC_URI += "\
 	file://gnulib.patch \
 	"

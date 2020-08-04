@@ -2,7 +2,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 EXTRA_OECONF += "--with-confdir=/etc/default"
 
-SRC_URI += " file://99_autofs"
+SRC_URI += "file://99_autofs"
 
 CONFFILES = "/etc/auto.master /etc/auto.net"
 
