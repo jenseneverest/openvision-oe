@@ -5,6 +5,15 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
+if grep -Fqi "ubuntu" /etc/*-release
+then
+    echo -e "${GREEN}You have Ubuntu, great!${NC}"
+    echo -e ""
+else
+    echo -e "${RED}We only support Ubuntu!${NC}"
+    echo -e ""
+    exit 0
+fi
 VISIONVERSION=`cat meta-openvision/conf/distro/openvision-common.conf | grep -oP '(?<=VISIONVERSION = ")[0-9].[0-9]*'`
 VISIONREVISION=`cat meta-openvision/conf/distro/openvision-common.conf | grep -oP '(?<=VISIONREVISION = "r)[0-9]*'`
 echo -e "${BLUE}Welcome to Open Vision ${GREEN}${VISIONVERSION}-r${VISIONREVISION} ${BLUE}image compile script!"
