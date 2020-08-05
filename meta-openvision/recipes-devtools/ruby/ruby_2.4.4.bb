@@ -1,6 +1,6 @@
 require ruby.inc
 
-SRC_URI += " \
+SRC_URI += "\
            file://ruby-CVE-2017-9224.patch \
            file://ruby-CVE-2017-9226.patch \
            file://ruby-CVE-2017-9227.patch \

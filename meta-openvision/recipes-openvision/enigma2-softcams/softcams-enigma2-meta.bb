@@ -5,7 +5,7 @@ require conf/license/openvision-gplv2.inc
 PROVIDES = "softcams"
 
 # softcams with source available
-DEPENDS += " \
+DEPENDS += "\
 	enigma2-plugin-softcams-oscam \
 	enigma2-plugin-softcams-oscam-emu \
 	enigma2-plugin-softcams-oscam-smod \

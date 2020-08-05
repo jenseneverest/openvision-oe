@@ -39,7 +39,7 @@ PACKAGES =+ "\
     ${PN}-bin \
 "
 
-DEPENDS += " \
+DEPENDS += "\
     ${PYTHON_PN}-incremental-native \
 "
 
@@ -230,12 +230,12 @@ ${libdir}/${PYTHON_DIR}/site-packages/twisted/plugins/twisted_pair.py* \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/pair \
 "
 
-FILES_${PN}-dbg += " \
+FILES_${PN}-dbg += "\
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/*/.debug \
 ${libdir}/${PYTHON_DIR}/site-packages/twisted/*/*/.debug \
 "
 
-FILES_${PN}-doc += " \
+FILES_${PN}-doc += "\
     ${libdir}/${PYTHON_DIR}/site-packages/twisted/python/_pydoctortemplates/ \
 "
 

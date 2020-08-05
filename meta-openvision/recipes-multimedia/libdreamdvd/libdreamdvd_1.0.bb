@@ -7,5 +7,5 @@ inherit autotools pkgconfig git-project
 
 SRC_URI = "git://github.com/mirakels/libdreamdvd.git"
 
-CFLAGS_append_cube += " -std=gnu11"
-CFLAGS_append_su980 += " -std=gnu11"
+CFLAGS_append_cube += "-std=gnu11"
+CFLAGS_append_su980 += "-std=gnu11"

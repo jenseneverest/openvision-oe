@@ -1,6 +1,6 @@
 require linux-libc-headers.inc
 
-SRC_URI += " \
+SRC_URI += "\
         file://mips-add-missing-headers.patch \
         file://mips-fix-ptrace-header.patch \
         file://mips-brcm-add-missing-syscalls.patch \

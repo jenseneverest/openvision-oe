@@ -58,7 +58,7 @@ EXTRA_OECONF = "\
 
 LDFLAGS += "-Wl,--no-keep-memory"
 
-CXXFLAGS += " -std=gnu++98"
+CXXFLAGS += "-std=gnu++98"
 
 OECMAKE_GENERATOR = "Unix Makefiles"
 

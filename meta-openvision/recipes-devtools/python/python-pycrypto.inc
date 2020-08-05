@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=35f354d199e8cb7667b059a23578e63d"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-DEPENDS += " gmp"
+DEPENDS += "gmp"
 
 inherit pypi autotools-brokensep
 

@@ -15,6 +15,6 @@ SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=maste
 			${@bb.utils.contains("MACHINE", "dm800", "file://006-fix-build-with-glibc219.patch", "", d)} \
 			"
 
-EXTRA_OECONF += " \
+EXTRA_OECONF += "\
 	--disable-openjpeg \
 	"

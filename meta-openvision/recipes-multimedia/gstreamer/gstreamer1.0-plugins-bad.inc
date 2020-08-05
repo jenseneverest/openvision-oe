@@ -61,7 +61,7 @@ PACKAGECONFIG[webp]				= "--enable-webp,--disable-webp,libwebp"
 # libde265 mimic mpeg2enc mplex ofa openh264 opensles soundtouch spandsp
 # wasapi x265 zbar
 
-EXTRA_OECONF += " \
+EXTRA_OECONF += "\
 	--enable-decklink \
 	--enable-dvb \
 	--enable-fbdev \

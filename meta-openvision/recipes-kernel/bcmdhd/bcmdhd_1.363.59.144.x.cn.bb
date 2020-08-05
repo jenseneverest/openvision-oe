@@ -20,7 +20,7 @@ S = "${WORKDIR}/${BPN}.${PV}"
 
 M ?= "${S}"
 
-EXTRA_OEMAKE += " \
+EXTRA_OEMAKE += "\
     ARCH=${ARCH} \
     CONFIG_BCMDHD_SDIO=y \
     CROSS_COMPILE=${TARGET_PREFIX} \

@@ -273,7 +273,7 @@ ALTERNATIVE_ncurses-tools_class-target = "clear reset"
 
 BBCLASSEXTEND = "native nativesdk"
 
-PACKAGES += " \
+PACKAGES += "\
   ${PN}-tools \
   ${PN}-terminfo-base \
   ${PN}-terminfo \

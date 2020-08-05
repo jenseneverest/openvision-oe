@@ -43,7 +43,7 @@ PACKAGECONFIG[x11]			= "--enable-x,--disable-x,${X11DEPENDS}"
 # This is better done in a separate qt5 layer (which then should add a "qt5" packageconfig
 # in a gstreamer1.0-plugins-bad bbappend).
 
-EXTRA_OECONF += " \
+EXTRA_OECONF += "\
 	--enable-bz2 \
 	--enable-oss \
 	--enable-zlib \

@@ -5,7 +5,7 @@ HAL_VERSION = "20090508"
 
 require madwifi-ng_r.inc
 
-SRC_URI += " \
+SRC_URI += "\
         svn://svn.openwrt.org/openwrt/trunk/package/madwifi;module=patches \
         http://mirror2.openwrt.org/sources/ath_hal-${HAL_VERSION}.tgz;name=hal \
         file://fix-target-mips32.patch \

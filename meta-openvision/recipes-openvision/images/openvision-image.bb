@@ -2,7 +2,7 @@ require conf/license/openvision-gplv2.inc
 
 inherit image
 
-DEPENDS += " \
+DEPENDS += "\
 	zip-native \
 "
 

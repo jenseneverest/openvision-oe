@@ -13,7 +13,7 @@ SRC_URI[sha256sum] = "5f2cd274b272cae0d0d111e8a9e363f08783329157e8dd68b3de0c096d
 
 inherit autotools pkgconfig
 
-EXTRA_OECONF += " \
+EXTRA_OECONF += "\
     ${@bb.utils.contains('TARGET_FPU', 'soft', '--with-softfloat', '', d)} \
     --disable-python \
 "

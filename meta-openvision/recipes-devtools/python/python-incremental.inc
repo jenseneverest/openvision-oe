@@ -8,7 +8,7 @@ SRC_URI[sha256sum] = "7b751696aaf36eebfab537e458929e194460051ccad279c72b755a167e
 
 inherit pypi
 
-RDEPENDS_${PN} += " \
+RDEPENDS_${PN} += "\
     ${PYTHON_PN}-twisted \
     ${PYTHON_PN}-click \
 "

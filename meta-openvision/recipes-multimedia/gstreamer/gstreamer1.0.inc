@@ -45,7 +45,7 @@ delete_pkg_m4_file() {
 		rm "${S}/common/m4/pkg.m4" || true
 }
 
-do_configure[prefuncs] += " delete_pkg_m4_file"
+do_configure[prefuncs] += "delete_pkg_m4_file"
 
 do_compile_prepend() {
 		export GIR_EXTRA_LIBS_PATH="${B}/gst/.libs:${B}/libs/gst/base/.libs"

@@ -1,4 +1,4 @@
-SRC_URI_append = "\
+SRC_URI_append = " \
     git://anongit.freedesktop.org/gstreamer/common;destsuffix=git/common;name=common \
 "
 

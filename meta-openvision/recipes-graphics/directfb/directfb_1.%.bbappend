@@ -1,4 +1,4 @@
-DEPENDS += " ${@bb.utils.contains("MACHINE_FEATURES", "sdl", "libsdl", "", d)} "
+DEPENDS += "${@bb.utils.contains("MACHINE_FEATURES", "sdl", "libsdl", "", d)} "
 
 FILES_${PN} += "\
 	${libdir}/directfb-${RV}/gfxdrivers/*.so \

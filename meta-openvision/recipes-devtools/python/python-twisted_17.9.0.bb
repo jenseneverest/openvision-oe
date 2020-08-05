@@ -1,7 +1,7 @@
 inherit pypi setuptools
 require python-twisted.inc
 
-SRC_URI += " \
+SRC_URI += "\
            file://fix-writing-after-channel-is-closed.patch \
            "
 

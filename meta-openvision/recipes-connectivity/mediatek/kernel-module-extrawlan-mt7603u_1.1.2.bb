@@ -23,4 +23,4 @@ do_install() {
     install -m 0644 ${S}/conf/MT7603USTA.dat ${D}${sysconfdir}/Wireless/RT2870STA/MT7603USTA.dat
 }
 
-FILES_${PN}_append = "${sysconfdir}/Wireless"
+FILES_${PN}_append = " ${sysconfdir}/Wireless"

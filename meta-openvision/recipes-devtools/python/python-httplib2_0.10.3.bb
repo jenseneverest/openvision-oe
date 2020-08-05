@@ -35,7 +35,7 @@ do_install_append() {
 
 RDEPENDS_${PN} = "ca-certificates"
 
-PACKAGES += " ${PN}-src"
+PACKAGES += "${PN}-src"
 RDEPENDS_{PN}-src = "${PN}"
 
 FILES_${PN}-src = " \
@@ -46,7 +46,7 @@ FILES_${PN}-src = " \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.py \
     "
 
-FILES_${PN}-dbg += " \
+FILES_${PN}-dbg += "\
     ${PYTHON_SITEPACKAGES_DIR}/*/.debug \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/.debug \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/.debug \

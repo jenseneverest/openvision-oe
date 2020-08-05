@@ -18,7 +18,7 @@ CAMNAME = "ncam"
 CAMSTART = "${bindir}/ncam --wait 0 --config-dir ${sysconfdir}/tuxbox/config/ncam --daemon --pidfile /tmp/ncam.pid --restart 2 --utf8"
 CAMSTOP = "kill \`cat /tmp/ncam.pid\` 2> /dev/null"
 
-SRC_URI += " \
+SRC_URI += "\
 	file://ncam.conf \
 	file://ncam.server \
 	file://ncam.srvid \

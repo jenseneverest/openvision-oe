@@ -49,7 +49,7 @@ FILES_${PN} = "\
 FILES_${PN}-dev = "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/serviceapp.la"
 
-CXXFLAGS_append_sh4 += " -std=c++11 -fPIC -fno-strict-aliasing "
+CXXFLAGS_append_sh4 += "-std=c++11 -fPIC -fno-strict-aliasing "
 
 pkg_postinst_${PN}_sh4() {
 	touch $D${sysconfdir}/enigma2/serviceapp_replaceservicemp3

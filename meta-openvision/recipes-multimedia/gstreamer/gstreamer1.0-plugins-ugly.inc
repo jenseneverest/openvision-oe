@@ -20,7 +20,7 @@ PACKAGECONFIG[dvdread]	= "--enable-dvdread,--disable-dvdread,libdvdread"
 PACKAGECONFIG[mpeg2dec]	= "--enable-mpeg2dec,--disable-mpeg2dec,mpeg2dec"
 PACKAGECONFIG[x264]		= "--enable-x264,--disable-x264,x264"
 
-EXTRA_OECONF += " \
+EXTRA_OECONF += "\
 	--disable-sidplay \
 	"
 

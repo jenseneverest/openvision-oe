@@ -24,7 +24,7 @@ EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR}"
 
 #EXTRA_OEMAKE = "KSRC=${STAGING_KERNEL_DIR}"
 
-FILES_${PN} += " \
+FILES_${PN} += "\
 	${sysconfdir}/Wireless \
 	/lib/firmware/ \
 "

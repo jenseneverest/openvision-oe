@@ -18,7 +18,7 @@ CAMNAME = "oscam"
 CAMSTART = "${bindir}/oscam --wait 0 --config-dir ${sysconfdir}/tuxbox/config/oscam --daemon --pidfile /tmp/oscam.pid --restart 2 --utf8"
 CAMSTOP = "kill \`cat /tmp/oscam.pid\` 2> /dev/null"
 
-SRC_URI += " \
+SRC_URI += "\
 	file://oscam.conf \
 	file://oscam.server \
 	file://oscam.srvid \

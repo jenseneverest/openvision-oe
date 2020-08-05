@@ -18,8 +18,8 @@ inherit autotools pkgconfig perlnative
 ARM_INSTRUCTION_SET = "arm"
 
 PACKAGECONFIG ?= "libpcap gnutls libnl libcap sbc"
-PACKAGECONFIG += " ${@bb.utils.contains("DISTRO_FEATURES", "x11", "gtk2 graphics", "", d)}"
-#PACKAGECONFIG += " ${@bb.utils.contains("DISTRO_FEATURES", "opengl", "gtk3", "", d)}"
+PACKAGECONFIG += "${@bb.utils.contains("DISTRO_FEATURES", "x11", "gtk2 graphics", "", d)}"
+#PACKAGECONFIG += "${@bb.utils.contains("DISTRO_FEATURES", "opengl", "gtk3", "", d)}"
 
 PACKAGECONFIG[libcap] = "--with-libcap=${STAGING_LIBDIR}, --with-libcap=no --enable-pcap-ng-default , libcap"
 PACKAGECONFIG[libpcap] = "--with-pcap=${STAGING_LIBDIR} --with-pcap-remote, --with-pcap=no --enable-pcap-ng-default  , libpcap"

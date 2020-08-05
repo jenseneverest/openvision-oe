@@ -103,12 +103,12 @@ do_install_append() {
 
 PACKAGES += "${PN}-testtools ${PN}-obex ${PN}-noinst-tools"
 
-FILES_${PN} += " \
+FILES_${PN} += "\
     ${libdir}/bluetooth/plugins/*.so \
     ${systemd_unitdir}/ ${datadir}/dbus-1 \
     ${libdir}/cups \
 "
-FILES_${PN}-dev += " \
+FILES_${PN}-dev += "\
     ${libdir}/bluetooth/plugins/*.la \
 "
 

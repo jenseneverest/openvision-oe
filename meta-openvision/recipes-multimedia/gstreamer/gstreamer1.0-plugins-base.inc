@@ -33,7 +33,7 @@ PACKAGECONFIG[visual]		= "--enable-libvisual,--disable-libvisual,libvisual"
 PACKAGECONFIG[wayland]		= "--enable-wayland --enable-egl,--disable-wayland --disable-egl,wayland virtual/egl"
 PACKAGECONFIG[cdparanoia]	= "--enable-cdparanoia,--disable-cdparanoia,cdparanoia"
 
-EXTRA_OECONF += " \
+EXTRA_OECONF += "\
 	--enable-zlib \
 	--disable-cocoa \
 	"
