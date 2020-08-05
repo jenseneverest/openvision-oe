@@ -10,7 +10,7 @@ DEPENDS_prepend = "gnu-config-native autoconf-native "
 
 PN = "gcc-cross-initial-${TARGET_ARCH}"
 
-CROSS_TARGET_SYS_DIR_append = " .${PN}"
+CROSS_TARGET_SYS_DIR_append = ".${PN}"
 
 # This is intended to be a -very- basic config
 # sysroot is needed in case we use libc-initial
