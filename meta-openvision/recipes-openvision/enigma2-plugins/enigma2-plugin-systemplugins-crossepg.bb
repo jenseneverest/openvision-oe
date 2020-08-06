@@ -18,7 +18,6 @@ SRC_URI = "git://github.com/OpenVisionE2/CrossEPG.git;protocol=git"
 S = "${WORKDIR}/git"
 
 CFLAGS_append = " -I${STAGING_INCDIR}/libxml2/ -I${STAGING_INCDIR}/${PYTHON_DIR}/"
-CFLAGS_append = " ${@bb.utils.contains_any('BOX_BRAND', 'xtrend xp gfutures formuler airdigital', ' -DNO_DVB_POLL' , '', d)}"
 
 do_compile() {
     echo ${PV} > ${S}/VERSION
