@@ -11,9 +11,7 @@ PKGV = "git${GITPKGV}"
 
 inherit gitpkgv rm_python_pyc compile_python_pyo no_python_src rm_language_po
 
-SRC_URI = "git://github.com/kiddac/XStreamity.git \
-        file://get-rid-of-dreamos-checks.patch \
-"
+SRC_URI = "git://github.com/kiddac/XStreamity.git"
 
 S = "${WORKDIR}/git"
 
