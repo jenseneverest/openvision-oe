@@ -5,12 +5,12 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
-if grep -Fqi "ubuntu" /etc/*-release
+if grep -Fqi "ubuntu 18.04" /etc/*-release
 then
-    echo -e "${GREEN}You have Ubuntu, great!${NC}"
+    echo -e "${GREEN}You have Ubuntu 18.04.x LTS, great!${NC}"
     echo -e ""
 else
-    echo -e "${RED}We only support Ubuntu!${NC}"
+    echo -e "${RED}We only support Ubuntu 18.04.x LTS!${NC}"
     echo -e ""
     exit 0
 fi
