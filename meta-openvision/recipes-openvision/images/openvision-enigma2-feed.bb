@@ -245,7 +245,6 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-skins-mx-hq9w \
 	enigma2-plugin-skins-mxsline-raed \
 	enigma2-plugin-skins-octetfhd \
-	enigma2-plugin-skins-openvix \
 	enigma2-plugin-skins-pli-hd-fullnight \
 	enigma2-plugin-skins-sevenhd \
 	enigma2-plugin-skins-simple-gray-hd \
