@@ -233,6 +233,8 @@ do_install_append() {
 		ln -s ${libdir}/enigma2 ${D}${prefix}/lib/enigma2
 		ln -s ${libdir}/${PYTHONPATHVERSION} ${D}${prefix}/lib/${PYTHONPATHVERSION}
 	fi
+	install -m 0644 ${S}/data/rc_models/${RCNAME}.png ${D}${datadir}/enigma2/rc_models/
+	install -m 0644 ${S}/data/rc_models/${RCNAME}.xml ${D}${datadir}/enigma2/rc_models/
 }
 
 python populate_packages_prepend() {
