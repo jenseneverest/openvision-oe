@@ -6,7 +6,7 @@ SRC_URI = "http://downloads.yoctoproject.org/releases/eglibc/eglibc-${PV}-svnr25
            file://eglibc-svn-arm-lowlevellock-include-tls.patch \
            file://IO-acquire-lock-fix.patch \
            file://mips-rld-map-check.patch \
-           file:/${sysconfdir}/ld.so.conf \
+           file://etc/ld.so.conf \
            file://generate-supported.mk \
            file://glibc.fix_sqrt2.patch \
            file://multilib_readlib.patch \

@@ -16,6 +16,6 @@ S = "${WORKDIR}/git"
 EXTRA_OEMAKE = "KSRC=${STAGING_KERNEL_DIR}"
 
 do_install() {
-	install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
 	install -m 0644 ${S}/8188eu.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
 }

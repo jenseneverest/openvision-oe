@@ -73,11 +73,11 @@ CONFIGUREOPT_DEPTRACK = ""
 do_configure_append() {
 	# somethings wrong with icu, fix it up manually
 	for makefile in $(find ${B} -name "GNUmakefile") ; do
-		sed -i s:-I${incdir}::g $makefile
+		sed -i s:-I/usr/include::g $makefile
 	done
 	# remove hardcoded path to ${bindir}/glib-mkenums
 	for makefile in $(find ${B} -name "GNUmakefile") ; do
-		sed -i s:${bindir}/glib-mkenums:glib-mkenums:g $makefile
+		sed -i s:/usr/bin/glib-mkenums:glib-mkenums:g $makefile
 	done
 }
 

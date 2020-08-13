@@ -229,9 +229,9 @@ FILES_${PN}-src = "\
 do_install_append() {
 	install -d ${D}${datadir}/keymaps
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "multilib", "1", "0", d)}" = "1" ]; then
-		install -d ${D}${libdir}
-		ln -s ${libdir}/enigma2 ${D}${libdir}/enigma2
-		ln -s ${libdir}/${PYTHONPATHVERSION} ${D}${libdir}/${PYTHONPATHVERSION}
+		install -d ${D}/usr/lib
+		ln -s ${libdir}/enigma2 ${D}/usr/lib/enigma2
+		ln -s ${libdir}/${PYTHONPATHVERSION} ${D}/usr/lib/${PYTHONPATHVERSION}
 	fi
 }
 

@@ -17,7 +17,7 @@ S = "${WORKDIR}/git"
 inherit autotools-brokensep pkgconfig
 
 do_compile_prepend() {
-	sed -i 's#${prefix}/local#${prefix}#' ${S}/Makefile
+	sed -i 's#/usr/local#/usr#' ${S}/Makefile
 }
 
 do_install_append() {

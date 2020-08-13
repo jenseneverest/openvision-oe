@@ -40,8 +40,8 @@ EXTRA_OEMAKE = "-e "
 
 do_configure() {
     # Fix hardcoded ${prefix}, ${sysconfdir}, ${localstatedir} mess.
-    cat tunables.c|sed s:\"${prefix}:\"${prefix}:g|sed s:\"${localstatedir}:\"${localstatedir}:g \
-    |sed s:\"${prefix}/share/empty:\"${localstatedir}/share/empty:g |sed s:\"${sysconfdir}:\"${sysconfdir}:g > tunables.c.new
+    cat tunables.c|sed s:\"/usr:\"${prefix}:g|sed s:\"/var:\"${localstatedir}:g \
+    |sed s:\"${prefix}/share/empty:\"${localstatedir}/share/empty:g |sed s:\"/etc:\"${sysconfdir}:g > tunables.c.new
     mv tunables.c.new tunables.c
 }
 

@@ -25,7 +25,7 @@ do_install_append() {
 			-e 's,@SBINDIR@,${sbindir},g' \
 			${D}${systemd_unitdir}/system/crond.service
 		# Fix Redhat path to Debian
-		sed -e 's#${sysconfdir}/sysconfig/crond#${sysconfdir}/default/crond#' -i ${D}${systemd_unitdir}/system/crond.service
+		sed -e 's#/etc/sysconfig/crond#/etc/default/crond#' -i ${D}${systemd_unitdir}/system/crond.service
 	fi
 
 	# Only install SysVinit scripts while we have SysVinit
@@ -33,7 +33,7 @@ do_install_append() {
 		install -d ${D}${sysconfdir}/init.d/
 		install -m 0755 ${WORKDIR}/crond.init ${D}${sysconfdir}/init.d/crond
 		# Fix Redhat path to Debian
-		sed -e 's#CONFIG=${sysconfdir}/sysconfig/crond#CONFIG=${sysconfdir}/default/crond#' -i ${D}${sysconfdir}/init.d/crond
+		sed -e 's#CONFIG=/etc/sysconfig/crond#CONFIG=/etc/default/crond#' -i ${D}${sysconfdir}/init.d/crond
 	fi
 
 	# below are necessary for a complete cron environment

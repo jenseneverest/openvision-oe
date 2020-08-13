@@ -21,7 +21,7 @@ S = "${WORKDIR}/${BPN}"
 inherit perlnative
 
 do_configure() {
-    sed -i -e s:${incdir}:${STAGING_INCDIR}:g util/av7110_loadkeys/generate-keynames.sh
+    sed -i -e s:/usr/include:${STAGING_INCDIR}:g util/av7110_loadkeys/generate-keynames.sh
 }
 do_install() {
     make DESTDIR=${D} install
@@ -31,8 +31,8 @@ do_install() {
     install -d ${D}/${docdir}/dvb-apps/szap
     chmod a+rx ${D}${libdir}/*.so*
     if [ "${DVB_WINTV_TUNER}" = "true" ]; then
-        install -d ${D}${base_libdir}/firmware
-        install -m 0644 ${WORKDIR}/*.fw ${D}${base_libdir}/firmware/
+        install -d ${D}${nonarch_base_libdir}/firmware
+        install -m 0644 ${WORKDIR}/*.fw ${D}${nonarch_base_libdir}/firmware/
     fi
     cp -R --no-dereference --preserve=mode,links ${S}/util/szap/channels-conf* ${D}/${docdir}/dvb-apps/szap/
     cp -R --no-dereference --preserve=mode,links ${S}/util/szap/README   ${D}/${docdir}/dvb-apps/szap/

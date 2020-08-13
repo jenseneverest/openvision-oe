@@ -41,7 +41,7 @@ EXTRA_OECONF = "\
 		"
 
 do_compile_prepend() {
-	find -name Makefile | xargs sed -i 's~-I${incdir}~-I${STAGING_INCDIR}~g'
+	find -name Makefile | xargs sed -i 's~-I/usr/include~-I${STAGING_INCDIR}~g'
 }
 
 do_install_append() {

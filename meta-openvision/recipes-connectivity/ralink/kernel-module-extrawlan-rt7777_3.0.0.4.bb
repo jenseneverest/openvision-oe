@@ -30,7 +30,7 @@ FILES_${PN} += "\
 "
 
 do_install() {
-    install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
     install -m 0644 ${S}/os/linux/mt7601Usta.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless/rt7777.ko
     install -d ${D}${sysconfdir}/Wireless/RT7777
     install -m 0644 ${S}/RT2870STA.dat ${D}${sysconfdir}/Wireless/RT7777
