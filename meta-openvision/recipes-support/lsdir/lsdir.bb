@@ -15,7 +15,7 @@ S = "${WORKDIR}/git/"
 SOURCE_FILES = "src/lsdir.c src/lsdir.h src/main.c"
 
 do_compile() {
-    ${CC} ${SOURCE_FILES} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE=1 -D_LARGEFILE_SOURCE -I${S}/src -I${D}/${libdir} -I${D}/${includedir} -o lsdir ${LDFLAGS}
+    ${CC} ${SOURCE_FILES} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE=1 -D_LARGEFILE_SOURCE -I${S}/src -I${D}${libdir} -I${D}${includedir} -o lsdir ${LDFLAGS}
 }
 
 do_install() {

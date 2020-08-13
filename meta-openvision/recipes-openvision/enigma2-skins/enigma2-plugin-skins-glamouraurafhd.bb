@@ -12,7 +12,7 @@ RRECOMMENDS_${PN} = "enigma2-plugin-extensions-weathermsn"
 
 SRC_URI = "git://github.com/MCelliotG/GlamourAuraFHD-skin.git;protocol=git"
 
-FILES_${PN} = "/usr"
+FILES_${PN} = "${prefix}"
 
 S = "${WORKDIR}/git"
 

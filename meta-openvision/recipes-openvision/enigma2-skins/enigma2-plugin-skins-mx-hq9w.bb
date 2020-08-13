@@ -18,13 +18,13 @@ SRC_URI= " \
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} = "/usr/*"
+FILES_${PN} = "${prefix}/*"
 
 do_compile() {
 }
 
 do_install() {
-    rm -Rf ${S}/usr/uninstall
+    rm -Rf ${S}${prefix}/uninstall
     rm -Rf ${S}${datadir}/fonts
-    cp -r --preserve=mode,links ${S}/usr ${D}/
+    cp -r --preserve=mode,links ${S}${prefix} ${D}/
 }

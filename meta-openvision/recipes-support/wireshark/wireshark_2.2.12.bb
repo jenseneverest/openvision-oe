@@ -50,22 +50,22 @@ EXTRA_OECONF += "--with-qt=no --enable-tshark --enable-rawshark"
 # Currently wireshark does not install header files
 do_install_append () {
 
-	install -d ${D}/${includedir}/${BPN}
-	install -d ${D}/${includedir}/${BPN}/epan
-	install -d ${D}/${includedir}/${BPN}/epan/crypt
-	install -d ${D}/${includedir}/${BPN}/epan/dfilter
-	install -d ${D}/${includedir}/${BPN}/epan/dissectors
-	install -d ${D}/${includedir}/${BPN}/epan/ftypes
-	install -d ${D}/${includedir}/${BPN}/epan/wmem
+	install -d ${D}${includedir}/${BPN}
+	install -d ${D}${includedir}/${BPN}/epan
+	install -d ${D}${includedir}/${BPN}/epan/crypt
+	install -d ${D}${includedir}/${BPN}/epan/dfilter
+	install -d ${D}${includedir}/${BPN}/epan/dissectors
+	install -d ${D}${includedir}/${BPN}/epan/ftypes
+	install -d ${D}${includedir}/${BPN}/epan/wmem
 
-	install config.h ${D}/${includedir}/${BPN}
-	install ${S}/register.h ${D}/${includedir}/${BPN}
-	install -D ${S}/epan/*.h ${D}/${includedir}/${BPN}/epan
-	install -D ${S}/epan/crypt/*.h ${D}/${includedir}/${BPN}/epan/crypt
-	install -D ${S}/epan/dfilter/*.h ${D}/${includedir}/${BPN}/epan/dfilter
-	install -D ${S}/epan/dissectors/*.h ${D}/${includedir}/${BPN}/epan/dissectors
-	install -D ${S}/epan/ftypes/*.h ${D}/${includedir}/${BPN}/epan/ftypes
-	install -D ${S}/epan/wmem/*.h ${D}/${includedir}/${BPN}/epan/wmem
+	install config.h ${D}${includedir}/${BPN}
+	install ${S}/register.h ${D}${includedir}/${BPN}
+	install -D ${S}/epan/*.h ${D}${includedir}/${BPN}/epan
+	install -D ${S}/epan/crypt/*.h ${D}${includedir}/${BPN}/epan/crypt
+	install -D ${S}/epan/dfilter/*.h ${D}${includedir}/${BPN}/epan/dfilter
+	install -D ${S}/epan/dissectors/*.h ${D}${includedir}/${BPN}/epan/dissectors
+	install -D ${S}/epan/ftypes/*.h ${D}${includedir}/${BPN}/epan/ftypes
+	install -D ${S}/epan/wmem/*.h ${D}${includedir}/${BPN}/epan/wmem
 }
 
 FILES_${PN} += "${datadir}*"

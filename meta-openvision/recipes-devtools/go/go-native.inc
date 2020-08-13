@@ -1,4 +1,4 @@
-# Use immediate assingment here to get the original (/usr/lib)
+# Use immediate assingment here to get the original (${libdir})
 # instead of the one rewritten by native.bbclass.
 nonstaging_libdir := "${libdir}"
 

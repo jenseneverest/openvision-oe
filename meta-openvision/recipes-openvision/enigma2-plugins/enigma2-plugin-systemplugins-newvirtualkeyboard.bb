@@ -11,11 +11,11 @@ S = "${WORKDIR}/git"
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
-FILES_${PN} = "/usr/"
+FILES_${PN} = "${prefix}/"
 
 do_install() {
-	install -d ${D}/usr
-	cp -r ${S}/usr/* ${D}/usr/
+	install -d ${D}${prefix}
+	cp -r ${S}${prefix}/* ${D}${prefix}/
 }
 
 python populate_packages_prepend() {

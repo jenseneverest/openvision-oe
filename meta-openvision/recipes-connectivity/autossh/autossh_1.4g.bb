@@ -12,7 +12,7 @@ inherit autotools-brokensep
 
 TARGET_CC_ARCH += "${LDFLAGS}"
 
-# Install target is broken (attempts to install in /usr/ and ignores
+# Install target is broken (attempts to install in ${prefix}/ and ignores
 # DESTDIR environment)
 do_install() {
 	install -d ${D}${bindir}

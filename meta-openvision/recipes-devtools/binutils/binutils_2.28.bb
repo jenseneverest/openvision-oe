@@ -36,10 +36,10 @@ do_install_class-native () {
 	rm -rf ${D}${prefix}/share/locale
 	rm -rf ${D}${prefix}/share/man
 	rmdir ${D}${prefix}/share || :
-	rmdir ${D}/${libdir}/gcc-lib || :
-	rmdir ${D}/${libdir}64/gcc-lib || :
-	rmdir ${D}/${libdir} || :
-	rmdir ${D}/${libdir}64 || :
+	rmdir ${D}${libdir}/gcc-lib || :
+	rmdir ${D}${libdir}64/gcc-lib || :
+	rmdir ${D}${libdir} || :
+	rmdir ${D}${libdir}64 || :
 }
 
 BBCLASSEXTEND = "native nativesdk"

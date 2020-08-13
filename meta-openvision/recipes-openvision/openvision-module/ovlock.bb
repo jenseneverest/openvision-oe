@@ -7,7 +7,7 @@ inherit rm_python_pyc compile_python_pyo no_python_src
 
 SRC_URI = "file://ov.py"
 
-FILES_${PN} = "/usr"
+FILES_${PN} = "${prefix}"
 
 S = "${WORKDIR}"
 

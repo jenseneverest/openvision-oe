@@ -29,9 +29,9 @@ EXTRA_OEMAKE = "\
     "
 
 do_install() {
-    install -d ${D}/sbin
-    install -m 755 ${S}/src/open_multiboot ${D}/sbin
-    install -m 644 ${S}/contrib/open-multiboot-branding-helper.pyo ${D}/sbin
+    install -d ${D}${base_sbindir}
+    install -m 755 ${S}/src/open_multiboot ${D}${base_sbindir}
+    install -m 644 ${S}/contrib/open-multiboot-branding-helper.pyo ${D}${base_sbindir}
 }
 
 pkg_preinst_${PN}() {
@@ -48,6 +48,6 @@ fi
 }
 
 pkg_postrm_${PN}() {
-rm /sbin/init
-ln -s /sbin/init.sysvinit /sbin/init
+rm ${base_sbindir}/init
+ln -s ${base_sbindir}/init.sysvinit ${base_sbindir}/init
 }

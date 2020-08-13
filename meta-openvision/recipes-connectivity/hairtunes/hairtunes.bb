@@ -22,7 +22,7 @@ do_compile() {
 }
 
 do_install() {
-    install -d ${D}/${bindir}
-    install -m 755 ${S}/hairtunes ${D}/${bindir}
+    install -d ${D}${bindir}
+    install -m 755 ${S}/hairtunes ${D}${bindir}
 }
 

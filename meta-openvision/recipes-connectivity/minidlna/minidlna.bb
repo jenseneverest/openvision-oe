@@ -20,7 +20,7 @@ do_configure_prepend() {
 		sed -i 's/AM_INIT_AUTOMAKE.*$/AM_INIT_AUTOMAKE([foreign subdir-objects])/' ${S}/configure.ac
 }
 
-CONFFILES_${PN} = "/etc/minidlna.conf"
+CONFFILES_${PN} = "${sysconfdir}/minidlna.conf"
 
 inherit autotools-brokensep pkgconfig gettext update-rc.d
 
@@ -29,9 +29,9 @@ INITSCRIPT_NAME = "minidlna.sh"
 INITSCRIPT_PARAMS = "stop 21 0 1 6 ."
 
 do_install_append() {
-	install -m 755 -d ${D}/${sysconfdir}/
-	install -m 644 ${S}/minidlna.conf ${D}/${sysconfdir}/
-	install -m 755 -d ${D}/${sysconfdir}/init.d/
-	install -m 755 ${S}/minidlna.sh ${D}/${sysconfdir}/init.d/
-	install -m 755 -d ${D}/var/lib/minidlna/
+	install -m 755 -d ${D}${sysconfdir}/
+	install -m 644 ${S}/minidlna.conf ${D}${sysconfdir}/
+	install -m 755 -d ${D}${sysconfdir}/init.d/
+	install -m 755 ${S}/minidlna.sh ${D}${sysconfdir}/init.d/
+	install -m 755 -d ${D}${localstatedir}/lib/minidlna/
 }

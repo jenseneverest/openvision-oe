@@ -58,9 +58,9 @@ do_install () {
 }
 
 do_install_append_class-target () {
-    sed -i -e 's,/etc/,${sysconfdir}/,' \
-           -e 's,/usr/share/,${datadir}/,' \
-           -e 's,/usr/local,${prefix}/local,' \
+    sed -i -e 's,${sysconfdir}/,${sysconfdir}/,' \
+           -e 's,${datadir}/,${datadir}/,' \
+           -e 's,${prefix}/local,${prefix}/local,' \
         ${D}${sbindir}/update-ca-certificates \
         ${D}${mandir}/man8/update-ca-certificates.8
 }

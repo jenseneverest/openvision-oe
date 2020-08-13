@@ -18,11 +18,11 @@ S = "${WORKDIR}"
 do_install() {
 	install -d ${D}${sysconfdir}/init.d
 	install -d ${D}${sysconfdir}/rcS.d
-	install -d ${D}/${bindir}
+	install -d ${D}${bindir}
 	# run-once initialization script
-	install -m 644 ${S}/convert-smbconf.py ${D}/${bindir}/convert-smbconf.py
+	install -m 644 ${S}/convert-smbconf.py ${D}${bindir}/convert-smbconf.py
 	install -m 755 ${S}/settings-restore.sh ${D}${sysconfdir}/init.d/settings-restore.sh
-	install -m 644 ${S}/convert-smbconf.py ${D}/${bindir}/convert-smbconf.py
+	install -m 644 ${S}/convert-smbconf.py ${D}${bindir}/convert-smbconf.py
 }
 
 inherit allarch

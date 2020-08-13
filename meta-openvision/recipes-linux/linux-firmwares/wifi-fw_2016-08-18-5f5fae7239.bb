@@ -28,10 +28,10 @@ do_compile() {
 }
 
 do_install() {
-	install -d  ${D}/lib/firmware/brcm
-	install ${S}/bcm_ampak/config/4356/fw_bcm4356a2_ag.bin ${D}/lib/firmware/brcm/brcmfmac4356-sdio.bin
-	install ${S}/bcm_ampak/config/4356/nvram_ap6356.txt ${D}/lib/firmware/brcm/brcmfmac4356-sdio.txt
-	install ${S}/bcm_ampak/config/4354/nvram_ap6354.txt ${D}/lib/firmware/brcm/brcmfmac4354-sdio.txt
+	install -d  ${D}${base_libdir}/firmware/brcm
+	install ${S}/bcm_ampak/config/4356/fw_bcm4356a2_ag.bin ${D}${base_libdir}/firmware/brcm/brcmfmac4356-sdio.bin
+	install ${S}/bcm_ampak/config/4356/nvram_ap6356.txt ${D}${base_libdir}/firmware/brcm/brcmfmac4356-sdio.txt
+	install ${S}/bcm_ampak/config/4354/nvram_ap6354.txt ${D}${base_libdir}/firmware/brcm/brcmfmac4354-sdio.txt
 }
 
 FILES_${PN} += "/lib/firmware/*"

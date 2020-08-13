@@ -23,6 +23,6 @@ EXTRA_OECONF = "ENIGMA=yes"
 CXXFLAGS = " -std=c++11"
 
 do_install () {
-    install -d -m 0755 ${D}/${bindir}
-    install -m 0755 ${S}/satpi ${D}/${bindir}/
+    install -d -m 0755 ${D}${bindir}
+    install -m 0755 ${S}/satpi ${D}${bindir}/
 }

@@ -66,14 +66,14 @@ do_compile_prepend() {
 }
 
 do_install() {
-    install -d ${D}/${bindir}
+    install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/build/oscam ${D}${bindir}/${BINFILE}
-    install -d ${D}/${sysconfdir}/init.d
-    install -m 0755 ${F}/softcam.oscam ${D}/${sysconfdir}/init.d/softcam.${BINFILE}
-    install -d ${D}/${sysconfdir}/tuxbox/config/${BINFILE}
+    install -d ${D}${sysconfdir}/init.d
+    install -m 0755 ${F}/softcam.oscam ${D}${sysconfdir}/init.d/softcam.${BINFILE}
+    install -d ${D}${sysconfdir}/tuxbox/config/${BINFILE}
 }
 
-FILES_${PN} = "/usr ${sysconfdir}/init.d ${sysconfdir}/tuxbox"
+FILES_${PN} = "${prefix} ${sysconfdir}/init.d ${sysconfdir}/tuxbox"
 CONFFILES_${PN} = "${sysconfdir}/tuxbox/config/${BINFILE}"
 
 pkg_prerm_${PN} () {

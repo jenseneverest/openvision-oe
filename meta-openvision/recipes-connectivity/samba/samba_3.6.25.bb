@@ -50,7 +50,7 @@ SAMBAMMAP = "no"
 SAMBAMMAP_libc-glibc = "yes"
 
 EXTRA_OECONF = " \
-    --exec-prefix=/usr \
+    --exec-prefix=${prefix} \
     --with-readline=${STAGING_LIBDIR}/.. \
     --with-libiconv=${STAGING_LIBDIR}/.. \
     --disable-pie \

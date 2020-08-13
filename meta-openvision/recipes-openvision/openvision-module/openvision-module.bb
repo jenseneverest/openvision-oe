@@ -38,8 +38,8 @@ do_configure_prepend(){
 do_install () {
     install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/openvision
     install -m 0644 ${S}/openvision.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/openvision
-    install -d ${D}/${sysconfdir}/modules-load.d
-    echo openvision >> ${D}/${sysconfdir}/modules-load.d/zzopenvision.conf
+    install -d ${D}${sysconfdir}/modules-load.d
+    echo openvision >> ${D}${sysconfdir}/modules-load.d/zzopenvision.conf
 }
 
 FILES_${PN} += "${sysconfdir}/modules-load.d/zzopenvision.conf"

@@ -59,8 +59,8 @@ do_install() {
 	for i in ${PNG}; do
 		install ${S}/$i ${D}${datadir}/logo
 	done
-	install -d ${D}/${sysconfdir}/init.d
-	install -m 0755 ${S}/bootlogo.sh ${D}/${sysconfdir}/init.d/bootlogo
+	install -d ${D}${sysconfdir}/init.d
+	install -m 0755 ${S}/bootlogo.sh ${D}${sysconfdir}/init.d/bootlogo
 }
 
 FILES_${PN} = "/boot ${datadir} ${sysconfdir}/init.d"

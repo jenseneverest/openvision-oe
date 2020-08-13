@@ -26,7 +26,7 @@ python populate_packages_prepend () {
 
 do_install() {
 	install -d ${D}${bindir}/
-	install -m 0755 ${S}/bin/rmfp_player ${D}${bindir}/
+	install -m 0755 ${S}${base_bindir}/rmfp_player ${D}${bindir}/
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/
 	install -m 0644 ${S}/plugin/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/
@@ -37,7 +37,7 @@ do_install() {
 
 do_install_azboxhd() {
 	install -d ${D}${bindir}/
-	install -m 0755 ${S}/bin/rmfp_player-ForHD ${D}${bindir}/rmfp_player
+	install -m 0755 ${S}${base_bindir}/rmfp_player-ForHD ${D}${bindir}/rmfp_player
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/
 	install -m 0644 ${S}/plugin/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/

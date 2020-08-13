@@ -22,4 +22,4 @@ do_install() {
 
 FILES_${PN} = "${libdir}/${DESTDIR}/dumpait"
 FILES_${PN}-dbg = "${libdir}/${DESTDIR}/.debug"
-FILES_${PN}-src = "/usr/src"
+FILES_${PN}-src = "${prefix}/src"

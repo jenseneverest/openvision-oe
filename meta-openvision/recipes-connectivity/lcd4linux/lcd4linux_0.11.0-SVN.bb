@@ -38,8 +38,8 @@ INITSCRIPT_NAME = "lcd4linux"
 CONFFILES_${PN} += "${sysconfdir}/lcd4linux.conf"
 
 do_install_append() {
-    install -d ${D}/${sysconfdir}
-    install -m 0600 ${S}/lcd4linux.conf.sample  ${D}/${sysconfdir}/lcd4linux.conf
+    install -d ${D}${sysconfdir}
+    install -m 0600 ${S}/lcd4linux.conf.sample  ${D}${sysconfdir}/lcd4linux.conf
     install -d ${D}/${INIT_D_DIR}
     install -m 0755 ${WORKDIR}/lcd4linux.init ${D}/${INIT_D_DIR}/lcd4linux
 }

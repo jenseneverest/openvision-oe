@@ -23,26 +23,26 @@ do_install() {
     install -d ${D}${libdir}/enigma2/python/Components/Converter
     install -d ${D}${libdir}/enigma2/python/Components/Renderer
     install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/XStreamity
-    cp -rf ${S}/XStreamity/usr/lib/enigma2/python/Components/Converter/*.pyo ${D}${libdir}/enigma2/python/Components/Converter/
-    cp -rf ${S}/XStreamity/usr/lib/enigma2/python/Components/Renderer/*.pyo ${D}${libdir}/enigma2/python/Components/Renderer/
-    rm -f ${S}/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/owibranding.pyo
-    cp -rf ${S}/XStreamity/usr/lib/enigma2/python/Plugins/Extensions/XStreamity/* ${D}${libdir}/enigma2/python/Plugins/Extensions/XStreamity/
+    cp -rf ${S}/XStreamity${libdir}/enigma2/python/Components/Converter/*.pyo ${D}${libdir}/enigma2/python/Components/Converter/
+    cp -rf ${S}/XStreamity${libdir}/enigma2/python/Components/Renderer/*.pyo ${D}${libdir}/enigma2/python/Components/Renderer/
+    rm -f ${S}/XStreamity${libdir}/enigma2/python/Plugins/Extensions/XStreamity/owibranding.pyo
+    cp -rf ${S}/XStreamity${libdir}/enigma2/python/Plugins/Extensions/XStreamity/* ${D}${libdir}/enigma2/python/Plugins/Extensions/XStreamity/
 }
 
 pkg_preinst_${PN}() {
 #!/bin/sh
 if [ -f "${sysconfdir}/enigma2/X-Streamity/playlists.json" ]
 	then
-	rm -f /etc/enigma2/X-Streamity/playlists.json > /dev/null 2>&1
+	rm -f ${sysconfdir}/enigma2/X-Streamity/playlists.json > /dev/null 2>&1
 fi
 
 if [ -f "${sysconfdir}/enigma2/xstreamity/playlists.json" ]
 	then
-	rm -f /etc/enigma2/xstreamity/playlists.json > /dev/null 2>&1
+	rm -f ${sysconfdir}/enigma2/xstreamity/playlists.json > /dev/null 2>&1
 fi
 
 if [ -f "${sysconfdir}/enigma2/xstreamity/x-playlists.json" ]
 	then
-	rm -f /etc/enigma2/xstreamity/x-playlists.json > /dev/null 2>&1
+	rm -f ${sysconfdir}/enigma2/xstreamity/x-playlists.json > /dev/null 2>&1
 fi
 }

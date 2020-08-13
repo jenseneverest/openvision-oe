@@ -25,7 +25,7 @@ RCONFLICTS_${PN} = "enigma2-plugin-extensions-xmltvimport"
 PLUGIN = "EPGImport"
 
 FILES_${PN} = "${libdir}/enigma2/python"
-FILES_${PN}-dbg = "${libdir}/enigma2/python/Plugins/Extensions/${PLUGIN}/.debug /usr/src/debug"
+FILES_${PN}-dbg = "${libdir}/enigma2/python/Plugins/Extensions/${PLUGIN}/.debug ${prefix}/src/debug"
 
 pkg_postinst_${PN}() {
 

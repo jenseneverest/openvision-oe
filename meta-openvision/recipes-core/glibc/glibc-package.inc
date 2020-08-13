@@ -134,13 +134,13 @@ do_install_append () {
 do_install_append_aarch64 () {
 	if [ "${base_libdir}" != "/lib" ] ; then
 		# The aarch64 ABI says the dynamic linker -must- be /lib/ld-linux-aarch64[_be].so.1
-		install -d ${D}/lib
+		install -d ${D}${base_libdir}
 		if [ -e ${D}${base_libdir}/ld-linux-aarch64.so.1 ]; then
 			ln -s ${@base_path_relative('/lib', '${base_libdir}')}/ld-linux-aarch64.so.1 \
-				${D}/lib/ld-linux-aarch64.so.1
+				${D}${base_libdir}/ld-linux-aarch64.so.1
 		elif [ -e ${D}${base_libdir}/ld-linux-aarch64_be.so.1 ]; then
 			ln -s ${@base_path_relative('/lib', '${base_libdir}')}/ld-linux-aarch64_be.so.1 \
-				${D}/lib/ld-linux-aarch64_be.so.1
+				${D}${base_libdir}/ld-linux-aarch64_be.so.1
 		fi
 	fi
 }
@@ -202,7 +202,7 @@ do_poststash_install_cleanup () {
 	rm -f ${D}${bindir}/localedef
 	rm -rf ${D}${datadir}/i18n
 	rm -rf ${D}${libdir}/gconv
-	rm -rf ${D}/${localedir}
+	rm -rf ${D}${localedir}
 	rm -rf ${D}${datadir}/locale
 	if [ "${libdir}" != "${exec_prefix}/lib" ]; then
 		# This dir only exists to hold locales

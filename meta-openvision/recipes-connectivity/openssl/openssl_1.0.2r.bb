@@ -231,7 +231,7 @@ do_install () {
 	oe_multilib_header openssl/opensslconf.h
 
 	install -Dm 0755 ${WORKDIR}/openssl-c_rehash.sh ${D}${bindir}/c_rehash
-	sed -i -e 's,/etc/openssl,${sysconfdir}/ssl,g' ${D}${bindir}/c_rehash
+	sed -i -e 's,${sysconfdir}/openssl,${sysconfdir}/ssl,g' ${D}${bindir}/c_rehash
 
 	if [ "${@bb.utils.filter('PACKAGECONFIG', 'perl', d)}" ]; then
 		sed -i -e '1s,.*,#!${bindir}/env perl,' ${D}${libdir}/ssl/misc/CA.pl
@@ -241,7 +241,7 @@ do_install () {
 	fi
 
 	# Create SSL structure for packages such as ca-certificates which
-	# contain hard-coded paths to /etc/ssl. Debian does the same.
+	# contain hard-coded paths to ${sysconfdir}/ssl. Debian does the same.
 	install -d ${D}${sysconfdir}/ssl
 	mv ${D}${libdir}/ssl/certs \
 	   ${D}${libdir}/ssl/private \
@@ -293,7 +293,7 @@ do_install_ptest () {
 	# Time stamps are relevant for "make alltests", otherwise
 	# make may try to recompile binaries. Not only must the
 	# binary files be newer than the sources, they also must
-	# be more recent than the header files in /usr/include.
+	# be more recent than the header files in ${incdir}.
 	#
 	# Using "cp -a" is not sufficient, because do_install
 	# does not preserve the original time stamps.

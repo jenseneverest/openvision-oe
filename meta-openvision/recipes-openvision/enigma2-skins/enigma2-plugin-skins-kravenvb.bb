@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/KravenHD/KravenVB.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} = "/usr/* ${sysconfdir}/*"
+FILES_${PN} = "${prefix}/* ${sysconfdir}/*"
 
 require skin-data.inc
 require skin-python.inc

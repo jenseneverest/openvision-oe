@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/KravenHD/XionHDF.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} = "/usr"
+FILES_${PN} = "${prefix}"
 
 require skin-data.inc
 require skin-python.inc

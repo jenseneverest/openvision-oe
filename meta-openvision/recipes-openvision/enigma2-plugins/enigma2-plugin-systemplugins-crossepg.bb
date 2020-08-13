@@ -26,7 +26,7 @@ do_compile() {
 
 do_install() {
     oe_runmake 'D=${D}' install
-    mv ${D}/usr/crossepg/libcrossepg.so ${D}${libdir}/
+    mv ${D}${prefix}/crossepg/libcrossepg.so ${D}${libdir}/
 
     find ${S}/po -type f -name \*.po -execdir sh -c 'msgfmt "$0" -o `basename $0 .po`.mo' '{}' \;
 
@@ -91,7 +91,7 @@ python populate_packages_prepend() {
 }
 
 ALLOW_EMPTY_${PN} = "1"
-FILES_${PN}_append = " /usr/crossepg ${libdir}/libcrossepg.so ${libdir}/${PYTHONPATHVERSION}"
+FILES_${PN}_append = " ${prefix}/crossepg ${libdir}/libcrossepg.so ${libdir}/${PYTHONPATHVERSION}"
 FILES_${PN}-src_append = " ${libdir}/${PYTHONPATHVERSION}/crossepg.py"
-FILES_${PN}-dbg_append = " /usr/crossepg/scripts/mhw2epgdownloader/.debug /usr/crossepg/scripts/mhw2epgdownloader/.debug"
+FILES_${PN}-dbg_append = " ${prefix}/crossepg/scripts/mhw2epgdownloader/.debug ${prefix}/crossepg/scripts/mhw2epgdownloader/.debug"
 FILES_SOLIBSDEV = ""

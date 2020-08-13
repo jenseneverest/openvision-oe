@@ -17,5 +17,5 @@ SRC_URI = "git://github.com/OpenVisionE2/dvblast.git"
 S = "${WORKDIR}/git"
 
 do_compile_prepend() {
-        sed -i 's#/usr/local#/usr#' ${S}/Makefile
+        sed -i 's#${prefix}/local#${prefix}#' ${S}/Makefile
 }

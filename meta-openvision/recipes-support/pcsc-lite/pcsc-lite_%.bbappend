@@ -12,8 +12,8 @@ INITSCRIPT_NAME = "pcscd"
 INITSCRIPT_PARAMS = "defaults"
 
 do_install_append() {
-    install -d ${D}/${sysconfdir}/init.d
-    install -m 755 ${WORKDIR}/pcscd ${D}/${sysconfdir}/init.d
+    install -d ${D}${sysconfdir}/init.d
+    install -m 755 ${WORKDIR}/pcscd ${D}${sysconfdir}/init.d
 }
 
 FILES_${PN} += "${sysconfdir}/init.d/pcscd"

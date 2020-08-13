@@ -134,7 +134,7 @@ LDFLAGS_prepend = " -lxml2 "
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} += "${datadir}/keymaps ${bindir} /usr/lib"
+FILES_${PN} += "${datadir}/keymaps ${bindir} ${libdir}"
 FILES_${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -229,9 +229,9 @@ FILES_${PN}-src = "\
 do_install_append() {
 	install -d ${D}${datadir}/keymaps
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "multilib", "1", "0", d)}" = "1" ]; then
-		install -d ${D}/usr/lib
-		ln -s ${libdir}/enigma2 ${D}/usr/lib/enigma2
-		ln -s ${libdir}/${PYTHONPATHVERSION} ${D}/usr/lib/${PYTHONPATHVERSION}
+		install -d ${D}${libdir}
+		ln -s ${libdir}/enigma2 ${D}${libdir}/enigma2
+		ln -s ${libdir}/${PYTHONPATHVERSION} ${D}${libdir}/${PYTHONPATHVERSION}
 	fi
 }
 

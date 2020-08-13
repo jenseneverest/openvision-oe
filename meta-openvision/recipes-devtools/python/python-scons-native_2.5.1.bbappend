@@ -1,3 +1,3 @@
 do_install_append() {
-    sed -i 's#/usr/bin/env python#/usr/bin/env python2#g' ${D}${bindir}/scons*
+    sed -i 's#${bindir}/env python#${bindir}/env python2#g' ${D}${bindir}/scons*
 }

@@ -14,7 +14,7 @@ SRC_URI[md5sum] = "a19518c8111fa93bdabdd85259162611"
 SRC_URI[sha256sum] = "1c2c0c2a97fba9474943be34ee39337dee756780fc12870ba1dc68372586a819"
 
 # ffmpeg links with this and fails
-# sysroots/armv4t-oe-linux-gnueabi/usr/lib/libvpx.a(vpx_encoder.c.o)(.text+0xc4): unresolvable R_ARM_THM_CALL relocation against symbol `memcpy@@GLIBC_2.4'
+# sysroots/armv4t-oe-linux-gnueabi${libdir}/libvpx.a(vpx_encoder.c.o)(.text+0xc4): unresolvable R_ARM_THM_CALL relocation against symbol `memcpy@@GLIBC_2.4'
 ARM_INSTRUCTION_SET = "arm"
 
 CFLAGS += "-fPIC"

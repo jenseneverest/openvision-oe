@@ -16,7 +16,7 @@ SRC_URI = "git://github.com/OpenVisionE2/iFlatFHD-skin.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} = "/usr"
+FILES_${PN} = "${prefix}"
 
 do_package_qa[noexec] = "1"
 

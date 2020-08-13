@@ -18,7 +18,7 @@ SRC_URI="git://github.com/openatv/grautec.git"
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} = "/usr/* ${sysconfdir}"
+FILES_${PN} = "${prefix}/* ${sysconfdir}"
 FILES_${PN}-dbg = "${sysconfdir}/grautec/*/.debug/*.ko"
 
 do_install() {

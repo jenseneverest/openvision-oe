@@ -69,11 +69,11 @@ do_install() {
 	echo "blindscanbinary=${BLINDSCAN_BINARY}" >> ${D}${sysconfdir}/image-version
 	echo "${BLINDSCAN_BINARY}" > ${D}${sysconfdir}/openvision/blindscanbinary
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "1", "0", d)}" = "1" ]; then
-		echo "small-flash=${HAVE_SMALLFLASH}" >> ${D}/etc/image-version
+		echo "small-flash=${HAVE_SMALLFLASH}" >> ${D}${sysconfdir}/image-version
 		echo "smallflash" > ${D}${sysconfdir}/openvision/smallflash
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "middleflash", "1", "0", d)}" = "1" ]; then
-		echo "middle-flash=${HAVE_MIDDLEFLASH}" >> ${D}/etc/image-version
+		echo "middle-flash=${HAVE_MIDDLEFLASH}" >> ${D}${sysconfdir}/image-version
 		echo "middleflash" > ${D}${sysconfdir}/openvision/middleflash
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "transcoding", "1", "0", d)}" = "1" ]; then

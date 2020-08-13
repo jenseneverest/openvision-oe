@@ -22,7 +22,7 @@ python populate_packages_prepend () {
 
 do_install_azboxhd() {
 	install -d ${D}${bindir}/
-	install -m 0755 ${S}/bin/dvd_player-ForHD ${D}${bindir}/dvd_player
+	install -m 0755 ${S}${base_bindir}/dvd_player-ForHD ${D}${bindir}/dvd_player
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
 	install -m 0644 ${S}/plugin/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
@@ -57,7 +57,7 @@ do_install_azboxhd() {
 
 do_install() {
 	install -d ${D}${bindir}/
-	install -m 0755 ${S}/bin/dvd_player ${D}${bindir}/
+	install -m 0755 ${S}${base_bindir}/dvd_player ${D}${bindir}/
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
 	install -m 0644 ${S}/plugin/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/

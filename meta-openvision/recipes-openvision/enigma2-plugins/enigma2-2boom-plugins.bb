@@ -41,7 +41,7 @@ DEPENDS = "\
 
 DESCRIPTION_enigma2-plugin-extensions-arbouquet = "Add remove bouquet plugin by 2boom"
 DESCRIPTION_enigma2-plugin-extensions-epanel = "epanel plugin by 2boom"
-FILES_enigma2-plugin-extensions-epanel_append = " /usr/script/*.sh"
+FILES_enigma2-plugin-extensions-epanel_append = " ${prefix}/script/*.sh"
 RDEPENDS_enigma2-plugin-extensions-epanel = "ntpdate python-requests"
 DESCRIPTION_enigma2-plugin-extensions-epgdd = "2boom's Auto EPG Loader"
 DESCRIPTION_enigma2-plugin-extensions-ipktools = "2boom's IPK Tools"

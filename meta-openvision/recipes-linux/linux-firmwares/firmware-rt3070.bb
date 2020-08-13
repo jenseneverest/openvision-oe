@@ -8,7 +8,7 @@ S = "${WORKDIR}/git"
 
 do_install() {
         install -d ${D}${nonarch_base_libdir}/firmware
-        install -m 0644 rt3070.bin ${D}/${nonarch_base_libdir}/firmware/
+        install -m 0644 rt3070.bin ${D}${nonarch_base_libdir}/firmware/
 }
 
 PACKAGES = "${PN}"

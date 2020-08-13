@@ -21,10 +21,10 @@ do_install() {
 	install -d  ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/ManualFancontrol
 	install -d  ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/LEDBrightnessSetup
 
-	install -m 0644 ${S}/lib/python/Plugins/SystemPlugins/ManualFancontrol/*.pyo \
+	install -m 0644 ${S}${base_libdir}/python/Plugins/SystemPlugins/ManualFancontrol/*.pyo \
 	${D}${libdir}/enigma2/python/Plugins/SystemPlugins/ManualFancontrol
 
-	install -m 0644 ${S}/lib/python/Plugins/SystemPlugins/LEDBrightnessSetup/*.pyo \
+	install -m 0644 ${S}${base_libdir}/python/Plugins/SystemPlugins/LEDBrightnessSetup/*.pyo \
 	${D}${libdir}/enigma2/python/Plugins/SystemPlugins/LEDBrightnessSetup
 }
 

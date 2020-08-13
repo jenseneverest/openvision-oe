@@ -27,7 +27,7 @@ EXTRA_OEMAKE = "KSRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}"
 export TM="${MACHINE}"
 
 do_install() {
-    install -d ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+    install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
     install -m 0644 ${S}/8192cu.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
     install -d ${D}${sysconfdir}/modules-load.d
     echo "8192cu" > ${D}${sysconfdir}/modules-load.d/wlan8192cu.conf

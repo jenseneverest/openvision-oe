@@ -51,7 +51,7 @@ do_configure() {
 
 do_install_append () {
    # remove python dir, its not used or installed
-   rm -fr ${D}/${libdir}
+   rm -fr ${D}${libdir}
 }
 
 RDEPENDS_${PN} = "python"

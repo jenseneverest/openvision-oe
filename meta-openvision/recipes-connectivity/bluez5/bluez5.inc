@@ -81,19 +81,19 @@ do_install_append() {
 
 	install -d ${D}${sysconfdir}/bluetooth/
 	if [ -f ${S}/profiles/network/network.conf ]; then
-		install -m 0644 ${S}/profiles/network/network.conf ${D}/${sysconfdir}/bluetooth/
+		install -m 0644 ${S}/profiles/network/network.conf ${D}${sysconfdir}/bluetooth/
 	fi
 	if [ -f ${S}/profiles/input/input.conf ]; then
-		install -m 0644 ${S}/profiles/input/input.conf ${D}/${sysconfdir}/bluetooth/
+		install -m 0644 ${S}/profiles/input/input.conf ${D}${sysconfdir}/bluetooth/
 	fi
 
-	if [ -f ${D}/${sysconfdir}/init.d/bluetooth ]; then
-		sed -i -e 's#@LIBEXECDIR@#${libexecdir}#g' ${D}/${sysconfdir}/init.d/bluetooth
+	if [ -f ${D}${sysconfdir}/init.d/bluetooth ]; then
+		sed -i -e 's#@LIBEXECDIR@#${libexecdir}#g' ${D}${sysconfdir}/init.d/bluetooth
 	fi
 
 	# Install desired tools that upstream leaves in build area
 	for f in ${NOINST_TOOLS} ; do
-		install -m 755 ${B}/$f ${D}/${bindir}
+		install -m 755 ${B}/$f ${D}${bindir}
 	done
 
 	# Patch python tools to use Python 3; they should be source compatible, but
