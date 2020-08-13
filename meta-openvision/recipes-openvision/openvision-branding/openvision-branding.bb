@@ -72,6 +72,8 @@ EXTRA_OECONF = " \
     --with-blindscanbinary="${BLINDSCAN_BINARY}" \
     --with-socfamily="${SOC_FAMILY}" \
     --with-vfd-symbol="${HAVE_VFDSYMBOL}" \
+    --with-rctype="${RCTYPE}" \
+    --with-rcname="${RCNAME}" \
     "
 
 FILES_${PN} = "${libdir}/enigma2/python/*.so"
