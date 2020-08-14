@@ -64,7 +64,10 @@ do_install_append() {
 
 FILES_${PN} = "${PLUGINPATH}"
 
-RPROVIDES_${PN} += "${PN}-vxg ${PN}-themes"
-PACKAGES += "${PN}-vxg ${PN}-themes"
-FILES_${PN}-vxg = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/vxg"
+PACKAGES =+ "${PN}-themes ${PN}-vxg"
 FILES_${PN}-themes = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/themes"
+FILES_${PN}-vxg = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/vxg"
+RDEPENDS_${PN}-themes = "${PN}"
+RDEPENDS_${PN}-vxg = "${PN}"
+ALLOW_EMPTY_${PN}-themes = "1"
+ALLOW_EMPTY_${PN}-vxg = "1"
