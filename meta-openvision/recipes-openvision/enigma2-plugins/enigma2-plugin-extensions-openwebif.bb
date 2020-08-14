@@ -42,78 +42,35 @@ do_install_append() {
 
 FILES_${PN} = "${PLUGINPATH}"
 
-python do_cleanup () {
-    # contains: MACHINE, box image, remote image, remote map
-    boxtypes = [
-        ('dm800', 'dm800.png', 'dmm1.png', 'dmm1.html'),
-        ('wetekplay', 'wetekplay.png', 'wetek.png', 'wetek.html'),
-        ('wetekplay2', 'wetekplay2.png', 'wetek2.png', 'wetek2.html'),
-        ('wetekhub', 'wetekhub.png', 'wetek3.png', 'wetek3.html'),
-        ('alien5', 'alien5.png', 'amiko3.png', 'amiko3.html'),
-        ('k1pro', 'k1pro.png', 'k1pro.png', 'k1pro.html'),
-        ('k2pro', 'k2pro.png', 'k1pro.png', 'k1pro.html'),
-        ('k2prov2', 'k2pro.png', 'k1pro.png', 'k1pro.html'),
-        ('k1plus', 'k1plus.png', 'k1pro.png', 'k1pro.html'),
-        ('k1plusv2', 'k1plus.png', 'k1pro.png', 'k1pro.html'),
-        ('k3pro', 'k3pro.png', 'k3pro.png', 'k3pro.html'),
-        ('odroidc2', 'odroidc2.png', 'hardkernel.png', 'hardkernel.html'),
-        ('cube', 'cube.png', 'cube.png', 'cube.html'),
-        ('raspberrypi', 'raspberrypi.png', 'dmm1.png', 'dmm1.html'),
-        ('raspberrypi0', 'raspberrypi0.png', 'dmm1.png', 'dmm1.html'),
-        ('raspberrypi2', 'raspberrypi2.png', 'dmm1.png', 'dmm1.html'),
-        ('raspberrypi3', 'raspberrypi3.png', 'dmm1.png', 'dmm1.html'),
-        ('raspberrypi4', 'raspberrypi4.png', 'dmm1.png', 'dmm1.html'),
-    ]
-
-    import os
-
-    pluginpath = "%s%s" % (d.getVar('D', True), d.getVar('PLUGINPATH', True))
-    images = "%s/public/images/" % pluginpath
-    keymaps = "%s/public/static/" % pluginpath
-
-    target_box = 'unknown.png'
-    target_remote = 'ow_remote.png'
-    target_keymap = ''
-    exception = []
-
-    for x in boxtypes:
-        if x[0] == d.getVar('MACHINE', True):
-            target_box = x[1]
-            target_remote = x[2]
-            target_keymap = x[3]
-            if x[0] == 'et6x00':
-                exception = [et6500.png]
-            elif x[0] == 'et9x00':
-                exception = [et9500.png]
-            elif x[0] == 'azboxhd':
-                exception = [azboxelite.png]
-            break
-
-    for root, dirs, files in os.walk(images + 'boxes', topdown=False):
-        for name in files:
-            if target_box != name and name != 'unknown.png' and name not in exception:
-                os.remove(os.path.join(root, name))
-
-    for root, dirs, files in os.walk(images + 'remotes', topdown=False):
-        for name in files:
-            if target_remote != name and name != 'ow_remote.png' and name not in exception:
-                os.remove(os.path.join(root, name))
-
-    for root, dirs, files in os.walk(keymaps + 'remotes', topdown=False):
-        for name in files:
-            if target_keymap != name:
-                os.remove(os.path.join(root, name))
+do_install_append() {
+	install -d ${D}${PLUGINPATH}
+	cp -r ${S}/plugin/* ${D}${PLUGINPATH}
+	chmod a+rX ${D}${PLUGINPATH}/
+	rm -f ${D}${PLUGINPATH}/public/images/boxes/*.png
+	rm -f ${D}${PLUGINPATH}/public/images/remotes/*.png
+	rm -f ${D}${PLUGINPATH}/public/static/remotes/*.html
+	install -m 0644 ${S}/plugin/public/images/boxes/unknown.png ${D}${PLUGINPATH}/public/images/boxes/
+	install -m 0644 ${S}/plugin/public/images/remotes/ow_remote.png ${D}${PLUGINPATH}/public/images/remotes/
+	install -m 0644 ${S}/plugin/public/images/remotes/dmm1.png ${D}${PLUGINPATH}/public/images/remotes/
+	install -m 0644 ${S}/plugin/public/static/remotes/dmm1.html ${D}${PLUGINPATH}/public/static/remotes/
+	if [ -e "${S}/plugin/public/images/boxes/${MACHINE}.png" ]; then
+		install -m 0644 ${S}/plugin/public/images/boxes/${MACHINE}.png ${D}${PLUGINPATH}/public/images/boxes/
+	fi
+	if [ -e "${S}/plugin/public/images/remotes/${RCNAME}.png" ]; then
+		install -m 0644 ${S}/plugin/public/images/remotes/${RCNAME}.png ${D}${PLUGINPATH}/public/images/remotes/
+		install -m 0644 ${S}/plugin/public/static/remotes/${RCNAME}.html ${D}${PLUGINPATH}/public/static/remotes/
+	fi
 }
 
-addtask do_cleanup after do_populate_sysroot before do_package
-RPROVIDES_${PN} += "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${PN}-vxg ${PN}-terminal ${PN}-themes ${PN}-webtv", "${PN}-terminal", d)}"
-PACKAGES += "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${PN}-vxg ${PN}-terminal ${PN}-themes ${PN}-webtv", "", d)}"
-FILES_${PN}-vxg = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/vxg", "", d)}"
-FILES_${PN}-themes = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/themes", "", d)}"
-FILES_${PN}-webtv = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/webtv", "", d)}"
+FILES_${PN} = "${PLUGINPATH}"
 
-DESCRIPTION_${PN}-terminal = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "CLI for OpenWebif", d)}"
-RDEPENDS_${PN}-terminal = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "${PN} shellinabox", d)}"
-RREPLACES_${PN}-terminal = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "enigma2-plugin-extensions-openwebif-terminal", d)}"
-RCONFLICTS_${PN}-terminal = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "enigma2-plugin-extensions-openwebif-terminal", d)}"
-RPROVIDES_${PN}-terminal += "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "enigma2-plugin-extensions-openwebif-terminal", d)}"
+RPROVIDES_${PN} =+ "${PN}-vxg ${PN}-themes ${PN}-terminal"
+PACKAGES =+ "${PN}-vxg ${PN}-themes ${PN}-terminal"
+FILES_${PN}-vxg = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/vxg"
+FILES_${PN}-themes = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/themes"
+
+DESCRIPTION_${PN}-terminal = "CLI for OpenWebif"
+RDEPENDS_${PN}-terminal = "${PN} shellinabox"
+RREPLACES_${PN}-terminal = "enigma2-plugin-extensions-openwebif-terminal"
+RCONFLICTS_${PN}-terminal = "enigma2-plugin-extensions-openwebif-terminal"
+RPROVIDES_${PN}-terminal =+ "enigma2-plugin-extensions-openwebif-terminal"

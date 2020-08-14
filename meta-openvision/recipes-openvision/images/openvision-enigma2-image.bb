@@ -37,6 +37,7 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-tmbd \
 	enigma2-plugin-extensions-epgimport \
 	enigma2-plugin-extensions-epgrefresh \
+	enigma2-plugin-extensions-openwebif-themes \
 	enigma2-plugin-extensions-reconstructapsc \
 	enigma2-plugin-skins-octetfhd \
 	enigma2-plugin-systemplugins-mountmanager \
