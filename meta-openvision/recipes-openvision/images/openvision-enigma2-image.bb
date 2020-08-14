@@ -47,7 +47,6 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-filecommander \
 	enigma2-plugin-extensions-keyadder \
 	enigma2-plugin-extensions-openmultiboot \
-	enigma2-plugin-extensions-openwebif-terminal \
 	enigma2-plugin-softcams-oscam \
 	enigma2-plugin-systemplugins-autobouquetsmaker \
 	enigma2-plugin-systemplugins-serviceapp", d)} \
@@ -105,7 +104,8 @@ IMAGE_INSTALL += "\
 	dvbfetool \
 	nfs-utils \
 	ntfs-3g \
-	openssh-sftp-server", d)} \
+	openssh-sftp-server \
+	shellinabox", d)} \
 	"
 
 export IMAGE_BASENAME = "openvision-enigma2"

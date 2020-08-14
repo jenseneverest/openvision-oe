@@ -64,13 +64,7 @@ do_install_append() {
 
 FILES_${PN} = "${PLUGINPATH}"
 
-RPROVIDES_${PN} =+ "${PN}-vxg ${PN}-themes ${PN}-terminal"
-PACKAGES =+ "${PN}-vxg ${PN}-themes ${PN}-terminal"
+RPROVIDES_${PN} += "${PN}-vxg ${PN}-themes"
+PACKAGES += "${PN}-vxg ${PN}-themes"
 FILES_${PN}-vxg = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/vxg"
 FILES_${PN}-themes = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/themes"
-
-DESCRIPTION_${PN}-terminal = "CLI for OpenWebif"
-RDEPENDS_${PN}-terminal = "${PN} shellinabox"
-RREPLACES_${PN}-terminal = "enigma2-plugin-extensions-openwebif-terminal"
-RCONFLICTS_${PN}-terminal = "enigma2-plugin-extensions-openwebif-terminal"
-RPROVIDES_${PN}-terminal =+ "enigma2-plugin-extensions-openwebif-terminal"
