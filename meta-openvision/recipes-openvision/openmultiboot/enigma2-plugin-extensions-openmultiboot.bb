@@ -15,8 +15,10 @@ S = "${WORKDIR}/git"
 
 DEPENDS = "python lzo"
 
+BLOCK2MTD_CHECK = "${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "", "kernel-module-block2mtd", d)}"
+
 RDEPENDS_${PN} = "\
-    ${@bb.utils.contains("IMAGE_FSTYPES", "jffs2", "kernel-module-block2mtd kernel-module-nandsim" , "", d)} \
+    ${@bb.utils.contains("IMAGE_FSTYPES", "jffs2", "${BLOCK2MTD_CHECK} kernel-module-nandsim" , "", d)} \
     ${@bb.utils.contains("IMAGE_FSTYPES", "ubi", "kernel-module-nandsim" , "", d)} \
     lzo \
     openmultiboot \
