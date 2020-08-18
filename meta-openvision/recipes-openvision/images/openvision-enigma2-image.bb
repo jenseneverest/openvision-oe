@@ -105,6 +105,7 @@ IMAGE_INSTALL += "\
 	nfs-utils \
 	ntfs-3g \
 	openssh-sftp-server \
+	openvision-core-plugin \
 	shellinabox", d)} \
 	"
 
