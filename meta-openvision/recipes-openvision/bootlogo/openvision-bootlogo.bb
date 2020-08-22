@@ -24,7 +24,6 @@ SWITCHOFFMVI = "${@bb.utils.contains("MACHINE_FEATURES", "switchoff", "" , "swit
 
 SRC_URI = " \
 	file://bootlogo.mvi \
-	file://loading.mvi \
 	file://switchoff.mvi \
 	file://bootlogo.sh \
 	file://logo-black-image.png \
@@ -34,7 +33,7 @@ SRC_URI = " \
 	file://logo-white-square.png \
 	file://logo-white.png"
 
-MVI = "${SWITCHOFFMVI} bootlogo.mvi loading.mvi"
+MVI = "${SWITCHOFFMVI} bootlogo.mvi"
 MVISYMLINKS = "bootlogo_wait backdrop"
 
 PNG = "logo-black-image.png \
