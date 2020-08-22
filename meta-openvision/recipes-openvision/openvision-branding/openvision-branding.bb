@@ -74,6 +74,7 @@ EXTRA_OECONF = " \
     --with-vfd-symbol="${HAVE_VFDSYMBOL}" \
     --with-rctype="${RCTYPE}" \
     --with-rcname="${RCNAME}" \
+    --with-rcidnum="${RCIDNUM}" \
     "
 
 FILES_${PN} = "${libdir}/enigma2/python/*.so"

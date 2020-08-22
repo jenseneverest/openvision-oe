@@ -72,6 +72,8 @@ do_install() {
 	echo "${RCTYPE}" > ${D}${sysconfdir}/openvision/rctype
 	echo "rcname=${RCNAME}" >> ${D}${sysconfdir}/image-version
 	echo "${RCNAME}" > ${D}${sysconfdir}/openvision/rcname
+	echo "rcidnum=${RCIDNUM}" >> ${D}${sysconfdir}/image-version
+	echo "${RCIDNUM}" > ${D}${sysconfdir}/openvision/rcidnum
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "1", "0", d)}" = "1" ]; then
 		echo "small-flash=${HAVE_SMALLFLASH}" >> ${D}${sysconfdir}/image-version
 		echo "smallflash" > ${D}${sysconfdir}/openvision/smallflash
