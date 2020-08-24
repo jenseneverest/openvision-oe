@@ -94,6 +94,7 @@ OPTIONAL_PACKAGES += "\
 	python-pip \
 	python-pyasn1-modules \
 	python-pyexecjs \
+	python-pysmb \
 	python-requests \
 	python-soco \
 	python-singledispatch \

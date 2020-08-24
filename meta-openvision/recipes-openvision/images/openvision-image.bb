@@ -4,7 +4,7 @@ inherit image
 
 DEPENDS += "\
 	zip-native \
-"
+	"
 
 IMAGE_INSTALL = "\
 	${ROOTFS_PKGMANAGE} \
@@ -31,13 +31,12 @@ IMAGE_INSTALL = "\
 	parted \
 	python-ipaddress  \
 	python-netifaces \
-	python-pysmb \
 	sdparm \
 	tuxbox-common \
 	tzdata \
 	volatile-media \
 	vsftpd \
-"
+	"
 
 export IMAGE_BASENAME = "openvision"
 IMAGE_LINGUAS = ""

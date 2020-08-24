@@ -37,11 +37,9 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-tmbd \
 	enigma2-plugin-extensions-epgimport \
 	enigma2-plugin-extensions-epgrefresh \
-	enigma2-plugin-extensions-openwebif-themes \
 	enigma2-plugin-extensions-reconstructapsc \
 	enigma2-plugin-skins-octetfhd \
 	enigma2-plugin-systemplugins-mountmanager \
-	enigma2-plugin-systemplugins-osd3dsetup \
 	enigma2-plugin-systemplugins-terrestrialscan", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	enigma2-plugin-extensions-filecommander \
@@ -100,10 +98,7 @@ IMAGE_INSTALL += "\
 	${MACHINE_FEATURE_RELATED_PLUGINS} \
 	ntpdate", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
-	curl \
 	dvbfetool \
-	nfs-utils \
-	ntfs-3g \
 	openssh-sftp-server \
 	openvision-core-plugin \
 	shellinabox", d)} \
