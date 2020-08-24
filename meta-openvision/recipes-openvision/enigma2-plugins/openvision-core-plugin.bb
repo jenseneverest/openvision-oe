@@ -5,7 +5,7 @@ require conf/license/license-gplv2.inc
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "enigma2 python-process libcrypto-compat gettext-native"
-RDEPENDS_enigma2-plugin-systemplugins-visioncore = "python-process libcrypto-compat python-compression p7zip zip procps python-beautifulsoup4 bzip2"
+RDEPENDS_enigma2-plugin-systemplugins-visioncore = "python-process libcrypto-compat python-compression p7zip zip procps python-beautifulsoup4 bzip2 nfs-utils-client"
 
 RCONFLICTS_enigma2-plugin-systemplugins-visioncore = "settings-autorestore"
 RREPLACES_enigma2-plugin-systemplugins-visioncore = "settings-autorestore"
