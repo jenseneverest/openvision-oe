@@ -9,7 +9,6 @@ DEPENDS = "\
 	gettext-native \
 	jpeg \
 	libdreamdvd libdvbsi++ libfribidi libmad libpng libsigc++-2.0 giflib libxml2 \
-	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	openssl libudfread \
 	python-imaging python-twisted python-wifi \
 	swig-native \
@@ -31,7 +30,6 @@ RDEPENDS_${PN} = "\
 	ethtool \
 	glibc-gconv-iso8859-15 \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "glibc-gconv-cp1250", d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "libvugles2-${MACHINE} libgles-${MACHINE}", "", d)} \
 	ntpdate \
 	openvision-branding \
 	${PYTHON_RDEPS} \
@@ -45,7 +43,6 @@ RDEPENDS_${PN}_append_rpi += "\
 
 RRECOMMENDS_${PN} = "\
 	hotplug-e2-helper \
-	glibc-gconv-utf-16 \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "ofgwrite", d)} \
 	python-sendfile \
 	virtual/enigma2-mediaservice \
