@@ -9,9 +9,9 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit module machine_kernel_pr
 
 SRC_URI = " \
-          https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/20120911_RT3573_Linux_STA_v2.5.0.0_Rev4_DPO.tar.gz \
-          file://remove_linux_2_4_compability.patch \
-          "
+	https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/20120911_RT3573_Linux_STA_v2.5.0.0_Rev4_DPO.tar.gz \
+	file://remove_linux_2_4_compability.patch \
+	"
 
 SRC_URI[md5sum] = "08256c9b2ae77308b608662dc0ba3a1b"
 SRC_URI[sha256sum] = "d3422502e09020bd6909aa63be87747604de976a312c3d38c811b6cf6ac84fe9"
@@ -23,9 +23,9 @@ S = "${WORKDIR}/20120911_RT3573_Linux_STA_v2.5.0.0_Rev4_DPO/"
 EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}"
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -m 0644 ${S}/os/linux/rt3573sta.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -d ${D}${sysconfdir}/Wireless/RT3573STA
-    install -m 0644 ${S}/RT2870STA.dat ${D}${sysconfdir}/Wireless/RT3573STA/RT3573STA.dat
-    install -m 0644 ${S}/RT2870STACard.dat ${D}${sysconfdir}/Wireless/RT3573STA/RT3573STACard.dat
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -m 0644 ${S}/os/linux/rt3573sta.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -d ${D}${sysconfdir}/Wireless/RT3573STA
+	install -m 0644 ${S}/RT2870STA.dat ${D}${sysconfdir}/Wireless/RT3573STA/RT3573STA.dat
+	install -m 0644 ${S}/RT2870STACard.dat ${D}${sysconfdir}/Wireless/RT3573STA/RT3573STACard.dat
 }

@@ -10,18 +10,18 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit module machine_kernel_pr
 
 SRC_URI = "http://source.mynonpublic.com/ini/rtl8188C_8192C_usb_linux_v3.4.4_4749.20140602.tar.gz \
-    file://additional_productids.patch \
-    file://add-3.8-support.patch \
-    file://rt8192cu_procfs.patch \
-    "
+	file://additional_productids.patch \
+	file://add-3.8-support.patch \
+	file://rt8192cu_procfs.patch \
+	"
 
 S = "${WORKDIR}/rtl8188C_8192C_usb_linux_v3.4.4_4749.20140602"
 
 EXTRA_OEMAKE = "KSRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}"
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -m 0644 ${S}/8192cu.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -m 0644 ${S}/8192cu.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
 }
 
 SRC_URI[md5sum] = "4de401958e154b60227fe3b7b4ad85d5"

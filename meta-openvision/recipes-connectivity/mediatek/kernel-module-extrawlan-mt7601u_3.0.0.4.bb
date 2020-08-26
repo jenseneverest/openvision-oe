@@ -9,11 +9,11 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit module machine_kernel_pr
 
 SRC_URI = " \
-          https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/DPO_MT7601U_LinuxSTA_3.0.0.4_20130913c.zip \
-          file://mt7601u.patch \
-          file://remove_linux_2_4_compability.patch \
-          file://compile_fix.patch \
-          "
+	https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/DPO_MT7601U_LinuxSTA_3.0.0.4_20130913c.zip \
+	file://mt7601u.patch \
+	file://remove_linux_2_4_compability.patch \
+	file://compile_fix.patch \
+	"
 
 SRC_URI[md5sum] = "0b6d799d007de1594d8ae5bd34165341"
 SRC_URI[sha256sum] = "43b3814b318d8baeab5138bbdb586461f94a52151135f55185a4b3b4c0ff2fe3"
@@ -25,9 +25,9 @@ S = "${WORKDIR}/MT7601U/"
 EXTRA_OEMAKE = 'LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}'
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -m 0644 ${S}/os/linux/mt7601Usta.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -d ${D}${sysconfdir}/Wireless/MT7601U
-    install -m 0644 ${S}/RT2870STA.dat ${D}${sysconfdir}/Wireless/MT7601U/MT7601U.dat
-    install -m 0644 ${S}/RT2870STACard.dat ${D}${sysconfdir}/Wireless/MT7601U/MT7601UCard.dat
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -m 0644 ${S}/os/linux/mt7601Usta.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -d ${D}${sysconfdir}/Wireless/MT7601U
+	install -m 0644 ${S}/RT2870STA.dat ${D}${sysconfdir}/Wireless/MT7601U/MT7601U.dat
+	install -m 0644 ${S}/RT2870STACard.dat ${D}${sysconfdir}/Wireless/MT7601U/MT7601UCard.dat
 }

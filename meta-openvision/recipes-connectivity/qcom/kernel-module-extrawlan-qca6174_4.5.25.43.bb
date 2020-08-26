@@ -17,8 +17,8 @@ SRC_URI[sha256sum] = "d6554ffc91f130f1020ad1d317ce44ee7b5baf19743a3fd0946f5210a1
 S = "${WORKDIR}/qcacld-2.0-${PV}"
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/extra
-    install -m 0644 ${S}/wlan.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/extra
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/extra
+	install -m 0644 ${S}/wlan.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/extra
 }
 
 python do_package_prepend() {

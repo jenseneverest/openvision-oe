@@ -9,10 +9,10 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit module machine_kernel_pr
 
 SRC_URI = " \
-          git://github.com/lwfinger/rtl8723bu.git;branch=master \
-          file://rt8723bu-makefile.patch \
-          file://rt8723bu-gcc5.patch \
-          "
+	git://github.com/lwfinger/rtl8723bu.git;branch=master \
+	file://rt8723bu-makefile.patch \
+	file://rt8723bu-gcc5.patch \
+	"
 
 S = "${WORKDIR}/git"
 

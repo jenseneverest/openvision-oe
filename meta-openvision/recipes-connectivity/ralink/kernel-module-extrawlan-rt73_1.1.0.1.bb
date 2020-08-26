@@ -8,8 +8,9 @@ RREPLACES_${PN} = "rt73-k2wrlz"
 RCONFLICTS_${PN} = "rt73-k2wrlz"
 
 SRC_URI = "http://downloads.pli-images.org/misc/2008_0506_RT73_Linux_STA_Drv1.1.0.1.tar.bz2 \
-           file://changeiface.patch \
-           file://COPYING"
+	file://changeiface.patch \
+	file://COPYING \
+	"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -32,10 +33,10 @@ do_compile () {
 }
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
-    install -m 0644 rt73${KERNEL_OBJECT_SUFFIX} ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
-    install -d ${D}${sysconfdir}/modutils
-    echo rt73 > ${D}${sysconfdir}/modutils/rt73
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
+	install -m 0644 rt73${KERNEL_OBJECT_SUFFIX} ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
+	install -d ${D}${sysconfdir}/modutils
+	echo rt73 > ${D}${sysconfdir}/modutils/rt73
 }
 
 SRC_URI[md5sum] = "3e08bf734b740e83391fda571c8e9ecd"

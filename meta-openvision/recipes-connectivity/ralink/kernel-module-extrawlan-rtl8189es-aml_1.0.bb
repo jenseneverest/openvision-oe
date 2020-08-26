@@ -18,11 +18,11 @@ EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR} KSRC=
 S = "${WORKDIR}/android_hardware_wifi_realtek_drivers_8189es-f971e4bcbfb5a6109fe2e65dab375f5c63712093/rtl8189ES/"
 
 do_configure_prepend(){
-      sed -i 's/-DCONFIG_CONCURRENT_MODE//g; s/^CONFIG_POWER_SAVING.*$/CONFIG_POWER_SAVING = n/g; s/^CONFIG_RTW_DEBUG.*/CONFIG_RTW_DEBUG = n/g' ${S}/Makefile
-      sed -i 's/^#define CONFIG_DEBUG.*//g' ${S}/include/autoconf.h
-      sed -i 's/#define DEFAULT_RANDOM_MACADDR.*1/#define DEFAULT_RANDOM_MACADDR 0/g' ${S}/core/rtw_ieee80211.c
-
+	sed -i 's/-DCONFIG_CONCURRENT_MODE//g; s/^CONFIG_POWER_SAVING.*$/CONFIG_POWER_SAVING = n/g; s/^CONFIG_RTW_DEBUG.*/CONFIG_RTW_DEBUG = n/g' ${S}/Makefile
+	sed -i 's/^#define CONFIG_DEBUG.*//g' ${S}/include/autoconf.h
+	sed -i 's/#define DEFAULT_RANDOM_MACADDR.*1/#define DEFAULT_RANDOM_MACADDR 0/g' ${S}/core/rtw_ieee80211.c
 }
+
 do_compile () {
     unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS CC LD CPP
     oe_runmake 'M={D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/amlogic/wifi' \
@@ -40,6 +40,6 @@ do_compile () {
 }
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/amlogic/wifi
-    install -m 0644 ${S}/8189es.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/amlogic/wifi
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/amlogic/wifi
+	install -m 0644 ${S}/8189es.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/amlogic/wifi
 }

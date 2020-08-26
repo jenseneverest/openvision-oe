@@ -13,10 +13,10 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit module machine_kernel_pr
 
 SRC_URI = "http://downloads.pli-images.org/misc/rtl8188C_8192C_8192D_usb_linux_v3.3.0_2971.20111128.tar.gz \
-    file://additional_productids.patch \
-    file://fix_linking.patch \
-    file://add-3.8-support.patch \
-    "
+	file://additional_productids.patch \
+	file://fix_linking.patch \
+	file://add-3.8-support.patch \
+	"
 
 S = "${WORKDIR}/rtl8188C_8192C_8192D_usb_linux_v3.3.0_2971.20111128"
 
@@ -27,16 +27,13 @@ EXTRA_OEMAKE = "KSRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}"
 export TM="${MACHINE}"
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -m 0644 ${S}/8192cu.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -d ${D}${sysconfdir}/modules-load.d
-    echo "8192cu" > ${D}${sysconfdir}/modules-load.d/wlan8192cu.conf
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -m 0644 ${S}/8192cu.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -d ${D}${sysconfdir}/modules-load.d
+	echo "8192cu" > ${D}${sysconfdir}/modules-load.d/wlan8192cu.conf
 }
 
-FILES_${PN}_append = " \
-        ${sysconfdir}/Wireless \
-        ${sysconfdir}/modules-load.d \
-"
+FILES_${PN}_append = " ${sysconfdir}/Wireless ${sysconfdir}/modules-load.d"
 
 SRC_URI[md5sum] = "6d5bd5f94d9d6d6667393839c1861101"
 SRC_URI[sha256sum] = "fab0db3ee9fa60beff5ca18248e0ed20bf439873f94461c47e0deda28d184b2b"

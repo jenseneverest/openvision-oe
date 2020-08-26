@@ -9,13 +9,13 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit module machine_kernel_pr
 
 SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rtl8814AU-driver-4.3.21-20170707.zip \
-    file://0001-add-support-kernel-4.15.patch \
-    file://add-linux-4.19-support.patch \
-    file://add-linux-4.20-support.patch \
-    file://add-linux-5.0-support.patch \
-    file://add-linux-5.1-support.patch \
-    file://add-linux-5.2-support.patch \
-"
+	file://0001-add-support-kernel-4.15.patch \
+	file://add-linux-4.19-support.patch \
+	file://add-linux-4.20-support.patch \
+	file://add-linux-5.0-support.patch \
+	file://add-linux-5.1-support.patch \
+	file://add-linux-5.2-support.patch \
+	"
 
 SRC_URI[md5sum] = "538691f32b98a62c99c32ad80d2d8430"
 SRC_URI[sha256sum] = "e7414ed9495f72ece75435f23f79468a00a8e2697c95916a09a140c5148027c2"
@@ -40,9 +40,8 @@ do_compile () {
 }
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -m 0644 ${S}/8814au.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -m 0644 ${S}/8814au.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
 }
 
 do_package_qa() {

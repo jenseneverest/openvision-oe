@@ -7,23 +7,23 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit module machine_kernel_pr
 
 SRC_URI = "http://www.ralinktech.com.tw/data/drivers/2009_0525_RT3070_Linux_STA_v${PV}.tar.bz2 \
-           file://makefile.patch \
-       file://config.patch \
-     "
+	file://makefile.patch \
+	file://config.patch \
+	"
 
 EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR} KDIR=${STAGING_KERNEL_DIR}"
 
 S = "${WORKDIR}/2009_0525_RT3070_Linux_STA_v${PV}"
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -m 0644 ${S}/os/linux/rt3070sta.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -d ${D}${sysconfdir}/Wireless/RT2870STA
-    install -m 0644 ${S}/RT2870STA.dat ${D}${sysconfdir}/Wireless/RT2870STA
-    install -d ${D}${nonarch_base_libdir}/firmware
-    install -m 0644 ${S}/common/*.bin ${D}${nonarch_base_libdir}/firmware/
-    install -d ${D}${sysconfdir}/modutils
-    echo rt3070sta > ${D}${sysconfdir}/modutils/rt3070
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -m 0644 ${S}/os/linux/rt3070sta.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -d ${D}${sysconfdir}/Wireless/RT2870STA
+	install -m 0644 ${S}/RT2870STA.dat ${D}${sysconfdir}/Wireless/RT2870STA
+	install -d ${D}${nonarch_base_libdir}/firmware
+	install -m 0644 ${S}/common/*.bin ${D}${nonarch_base_libdir}/firmware/
+	install -d ${D}${sysconfdir}/modutils
+	echo rt3070sta > ${D}${sysconfdir}/modutils/rt3070
 }
 
 PACKAGES =+ "${PN}-firmware"

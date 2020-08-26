@@ -9,13 +9,15 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit module machine_kernel_pr
 
 SRC_URI = " \
-          https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rtl8189es-driver-1.0-20180522.zip \
-          file://rtl8189es-kernel-3.2.patch \
-          file://rtl8189es-kernel-4.20.patch \
-          file://rtl8189es-kernel-5.0.patch \
-          file://rtl8189es-kernel-5.1.patch \
-          file://rtl8189es-kernel-5.2.patch \
-          "
+	https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rtl8189es-driver-1.0-20180522.zip \
+	file://rtl8189es-kernel-3.2.patch \
+	file://rtl8189es-kernel-4.20.patch \
+	file://rtl8189es-kernel-5.0.patch \
+	file://rtl8189es-kernel-5.1.patch \
+	file://rtl8189es-kernel-5.2.patch \
+	file://rtl8189es-kernel-5.6.patch \
+	file://rtl8189es-kernel-5.8.patch \
+	"
 
 SRC_URI[md5sum] = "df5d47702271a7bc429f893d6f044221"
 SRC_URI[sha256sum] = "24285fe296281c1da349b9bc267d92fff9a2bc573d04927b51c803b2812846b9"
@@ -40,6 +42,6 @@ do_compile () {
 }
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -m 0644 ${S}/8189es.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -m 0644 ${S}/8189es.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
 }

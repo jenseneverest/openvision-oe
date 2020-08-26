@@ -15,8 +15,7 @@
 @@ -4455,6 +4459,7 @@
  struct sta_info *rtw_sta_info_get_by_idx(const int idx, struct sta_priv *pstapriv)
  
- {
-
+ {
 +
  	_list	*phead, *plist;
  	struct sta_info *psta = NULL;

@@ -9,8 +9,9 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit module machine_kernel_pr
 
 SRC_URI = "http://source.mynonpublic.com/rtl871x-01112013.tar.gz \
-           file://rtl871x-gcc5.patch \
-           file://COPYING"
+	file://rtl871x-gcc5.patch \
+	file://COPYING \
+	"
 
 SRC_URI[md5sum] = "5faf6a314a63e1f3be9b227157bb76a1"
 SRC_URI[sha256sum] = "e0fd28318dc0b2846e869d69a95b0a7a7d2fe182964448e4e1d74bdd12e4418f"
@@ -35,8 +36,8 @@ do_compile () {
 }
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
-    install -m 0644 8712u${KERNEL_OBJECT_SUFFIX} ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
-    install -d ${D}${sysconfdir}/modutils
-    echo 8712u > ${D}${sysconfdir}/modutils/wlan8712u
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
+	install -m 0644 8712u${KERNEL_OBJECT_SUFFIX} ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/
+	install -d ${D}${sysconfdir}/modutils
+	echo 8712u > ${D}${sysconfdir}/modutils/wlan8712u
 }

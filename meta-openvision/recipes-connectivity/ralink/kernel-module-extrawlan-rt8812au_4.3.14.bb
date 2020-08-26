@@ -21,7 +21,7 @@ SRC_URI = "http://source.mynonpublic.com/rtl8812AU-driver-4.3.14.zip \
 	file://rtl8812au-kernel-5.1.patch \
 	file://rtl8812au-kernel-5.2.patch \
 	file://rtl8812au-additional-vendor-ids.patch \
-"
+	"
 
 SRC_URI[md5sum] = "0f36c65f154971c3b305a1705f9e500f"
 SRC_URI[sha256sum] = "e1ab86b4aca9ee599141d2d23dd5c989e0a6d004c8b87a487b370e80a4aba7e2"
@@ -46,8 +46,8 @@ do_compile () {
 }
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -m 0644 ${S}/8812au.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
+	install -m 0644 ${S}/8812au.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
 }
 
 do_package_qa() {
