@@ -8,6 +8,8 @@ inherit autotools gitpkgv
 PV = "0.0.7+git${SRCPV}"
 PKGV = "0.0.7+git${GITPKGV}"
 
-SRC_URI = "git://github.com/OpenVisionE2/libdca.git"
+SRC_URI = "git://code.videolan.org/videolan/libdca;protocol=https \
+	file://fix-libdts-link-path.patch \
+	"
 
 S = "${WORKDIR}/git"
