@@ -11,7 +11,6 @@ SRC_URI = " \
     file://wsdd.c \
     "
 
-PV = "1.0"
 
 S = "${WORKDIR}"
 

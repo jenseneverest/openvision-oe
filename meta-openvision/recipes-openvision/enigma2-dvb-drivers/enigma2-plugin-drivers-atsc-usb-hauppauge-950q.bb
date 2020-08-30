@@ -12,4 +12,3 @@ RRECOMMENDS_${PN} = " \
 	firmware-xc5000c \
 	"
 
-PV = "1.0"

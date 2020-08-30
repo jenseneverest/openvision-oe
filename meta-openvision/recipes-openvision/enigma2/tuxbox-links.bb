@@ -1,7 +1,6 @@
 require conf/license/openvision-gplv2.inc
 
 PN = "tuxbox-links"
-PV = "1.0"
 
 do_install () {
 	install -d ${D}${localstatedir}

@@ -11,4 +11,3 @@ RRECOMMENDS_${PN} = " \
 	kernel-module-si2168 \
 	"
 
-PV = "1.0"

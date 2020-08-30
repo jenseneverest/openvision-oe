@@ -8,4 +8,3 @@ RRECOMMENDS_${PN} = " \
 	firmware-dvb-demod-m88ds3103 \
 	"
 
-PV = "1.0"

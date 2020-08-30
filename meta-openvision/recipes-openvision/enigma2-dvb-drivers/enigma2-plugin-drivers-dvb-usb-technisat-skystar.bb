@@ -10,4 +10,3 @@ RRECOMMENDS_${PN} = " \
 	kernel-module-stv6110x \
 	"
 
-PV = "1.0"

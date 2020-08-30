@@ -181,6 +181,7 @@ EXTRA_WIFI_DRIVERS += "\
 	kernel-module-extrawlan-rtl8189es \
 	kernel-module-extrawlan-rtl8192cu \
 	${@ 'kernel-module-extrawlan-rtl8192eu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.7') < 0) else '' } \
+	${@ 'kernel-module-extrawlan-rtl8192fu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.0') > 0) else '' } \
 	${@ 'kernel-module-extrawlan-rtl8821cu' if ("${KERNEL_VERSION}" and bb.utils.vercmp_string("${KERNEL_VERSION}", '4.0') > 0) else '' } \
 	"
 

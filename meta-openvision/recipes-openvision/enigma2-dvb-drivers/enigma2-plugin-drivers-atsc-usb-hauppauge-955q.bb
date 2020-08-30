@@ -12,4 +12,3 @@ RRECOMMENDS_${PN} = " \
 	firmware-cx231xx \
 	"
 
-PV = "1.0"

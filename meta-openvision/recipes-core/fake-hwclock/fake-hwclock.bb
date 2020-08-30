@@ -3,7 +3,6 @@ HOMEPAGE = ""
 LICENSE = "GPLv2"
 require conf/license/license-gplv2.inc
 
-PV = "1.0"
 
 SRC_URI = "file://fake-hwclock \
            file://fake-hwclock.init \

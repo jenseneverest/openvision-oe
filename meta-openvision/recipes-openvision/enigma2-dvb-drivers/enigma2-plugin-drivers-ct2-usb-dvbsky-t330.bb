@@ -9,4 +9,3 @@ RRECOMMENDS_${PN} = " \
 	firmware-dvb-demod-si2168-b40 \
 	"
 
-PV = "1.0"

@@ -10,4 +10,3 @@ RRECOMMENDS_${PN} = " \
 	firmware-dvb-tuner-si2158-a20 \
 	"
 
-PV = "1.0"
