@@ -9,10 +9,11 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SRC_URI = " \
 	https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rtl8192FU_rtl8725AU_WiFi_linux_v5.8.6.4_37082.20200716_COEX20190910-0d02.zip \
-	file://0001-fix-for-5.8.patch \
-	file://0002-fix-for-5.1.patch \
-	file://0003-fix-for-4.19.patch \
-	file://0004-makefile.patch \
+	file://0001-makefile.patch \
+	file://0002-fix-for-4.19.patch \
+	file://0003-fix-for-5.1.patch \
+	file://0004-fix-for-5.6.patch \
+	file://0005-fix-for-5.8.patch \
 	"
 
 SRC_URI[md5sum] = "35680c65525ca92668fe866f3f005e6b"
