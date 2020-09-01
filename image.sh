@@ -16,9 +16,19 @@ else
 fi
 VISIONVERSION=`cat meta-openvision/conf/distro/openvision-common.conf | grep -oP '(?<=VISIONVERSION = ")[0-9].[0-9]*'`
 VISIONREVISION=`cat meta-openvision/conf/distro/revision.conf | grep -oP '(?<=VISIONREVISION = "r)[0-9]*'`
+VISIONSTATUSCOLOR=`cat meta-openvision/conf/distro/vision-status-color`
 echo -e "${BLUE}Welcome to Open Vision ${GREEN}${VISIONVERSION}-r${VISIONREVISION} ${BLUE}image compile script!"
 echo -e ""
-echo -e "${RED}Notice: this script is case sensitive!${NC}"
+if [ "${VISIONSTATUSCOLOR}" == 'RED' ]; then
+	echo -e "${RED}Code RED detected!"
+	echo -e "It means you need to use cleanup.sh (Build) but only once!"
+	echo -e "If you already used cleanup.sh (Build) ignore this message."
+	echo -e "RED releases happen when we do OE upgrades.${NC}"
+else
+	echo -e "${GREEN}It's a normal release, no need to use cleanup.sh${NC}"
+fi
+echo -e ""
+echo -e "${YELLOW}Notice: this script is case sensitive!${NC}"
 echo -e ""
 echo -e "First we need to check your Ubuntu 18.04.x"
 echo -e ""
