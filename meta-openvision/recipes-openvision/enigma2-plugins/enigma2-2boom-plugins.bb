@@ -14,30 +14,30 @@ SRC_URI = "git://github.com/OpenVisionE2/2boom-plugins.git;protocol=http"
 S = "${WORKDIR}/git"
 
 PROVIDES = "\
-    enigma2-plugin-extensions-arbouquet \
-    enigma2-plugin-extensions-epanel \
-    enigma2-plugin-extensions-epgdd \
-    enigma2-plugin-extensions-ipktools \
-    enigma2-plugin-extensions-ltv \
-    enigma2-plugin-extensions-m2b \
-    enigma2-plugin-extensions-qcifh \
-    enigma2-plugin-extensions-qeifh \
-    enigma2-plugin-extensions-qerfh \
-    enigma2-plugin-extensions-quickecminfo \
-    enigma2-plugin-extensions-quickemurestart \
-    enigma2-plugin-extensions-reloadsl \
-    enigma2-plugin-extensions-remountnetshare \
-    enigma2-plugin-extensions-rpulite \
-    enigma2-plugin-extensions-tpulite \
-    enigma2-plugin-extensions-updatepreview \
-    enigma2-plugin-extensions-yweather \
-    enigma2-plugin-extensions-ywfh \
-    "
+	enigma2-plugin-extensions-arbouquet \
+	enigma2-plugin-extensions-epanel \
+	enigma2-plugin-extensions-epgdd \
+	enigma2-plugin-extensions-ipktools \
+	enigma2-plugin-extensions-ltv \
+	enigma2-plugin-extensions-m2b \
+	enigma2-plugin-extensions-qcifh \
+	enigma2-plugin-extensions-qeifh \
+	enigma2-plugin-extensions-qerfh \
+	enigma2-plugin-extensions-quickecminfo \
+	enigma2-plugin-extensions-quickemurestart \
+	enigma2-plugin-extensions-reloadsl \
+	enigma2-plugin-extensions-remountnetshare \
+	enigma2-plugin-extensions-rpulite \
+	enigma2-plugin-extensions-tpulite \
+	enigma2-plugin-extensions-updatepreview \
+	enigma2-plugin-extensions-yweather \
+	enigma2-plugin-extensions-ywfh \
+	"
 
 DEPENDS = "\
-    bitratecalc \
-    python-pycurl \
-    "
+	bitratecalc \
+	python-pycurl \
+	"
 
 DESCRIPTION_enigma2-plugin-extensions-arbouquet = "Add remove bouquet plugin by 2boom"
 DESCRIPTION_enigma2-plugin-extensions-epanel = "epanel plugin by 2boom"

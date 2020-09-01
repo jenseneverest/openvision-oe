@@ -14,39 +14,39 @@ SRC_URI = "git://github.com/OpenVisionE2/persianempire-plugins.git;protocol=http
 S = "${WORKDIR}/git"
 
 PROVIDES = "\
-    enigma2-plugin-extensions-airplayer \
-    enigma2-plugin-extensions-blockcontent \
-    enigma2-plugin-extensions-camrestart \
-    enigma2-plugin-extensions-deviceinfo \
-    enigma2-plugin-extensions-fontmagnifier \
-    enigma2-plugin-extensions-localemanager \
-    enigma2-plugin-extensions-navibarpe \
-    enigma2-plugin-extensions-packagemanager \
-    enigma2-plugin-extensions-pecammanager \
-    enigma2-plugin-extensions-pefaq \
-    enigma2-plugin-extensions-peinfo \
-    enigma2-plugin-extensions-pespeedup \
-    enigma2-plugin-extensions-peweather \
-    enigma2-plugin-extensions-pureprestige \
-    enigma2-plugin-extensions-quickweather \
-    enigma2-plugin-extensions-softcamupdater \
-    enigma2-plugin-extensions-vusolo2cihighbitratefix \
-    enigma2-plugin-systemplugins-bouquetprotection \
-    enigma2-plugin-systemplugins-networkserver \
-    enigma2-plugin-systemplugins-pepanel \
-    enigma2-plugin-systemplugins-sambaserver \
-    enigma2-plugin-systemplugins-satelliteeditor \
-    enigma2-plugin-systemplugins-serviceeditor \
-    enigma2-plugin-systemplugins-simplesatscan \
-    "
+	enigma2-plugin-extensions-airplayer \
+	enigma2-plugin-extensions-blockcontent \
+	enigma2-plugin-extensions-camrestart \
+	enigma2-plugin-extensions-deviceinfo \
+	enigma2-plugin-extensions-fontmagnifier \
+	enigma2-plugin-extensions-localemanager \
+	enigma2-plugin-extensions-navibarpe \
+	enigma2-plugin-extensions-packagemanager \
+	enigma2-plugin-extensions-pecammanager \
+	enigma2-plugin-extensions-pefaq \
+	enigma2-plugin-extensions-peinfo \
+	enigma2-plugin-extensions-pespeedup \
+	enigma2-plugin-extensions-peweather \
+	enigma2-plugin-extensions-pureprestige \
+	enigma2-plugin-extensions-quickweather \
+	enigma2-plugin-extensions-softcamupdater \
+	enigma2-plugin-extensions-vusolo2cihighbitratefix \
+	enigma2-plugin-systemplugins-bouquetprotection \
+	enigma2-plugin-systemplugins-networkserver \
+	enigma2-plugin-systemplugins-pepanel \
+	enigma2-plugin-systemplugins-sambaserver \
+	enigma2-plugin-systemplugins-satelliteeditor \
+	enigma2-plugin-systemplugins-serviceeditor \
+	enigma2-plugin-systemplugins-simplesatscan \
+	"
 
 DEPENDS = "\
-    ${@bb.utils.contains("MACHINE", "dm800", "", "dvb-apps", d)} \
-    hairtunes \
-    hddtemp \
-    python-shell python-subprocess \
-    unrar \
-    "
+	${@bb.utils.contains("MACHINE", "dm800", "", "dvb-apps", d)} \
+	hairtunes \
+	hddtemp \
+	python-shell python-subprocess \
+	unrar \
+	"
 
 RDEPENDS_enigma2-plugin-extensions-airplayer = "python-ctypes python-misc python-shell python-subprocess gst-plugins-bad-fragmented hairtunes"
 DESCRIPTION_enigma2-plugin-extensions-blockcontent = "Block Content for enigma2"

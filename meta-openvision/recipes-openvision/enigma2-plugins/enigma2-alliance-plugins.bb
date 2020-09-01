@@ -14,75 +14,75 @@ SRC_URI = "git://github.com/OpenVisionE2/alliance-plugins.git;protocol=http"
 S = "${WORKDIR}/git"
 
 PACKAGES += "\
-    enigma2-plugin-extensions-lcd4linux \
-"
+	enigma2-plugin-extensions-lcd4linux \
+	"
 
 PROVIDES = "\
-    enigma2-plugin-extensions-btdevicesmanager \
-    enigma2-plugin-extensions-dlnabrowser \
-    enigma2-plugin-extensions-dlnaserver \
-    enigma2-plugin-extensions-fempa \
-    enigma2-plugin-extensions-gbipboxclient \
-    enigma2-plugin-extensions-lcd4linux \
-    enigma2-plugin-extensions-ondemand \
-    enigma2-plugin-extensions-rcuselect \
-    enigma2-plugin-extensions-rezap \
-    enigma2-plugin-extensions-streamtv \
-    enigma2-plugin-extensions-tunerserver \
-    enigma2-plugin-extensions-usbsafe \
-    enigma2-plugin-extensions-webbrowser \
-    enigma2-plugin-systemplugins-abmcustommiximporter \
-    enigma2-plugin-systemplugins-audioeffect \
-    enigma2-plugin-systemplugins-blindscan \
-    enigma2-plugin-systemplugins-channelsimporter \
-    enigma2-plugin-systemplugins-dmblindscan \
-    enigma2-plugin-systemplugins-ewvfdcontrol \
-    enigma2-plugin-systemplugins-f3ledcontrol \
-    enigma2-plugin-systemplugins-firmwareupgrade \
-    enigma2-plugin-systemplugins-fpgaupgrade \
-    enigma2-plugin-systemplugins-gigablueremote \
-    enigma2-plugin-systemplugins-gigabluevfdcontrol \
-    enigma2-plugin-systemplugins-inivfdcontrol \
-    enigma2-plugin-systemplugins-micomupgrade \
-    enigma2-plugin-systemplugins-misplslcnscan \
-    enigma2-plugin-systemplugins-multitranscodingsetup \
-    enigma2-plugin-systemplugins-odinm7vfdcontrol \
-    enigma2-plugin-systemplugins-remotecontrolcode \
-    ${@bb.utils.contains("MACHINE", "dm800", "", "enigma2-plugin-systemplugins-satipclient", d)} \
-    enigma2-plugin-systemplugins-sf8vfdcontrol \
-    enigma2-plugin-systemplugins-simplefancontrol \
-    enigma2-plugin-systemplugins-terrestrialscan \
-    enigma2-plugin-systemplugins-transcodingsetup \
-    enigma2-plugin-systemplugins-ventonfancontrol \
-    enigma2-plugin-systemplugins-vpledcontrol \
-    enigma2-plugin-systemplugins-vuduofancontrol \
-    enigma2-plugin-systemplugins-wetekaudio \
-    enigma2-plugin-systemplugins-wetekfrq \
-    enigma2-plugin-systemplugins-weteksync \
-    ${@bb.utils.contains("MACHINE_FEATURES", "legacykernel", "" , "enigma2-plugin-systemplugins-wirelessaccesspoint", d)} \
-    enigma2-plugin-systemplugins-xtrendfancontrol \
-    enigma2-plugin-systemplugins-xtrendremote \
-    "
+	enigma2-plugin-extensions-btdevicesmanager \
+	enigma2-plugin-extensions-dlnabrowser \
+	enigma2-plugin-extensions-dlnaserver \
+	enigma2-plugin-extensions-fempa \
+	enigma2-plugin-extensions-gbipboxclient \
+	enigma2-plugin-extensions-lcd4linux \
+	enigma2-plugin-extensions-ondemand \
+	enigma2-plugin-extensions-rcuselect \
+	enigma2-plugin-extensions-rezap \
+	enigma2-plugin-extensions-streamtv \
+	enigma2-plugin-extensions-tunerserver \
+	enigma2-plugin-extensions-usbsafe \
+	enigma2-plugin-extensions-webbrowser \
+	enigma2-plugin-systemplugins-abmcustommiximporter \
+	enigma2-plugin-systemplugins-audioeffect \
+	enigma2-plugin-systemplugins-blindscan \
+	enigma2-plugin-systemplugins-channelsimporter \
+	enigma2-plugin-systemplugins-dmblindscan \
+	enigma2-plugin-systemplugins-ewvfdcontrol \
+	enigma2-plugin-systemplugins-f3ledcontrol \
+	enigma2-plugin-systemplugins-firmwareupgrade \
+	enigma2-plugin-systemplugins-fpgaupgrade \
+	enigma2-plugin-systemplugins-gigablueremote \
+	enigma2-plugin-systemplugins-gigabluevfdcontrol \
+	enigma2-plugin-systemplugins-inivfdcontrol \
+	enigma2-plugin-systemplugins-micomupgrade \
+	enigma2-plugin-systemplugins-misplslcnscan \
+	enigma2-plugin-systemplugins-multitranscodingsetup \
+	enigma2-plugin-systemplugins-odinm7vfdcontrol \
+	enigma2-plugin-systemplugins-remotecontrolcode \
+	${@bb.utils.contains("MACHINE", "dm800", "", "enigma2-plugin-systemplugins-satipclient", d)} \
+	enigma2-plugin-systemplugins-sf8vfdcontrol \
+	enigma2-plugin-systemplugins-simplefancontrol \
+	enigma2-plugin-systemplugins-terrestrialscan \
+	enigma2-plugin-systemplugins-transcodingsetup \
+	enigma2-plugin-systemplugins-ventonfancontrol \
+	enigma2-plugin-systemplugins-vpledcontrol \
+	enigma2-plugin-systemplugins-vuduofancontrol \
+	enigma2-plugin-systemplugins-wetekaudio \
+	enigma2-plugin-systemplugins-wetekfrq \
+	enigma2-plugin-systemplugins-weteksync \
+	${@bb.utils.contains("MACHINE_FEATURES", "legacykernel", "" , "enigma2-plugin-systemplugins-wirelessaccesspoint", d)} \
+	enigma2-plugin-systemplugins-xtrendfancontrol \
+	enigma2-plugin-systemplugins-xtrendremote \
+	"
 
 DEPENDS = "\
-    ${@bb.utils.contains("MACHINE_FEATURES", "blindscan-dvbc", "virtual/blindscan-dvbc" , "", d)} \
-    ${@bb.utils.contains("MACHINE_FEATURES", "blindscan-dvbs", "virtual/blindscan-dvbs" , "", d)} \
-    bluez-alsa \
-    bluez-conf \
-    bluez-hidd \
-    ${@bb.utils.contains("MACHINE_FEATURES", "legacykernel", "" , "bridge-utils hostapd", d)} \
-    cifs-utils \
-    djmount \
-    enigma2-plugin-systemplugins-autobouquetsmaker \
-    hddtemp \
-    librtmp \
-    libupnp \
-    minidlna \
-    neon \
-    python-beautifulsoup python-dnspython python-gdata python-icalendar python-lxml python-pexpect python-pyamf python-pyusb python-simplejson \
-    ${@bb.utils.contains("MACHINE", "dm800", "", "satipclient", d)} \
-    ${@bb.utils.contains_any("MACHINE_FEATURES", "streamproxy transcoding multitranscoding", "streamproxy", "", d)} \
-    "
+	${@bb.utils.contains("MACHINE_FEATURES", "blindscan-dvbc", "virtual/blindscan-dvbc" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "blindscan-dvbs", "virtual/blindscan-dvbs" , "", d)} \
+	bluez-alsa \
+	bluez-conf \
+	bluez-hidd \
+	${@bb.utils.contains("MACHINE_FEATURES", "legacykernel", "" , "bridge-utils hostapd", d)} \
+	cifs-utils \
+	djmount \
+	enigma2-plugin-systemplugins-autobouquetsmaker \
+	hddtemp \
+	librtmp \
+	libupnp \
+	minidlna \
+	neon \
+	python-beautifulsoup python-dnspython python-gdata python-icalendar python-lxml python-pexpect python-pyamf python-pyusb python-simplejson \
+	${@bb.utils.contains("MACHINE", "dm800", "", "satipclient", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "streamproxy transcoding multitranscoding", "streamproxy", "", d)} \
+	"
 
 DESCRIPTION_enigma2-plugin-extensions-btdevicesmanager = "BT devices manger to pair e.x keyboard or mouse"
 RDEPENDS_enigma2-plugin-extensions-btdevicesmanager = "bluez5-testtools bluez5 bluez-hcidump bluez-conf bluez-hidd bluez-alsa alsa-utils-aplay python-pexpect"
@@ -146,10 +146,10 @@ EXTRA_OECONF = "\
     "
 
 do_install_append() {
-    if [ "${MACHINE}" == "dm800" ]
-    then
-        rm -Rf ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/SatipClient
-    fi
+	if [ "${MACHINE}" == "dm800" ]
+	then
+		rm -Rf ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/SatipClient
+	fi
 }
 
 do_package_qa() {
