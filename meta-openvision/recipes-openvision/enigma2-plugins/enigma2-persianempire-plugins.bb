@@ -25,7 +25,6 @@ PROVIDES = "\
 	enigma2-plugin-extensions-pecammanager \
 	enigma2-plugin-extensions-pefaq \
 	enigma2-plugin-extensions-peinfo \
-	enigma2-plugin-extensions-pespeedup \
 	enigma2-plugin-extensions-peweather \
 	enigma2-plugin-extensions-pureprestige \
 	enigma2-plugin-extensions-quickweather \

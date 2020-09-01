@@ -87,6 +87,7 @@ PROVIDES = "\
 	enigma2-plugin-extensions-partnerbox \
 	enigma2-plugin-extensions-permanentclock \
 	enigma2-plugin-extensions-permanenttimeshift \
+	enigma2-plugin-extensions-pespeedup \
 	enigma2-plugin-extensions-pipzap \
 	enigma2-plugin-extensions-pluginhider \
 	enigma2-plugin-extensions-pluginsort \
