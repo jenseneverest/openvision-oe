@@ -54,6 +54,8 @@ do_install() {
 	echo "imagetype=${DISTRO_TYPE}" >> ${D}${sysconfdir}/image-version
 	echo "oe=${BUILD_VERSION}" >> ${D}${sysconfdir}/image-version
 	echo "${BUILD_VERSION}" > ${D}${sysconfdir}/openvision/oe
+	echo "kernel=${KERNELVERSION}" >> ${D}${sysconfdir}/image-version
+	echo "${KERNELVERSION}" > ${D}${sysconfdir}/openvision/kernel
 	echo "python=${PREFERRED_VERSION_python}" >> ${D}${sysconfdir}/image-version
 	echo "${PREFERRED_VERSION_python}" > ${D}${sysconfdir}/openvision/python
 	echo "mediaservice=${PREFERRED_PROVIDER_virtual/enigma2-mediaservice}" >> ${D}${sysconfdir}/image-version
