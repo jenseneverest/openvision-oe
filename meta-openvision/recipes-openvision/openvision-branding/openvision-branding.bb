@@ -14,7 +14,7 @@ PR[vardepsexclude] += "DATE"
 
 do_configure[nostamp] = "1"
 
-SRC_URI="git://github.com/OpenVisionE2/branding-module.git;protocol=git"
+SRC_URI = "git://github.com/OpenVisionE2/branding-module.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
@@ -30,11 +30,8 @@ EXTRA_OECONF = " \
     --with-oever="${VISIONVERSION}" \
     --with-distro="${DISTRO_NAME}" \
     --with-boxtype="${MACHINE}" \
-    --with-brandoem="${BOX_BRAND}" \
-    --with-machinebrand="${BOX_BRAND}" \
     --with-machinename="${MACHINE}" \
     --with-machinebuild="${STB_PLATFORM}" \
-    --with-machinemake="${MACHINE}" \
     --with-imageversion="${DISTRO_VERSION}" \
     --with-imagebuild="${BUILD_VERSION}" \
     --with-imagedevbuild="${DEVELOPER_BUILD_VERSION}" \
@@ -72,6 +69,7 @@ EXTRA_OECONF = " \
     --with-blindscanbinary="${BLINDSCAN_BINARY}" \
     --with-socfamily="${SOC_FAMILY}" \
     --with-vfd-symbol="${HAVE_VFDSYMBOL}" \
+    --with-kernelversion="${KERNELVERSION}" \
     --with-rctype="${RCTYPE}" \
     --with-rcname="${RCNAME}" \
     --with-rcidnum="${RCIDNUM}" \
