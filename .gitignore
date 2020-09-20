@@ -1,5 +1,9 @@
+/build/
+/sources/
+site.conf
+*~
 *.ovstep
-/conf/distro/openvision-testers.conf
-conf/distro/openvision-testers.conf
-/conf/distro/developer.conf
-conf/distro/developer.conf
+/meta-openvision/conf/distro/openvision-testers.conf
+meta-openvision/conf/distro/openvision-testers.conf
+/meta-openvision/conf/distro/developer.conf
+meta-openvision/conf/distro/developer.conf
