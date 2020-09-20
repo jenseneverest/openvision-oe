@@ -41,7 +41,7 @@ If you see your model in https://github.com/OpenVisionE2/openvision-oe/blob/deve
 
 You could compile Open Vision for so many brands/models:
 * Vision-metas: https://github.com/OpenVisionE2/openvision-oe/blob/develop/Vision-metas.md
-* You need Ubuntu Desktop 18.04.x LTS x64 (Native): https://releases.ubuntu.com/
+* You need Ubuntu Desktop 20.04.x LTS x64 (Native): https://releases.ubuntu.com/
 
 # How to build an Open Vision image
 

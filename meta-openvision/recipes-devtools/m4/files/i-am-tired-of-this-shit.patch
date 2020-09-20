@@ -1,0 +1,46 @@
+diff -Naur m4-1.4.18/doc/m4.texi m4-1.4.18-PersianPrince/doc/m4.texi
+--- m4-1.4.18/doc/m4.texi	2017-01-01 02:04:38.000000000 +0330
++++ m4-1.4.18-PersianPrince/doc/m4.texi	2020-09-20 19:37:40.304961799 +0430
+@@ -4251,11 +4251,11 @@
+ @example
+ define(`a', `b')
+ @result{}
+-«a»
+-@result{}«b»
+-changequote(`«', `»')
++Â«aÂ»
++@result{}Â«bÂ»
++changequote(`Â«', `Â»')
+ @result{}
+-«a»
++Â«aÂ»
+ @result{}a
+ @end example
+ @end ignore
+@@ -4530,12 +4530,12 @@
+ @example
+ define(`a', `b')
+ @result{}
+-«a»
+-@result{}«b»
+-changecom(`«', `»')
++Â«aÂ»
++@result{}Â«bÂ»
++changecom(`Â«', `Â»')
+ @result{}
+-«a»
+-@result{}«a»
++Â«aÂ»
++@result{}Â«aÂ»
+ @end example
+ @end ignore
+ If no single character is appropriate, @var{start} and @var{end} can be
+@@ -5868,7 +5868,7 @@
+ @comment rendering right in both info and dvi.
+ 
+ @example
+-translit(`«abc~', `~-»')
++translit(`Â«abc~', `~-Â»')
+ @result{}abc
+ @end example
+ 

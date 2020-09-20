@@ -4,7 +4,7 @@ MAINTAINER = "kiddac"
 PRIORITY = "optional"
 require conf/license/license-gplv2.inc
 
-RDEPENDS_${PN} = "python-argparse python-image python-imaging python-multiprocessing python-requests"
+RDEPENDS_${PN} = "python-argparse python-image python-imaging python-lzma python-multiprocessing python-requests"
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"

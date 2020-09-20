@@ -5,12 +5,12 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
-if grep -Fqi "ubuntu 18.04" /etc/*-release
+if grep -Fqi "ubuntu 20.04" /etc/*-release
 then
-    echo -e "${GREEN}You have Ubuntu 18.04.x LTS, great!${NC}"
+    echo -e "${GREEN}You have Ubuntu 20.04.x LTS, great!${NC}"
     echo -e ""
 else
-    echo -e "${RED}We only support Ubuntu 18.04.x LTS!${NC}"
+    echo -e "${RED}We only support Ubuntu 20.04.x LTS!${NC}"
     echo -e ""
     exit 0
 fi
@@ -30,7 +30,7 @@ fi
 echo -e ""
 echo -e "${YELLOW}Notice: this script is case sensitive!${NC}"
 echo -e ""
-echo -e "First we need to check your Ubuntu 18.04.x"
+echo -e "First we need to check your Ubuntu 20.04.x"
 echo -e ""
 if [ -f user.ovstep ]; then
 	echo -e "Seems you run ltsubuntu.sh before but keep in mind it's better to run it each month to get latest updates."
@@ -39,6 +39,21 @@ else
 	echo -e "Oh, we need to setup your Ubuntu so you need internet connection and a cup of coffee."
 	/bin/sh ltsubuntu.sh
 	echo "once" > user.ovstep
+fi
+gcc --version | sed -nr '/Ubuntu [0-9]+/ s/.*Ubuntu +([0-9]+).*/\1/p' > /tmp/vision-gcc-version
+VISIONGCCVERSION=`cat /tmp/vision-gcc-version`
+if [ "${VISIONGCCVERSION}" != '7' ]; then
+	echo -e "${RED}GCC version is wrong!"
+	echo -e "It means you need to choose version 7 of GCC!"
+	sudo update-alternatives --config gcc
+	sudo ln -s /usr/include/asm-generic /usr/include/asm
+	gcc --version | sed -nr '/Ubuntu [0-9]+/ s/.*Ubuntu +([0-9]+).*/\1/p' > /tmp/vision-gcc-version
+	VISIONGCCVERSION=`cat /tmp/vision-gcc-version`
+	echo -e "Done, now GCC version is: ${VISIONGCCVERSION} ${NC}"
+	echo -e ""
+else
+	echo -e "${GREEN}You enabled GCC 7 for OV 7.x, great!${NC}"
+	echo -e ""
 fi
 DEVELOPERNAME=`git config user.name`
 if [ "${DEVELOPERNAME}" != '' ]; then

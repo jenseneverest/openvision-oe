@@ -1,0 +1,19 @@
+diff -Naur qemu-2.8.0/linux-user/syscall.c qemu-2.8.0-PersianPrince/linux-user/syscall.c
+--- qemu-2.8.0/linux-user/syscall.c	2016-12-20 23:46:48.000000000 +0330
++++ qemu-2.8.0-PersianPrince/linux-user/syscall.c	2020-09-14 22:56:14.202544886 +0430
+@@ -7977,10 +7977,12 @@
+ #ifdef TARGET_NR_stime /* not on alpha */
+     case TARGET_NR_stime:
+         {
+-            time_t host_time;
+-            if (get_user_sal(host_time, arg1))
++            struct timespec ts;
++            ts.tv_nsec = 0;
++            if (get_user_sal(ts.tv_sec, arg1)) {
+                 goto efault;
+-            ret = get_errno(stime(&host_time));
++            }
++            return get_errno(clock_settime(CLOCK_REALTIME, &ts));
+         }
+         break;
+ #endif

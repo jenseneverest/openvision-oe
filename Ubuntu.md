@@ -1,7 +1,7 @@
-# Ubuntu 18.04.x LTS setup
+# Ubuntu 20.04.x LTS setup
 * Run our https://github.com/OpenVisionE2/openvision-oe/blob/develop/ltsubuntu.sh
 
-# How to get latest Ubuntu 18.04.x updates
+# How to get latest Ubuntu 20.04.x updates
 * Just run our "ltsubuntu.sh" again!
 
 # How to use Xfce 4 desktop on Ubuntu
