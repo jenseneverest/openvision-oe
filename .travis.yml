@@ -2,7 +2,7 @@ language: c++
 compiler: gcc
 # Select Trusty Beta environment, required for testing.
 sudo: required
-dist: bionic
+dist: focal
 env:
   - OE_CORE=pyro BITBAKE=1.34
 addons:
