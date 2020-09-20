@@ -13,4 +13,4 @@ git submodule sync
 git submodule update --init
 cd build
 source env.source
-MACHINE=dm7020hd bitbake image || BITBAKE_RESULT=1
+MACHINE=wetekplay bitbake image || BITBAKE_RESULT=1
