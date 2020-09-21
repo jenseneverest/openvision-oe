@@ -26,13 +26,9 @@ FILES_${PN}-src = "${INSTALLDIR}/*/*.py ${INSTALLDIR}/*/*/*.py"
 FILES_${PN}-doc = "${INSTALLDIR}/*.txt ${INSTALLDIR}/licenses ${INSTALLDIR}/interfaces/*/licenses"
 FILES_${PN} = "${INSTALLDIR} ${sysconfdir}/init.d/sabnzbd ${sysconfdir}/sabnzbd.ini"
 
-inherit update-rc.d pythonnative
+inherit update-rc.d pythonnative compile_python_pyo
 INITSCRIPT_NAME = "sabnzbd"
 INITSCRIPT_PARAMS = "defaults"
-
-do_compile() {
-	python -O -m compileall .
-}
 
 do_install() {
 	install -d ${D}${INSTALLDIR}
