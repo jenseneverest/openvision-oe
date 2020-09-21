@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=183ca88c5404ea8f9e484ad8d271aab3"
 
 DEPENDS = "python"
 RDEPENDS_${PN} = "\
-	python-core python-shell python-compression python-crypt python-ctypes python-sqlite3 \
+	python-core python-shell python-compression python-crypt python-ctypes \
 	python-cheetah python-misc python-subprocess python-html python-email python-yenc \
 	"
 RRECOMMENDS_${PN} = "par2cmdline unrar"

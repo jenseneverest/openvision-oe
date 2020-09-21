@@ -79,7 +79,7 @@ DEPENDS = "\
 	libupnp \
 	minidlna \
 	neon \
-	python-beautifulsoup python-dnspython python-gdata python-icalendar python-lxml python-pexpect python-pyamf python-pyusb python-simplejson \
+	python-beautifulsoup4 python-dnspython python-gdata python-icalendar python-lxml python-pexpect python-pyamf python-pyusb python-simplejson \
 	${@bb.utils.contains("MACHINE", "dm800", "", "satipclient", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "streamproxy transcoding multitranscoding", "streamproxy", "", d)} \
 	"
@@ -99,7 +99,7 @@ RDEPENDS_enigma2-plugin-extensions-lcd4linux = "bitratecalc lcd4linux python-ica
 FILES_enigma2-plugin-extensions-lcd4linux_append = " ${libdir}/enigma2/python/Components/Renderer/*.pyo ${libdir}/enigma2/python/Plugins/Extensions/LCD4linux/plugin.py"
 FILES_enigma2-plugin-extensions-lcd4linux-src_append = " ${libdir}/enigma2/python/Components/Renderer/*.py"
 DESCRIPTION_enigma2-plugin-extensions-ondemand = "Watch on demand TV."
-RDEPENDS_enigma2-plugin-extensions-ondemand = "python-beautifulsoup python-dnspython python-lxml python-pyamf python-simplejson"
+RDEPENDS_enigma2-plugin-extensions-ondemand = "python-beautifulsoup4 python-dnspython python-lxml python-pyamf python-simplejson"
 DESCRIPTION_enigma2-plugin-extensions-rcuselect = "Change Remote for Amlogic"
 DESCRIPTION_enigma2-plugin-extensions-rezap = "ReZap Sync Tool for Wetek"
 DESCRIPTION_enigma2-plugin-extensions-streamtv = "iptv player"
@@ -142,6 +142,7 @@ EXTRA_OECONF = "\
     STAGING_LIBDIR=${STAGING_LIBDIR} \
     --with-boxtype=${MACHINE} \
     --with-boxbrand=${BOX_BRAND} \
+    --with-stbplatform=${STB_PLATFORM} \
     --with-arch=${TARGET_ARCH} \
     "
 

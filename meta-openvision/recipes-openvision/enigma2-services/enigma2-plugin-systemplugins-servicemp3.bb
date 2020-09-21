@@ -87,7 +87,7 @@ RDEPENDS_${PN} = "\
 	${GST_UGLY_RDEPS} \
 	"
 
-SRC_URI = "${@bb.utils.contains("MACHINE_FEATURES", "nogamma", "git://github.com/OpenVisionE2/servicemp3amlogic.git", "git://github.com/OpenVisionE2/servicemp3.git;branch=master", d)}"
+SRC_URI = "${@bb.utils.contains("MACHINE_FEATURES", "nogamma", "git://github.com/OpenVisionE2/servicemp3amlogic.git", "git://github.com/OpenVisionE2/servicemp3.git", d)}"
 
 S = "${WORKDIR}/git"
 

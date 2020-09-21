@@ -206,7 +206,7 @@ RDEPENDS_enigma2-plugin-extensions-lastfm = "python-twisted-web python-crypt"
 RDEPENDS_enigma2-plugin-extensions-logomanager = "enigma2-plugin-extensions-filebrowser"
 RDEPENDS_enigma2-plugin-extensions-mediadownloader = "python-twisted-web python-netclient python-shell"
 RDEPENDS_enigma2-plugin-extensions-menusort = "python-shell python-xml python-codecs python-lang"
-RDEPENDS_enigma2-plugin-extensions-merlinmusicplayer = "python-twisted-web python-mutagen python-sqlite3"
+RDEPENDS_enigma2-plugin-extensions-merlinmusicplayer = "python-twisted-web python-mutagen"
 RDEPENDS_enigma2-plugin-extensions-mosaic = "aio-grab"
 RDEPENDS_enigma2-plugin-extensions-movieepg = "python-lang"
 RDEPENDS_enigma2-plugin-extensions-movielistpreview = "aio-grab"
@@ -279,6 +279,7 @@ EXTRA_OECONF = "\
     --without-debug \
     --with-boxtype=${MACHINE} \
     --with-boxbrand=${BOX_BRAND} \
+    --with-stbplatform=${STB_PLATFORM} \
     --with-arch=${TARGET_ARCH} \
     "
 

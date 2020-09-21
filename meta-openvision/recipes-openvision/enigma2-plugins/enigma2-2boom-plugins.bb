@@ -78,6 +78,7 @@ EXTRA_OECONF = "\
     STAGING_LIBDIR=${STAGING_LIBDIR} \
     --with-boxtype=${MACHINE} \
     --with-boxbrand=${BOX_BRAND} \
+    --with-stbplatform=${STB_PLATFORM} \
     --with-arch=${TARGET_ARCH} \
     "
 
