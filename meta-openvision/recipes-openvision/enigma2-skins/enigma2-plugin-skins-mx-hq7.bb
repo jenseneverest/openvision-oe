@@ -24,6 +24,6 @@ do_compile() {
 }
 
 do_install() {
-    rm -Rf ${S}${datadir}/fonts
-    cp -r --preserve=mode,links ${S}${prefix} ${D}/
+	rm -Rf ${S}${datadir}/fonts
+	cp -r --preserve=mode,links ${S}${prefix} ${D}/
 }

@@ -20,7 +20,7 @@ FILES_${PN} = "${prefix}/*"
 require skin-python.inc
 
 do_install() {
-    cp -r --preserve=mode,links ${S}/data${prefix} ${D}/
+	cp -r --preserve=mode,links ${S}/data${prefix} ${D}/
 }
 
 do_postrm_append() {

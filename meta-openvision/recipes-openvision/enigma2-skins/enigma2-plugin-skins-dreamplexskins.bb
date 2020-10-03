@@ -23,9 +23,9 @@ FILES_${EPSM}-plex-experience = "${libdir}/enigma2/python/Plugins/Extensions/Dre
 S = "${WORKDIR}/git"
 
 do_install() {
-    install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/DreamPlex/skins/
-    cp -rp ${S}/* ${D}${libdir}/enigma2/python/Plugins/Extensions/DreamPlex/skins/
-    chmod -R a+rX ${D}${libdir}/enigma2/python/Plugins/Extensions/DreamPlex/skins/
+	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/DreamPlex/skins/
+	cp -rp ${S}/* ${D}${libdir}/enigma2/python/Plugins/Extensions/DreamPlex/skins/
+	chmod -R a+rX ${D}${libdir}/enigma2/python/Plugins/Extensions/DreamPlex/skins/
 }
 
 do_package_qa[noexec] = "1"

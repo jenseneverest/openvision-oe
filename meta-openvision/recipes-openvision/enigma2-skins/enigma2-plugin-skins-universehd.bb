@@ -22,9 +22,9 @@ require skin-data.inc
 require skin-python.inc
 
 CONFFILES_${PN} = " \
-    ${datadir}/enigma2/UniverseHD/construct/backgrounds/background-infobar.png \
-    ${datadir}/enigma2/UniverseHD/construct/backgrounds/background-symbol.png \
-    ${datadir}/enigma2/UniverseHD/construct/backgrounds/background-window.png \
-    ${datadir}/enigma2/UniverseHD/construct/backgrounds/background-window-details.png \
-    ${datadir}/enigma2/UniverseHD/construct/backgrounds/background-window-title.png \
-    "
+	${datadir}/enigma2/UniverseHD/construct/backgrounds/background-infobar.png \
+	${datadir}/enigma2/UniverseHD/construct/backgrounds/background-symbol.png \
+	${datadir}/enigma2/UniverseHD/construct/backgrounds/background-window.png \
+	${datadir}/enigma2/UniverseHD/construct/backgrounds/background-window-details.png \
+	${datadir}/enigma2/UniverseHD/construct/backgrounds/background-window-title.png \
+	"

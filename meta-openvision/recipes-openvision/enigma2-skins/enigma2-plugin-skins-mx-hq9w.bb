@@ -14,7 +14,7 @@ PKGV = "1.0+git${GITPKGV}"
 SRC_URI= " \
 	git://github.com/BlackHole/MX_HQ9W.git;protocol=git \
 	file://rc.patch;patch=1 \
-"
+	"
 
 S = "${WORKDIR}/git"
 
@@ -24,7 +24,7 @@ do_compile() {
 }
 
 do_install() {
-    rm -Rf ${S}${prefix}/uninstall
-    rm -Rf ${S}${datadir}/fonts
-    cp -r --preserve=mode,links ${S}${prefix} ${D}/
+	rm -Rf ${S}${prefix}/uninstall
+	rm -Rf ${S}${datadir}/fonts
+	cp -r --preserve=mode,links ${S}${prefix} ${D}/
 }

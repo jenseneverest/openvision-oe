@@ -36,10 +36,10 @@ do_compile() {
 }
 
 do_install() {
-    install -d ${D}${libdir}
-    install -d ${D}${datadir}
-    cp -r --preserve=mode,links ${S}${libdir}/* ${D}${libdir}/
-    cp -r --preserve=mode,links ${S}${datadir}/* ${D}${datadir}/
+	install -d ${D}${libdir}
+	install -d ${D}${datadir}
+	cp -r --preserve=mode,links ${S}${libdir}/* ${D}${libdir}/
+	cp -r --preserve=mode,links ${S}${datadir}/* ${D}${datadir}/
 }
 
 pkg_preinst_${PN}() {
