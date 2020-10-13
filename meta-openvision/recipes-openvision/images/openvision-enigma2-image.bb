@@ -44,7 +44,6 @@ ENIGMA2_PLUGINS += "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	enigma2-plugin-extensions-filecommander \
 	enigma2-plugin-extensions-keyadder \
-	enigma2-plugin-extensions-openmultiboot \
 	enigma2-plugin-softcams-oscam \
 	enigma2-plugin-systemplugins-autobouquetsmaker \
 	enigma2-plugin-systemplugins-serviceapp", d)} \
@@ -99,6 +98,7 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	dvbfetool \
 	openssh-sftp-server \
+	openvision-core-plugin \
 	shellinabox", d)} \
 	"
 
