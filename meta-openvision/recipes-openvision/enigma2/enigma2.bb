@@ -131,14 +131,11 @@ LDFLAGS_prepend = " -lxml2 "
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} += "${datadir}/keymaps ${bindir} ${libdir}"
-FILES_${PN}-meta = "${datadir}/meta"
-PACKAGES += "${PN}-meta ${PN}-build-dependencies"
+PACKAGES += "${PN}-meta ${PN}-build-dependencies enigma2-fonts"
+
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PACKAGES += "enigma2-fonts"
 PKGV_enigma2-fonts = "2018.08.15"
-FILES_enigma2-fonts = "${datadir}/fonts"
 
 def get_crashaddr(d):
     if d.getVar('CRASHADDR', True):
@@ -181,6 +178,10 @@ EXTRA_OECONF = "\
 EXTRA_OEMAKE = "\
 	ENIGMA2_BRANCH=${ENIGMA2_BRANCH} \
 	"
+
+FILES_enigma2-fonts = "${datadir}/fonts"
+FILES_${PN} += "${datadir}/keymaps ${bindir} ${libdir}"
+FILES_${PN}-meta = "${datadir}/meta"
 
 # some plugins contain so's, their stripped symbols should not end up in the enigma2 package
 FILES_${PN}-dbg += "\
