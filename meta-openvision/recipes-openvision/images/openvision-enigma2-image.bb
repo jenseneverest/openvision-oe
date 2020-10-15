@@ -79,7 +79,6 @@ IMAGE_INSTALL += "\
 	cronie \
 	dhrystone \
 	enigma2 \
-	enigma2-data-iso-639-3 \
 	enigma2-locale-meta \
 	${ENIGMA2_PLUGINS} \
 	${@bb.utils.contains("DEVELOPER_NAME", "persianprince", "enigma2-plugin-extensions-persianpalace", "", d)} \

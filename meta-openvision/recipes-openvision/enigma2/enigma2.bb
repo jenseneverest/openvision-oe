@@ -25,6 +25,7 @@ DEPENDS_append_rpi += "\
 
 RDEPENDS_${PN} = "\
 	alsa-conf \
+	enigma2-data-iso-639-3 \
 	enigma2-fonts \
 	enigma2-plugin-extensions-pespeedup \
 	ethtool \
