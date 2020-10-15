@@ -32,6 +32,7 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
 	enigma2-plugin-systemplugins-wirelesslan \
+	enigma2-plugin-systemplugins-xmlupdate \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
 	enigma2-plugin-extensions-autobackup \
 	enigma2-plugin-extensions-tmbd \
@@ -85,10 +86,6 @@ IMAGE_INSTALL += "\
 	frequency-xml-list-atsc \
 	frequency-xml-list-cables \
 	frequency-xml-list-satellites \
-	frequency-xml-list-satellites-america \
-	frequency-xml-list-satellites-asia \
-	frequency-xml-list-satellites-atlantic \
-	frequency-xml-list-satellites-europe \
 	frequency-xml-list-terrestrial \
 	frequency-xml-list-unicable \
 	kernel-module-fuse \
