@@ -80,6 +80,7 @@ DEPENDS = "\
 	minidlna \
 	neon \
 	python-beautifulsoup4 python-dnspython python-gdata python-icalendar python-lxml python-pexpect python-pyamf python-pyusb python-simplejson \
+	python-six-native \
 	${@bb.utils.contains("MACHINE", "dm800", "", "satipclient", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "streamproxy transcoding multitranscoding", "streamproxy", "", d)} \
 	"

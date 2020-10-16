@@ -168,6 +168,7 @@ DEPENDS = "\
 	python-google-api-client \
 	python-mutagen \
 	python-pyopenssl \
+	python-six-native \
 	python-transmissionrpc \
 	python-twisted \
 	smartmontools \
