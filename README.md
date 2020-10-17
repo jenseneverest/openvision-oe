@@ -1,4 +1,4 @@
-Open Vision 7.4 (Old) enigma2 images [![Build Status](https://travis-ci.org/OpenVisionE2/openvision-oe.svg?branch=develop)](https://travis-ci.org/OpenVisionE2/openvision-oe) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+Open Vision 7.5 (Old) enigma2 images [![Build Status](https://travis-ci.org/OpenVisionE2/openvision-oe.svg?branch=develop)](https://travis-ci.org/OpenVisionE2/openvision-oe) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ==========================
 ![alt tag](https://raw.github.com/OpenVisionE2/openvision-oe/develop/meta-openvision/recipes-openvision/bootlogo/openvision-bootlogo/bootlogo.jpg)
 
