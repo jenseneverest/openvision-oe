@@ -22,9 +22,6 @@
 [submodule "meta-odroid"]
 	path = meta-odroid
 	url = https://github.com/OpenVisionE2/meta-odroid.git
-[submodule "meta-raspberrypi"]
-	path = meta-raspberrypi
-	url = https://github.com/OpenVisionE2/meta-raspberrypi.git
 [submodule "meta-wetek"]
 	path = meta-wetek
 	url = https://github.com/OpenVisionE2/meta-wetek.git
