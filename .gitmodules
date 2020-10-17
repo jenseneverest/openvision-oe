@@ -1,9 +1,6 @@
 [submodule "meta-cube"]
 	path = meta-cube
 	url = https://github.com/OpenVisionE2/meta-cube.git
-[submodule "meta-dm800"]
-	path = meta-dm800
-	url = https://github.com/OpenVisionE2/meta-dm800.git
 [submodule "meta-hypercube"]
 	path = meta-hypercube
 	url = https://github.com/OpenVisionE2/meta-hypercube.git
