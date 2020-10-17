@@ -34,3 +34,6 @@
 [submodule "meta-dm"]
 	path = meta-dm
 	url = https://github.com/OpenVisionE2/meta-dm.git
+[submodule "meta-az"]
+	path = meta-az
+	url = https://github.com/OpenVisionE2/meta-az.git
