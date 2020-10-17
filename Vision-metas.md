@@ -1,10 +1,19 @@
 # Here is the list of what 7.5 supports:
 
+# AZ
+* azboxhd
+
 # Cube
 * cube
 
-# Dreambox
+# DM
+* dm500hd
 * dm800
+* dm800se
+
+# GB
+* gb800se
+* gb800ue
 
 # HyperCube
 * su980
