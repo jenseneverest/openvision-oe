@@ -53,14 +53,26 @@ then
 fi
 if [ $SUBMODULETYPE = "All" ]
 then
+	cd meta-az
+	echo "Checking out meta-az develop branch:"
+	git checkout develop
+	git pull
+	echo -e "\n"
+	cd ..
 	cd meta-cube
 	echo "Checking out meta-cube develop branch:"
 	git checkout develop
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-dm800
-	echo "Checking out meta-dm800 develop branch:"
+	cd meta-dm
+	echo "Checking out meta-dm develop branch:"
+	git checkout develop
+	git pull
+	echo -e "\n"
+	cd ..
+	cd meta-gb
+	echo "Checking out meta-gb develop branch:"
 	git checkout develop
 	git pull
 	echo -e "\n"
