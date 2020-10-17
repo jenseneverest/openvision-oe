@@ -101,8 +101,8 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-raspberrypi
-	echo "Checking out meta-raspberrypi develop branch:"
+	cd meta-rpi
+	echo "Checking out meta-rpi develop branch:"
 	git checkout develop
 	git pull
 	echo -e "\n"
