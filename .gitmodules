@@ -1,6 +1,15 @@
+[submodule "meta-az"]
+	path = meta-az
+	url = https://github.com/OpenVisionE2/meta-az.git
 [submodule "meta-cube"]
 	path = meta-cube
 	url = https://github.com/OpenVisionE2/meta-cube.git
+[submodule "meta-dm"]
+	path = meta-dm
+	url = https://github.com/OpenVisionE2/meta-dm.git
+[submodule "meta-gb"]
+	path = meta-gb
+	url = https://github.com/OpenVisionE2/meta-gb.git
 [submodule "meta-hypercube"]
 	path = meta-hypercube
 	url = https://github.com/OpenVisionE2/meta-hypercube.git
@@ -31,12 +40,3 @@
 [submodule "meta-openembedded"]
 	path = meta-openembedded
 	url = https://github.com/openembedded/meta-openembedded.git
-[submodule "meta-dm"]
-	path = meta-dm
-	url = https://github.com/OpenVisionE2/meta-dm.git
-[submodule "meta-az"]
-	path = meta-az
-	url = https://github.com/OpenVisionE2/meta-az.git
-[submodule "meta-gb"]
-	path = meta-gb
-	url = https://github.com/OpenVisionE2/meta-gb.git
