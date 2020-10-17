@@ -235,6 +235,10 @@ do_install_append() {
 	fi
 	install -m 0644 ${S}/data/rc_models/${RCNAME}.png ${D}${datadir}/enigma2/rc_models/
 	install -m 0644 ${S}/data/rc_models/${RCNAME}.xml ${D}${datadir}/enigma2/rc_models/
+	if [ "${MACHINE}" = "azboxhd" ]; then
+		install -m 0644 ${S}/data/rc_models/azboxelite.png ${D}${datadir}/enigma2/rc_models/
+		install -m 0644 ${S}/data/rc_models/azboxelite.xml ${D}${datadir}/enigma2/rc_models/
+	fi
 }
 
 python populate_packages_prepend() {

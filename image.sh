@@ -71,7 +71,7 @@ fi
 echo -e "Check ${NC}Vision-metas.md ${BLUE}and enter a meta or a specific machine to compile."
 echo -e "Answers are in ${GREEN}green:${NC}"
 echo -e ""
-echo -e "${GREEN}Cube ${NC}- ${GREEN}Dreambox ${NC}- ${GREEN}HyperCube ${NC}- ${GREEN}Linkdroid"
+echo -e "${GREEN}AZ ${NC}- ${GREEN}Cube ${NC}- ${GREEN}DM ${NC}- ${GREEN}GB ${NC}- ${GREEN}HyperCube ${NC}- ${GREEN}Linkdroid"
 echo -e "MINIX ${NC}- ${GREEN}Odroid ${NC}- ${GREEN}RPi ${NC}- ${GREEN}WeTek ${NC}- ${GREEN}Specific"
 echo -e ""
 echo -e "${GREEN}Specific${BLUE}: You have a specific machine in mind, Check ${NC}Vision-metas.md"
@@ -80,7 +80,7 @@ echo -e "${BLUE}Enter the meta name:${NC}"
 echo -e "${GREEN}"
 read META
 echo -e "${NC}"
-if [ $META != "Cube" -a $META != "Dreambox" -a $META != "HyperCube" -a $META != "Linkdroid" -a $META != "MINIX" -a $META != "Odroid" -a $META != "RPi" -a $META != "WeTek" -a $META != "Specific" ]
+if [ $META != "AZ" -a $META != "Cube" -a $META != "DM" -a $META != "GB" -a $META != "HyperCube" -a $META != "Linkdroid" -a $META != "MINIX" -a $META != "Odroid" -a $META != "RPi" -a $META != "WeTek" -a $META != "Specific" ]
 then
 	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
@@ -170,13 +170,24 @@ then
 	echo -e ""
 	MACHINE=$MACHINESPECIFIC $IMAGECMD
 fi
+if [ $META = "AZ" ]
+then
+	MACHINE=azboxhd $IMAGECMD
+fi
 if [ $META = "Cube" ]
 then
 	MACHINE=cube $IMAGECMD
 fi
-if [ $META = "Dreambox" ]
+if [ $META = "DM" ]
 then
+	MACHINE=dm500hd $IMAGECMD
 	MACHINE=dm800 $IMAGECMD
+	MACHINE=dm800se $IMAGECMD
+fi
+if [ $META = "GB" ]
+then
+	MACHINE=gb800se $IMAGECMD
+	MACHINE=gb800ue $IMAGECMD
 fi
 if [ $META = "HyperCube" ]
 then

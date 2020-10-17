@@ -33,7 +33,7 @@
 # Odroid
 * odroidc2
 
-# RaspberryPi
+# RPi
 * raspberrypi
 * raspberrypi0
 * raspberrypi2

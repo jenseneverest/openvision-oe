@@ -20,9 +20,9 @@ python populate_packages_prepend () {
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.a$', 'enigma2-plugin-%s-staticdev', '%s (static development)', recursive=True, match_path=True, prepend=True)
 }
 
-do_install_azboxhd() {
+do_install() {
 	install -d ${D}${bindir}/
-	install -m 0755 ${S}${base_bindir}/dvd_player-ForHD ${D}${bindir}/dvd_player
+	install -m 0755 ${S}${base_bindir}/dvd_player ${D}${bindir}/
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
 	install -m 0644 ${S}/plugin/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
@@ -55,9 +55,9 @@ do_install_azboxhd() {
         install -m 0644 ${S}/plugin/skins/default/images/icons/*.* ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/skins/default/images/icons/
 }
 
-do_install() {
+do_install_azboxhd() {
 	install -d ${D}${bindir}/
-	install -m 0755 ${S}${base_bindir}/dvd_player ${D}${bindir}/
+	install -m 0755 ${S}${base_bindir}/dvd_player-ForHD ${D}${bindir}/dvd_player
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
 	install -m 0644 ${S}/plugin/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/

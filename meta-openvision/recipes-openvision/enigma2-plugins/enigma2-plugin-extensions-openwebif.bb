@@ -60,6 +60,10 @@ do_install_append() {
 		install -m 0644 ${S}/plugin/public/images/remotes/${RCNAME}.png ${D}${PLUGINPATH}/public/images/remotes/
 		install -m 0644 ${S}/plugin/public/static/remotes/${RCNAME}.html ${D}${PLUGINPATH}/public/static/remotes/
 	fi
+	if [ "${MACHINE}" = "azboxhd" ]; then
+		install -m 0644 ${S}/plugin/public/images/remotes/azboxelite.png ${D}${PLUGINPATH}/public/images/remotes/
+		install -m 0644 ${S}/plugin/public/static/remotes/azboxelite.html ${D}${PLUGINPATH}/public/static/remotes/
+	fi
 }
 
 FILES_${PN} = "${PLUGINPATH}"
