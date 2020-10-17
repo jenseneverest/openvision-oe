@@ -37,3 +37,6 @@
 [submodule "meta-az"]
 	path = meta-az
 	url = https://github.com/OpenVisionE2/meta-az.git
+[submodule "meta-gb"]
+	path = meta-gb
+	url = https://github.com/OpenVisionE2/meta-gb.git
