@@ -10,6 +10,7 @@ RPROVIDES_${PN} += "virtual/enigma2-mediaservice"
 DEPENDS = "\
 	enigma2 \
 	libeplayer3 \
+	python \
 	"
 
 RDEPENDS_${PN} = "\

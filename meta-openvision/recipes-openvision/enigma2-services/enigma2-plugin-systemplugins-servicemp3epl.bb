@@ -74,6 +74,7 @@ PACKAGECONFIG[libeplayer]      = "--enable-libeplayer3,--disable-libeplayer3,lib
 
 DEPENDS = "\
 	enigma2 \
+	python \
 	"
 
 RDEPENDS_${PN} = "\
