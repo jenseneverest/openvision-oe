@@ -2,22 +2,22 @@ SUMMARY = "Download videos from YouTube (and more sites)"
 DESCRIPTION = "youtube-dl is a small command-line program to download videos \
 from YouTube.com and a few more sites. It requires the Python interpreter \
 (2.6, 2.7, or 3.2+), and it is not platform specific"
-HOMEPAGE = "http://rg3.github.io/youtube-dl/"
+HOMEPAGE = "https://youtube-dl.org"
 SECTION = "devel/python"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7246f848faa4e9c9fc0ea91122d6e680"
 
 DEPENDS = "libxml2 bash-completion"
 
-inherit gitpkgv
-
 PE = "1"
-PV = "git${SRCPV}"
-PKGV = "${GITPKGVTAG}"
+PV = "2020.09.20"
 
-SRC_URI = "git://github.com/ytdl-org/youtube-dl.git;protocol=git;branch=master"
+SRC_URI = "https://distfiles.macports.org/youtube-dl/youtube-dl-${PV}.tar.gz"
 
-S = "${WORKDIR}/git"
+SRC_URI[md5sum] = "ce6abd9cc401d2c7d2bb855088d7447b"
+SRC_URI[sha256sum] = "ac1a799cf968345bf29089ed2e5c5d4f4a32031625d808369e61b6362d1c7cde"
+
+S = "${WORKDIR}/youtube-dl"
 
 inherit setuptools
 
@@ -43,7 +43,6 @@ RDEPENDS_${PN} = " \
     python-html \
     "
 
-PACKAGES += "${PN}-src"
 RDEPENDS_{PN}-src = "${PN}"
 FILES_${PN}-src = " \
     ${libdir}/${PYTHON_DIR}/site-packages/*/*.py \
@@ -54,5 +53,3 @@ FILES_${PN}-src = " \
     "
 
 FILES_${PN} += "${sysconfdir}"
-
-do_configure[nostamp] = "1"
