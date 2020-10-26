@@ -10,5 +10,3 @@ RRECOMMENDS_${PN} = " \
 	kernel-module-smsmdtv \
 	kernel-module-smsusb \
 	"
-
-PV = "1.1"

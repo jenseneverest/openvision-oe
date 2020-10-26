@@ -21,3 +21,4 @@ ${localstatedir}/lib/subssupport"
 do_install_append() {
     install -d ${D}${localstatedir}/lib/subssupport
 }
+

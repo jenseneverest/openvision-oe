@@ -20,5 +20,3 @@ RRECOMMENDS_${PN} = " \
 	kernel-module-xc5000 \
 	firmware-xc5000 \
 	"
-
-PV = "1.1"

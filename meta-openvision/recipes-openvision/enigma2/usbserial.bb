@@ -3,5 +3,4 @@ RDEPENDS_${PN} = "kernel-module-usbserial kernel-module-ftdi-sio kernel-module-p
 
 require conf/license/openvision-gplv2.inc
 
-
 ALLOW_EMPTY_${PN} = "1"

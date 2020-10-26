@@ -12,5 +12,4 @@ RRECOMMENDS_${PN} = " \
     vuplus-tuner-turbo \
     "
 
-
 ALLOW_EMPTY_${PN} = "1"

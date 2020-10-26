@@ -19,14 +19,3 @@ FILES_${PN} = "${prefix}"
 
 require skin-data.inc
 require skin-python.inc
-
-do_postrm_append() {
-#!/bin/sh
-rm -rf ${datadir}/enigma2/XionHDF
-rm -rf ${libdir}/enigma2/python/Plugins/Extensions/XionHDF
-rm -rf ${libdir}/enigma2/python/Components/Converter/XionHDF*
-rm -rf ${libdir}/enigma2/python/Components/Renderer/XionHDF*
-echo "                                                          "
-echo "              ...Skin successful removed.                 "
-echo "                                                          "
-}

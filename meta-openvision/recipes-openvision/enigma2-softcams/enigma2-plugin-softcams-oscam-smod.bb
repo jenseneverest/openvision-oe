@@ -6,7 +6,7 @@ DESCRIPTION = "Combining the benefits of\n \
 - emu support\n \
 "
 
-inherit cmake gitpkgv
+require oscam-config.inc
 
 BINFILE = "oscam-smod"
 
@@ -20,31 +20,7 @@ PKGV = "1.20+git${GITPKGV}"
 
 SRC_URI = "git://github.com/oe-alliance/oscam-smod;protocol=https"
 
-S = "${WORKDIR}/git"
 F = "${WORKDIR}/git/files"
-
-PACKAGE_ARCH = "${DEFAULTTUNE}"
-
-DEPENDS = "libusb openssl"
-
-EXTRA_OECMAKE += "\
-	-DOSCAM_SYSTEM_NAME=Tuxbox \
-	-DWEBIF=1 \
-	-DWEBIF_LIVELOG=1 \
-	-DWEBIF_JQUERY=1 \
-	-DWITH_STAPI=0 \
-	-DHAVE_LIBUSB=1 \
-	-DSTATIC_LIBUSB=0 \
-	-DWITH_SSL=1 \
-	-DIPV6SUPPORT=1 \
-	-DCLOCKFIX=0 \
-	-DHAVE_PCSC=1 \
-	-DCARDREADER_SMARGO=1 \
-	-DCARDREADER_PCSC=1 \
-	-DCW_CYCLE_CHECK=1 \
-	-DCS_CACHEEX=1 \
-	-DMODULE_CONSTCW=1 \
-	"
 
 do_configure_prepend() {
     cp ${F}/SoftCam.Key ${S}/SoftCam.Key

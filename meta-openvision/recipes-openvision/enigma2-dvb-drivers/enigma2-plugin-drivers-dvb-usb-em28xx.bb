@@ -8,5 +8,3 @@ RRECOMMENDS_${PN} = " \
 	kernel-module-tda10071 \
 	firmware-dvb-fe-tda10071 \
 	"
-
-PV = "1.1"

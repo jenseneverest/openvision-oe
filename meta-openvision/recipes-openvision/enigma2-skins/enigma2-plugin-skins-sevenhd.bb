@@ -22,14 +22,3 @@ require skin-python.inc
 do_install() {
 	cp -r --preserve=mode,links ${S}/data${prefix} ${D}/
 }
-
-do_postrm_append() {
-#!/bin/sh
-rm -rf ${datadir}/enigma2/SevenHD
-rm -rf ${libdir}/enigma2/python/Plugins/Extensions/SevenHD
-rm -rf ${libdir}/enigma2/python/Components/Converter/SevenHD*
-rm -rf ${libdir}/enigma2/python/Components/Renderer/SevenHD*
-echo "                                                          "
-echo "              ...Skin successful removed.                 "
-echo "                                                          "
-}

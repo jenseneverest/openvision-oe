@@ -13,7 +13,7 @@ SRC_URI = "git://github.com/mx3L/kodiext;protocol=git;branch=master \
 	file://0001-make-transparant.patch \
 	file://advancedsettings.xml \
 	file://advancedsettings-empty.xml \
-"
+	"
 
 S = "${WORKDIR}/git"
 

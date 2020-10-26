@@ -5,5 +5,5 @@ require conf/license/license-gplv2.inc
 require openplugins-replace-vision.inc
 require openplugins-distutils.inc
 
-PACKAGES += "${PN}-example"
+PACKAGES =+ "${PN}-example"
 FILES_${PN}-example = "${sysconfdir}/ppanel/PPanel_tutorial.xml"

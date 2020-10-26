@@ -11,5 +11,3 @@ do_install() {
 	install -d ${D}/picon
 	cp  -R ${S}/picons/* ${D}/picon/
 }
-
-

@@ -26,5 +26,3 @@ RRECOMMENDS_${PN} = " \
 	kernel-module-mt2266 \
 	kernel-module-tuner-xc2028 \
 	"
-
-PV = "1.1"

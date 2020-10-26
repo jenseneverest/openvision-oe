@@ -26,10 +26,3 @@ EXTRA_OECONF = "\
 CONFFILES_${PN} = " \
     ${libdir}/enigma2/python/Plugins/Extensions/YahooWeather/Config/Location_id \
     ${libdir}/enigma2/python/Plugins/Extensions/YahooWeather/Config/Region_id "
-
-pkg_postrm_${PN}() {
-#!/bin/sh
-rm -r ${libdir}/enigma2/python/Plugins/Extensions/YahooWeather
-echo " YahooWeather removed! You should restart enigma2 now!"
-exit 0
-}

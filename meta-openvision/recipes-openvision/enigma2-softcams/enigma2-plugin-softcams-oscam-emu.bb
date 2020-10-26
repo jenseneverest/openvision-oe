@@ -1,6 +1,6 @@
 require conf/license/openvision-gplv2.inc
 require softcam.inc
-inherit cmake gitpkgv upx_compress
+require oscam-config.inc
 
 DESCRIPTION = "OScam-emu ${PV} Open Source Softcam"
 LICENSE = "GPLv3"
@@ -12,9 +12,6 @@ PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 SRC_URI = "git://github.com/oscam-emu/oscam-patched.git;protocol=https"
 
-DEPENDS = "libusb openssl"
-
-S = "${WORKDIR}/git"
 B = "${S}"
 CAMNAME = "oscam-emu"
 CAMSTART = "${bindir}/oscam-emu --wait 0 --config-dir ${sysconfdir}/tuxbox/config/oscam-emu --daemon --pidfile /tmp/oscam-emu.pid --restart 2 --utf8"
@@ -30,25 +27,6 @@ SRC_URI += "\
 CONFFILES = "${sysconfdir}/tuxbox/config/oscam-emu/oscam.conf ${sysconfdir}/tuxbox/config/oscam-emu/oscam.server ${sysconfdir}/tuxbox/config/oscam-emu/oscam.srvid ${sysconfdir}/tuxbox/config/oscam-emu/oscam.user ${sysconfdir}/tuxbox/config/oscam-emu/oscam.provid"
 
 FILES_${PN} = "${bindir}/oscam-emu ${sysconfdir}/tuxbox/config/oscam-emu/* ${sysconfdir}/init.d/softcam.oscam-emu"
-
-EXTRA_OECMAKE += "\
-	-DOSCAM_SYSTEM_NAME=Tuxbox \
-	-DWEBIF=1 \
-	-DWEBIF_LIVELOG=1 \
-	-DWEBIF_JQUERY=1 \
-	-DWITH_STAPI=0 \
-	-DHAVE_LIBUSB=1 \
-	-DSTATIC_LIBUSB=0 \
-	-DWITH_SSL=1 \
-	-DIPV6SUPPORT=1 \
-	-DCLOCKFIX=0 \
-	-DHAVE_PCSC=1 \
-	-DCARDREADER_SMARGO=1 \
-	-DCARDREADER_PCSC=1 \
-	-DCW_CYCLE_CHECK=1 \
-	-DCS_CACHEEX=1 \
-	-DMODULE_CONSTCW=1 \
-	"
 
 do_install() {
 	install -d ${D}${sysconfdir}/tuxbox/config/oscam-emu

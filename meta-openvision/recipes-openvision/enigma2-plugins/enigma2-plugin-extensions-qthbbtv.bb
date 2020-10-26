@@ -22,7 +22,7 @@ FILES_${PN} =  " \
 	${bindir} \
 	${libdir}/mozilla/plugins \
 	${libdir}/${QtHbbtv} \
-"
+	"
 
 do_install() {
 	install -d ${D}${libdir}/${QtHbbtv}

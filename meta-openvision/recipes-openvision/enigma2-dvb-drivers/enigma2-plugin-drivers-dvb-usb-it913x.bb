@@ -12,5 +12,3 @@ RRECOMMENDS_${PN} = " \
         kernel-module-it913x \
         kernel-module-it913x-fe \
 	"
-
-PV = "1.2"

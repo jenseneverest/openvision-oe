@@ -18,5 +18,3 @@ RRECOMMENDS_${PN} = " \
 	kernel-module-tda18218 \
 	kernel-module-tda18271 \
 	"
-
-PV = "1.1"

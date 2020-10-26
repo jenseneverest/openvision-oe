@@ -7,9 +7,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 DEPENDS = "enigma2 python-process libcrypto-compat gettext-native python-six-native"
 RDEPENDS_enigma2-plugin-systemplugins-visioncore = "python-process libcrypto-compat python-compression p7zip zip procps python-beautifulsoup4 bzip2 nfs-utils nfs-utils-client"
 
-RCONFLICTS_enigma2-plugin-systemplugins-visioncore = "settings-autorestore"
-RREPLACES_enigma2-plugin-systemplugins-visioncore = "settings-autorestore"
-
 PROVIDES += "openvision-core-plugin"
 RPROVIDES_enigma2-plugin-systemplugins-visioncore += "openvision-core-plugin"
 
@@ -29,9 +26,9 @@ EXTRA_OECONF = "\
     STAGING_LIBDIR=${STAGING_LIBDIR} \
     "
 
-PACKAGES += "enigma2-plugin-systemplugins-visioncore"
-PACKAGES += "enigma2-plugin-systemplugins-visioncore-src"
-PACKAGES += "enigma2-plugin-systemplugins-visioncore-po"
+PACKAGES =+ "enigma2-plugin-systemplugins-visioncore"
+PACKAGES =+ "enigma2-plugin-systemplugins-visioncore-src"
+PACKAGES =+ "enigma2-plugin-systemplugins-visioncore-po"
 CONFFILES_enigma2-plugin-systemplugins-visioncore += "${sysconfdir}/exports"
 FILES_enigma2-plugin-systemplugins-visioncore = "${sysconfdir} ${libdir}"
 

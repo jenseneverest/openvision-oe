@@ -8,5 +8,3 @@ RRECOMMENDS_${PN} = " \
 	kernel-module-as102-fe \
 	kernel-module-dvb-as102 \
 	"
-
-PV = "1.1"

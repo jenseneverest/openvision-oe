@@ -10,5 +10,3 @@ RRECOMMENDS_${PN} = " \
 	firmware-dvb-usb-wt220u-zl0353-01 \
 	kernel-module-dvb-usb-dtt200u \
 	"
-
-PV = "1.1"

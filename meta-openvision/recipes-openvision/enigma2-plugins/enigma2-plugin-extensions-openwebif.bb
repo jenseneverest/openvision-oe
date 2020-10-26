@@ -34,13 +34,6 @@ do_compile() {
 }
 
 PLUGINPATH = "${libdir}/enigma2/python/Plugins/Extensions/OpenWebif"
-do_install_append() {
-	install -d ${D}${PLUGINPATH}
-	cp -r ${S}/plugin/* ${D}${PLUGINPATH}
-	chmod a+rX ${D}${PLUGINPATH}
-}
-
-FILES_${PN} = "${PLUGINPATH}"
 
 do_install_append() {
 	install -d ${D}${PLUGINPATH}

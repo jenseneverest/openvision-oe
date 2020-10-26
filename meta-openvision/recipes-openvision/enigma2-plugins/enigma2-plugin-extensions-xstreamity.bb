@@ -16,8 +16,9 @@ SRC_URI = "git://github.com/kiddac/XStreamity.git"
 S = "${WORKDIR}/git"
 
 FILES_${PN} = " ${libdir}/enigma2/python/Components/Converter/* \
-                ${libdir}/enigma2/python/Components/Renderer/* \
-                ${libdir}/enigma2/python/Plugins/Extensions/XStreamity/*"
+	${libdir}/enigma2/python/Components/Renderer/* \
+	${libdir}/enigma2/python/Plugins/Extensions/XStreamity/* \
+	"
 
 do_install() {
     install -d ${D}${libdir}/enigma2/python/Components/Converter

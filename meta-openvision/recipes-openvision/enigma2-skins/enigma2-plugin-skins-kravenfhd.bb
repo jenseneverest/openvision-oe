@@ -19,14 +19,3 @@ FILES_${PN} = "${prefix}/* ${sysconfdir}/*"
 
 require skin-data.inc
 require skin-python.inc
-
-do_postrm_append() {
-#!/bin/sh
-rm -rf ${datadir}/enigma2/KravenFHD
-rm -rf ${libdir}/enigma2/python/Plugins/Extensions/KravenFHD
-rm -rf ${libdir}/enigma2/python/Components/Converter/KravenFHD*
-rm -rf ${libdir}/enigma2/python/Components/Renderer/KravenFHD*
-echo "                                                          "
-echo "              ...Skin successful removed.                 "
-echo "                                                          "
-}

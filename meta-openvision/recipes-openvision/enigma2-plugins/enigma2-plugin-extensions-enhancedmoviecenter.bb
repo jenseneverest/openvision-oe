@@ -13,8 +13,8 @@ PV = "4.0.+git${SRCPV}"
 PKGV = "4.0.+git${GITPKGV}"
 
 SRC_URI = "git://github.com/betonme/e2openplugin-EnhancedMovieCenter.git \
-        file://get-rid-of-sFileSize.patch \
-"
+	file://get-rid-of-sFileSize.patch \
+	"
 
 S = "${WORKDIR}/git"
 
@@ -39,10 +39,3 @@ CONFFILES_${PN} = "${sysconfdir}/enigma2/emc-hide.cfg ${sysconfdir}/enigma2/emc-
 
 do_populate_sysroot[noexec] = "1"
 do_package_qa[noexec] = "1"
-
-pkg_postrm_${PN}() {
-#!/bin/sh
-rm -rf ${libdir}/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/
-echo "Plugin removed! You should restart enigma2 now!"
-exit 0
-}

@@ -9,5 +9,3 @@ RRECOMMENDS_${PN} = " \
 	firmware-dvb-usb-s660 \
 	firmware-dvb-fe-ds3000 \
 	"
-
-PV = "1.1"

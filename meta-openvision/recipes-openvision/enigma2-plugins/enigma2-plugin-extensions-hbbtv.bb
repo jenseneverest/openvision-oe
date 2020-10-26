@@ -5,8 +5,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=c9e255efa454e0155c1fd758df7dcaf3"
 BRANCH = "vuplus_experimental"
 S = "${WORKDIR}/git"
 SRC_URI = "git://github.com/OpenVuPlus/dvbapp.git;protocol=http;branch=${BRANCH} \
-        file://move-youtube-menu-entry.patch \
-"
+	file://move-youtube-menu-entry.patch \
+	"
 
 inherit gitpkgv rm_python_pyc compile_python_pyo no_python_src
 
@@ -15,9 +15,9 @@ PKGV = "git${GITPKGV}"
 
 RDEPENDS_${PN}  = "vuplus-opera-browser vuplus-hbbtv-dumpait"
 FILES_${PN}     = "${libdir}/enigma2/python/Plugins/Extensions/HbbTV/* \
-        ${libdir}/enigma2/python/Components/Sources/* \
-        ${libdir}/enigma2/python/Components/Converter/* \
-"
+	${libdir}/enigma2/python/Components/Sources/* \
+	${libdir}/enigma2/python/Components/Converter/* \
+	"
 
 do_install() {
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/HbbTV

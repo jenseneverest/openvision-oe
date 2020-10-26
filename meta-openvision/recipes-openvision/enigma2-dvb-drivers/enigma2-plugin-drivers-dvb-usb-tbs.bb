@@ -14,5 +14,3 @@ RRECOMMENDS_${PN} = " \
 	firmware-dvb-usb-tbs5925 \
 	firmware-dvb-usb-tbs5980 \
 	"
-
-PV = "1.1"

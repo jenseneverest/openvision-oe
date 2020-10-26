@@ -13,5 +13,3 @@ RRECOMMENDS_${PN} = " \
 	kernel-module-tda18218 \
 	kernel-module-tua9001 \
 	"
-
-PV = "1.3"

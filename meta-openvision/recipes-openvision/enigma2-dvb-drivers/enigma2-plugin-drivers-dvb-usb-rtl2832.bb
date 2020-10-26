@@ -16,5 +16,3 @@ RRECOMMENDS_${PN} = " \
 	firmware-dvb-usb-af9035-01 \
 	firmware-dvb-usb-af9035-02 \
 	"
-
-PV = "1.1"
