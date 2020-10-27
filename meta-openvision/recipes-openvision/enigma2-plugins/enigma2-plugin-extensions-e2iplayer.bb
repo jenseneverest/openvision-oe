@@ -13,7 +13,7 @@ inherit gitpkgv allarch distutils-openplugins gettext
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-DEPENDS = "gettext-native python"
+DEPENDS = "gettext-native ${PYTHONNAMEONLY}"
 
 RDEPENDS_${PN} = " \
 	cmdwrapper \
@@ -23,15 +23,16 @@ RDEPENDS_${PN} = " \
 	hlsdl \
 	iptvsubparser \
 	lsdir \
-	python-compression \
-	python-core \
-	python-e2icjson \
-	python-html \
-	python-json \
-	python-pycurl \
-	python-shell \
+	${PYTHONNAMEONLY}-compression \
+	${PYTHONNAMEONLY}-core \
+	${PYTHONNAMEONLY}-e2icjson \
+	${PYTHONNAMEONLY}-html \
+	${PYTHONNAMEONLY}-json \
+	${PYTHONNAMEONLY}-pycurl \
+	${PYTHONNAMEONLY}-shell \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", " \
 	python-subprocess \
-	python-textutils \
+	python-textutils", d)} \
 	rtmpdump \
 	uchardet \
 	wget \

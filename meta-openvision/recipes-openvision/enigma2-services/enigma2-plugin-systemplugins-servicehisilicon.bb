@@ -8,14 +8,14 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 PROVIDES += "virtual/enigma2-mediaservice"
 RPROVIDES_${PN} += "virtual/enigma2-mediaservice"
 
-DEPENDS = "enigma2 python"
+DEPENDS = "enigma2 ${PYTHONNAMEONLY}"
 RDEPENDS_${PN} = "enigma2"
 
 SRC_URI = "git://github.com/OpenVisionE2/servicehisilicon.git;branch=master"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pythonnative pkgconfig gettext rm_python_pyc compile_python_pyo no_python_src
+inherit autotools gitpkgv ${PYTHONNAMEONLY}native pkgconfig gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -28,7 +28,7 @@ EXTRA_OECONF = "\
 	"
 
 FILES_${PN} += "\
-	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/*.pyo \
+	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/*.${PYTHONEXTENSION} \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/*.png \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/*/*/*/*.mo \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceHisilicon/servicehisilicon.so"

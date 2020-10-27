@@ -25,13 +25,15 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-webserver \
 	$(CURDIR)/meta-qt5 \
 	$(CURDIR)/meta-openvision \
+	$(CURDIR)/meta-az \
 	$(CURDIR)/meta-cube \
-	$(CURDIR)/meta-dm800 \
+	$(CURDIR)/meta-dm \
+	$(CURDIR)/meta-gb \
 	$(CURDIR)/meta-hypercube \
 	$(CURDIR)/meta-linkdroid \
 	$(CURDIR)/meta-minix \
 	$(CURDIR)/meta-odroid \
-	$(CURDIR)/meta-raspberrypi \
+	$(CURDIR)/meta-rpi \
 	$(CURDIR)/meta-wetek
 
 CONFFILES = \

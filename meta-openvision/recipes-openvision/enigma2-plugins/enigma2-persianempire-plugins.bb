@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit autotools-brokensep gitpkgv pythonnative gettext rm_python_pyc compile_python_pyo no_python_src
+inherit autotools-brokensep gitpkgv ${PYTHONNAMEONLY}native gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -43,11 +43,11 @@ DEPENDS = "\
 	${@bb.utils.contains("MACHINE", "dm800", "", "dvb-apps", d)} \
 	hairtunes \
 	hddtemp \
-	python-subprocess32 \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-subprocess", d)} \
 	unrar \
 	"
 
-RDEPENDS_enigma2-plugin-extensions-airplayer = "python-ctypes python-misc python-shell python-subprocess gst-plugins-bad-fragmented hairtunes"
+RDEPENDS_enigma2-plugin-extensions-airplayer = "${PYTHONNAMEONLY}-ctypes ${PYTHONNAMEONLY}-misc ${PYTHONNAMEONLY}-shell ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-subprocess", d)} gst-plugins-bad-fragmented hairtunes"
 DESCRIPTION_enigma2-plugin-extensions-blockcontent = "Block Content for enigma2"
 FILES_enigma2-plugin-extensions-deviceinfo_append = " ${libdir}/enigma2/python/Components/Converter/ProgressDiskSpaceInfo.pyo"
 FILES_enigma2-plugin-extensions-deviceinfo-src_append = " ${libdir}/enigma2/python/Components/Converter/ProgressDiskSpaceInfo.py"

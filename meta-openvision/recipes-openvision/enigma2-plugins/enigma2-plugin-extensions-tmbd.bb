@@ -15,13 +15,13 @@ PV = "1+git${SRCPV}"
 PKGV = "1+git${GITPKGV}"
 
 RDEPENDS_${PN} = " \
-	python-twisted-web \
-	python-xml \
-	python-shell \
-	python-misc \
-	python-html \
-	python-subprocess \
-	python-unixadmin \
-	python-lxml \
+	${PYTHONNAMEONLY}-twisted-web \
+	${PYTHONNAMEONLY}-xml \
+	${PYTHONNAMEONLY}-shell \
+	${PYTHONNAMEONLY}-misc \
+	${PYTHONNAMEONLY}-html \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-subprocess", d)} \
+	${PYTHONNAMEONLY}-unixadmin \
+	${PYTHONNAMEONLY}-lxml \
 	youtube-key \
 	"

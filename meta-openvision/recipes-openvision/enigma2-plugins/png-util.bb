@@ -12,7 +12,7 @@ SRC_URI = "\
 
 S = "${WORKDIR}/${P}"
 
-inherit distutils rm_python_pyc compile_python_pyo no_python_src
+inherit ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "distutils3", "distutils", d)} rm_python_pyc compile_python_pyo no_python_src
 
 do_compile() {
 	swig -python2 -c++ ${WORKDIR}/png_util.i

@@ -6,19 +6,17 @@ LIC_FILES_CHKSUM = "file://PKG-INFO;md5=41a98bc55b04b2a38acdb5c8ab0ae6b2"
 
 SRCNAME = "httplib2"
 
-SRC_URI = "https://files.pythonhosted.org/packages/source/h/${SRCNAME}/${SRCNAME}-${PV}.tar.gz \
-            file://0001-0.10.3_to_4caa6d080c23a1ddf9c7db789ad66743111b704d.patch;patch=1 \
-"
+SRC_URI = "https://files.pythonhosted.org/packages/98/3f/0769a851fbb0ecc458260055da67d550d3015ebe6b8b861c79ad00147bb9/httplib2-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "709c305e1b00e9c0af49ee816429569c"
-SRC_URI[sha256sum] = "e404d3b7bd86c1bc931906098e7c1305d6a3a6dcef141b8bb1059903abb3ceeb"
+SRC_URI[md5sum] = "0b331f96cdb2ae0e0342d4ea0f5f0502"
+SRC_URI[sha256sum] = "8af66c1c52c7ffe1aa5dc4bcd7c769885254b0756e6e69f953c7f0ab49a70ba3"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 
 inherit setuptools python-dir
 
 do_compile_append() {
-       python -O -m compileall ${W}/build
+       python2 -O -m compileall ${W}/build
 }
 
 do_install_append() {
@@ -35,7 +33,6 @@ do_install_append() {
 
 RDEPENDS_${PN} = "ca-certificates"
 
-PACKAGES += "${PN}-src"
 RDEPENDS_{PN}-src = "${PN}"
 
 FILES_${PN}-src = " \

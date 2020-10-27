@@ -18,13 +18,13 @@ PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
 RDEPENDS_${PN} = " \
-	python-core \
-	python-codecs \
-	python-json \
-	python-netclient \
-	python-pyopenssl \
-	python-zlib \
-	python-twisted-web \
+	${PYTHONNAMEONLY}-core \
+	${PYTHONNAMEONLY}-codecs \
+	${PYTHONNAMEONLY}-json \
+	${PYTHONNAMEONLY}-netclient \
+	${PYTHONNAMEONLY}-pyopenssl \
+	${PYTHONNAMEONLY}-twisted-web \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-zlib", d)} \
 	youtube-key \
 	"
 

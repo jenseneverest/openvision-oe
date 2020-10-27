@@ -4,7 +4,7 @@ SECTION = "misc"
 PRIORITY = "optional"
 LICENSE = "CLOSED"
 
-RDEPENDS_${PN} += "python-requests python-subprocess python-imaging enigma2-plugin-systemplugins-mphelp python-lxml"
+RDEPENDS_${PN} += "${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging python-subprocess", d)} ${PYTHONNAMEONLY}-requests ${PYTHONNAMEONLY}-lxml enigma2-plugin-systemplugins-mphelp"
 
 inherit gitpkgv allarch
 

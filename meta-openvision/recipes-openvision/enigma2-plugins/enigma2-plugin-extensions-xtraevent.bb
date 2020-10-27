@@ -7,9 +7,9 @@ SRC_URI = "git://github.com/OpenVisionE2/xtraEvent;protocol=git"
 inherit gitpkgv distutils-openplugins
 
 RDEPENDS_${PN} += "\
-	python-image \
-	python-imaging \
-	python-requests \
+	${PYTHONNAMEONLY}-image \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging", d)} \
+	${PYTHONNAMEONLY}-requests \
 	"
 
 S = "${WORKDIR}/git"

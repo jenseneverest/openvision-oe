@@ -5,8 +5,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS = "enigma2 uchardet openssl python"
-RDEPENDS_${PN} = "python-json"
+DEPENDS = "enigma2 uchardet openssl ${PYTHONNAMEONLY}"
+RDEPENDS_${PN} = "${PYTHONNAMEONLY}-json"
 
 SMALLFL = "${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "gstplayer", "exteplayer3 gstplayer", d)}"
 RRECOMMENDS_${PN} = "${@bb.utils.contains("MACHINE_FEATURES", "exteplayeronly", "exteplayer3", "${SMALLFL}", d)}"
@@ -29,7 +29,7 @@ SRC_URI = "git://github.com/OpenVisionE2/serviceapp.git;branch=develop"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pythonnative pkgconfig gettext rm_python_pyc compile_python_pyo no_python_src
+inherit autotools gitpkgv ${PYTHONNAMEONLY}native pkgconfig gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -42,7 +42,7 @@ EXTRA_OECONF = "\
 	"
 
 FILES_${PN} = "\
-	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/*.pyo \
+	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/*.${PYTHONEXTENSION} \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/locale/*/LC_MESSAGES/ServiceApp.mo \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/serviceapp.so"
 

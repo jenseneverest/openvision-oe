@@ -4,13 +4,13 @@ require conf/license/license-gplv2.inc
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS = "enigma2 python-process libcrypto-compat gettext-native python-six-native"
-RDEPENDS_enigma2-plugin-systemplugins-visioncore = "python-process libcrypto-compat python-compression p7zip zip procps python-beautifulsoup4 bzip2 nfs-utils nfs-utils-client"
+DEPENDS = "enigma2 python-process libcrypto-compat gettext-native ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-six", "python-six-native", d)}"
+RDEPENDS_enigma2-plugin-systemplugins-visioncore = "python-process libcrypto-compat ${PYTHONNAMEONLY}-compression p7zip zip procps ${PYTHONNAMEONLY}-beautifulsoup4 bzip2 nfs-utils nfs-utils-client"
 
 PROVIDES += "openvision-core-plugin"
 RPROVIDES_enigma2-plugin-systemplugins-visioncore += "openvision-core-plugin"
 
-inherit autotools-brokensep gitpkgv pythonnative rm_python_pyc compile_python_pyo no_python_src
+inherit autotools-brokensep gitpkgv ${PYTHONNAMEONLY}native rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"

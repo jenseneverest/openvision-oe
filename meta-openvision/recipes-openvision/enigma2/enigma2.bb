@@ -10,8 +10,8 @@ DEPENDS = "\
 	jpeg \
 	libdreamdvd libdvbsi++ libfribidi libmad libpng libsigc++-2.0 giflib libxml2 \
 	openssl libudfread \
-	python-imaging python-twisted python-wifi \
-	python-six-native \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging", d)} ${PYTHONNAMEONLY}-twisted python-wifi \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-six", "python-six-native", d)} \
 	swig-native \
 	tuxtxt-enigma2 \
 	"
@@ -46,37 +46,40 @@ RDEPENDS_${PN}_append_rpi += "\
 RRECOMMENDS_${PN} = "\
 	hotplug-e2-helper \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "ofgwrite", d)} \
-	python-sendfile \
+	${PYTHONNAMEONLY}-sendfile \
 	virtual/enigma2-mediaservice \
 	"
 
+PYTHONEXACTVERSION_CHECK = "${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-image python3-pillow", "python-image python-imaging", d)}"
+
 PYTHON_RDEPS = "\
-	python-codecs \
-	python-core \
-	python-crypt \
-	python-fcntl \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "python-image python-imaging", d)} \
+	${PYTHONNAMEONLY}-codecs \
+	${PYTHONNAMEONLY}-core \
+	${PYTHONNAMEONLY}-crypt \
+	${PYTHONNAMEONLY}-fcntl \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "${PYTHONEXACTVERSION_CHECK}", d)} \
+	${PYTHONNAMEONLY}-mmap \
+	${PYTHONNAMEONLY}-netclient \
+	${PYTHONNAMEONLY}-netifaces \
+	${PYTHONNAMEONLY}-netserver \
+	${PYTHONNAMEONLY}-numbers \
+	${PYTHONNAMEONLY}-pickle \
+	python-process \
+	${PYTHONNAMEONLY}-pyusb \
+	${PYTHONNAMEONLY}-service-identity \
+	${PYTHONNAMEONLY}-shell \
+	${PYTHONNAMEONLY}-six \
+	${PYTHONNAMEONLY}-threading \
+	${PYTHONNAMEONLY}-twisted-core \
+	${PYTHONNAMEONLY}-twisted-web \
+	${PYTHONNAMEONLY}-xml \
+	${PYTHONNAMEONLY}-zopeinterface \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", " \
 	python-importlib \
 	python-lang \
-	python-mmap \
-	python-netclient \
-	python-netifaces \
-	python-netserver \
-	python-numbers \
-	python-pickle \
-	python-process \
-	python-pyusb \
 	python-re \
-	python-service-identity \
-	python-shell \
-	python-six \
-	python-threading \
-	python-twisted-core \
-	python-twisted-web \
 	python-utf8-hack \
-	python-xml \
-	python-zlib \
-	python-zopeinterface \
+	python-zlib", d)} \
 	"
 
 # DVD and iso playback is integrated, we need the libraries
@@ -98,12 +101,12 @@ DESCRIPTION_append_enigma2-plugin-systemplugins-positionersetup = "helps you ins
 DESCRIPTION_append_enigma2-plugin-systemplugins-satelliteequipmentcontrol = "allows you to fine-tune DiSEqC-settings."
 DESCRIPTION_append_enigma2-plugin-systemplugins-satfinder = "helps you to align your dish."
 DESCRIPTION_append_enigma2-plugin-systemplugins-videomode = "selects advanced video modes"
-RDEPENDS_enigma2-plugin-systemplugins-softwaremanager = "python-twisted-web"
+RDEPENDS_enigma2-plugin-systemplugins-softwaremanager = "${PYTHONNAMEONLY}-twisted-web"
 DESCRIPTION_append_enigma2-plugin-systemplugins-wirelesslan = "helps you configuring your wireless lan"
 RDEPENDS_enigma2-plugin-systemplugins-wirelesslan = "wpa-supplicant wireless-tools python-wifi"
 DESCRIPTION_append_enigma2-plugin-systemplugins-networkwizard = "provides easy step by step network configuration"
 # Note that these tools lack recipes
-RDEPENDS_enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools cdrkit python-imaging ${DEMUXTOOL} kernel-module-pktcdvd"
+RDEPENDS_enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools cdrkit ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging", d)} ${DEMUXTOOL} kernel-module-pktcdvd"
 RDEPENDS_enigma2-plugin-extensions-dvdplayer = "kernel-module-udf"
 RDEPENDS_enigma2-plugin-systemplugins-hotplug = "hotplug-e2-helper"
 
@@ -116,12 +119,12 @@ ALLOW_EMPTY_enigma2-plugin-font-wqy-microhei = "1"
 # the RDEPENDS for the plugins above, preventing [build-deps] warnings.
 RDEPENDS_${PN}-build-dependencies = "\
 	aio-grab \
-	dvd+rw-tools dvdauthor mjpegtools cdrkit python-imaging ${DEMUXTOOL} \
-	python-twisted-web \
+	dvd+rw-tools dvdauthor mjpegtools cdrkit ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging", d)} ${DEMUXTOOL} \
+	${PYTHONNAMEONLY}-twisted-web \
 	wpa-supplicant wireless-tools python-wifi \
 	"
 
-inherit gitpkgv pythonnative upx_compress autotools pkgconfig rm_python_pyc
+inherit gitpkgv ${PYTHONNAMEONLY}native upx_compress autotools pkgconfig rm_python_pyc compile_python_pyo
 
 ENIGMA2_BRANCH = "develop"
 PV = "develop+git${SRCPV}"
@@ -202,6 +205,7 @@ FILES_${PN}-dbg += "\
 # Swig generated 200k enigma.py file has no purpose for end users
 # Save some space by not installing sources (mytest.py must remain)
 FILES_${PN}-src = "\
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", " \
 	${libdir}/enigma2/python/GlobalActions.py \
 	${libdir}/enigma2/python/Navigation.py \
 	${libdir}/enigma2/python/NavigationInstance.py \
@@ -224,7 +228,7 @@ FILES_${PN}-src = "\
 	${libdir}/enigma2/python/*/*/*/*/*/*/*.py \
 	${libdir}/enigma2/python/*/*/*/*/*/*/*/*.py \
 	${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*.py \
-	${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*/*.py \
+	${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*/*.py", d)} \
 	"
 
 do_install_append() {

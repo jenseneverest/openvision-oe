@@ -29,8 +29,8 @@ IMAGE_INSTALL = "\
 	packagegroup-base \
 	packagegroup-core-boot \
 	parted \
-	python-ipaddress  \
-	python-netifaces \
+	${PYTHONNAMEONLY}-ipaddress  \
+	${PYTHONNAMEONLY}-netifaces \
 	sdparm \
 	tuxbox-common \
 	tzdata \

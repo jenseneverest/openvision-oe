@@ -5,7 +5,7 @@ SRCNAME = "process"
 
 require conf/license/license-gplv2.inc
 
-inherit distutils-base
+inherit ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "distutils3-base", "distutils-base", d)}
 
 PKGV = "1.0"
 
@@ -20,11 +20,15 @@ FILES_${PN}-src = "${PYTHON_SITEPACKAGES_DIR}/process.py"
 RDEPENDS_{PN}-src = "${PN}"
 
 do_compile() {
-    python -O -m compileall ${WORKDIR}/process.py
+    ${PYTHONEXACTVERSION} -O -m compileall ${WORKDIR}/process.py
 }
 
 do_install() {
-    install -d ${D}${PYTHON_SITEPACKAGES_DIR}
-    install -m 644 ${S}/process.py ${D}${PYTHON_SITEPACKAGES_DIR}/    
-    install -m 644 ${S}/process.pyo ${D}${PYTHON_SITEPACKAGES_DIR}/    
+	install -d ${D}${PYTHON_SITEPACKAGES_DIR}
+	if [ "${PYTHONEXACTVERSION}" = "python3" ]; then
+		install -m 644 ${S}/process.py ${D}${PYTHON_SITEPACKAGES_DIR}/
+	else
+		install -m 644 ${S}/process.py ${D}${PYTHON_SITEPACKAGES_DIR}/
+		install -m 644 ${S}/process.pyo ${D}${PYTHON_SITEPACKAGES_DIR}/
+	fi
 }

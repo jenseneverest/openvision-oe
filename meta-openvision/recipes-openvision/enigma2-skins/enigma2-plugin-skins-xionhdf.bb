@@ -4,7 +4,7 @@ SECTION = "misc"
 PRIORITY = "optional"
 LICENSE = "CLOSED"
 
-RDEPENDS_${PN} += "python-requests"
+RDEPENDS_${PN} += "${PYTHONNAMEONLY}-requests"
 
 inherit gitpkgv allarch
 

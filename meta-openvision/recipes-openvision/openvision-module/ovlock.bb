@@ -15,5 +15,5 @@ PACKAGES = "${PN}"
 
 do_install() {
 	install -d ${D}${libdir}/${PYTHONPATHVERSION}
-	install -m 0644 ${WORKDIR}/ov.pyo ${D}${libdir}/${PYTHONPATHVERSION}
+	install -m 0644 ${WORKDIR}/ov.${PYTHONEXTENSION} ${D}${libdir}/${PYTHONPATHVERSION}
 }

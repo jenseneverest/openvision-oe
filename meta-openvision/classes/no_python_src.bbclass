@@ -12,6 +12,7 @@ FILES_${PN}-dbg += "\
 	"
 
 FILES_${PN}-src += "\
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", " \
 	${libdir}/enigma2/python/*.py \
 	${libdir}/enigma2/python/*/*.py \
 	${libdir}/enigma2/python/*/*/*.py \
@@ -21,7 +22,7 @@ FILES_${PN}-src += "\
 	${libdir}/enigma2/python/*/*/*/*/*/*/*.py \
 	${libdir}/enigma2/python/*/*/*/*/*/*/*/*.py \
 	${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*.py \
-	${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*/*.py \
+	${libdir}/enigma2/python/*/*/*/*/*/*/*/*/*/*.py", d)} \
 	"
 
 FILES_${PN}-po += "\

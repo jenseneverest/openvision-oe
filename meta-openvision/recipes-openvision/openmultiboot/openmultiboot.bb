@@ -31,7 +31,7 @@ EXTRA_OEMAKE = "\
 do_install() {
     install -d ${D}${base_sbindir}
     install -m 755 ${S}/src/open_multiboot ${D}${base_sbindir}
-    install -m 644 ${S}/contrib/open-multiboot-branding-helper.pyo ${D}${base_sbindir}
+    install -m 644 ${S}/contrib/open-multiboot-branding-helper.${PYTHONEXTENSION} ${D}${base_sbindir}
 }
 
 pkg_preinst_${PN}() {

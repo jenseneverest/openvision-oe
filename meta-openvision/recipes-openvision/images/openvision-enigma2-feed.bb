@@ -79,27 +79,27 @@ OPTIONAL_PACKAGES += "\
 	procps \
 	pv \
 	pyload \
-	python-attrs \
-	python-beautifulsoup4 \
-	python-bluetool \
-	python-futures \
-	python-iso3166 \
-	python-iso639 \
-	python-isodate \
-	python-js2py \
-	python-lxml \
-	python-mechanize \
-	python-ntplib \
-	python-pexpect \
-	python-pip \
-	python-pyasn1-modules \
-	python-pyexecjs \
-	python-pysmb \
-	python-requests \
+	${PYTHONNAMEONLY}-attrs \
+	${PYTHONNAMEONLY}-beautifulsoup4 \
+	${PYTHONNAMEONLY}-bluetool \
+	${PYTHONNAMEONLY}-futures \
+	${PYTHONNAMEONLY}-iso3166 \
+	${PYTHONNAMEONLY}-iso639 \
+	${PYTHONNAMEONLY}-isodate \
+	${PYTHONNAMEONLY}-js2py \
+	${PYTHONNAMEONLY}-lxml \
+	${PYTHONNAMEONLY}-mechanize \
+	${PYTHONNAMEONLY}-ntplib \
+	${PYTHONNAMEONLY}-pexpect \
+	${PYTHONNAMEONLY}-pip \
+	${PYTHONNAMEONLY}-pyasn1-modules \
+	${PYTHONNAMEONLY}-pyexecjs \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-pysmb", d)} \
+	${PYTHONNAMEONLY}-requests \
 	python-soco \
 	python-singledispatch \
 	python-ujson \
-	python-websocket \
+	${PYTHONNAMEONLY}-websocket \
 	python-youtube-dl \
 	rclone \
 	rsync \

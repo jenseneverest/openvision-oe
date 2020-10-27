@@ -3,12 +3,12 @@ HOMEPAGE = "https://github.com/OpenVisionE2/CrossEPG"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=4fbd65380cdd255951079008b364516c"
 
-DEPENDS += "libxml2 zlib swig-native curl python"
-RDEPENDS_${PN} += "libcurl enigma2 python-compression python-lzma xz python-core"
+DEPENDS += "libxml2 zlib swig-native curl ${PYTHONNAMEONLY}"
+RDEPENDS_${PN} += "libcurl enigma2 ${PYTHONNAMEONLY}-compression ${PYTHONNAMEONLY}-lzma xz ${PYTHONNAMEONLY}-core"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit gitpkgv python-dir gettext rm_python_pyc compile_python_pyo no_python_src
+inherit gitpkgv ${PYTHONNAMEONLY}-dir gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "0.8.7+gitr${SRCPV}"
 PKGV = "0.8.7+gitr${GITPKGV}"

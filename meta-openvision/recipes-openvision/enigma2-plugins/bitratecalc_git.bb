@@ -4,9 +4,9 @@ LIC_FILES_CHKSUM = "file://${OPENVISION_BASE}/meta-openvision/licenses/CC-BY-NC-
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS = "enigma2"
+DEPENDS = "enigma2 ${PYTHONNAMEONLY}"
 
-inherit gitpkgv autotools pythonnative pkgconfig
+inherit gitpkgv autotools ${PYTHONNAMEONLY}native pkgconfig
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"

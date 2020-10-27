@@ -11,7 +11,7 @@ RDEPENDS_${PN} = "eti-tools python-core tsniv2ni"
 
 SRC_URI = "git://github.com/satdreamgr/dabstreamer.git"
 
-S = "${WORKDIR}/git/"
+S = "${WORKDIR}/git"
 
 PV = "0.1+git${SRCPV}"
 PKGV = "0.1+git${GITPKGV}"

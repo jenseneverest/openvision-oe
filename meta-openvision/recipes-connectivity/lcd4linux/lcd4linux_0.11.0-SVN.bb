@@ -3,7 +3,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0;md5=801f80980d171dd6425610833a22dbe6"
 
 DEPENDS = "virtual/libusb0 ncurses readline jpeg dbus-glib sqlite3"
-RDEPENDS_${PN} = "jpeg python-imaging"
+RDEPENDS_${PN} = "jpeg ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging", d)}"
 
 PV = "0.11.0-SVN"
 

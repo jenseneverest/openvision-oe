@@ -4,20 +4,20 @@ LIC_FILES_CHKSUM = "file://README;firstline=10;lastline=12;md5=9c14f792d0aeb54e1
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS = "python-cheetah-native"
+DEPENDS = "${PYTHONNAMEONLY}-cheetah-native"
 
 RDEPENDS_${PN} = "\
 	aio-grab \
-	python-cheetah \
-	python-compression\
-	python-ipaddress\
-	python-json \
-	python-misc \
-	python-numbers \
-	python-pyopenssl \
-	python-shell \
-	python-six \
-	python-unixadmin \
+	${PYTHONNAMEONLY}-cheetah \
+	${PYTHONNAMEONLY}-compression\
+	${PYTHONNAMEONLY}-ipaddress\
+	${PYTHONNAMEONLY}-json \
+	${PYTHONNAMEONLY}-misc \
+	${PYTHONNAMEONLY}-numbers \
+	${PYTHONNAMEONLY}-pyopenssl \
+	${PYTHONNAMEONLY}-shell \
+	${PYTHONNAMEONLY}-six \
+	${PYTHONNAMEONLY}-unixadmin \
 	"
 
 inherit gitpkgv distutils-openplugins gettext

@@ -2,7 +2,7 @@ SUMMARY = "Multi boot loader for enigma2"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-inherit gitpkgv pythonnative gettext autotools-brokensep rm_python_pyc compile_python_pyo no_python_src
+inherit gitpkgv ${PYTHONNAMEONLY}native gettext autotools-brokensep rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -13,7 +13,7 @@ SRC_URI = "git://github.com/OpenVisionE2/openmultibootmanager.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "python lzo"
+DEPENDS = "${PYTHONNAMEONLY} lzo"
 
 BLOCK2MTD_CHECK = "${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "", "kernel-module-block2mtd", d)}"
 

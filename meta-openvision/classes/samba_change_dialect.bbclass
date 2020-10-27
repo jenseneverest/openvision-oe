@@ -19,5 +19,4 @@ do_openvisionsambachangedialect(){
     find ${S}/ -type f -name "connect.c" | xargs -r -L1 sed -i '0,/smb1_operations/! {0,/smb1_operations/ s/smb1_operations/smb30_operations/}'
     find ${S}/ -type f -name "connect.c" | xargs -r -L1 sed -i '0,/smb1_values/! {0,/smb1_values/ s/smb1_values/smb30_values/}'
 }
-
 addtask openvisionsambachangedialect before do_configure after do_unpack

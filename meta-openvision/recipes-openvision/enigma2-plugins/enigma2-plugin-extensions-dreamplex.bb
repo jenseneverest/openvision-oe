@@ -3,13 +3,13 @@ MAINTAINER = "Don Davici"
 
 require conf/license/license-gplv2.inc
 
-inherit autotools-brokensep gitpkgv pythonnative gettext rm_python_pyc compile_python_pyo no_python_src
+inherit autotools-brokensep gitpkgv ${PYTHONNAMEONLY}native gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "2.1.3+git${SRCPV}"
 PKGV = "2.1.3+git${GITPKGV}"
 
-DEPENDS = "python virtual/gettext"
-RDEPENDS_${PN} += "curl mjpegtools python-ctypes libshowiframe0 python-imaging"
+DEPENDS = "${PYTHONNAMEONLY} virtual/gettext"
+RDEPENDS_${PN} += "curl mjpegtools ${PYTHONNAMEONLY}-ctypes libshowiframe0 ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging", d)}"
 
 SRC_URI = " \
 	git://github.com/DonDavici/DreamPlex.git;protocol=git \

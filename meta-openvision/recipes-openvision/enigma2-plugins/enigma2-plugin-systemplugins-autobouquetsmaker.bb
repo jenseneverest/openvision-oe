@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
 DEPENDS = "enigma2"
 
-inherit autotools-brokensep gitpkgv pythonnative gettext rm_python_pyc compile_python_pyo no_python_src
+inherit autotools-brokensep gitpkgv ${PYTHONNAMEONLY}native gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "3.1+git${SRCPV}"
 PKGV = "3.1+git${GITPKGV}"

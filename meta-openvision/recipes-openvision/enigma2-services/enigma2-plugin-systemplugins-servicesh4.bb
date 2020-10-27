@@ -10,7 +10,7 @@ RPROVIDES_${PN} += "virtual/enigma2-mediaservice"
 DEPENDS = "\
 	enigma2 \
 	libeplayer3 \
-	python \
+	${PYTHONNAMEONLY} \
 	"
 
 RDEPENDS_${PN} = "\
@@ -27,7 +27,7 @@ SRC_URI = "git://github.com/OpenVisionE2/servicemp3epl.git;branch=libeplayer"
 
 S = "${WORKDIR}/git"
 
-inherit autotools gitpkgv pythonnative pkgconfig rm_python_pyc compile_python_pyo no_python_src
+inherit autotools gitpkgv ${PYTHONNAMEONLY}native pkgconfig rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -40,7 +40,7 @@ EXTRA_OECONF = "\
 	"
 
 FILES_${PN} = "\
-	${libdir}/enigma2/python/Plugins/SystemPlugins/Servicelibpl/*.pyo \
+	${libdir}/enigma2/python/Plugins/SystemPlugins/Servicelibpl/*.${PYTHONEXTENSION} \
 	${libdir}/enigma2/python/Plugins/SystemPlugins/Servicelibpl/servicelibpl.so"
 
 FILES_${PN}-dev = "\

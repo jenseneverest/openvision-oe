@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM="file://COPYING;md5=435ed639f84d4585d93824e7da3d85da"
 
 DEPENDS = "libxml2"
 
-inherit gitpkgv autotools-brokensep pkgconfig
+inherit gitpkgv ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "setuptools3", "setuptools", d)} autotools-brokensep pkgconfig
 
 SRC_URI = "git://github.com/OpenVisionE2/libbluray.git"
 
