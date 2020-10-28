@@ -16,7 +16,7 @@ do_install() {
 	install -m 0755 ${S}${base_bindir}/dvd_player ${D}${bindir}/
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
-	install -m 0644 ${S}/plugin/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
+	install -m 0644 ${S}/plugin/*.${PYTHONEXTENSION}  ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
 	install -m 0644 ${S}/plugin/*.png ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
@@ -51,7 +51,7 @@ do_install_azboxhd() {
 	install -m 0755 ${S}${base_bindir}/dvd_player-ForHD ${D}${bindir}/dvd_player
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
-	install -m 0644 ${S}/plugin/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
+	install -m 0644 ${S}/plugin/*.${PYTHONEXTENSION}  ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/
 	install -m 0644 ${S}/plugin/*.png ${D}${libdir}/enigma2/python/Plugins/Extensions/MediaCenter/

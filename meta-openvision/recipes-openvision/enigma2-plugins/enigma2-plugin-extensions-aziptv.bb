@@ -14,7 +14,7 @@ S = "${WORKDIR}/git"
 do_install() {
 	install -d  ${D}${libdir}/enigma2/python/Plugins/Extensions/AzIPTV
 	
-	install -m 0644 ${S}/*.pyo \
+	install -m 0644 ${S}/*.${PYTHONEXTENSION}  \
 	${D}${libdir}/enigma2/python/Plugins/Extensions/AzIPTV
 
 	install -m 0755 ${S}/config \

@@ -15,7 +15,7 @@ do_install() {
 	install -d  ${D}${libdir}/enigma2/python/Plugins/Extensions/RSIConfig
 	install -d  ${D}${libdir}/enigma2/python/Plugins/Extensions/RSIConfig/keymaps
 
-	install -m 0644 ${S}/*.pyo \
+	install -m 0644 ${S}/*.${PYTHONEXTENSION}  \
 	${D}${libdir}/enigma2/python/Plugins/Extensions/RSIConfig
 	
 	install -m 0755 ${S}/ntp* \

@@ -4,7 +4,7 @@ MAINTAINER = "kiddac"
 PRIORITY = "optional"
 require conf/license/license-gplv2.inc
 
-RDEPENDS_${PN} = "${PYTHONNAMEONLY}-argparse ${PYTHONNAMEONLY}-image {@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging python-lzma", d)} ${PYTHONNAMEONLY}-multiprocessing ${PYTHONNAMEONLY}-requests"
+RDEPENDS_${PN} = "${PYTHONNAMEONLY}-argparse ${PYTHONNAMEONLY}-image ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging python-lzma", d)} ${PYTHONNAMEONLY}-multiprocessing ${PYTHONNAMEONLY}-requests"
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
@@ -24,9 +24,9 @@ do_install() {
     install -d ${D}${libdir}/enigma2/python/Components/Converter
     install -d ${D}${libdir}/enigma2/python/Components/Renderer
     install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/XStreamity
-    cp -rf ${S}/XStreamity${libdir}/enigma2/python/Components/Converter/*.pyo ${D}${libdir}/enigma2/python/Components/Converter/
-    cp -rf ${S}/XStreamity${libdir}/enigma2/python/Components/Renderer/*.pyo ${D}${libdir}/enigma2/python/Components/Renderer/
-    rm -f ${S}/XStreamity${libdir}/enigma2/python/Plugins/Extensions/XStreamity/owibranding.pyo
+    cp -rf ${S}/XStreamity${libdir}/enigma2/python/Components/Converter/*.${PYTHONEXTENSION} ${D}${libdir}/enigma2/python/Components/Converter/
+    cp -rf ${S}/XStreamity${libdir}/enigma2/python/Components/Renderer/*.${PYTHONEXTENSION} ${D}${libdir}/enigma2/python/Components/Renderer/
+    rm -f ${S}/XStreamity${libdir}/enigma2/python/Plugins/Extensions/XStreamity/owibranding.${PYTHONEXTENSION}
     cp -rf ${S}/XStreamity${libdir}/enigma2/python/Plugins/Extensions/XStreamity/* ${D}${libdir}/enigma2/python/Plugins/Extensions/XStreamity/
 }
 

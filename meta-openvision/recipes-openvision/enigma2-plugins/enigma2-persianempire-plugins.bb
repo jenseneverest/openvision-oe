@@ -49,7 +49,7 @@ DEPENDS = "\
 
 RDEPENDS_enigma2-plugin-extensions-airplayer = "${PYTHONNAMEONLY}-ctypes ${PYTHONNAMEONLY}-misc ${PYTHONNAMEONLY}-shell ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-subprocess", d)} gst-plugins-bad-fragmented hairtunes"
 DESCRIPTION_enigma2-plugin-extensions-blockcontent = "Block Content for enigma2"
-FILES_enigma2-plugin-extensions-deviceinfo_append = " ${libdir}/enigma2/python/Components/Converter/ProgressDiskSpaceInfo.pyo"
+FILES_enigma2-plugin-extensions-deviceinfo_append = " ${libdir}/enigma2/python/Components/Converter/ProgressDiskSpaceInfo.${PYTHONEXTENSION} "
 FILES_enigma2-plugin-extensions-deviceinfo-src_append = " ${libdir}/enigma2/python/Components/Converter/ProgressDiskSpaceInfo.py"
 RDEPENDS_enigma2-plugin-extensions-deviceinfo = "hddtemp"
 DESCRIPTION_enigma2-plugin-extensions-fontmagnifier = "Tool to modify enigma 2 gui font sizes"

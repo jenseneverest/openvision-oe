@@ -13,7 +13,7 @@ S = "${WORKDIR}/git"
 
 do_install() {
 	install -d  ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/OFW_Launcher
-	install -m 0644 ${S}/*.pyo \
+	install -m 0644 ${S}/*.${PYTHONEXTENSION}  \
 	${D}${libdir}/enigma2/python/Plugins/SystemPlugins/OFW_Launcher
 }
 

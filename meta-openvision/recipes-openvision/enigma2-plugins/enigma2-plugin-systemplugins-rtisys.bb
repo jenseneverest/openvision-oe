@@ -13,7 +13,7 @@ S = "${WORKDIR}/git"
 
 do_install() {
 	install -d  ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/RtiSYS
-	install -m 0644 ${S}/*.pyo ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/RtiSYS
+	install -m 0644 ${S}/*.${PYTHONEXTENSION}  ${D}${libdir}/enigma2/python/Plugins/SystemPlugins/RtiSYS
 }
 
 FILES_${PN} = "${libdir}/enigma2/python/Plugins/SystemPlugins/RtiSYS"

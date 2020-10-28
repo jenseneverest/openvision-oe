@@ -31,7 +31,7 @@ do_install() {
     install -d ${D_FILES_PN}/locale
     install -m 755 ${S}/autobouquetsreader ${D_FILES_PN}
     install -m 755 ${S}/*.sh ${D_FILES_PN}
-    install -m 644 ${S}/*.pyo *.txt *.png ${D_FILES_PN}
+    install -m 644 ${S}/*.${PYTHONEXTENSION}  *.txt *.png ${D_FILES_PN}
     install -m 644 ${S}/locale/*.* ${D_FILES_PN}/locale
     install -m 644 ${S}/COPYING ${D_FILES_PN}
     install -m 644 ${S}/LICENSE ${D_FILES_PN}

@@ -20,7 +20,7 @@ do_install() {
 	install -m 0755 ${S}${base_bindir}/rmfp_player ${D}${bindir}/
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/
-	install -m 0644 ${S}/plugin/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/
+	install -m 0644 ${S}/plugin/*.${PYTHONEXTENSION}  ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/img/
 	install -m 0644 ${S}/img/*.png ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/img/
@@ -31,7 +31,7 @@ do_install_azboxhd() {
 	install -m 0755 ${S}${base_bindir}/rmfp_player-ForHD ${D}${bindir}/rmfp_player
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/
-	install -m 0644 ${S}/plugin/*.pyo ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/
+	install -m 0644 ${S}/plugin/*.${PYTHONEXTENSION}  ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/
 
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/img/
 	install -m 0644 ${S}/img/*.png ${D}${libdir}/enigma2/python/Plugins/Extensions/AZPlay/img/
