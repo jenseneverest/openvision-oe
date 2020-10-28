@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://COPYRIGHT.txt;md5=183ca88c5404ea8f9e484ad8d271aab3"
 
 DEPENDS = "${PYTHONNAMEONLY}"
 RDEPENDS_${PN} = "\
-	${PYTHONNAMEONLY}-${PYTHONNAMEONLY} ${PYTHONNAMEONLY}-shell ${PYTHONNAMEONLY}-compression ${PYTHONNAMEONLY}-crypt ${PYTHONNAMEONLY}-ctypes \
+	${PYTHONNAMEONLY}-core ${PYTHONNAMEONLY}-shell ${PYTHONNAMEONLY}-compression ${PYTHONNAMEONLY}-crypt ${PYTHONNAMEONLY}-ctypes \
 	${PYTHONNAMEONLY}-cheetah ${PYTHONNAMEONLY}-misc ${@bb.utils.contains("PYTHONNAMEONLY", "python3", "", "python-subprocess", d)} ${PYTHONNAMEONLY}-html ${PYTHONNAMEONLY}-email ${PYTHONNAMEONLY}-yenc \
 	"
 RRECOMMENDS_${PN} = "par2cmdline unrar"
