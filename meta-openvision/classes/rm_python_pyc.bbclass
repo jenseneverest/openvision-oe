@@ -4,3 +4,6 @@ do_install_append() {
     # make scripts executable
     find "${D}" -name '*.sh' -exec chmod a+x '{}' ';'
 }
+
+install_egg_info() {
+}

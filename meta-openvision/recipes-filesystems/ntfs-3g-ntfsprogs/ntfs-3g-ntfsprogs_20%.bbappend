@@ -1,3 +1,3 @@
 inherit upx_compress
 
-RDEPENDS_ntfs-3g += "kernel-module-ntfs kernel-module-fuse"
+RDEPENDS_ntfs-3g += "kernel-module-ntfs"

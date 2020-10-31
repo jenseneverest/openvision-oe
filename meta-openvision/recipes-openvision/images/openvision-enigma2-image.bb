@@ -89,7 +89,6 @@ IMAGE_INSTALL += "\
 	frequency-xml-list-satellites \
 	frequency-xml-list-terrestrial \
 	frequency-xml-list-unicable \
-	kernel-module-fuse \
 	libavahi-client \
 	libcrypto-compat \
 	settings-autorestore \
