@@ -59,7 +59,7 @@ RDEPENDS_${PN} = "libbluray rtmpdump libxml2 openssl"
 DEPENDS = "alsa-lib zlib libogg nasm-native libxml2"
 
 PACKAGECONFIG = "avdevice avfilter avcodec avformat avresample swscale swresample postproc \
-	bzlib gpl x264 openssl libbluray libfreetype librtmp mp3lame theora libvorbis lzma vpx \
+	bzlib gpl x264 x265 openssl libbluray libfreetype librtmp mp3lame theora libvorbis lzma vpx \
 	"
 
 # libraries to build in addition to avutil
