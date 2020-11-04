@@ -18,6 +18,6 @@ do_install () {
 	install -d ${D}${sysconfdir}/enigma2
 	cp -r ${S}/* ${D}${sysconfdir}/enigma2
 	if [ -e ${D}${sysconfdir}/enigma2/satellites.xml ]; then
-		rm -f ${D}${sysconfdir}/enigma2/satellites.xml
+		rm -f ${D}${sysconfdir}/enigma2/satellites.xml*
 	fi
 }
