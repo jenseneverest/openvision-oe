@@ -1,6 +1,6 @@
 SUMMARY = "Automatically build and update bouquets from the DVB stream."
 DESCRIPTION = "Automatically build and update bouquets from the DVB stream."
-MAINTAINER = "oe-alliance team"
+MAINTAINER = "OE-A"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 

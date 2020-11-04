@@ -1,4 +1,4 @@
-SUMMARY = "OE-Alliance plugins for Open Vision"
+SUMMARY = "OE-A plugins for Open Vision"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 

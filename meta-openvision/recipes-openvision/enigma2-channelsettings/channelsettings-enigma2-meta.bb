@@ -44,4 +44,28 @@ DEPENDS = "\
 	enigma2-plugin-settings-morph883-9e-13e-19.2e \
 	enigma2-plugin-settings-morph883-9e-13e \
 	enigma2-plugin-settings-morph883-motor \
+	enigma2-plugin-settings-vhannibal.dual.feeds.and.dtt.italia \
+	enigma2-plugin-settings-vhannibal.dual.feeds.and.dtt.milano \
+	enigma2-plugin-settings-vhannibal.dual.feeds.and.dtt.napoli \
+	enigma2-plugin-settings-vhannibal.dual.feeds.and.dtt.roma \
+	enigma2-plugin-settings-vhannibal.dual.feeds.and.dtt.torino \
+	enigma2-plugin-settings-vhannibal.dual.feeds \
+	enigma2-plugin-settings-vhannibal.hotbird.and.dtt.italia \
+	enigma2-plugin-settings-vhannibal.hotbird.and.dtt.milano \
+	enigma2-plugin-settings-vhannibal.hotbird.and.dtt.napoli \
+	enigma2-plugin-settings-vhannibal.hotbird.and.dtt.roma \
+	enigma2-plugin-settings-vhannibal.hotbird.and.dtt.torino \
+	enigma2-plugin-settings-vhannibal.hotbird \
+	enigma2-plugin-settings-vhannibal.motor.and.dtt.forli \
+	enigma2-plugin-settings-vhannibal.motor.and.dtt.italia \
+	enigma2-plugin-settings-vhannibal.motor.and.dtt.milano \
+	enigma2-plugin-settings-vhannibal.motor.and.dtt.napoli \
+	enigma2-plugin-settings-vhannibal.motor.and.dtt.roma \
+	enigma2-plugin-settings-vhannibal.motor.and.dtt.torino \
+	enigma2-plugin-settings-vhannibal.motor \
+	enigma2-plugin-settings-vhannibal.quad.13e.19e.23e.28e \
+	enigma2-plugin-settings-vhannibal.quad.7e.13e.19e.42e \
+	enigma2-plugin-settings-vhannibal.quad.9e.13e.16e.19e \
+	enigma2-plugin-settings-vhannibal.quad.nordic \
+	enigma2-plugin-settings-vhannibal.trial \
 	"
