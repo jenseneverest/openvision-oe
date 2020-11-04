@@ -14,6 +14,21 @@ DEPENDS = "\
 	enigma2-plugin-settings-ciefp-23e.19e.16e.13e.4.8e.1.9e.0.8w \
 	enigma2-plugin-settings-ciefp-39e.23e.19e.16e.13e.4.8e.1.9e.0.8w \
 	enigma2-plugin-settings-ciefp-motor.68e.30w.vod \
+	enigma2-plugin-settings-gioppygio-dual \
+	enigma2-plugin-settings-gioppygio-dual.13e.19e.dtt-italia \
+	enigma2-plugin-settings-gioppygio-dual.5w.13e \
+	enigma2-plugin-settings-gioppygio-dual.9e.13e \
+	enigma2-plugin-settings-gioppygio-mono \
+	enigma2-plugin-settings-gioppygio-mono.13e.dtt-italia \
+	enigma2-plugin-settings-gioppygio-motor \
+	enigma2-plugin-settings-gioppygio-motor.75e.45w.dtt-italia \
+	enigma2-plugin-settings-gioppygio-quadri \
+	enigma2-plugin-settings-gioppygio-quadri.13e.19e.9e.5w \
+	enigma2-plugin-settings-gioppygio-quadri.9e.13e.16e.19e \
+	enigma2-plugin-settings-gioppygio-trial \
+	enigma2-plugin-settings-gioppygio-trial.13e.19e.30w \
+	enigma2-plugin-settings-gioppygio-trial.5w.13e.19e \
+	enigma2-plugin-settings-gioppygio-trial.9e.13e.19e \
 	enigma2-plugin-settings-hans-19e-23e \
 	enigma2-plugin-settings-hans-19e-23e-basis \
 	enigma2-plugin-settings-hans-19e-23e-28e \

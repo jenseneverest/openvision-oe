@@ -15,7 +15,5 @@ FILES_${PN} = "${sysconfdir}/enigma2/"
 do_install () {
 	install -d ${D}${sysconfdir}/enigma2
 	cp -r ${S}/${SETTINGS_FILENAME}/* ${D}${sysconfdir}/enigma2
-	if [ -e ${D}${sysconfdir}/enigma2/satellites.xml ]; then
-		rm -f ${D}${sysconfdir}/enigma2/satellites.xml*
-	fi
+	rm -rf ${D}${sysconfdir}/enigma2/satellites.xml*
 }

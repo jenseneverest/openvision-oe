@@ -1,13 +1,14 @@
+SUMMARY = "GioppyGio enigma2 settings"
 LICENSE = "CLOSED"
 
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-SRC_URI = "git://github.com/ciefp/ciefpsettings-enigma2.git;protocol=git"
+SRC_URI = "git://github.com/OpenVisionE2/GioppyGio-settings.git"
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv allarch
+inherit allarch gitpkgv
 
 FILES_${PN} = "${sysconfdir}/enigma2/"
 
