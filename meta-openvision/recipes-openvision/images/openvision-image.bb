@@ -23,6 +23,7 @@ IMAGE_INSTALL = "\
 	nfs-utils-client \
 	openssh-sftp \
 	openvision-bootlogo \
+	openvision-extra-feed-config \
 	openvision-module \
 	openvision-version-info \
 	opkg \
