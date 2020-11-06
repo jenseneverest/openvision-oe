@@ -19,7 +19,7 @@ BLOCK2MTD_CHECK = "${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "", "ker
 
 RDEPENDS_${PN} = "\
     ${@bb.utils.contains("IMAGE_FSTYPES", "jffs2", "${BLOCK2MTD_CHECK} kernel-module-nandsim" , "", d)} \
-    ${@bb.utils.contains("IMAGE_FSTYPES", "ubi", "kernel-module-nandsim" , "", d)} \
+    ${@bb.utils.contains_any("IMAGE_FSTYPES", "ubi tar", "kernel-module-nandsim" , "", d)} \
     lzo \
     openmultiboot \
     "
