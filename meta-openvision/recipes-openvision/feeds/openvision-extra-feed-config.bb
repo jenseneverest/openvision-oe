@@ -2,7 +2,7 @@ DESCRIPTION = "Configuration file for Open Vision extra feeds"
 
 require conf/license/openvision-gplv2.inc
 
-FEEDS = "picons 3rdparty"
+FEEDS = "picons 3rdparty skins"
 
 DISTRO_EXTRA_FEED_URI = "https://raw.githubusercontent.com/OpenVisionE2"
 
