@@ -101,6 +101,7 @@ IMAGE_INSTALL += "\
 	dvbfetool \
 	openssh-sftp-server \
 	openvision-core-plugin \
+	openvision-video-bootlogo \
 	shellinabox", d)} \
 	"
 

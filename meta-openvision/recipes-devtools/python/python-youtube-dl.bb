@@ -9,12 +9,12 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=9936da26f04f6454c738c5f4fda24799"
 
 DEPENDS = "libxml2 bash-completion"
 
-PV = "2020.11.01"
+PV = "2020.11.10"
 
 SRC_URI = "https://source.netsyms.com/Mirrors/l1ving_youtube-dl/archive/${PV}.tar.gz"
 
-SRC_URI[md5sum] = "22020bb675e4c84e35149ad7abad09b1"
-SRC_URI[sha256sum] = "8aa3a6fd729749b931be0549bc384e4332e1f97581fec932eaf8d55fef5b221e"
+SRC_URI[md5sum] = "122f6f54df4185312c2007a76a031874"
+SRC_URI[sha256sum] = "8076a93295d50f3636f2d0f19509879bacce51f97e2dfde18593dd215a327825"
 
 S = "${WORKDIR}/l1ving_youtube-dl"
 

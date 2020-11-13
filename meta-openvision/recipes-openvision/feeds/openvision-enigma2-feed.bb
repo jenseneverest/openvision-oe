@@ -273,6 +273,8 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-systemplugins-quadpip \
 	enigma2-plugins \
 	meta-enigma2-dvdburn \
+	openvision-core-plugin \
+	openvision-video-bootlogo \
 	packagegroup-openplugins \
 	picons-enigma2-meta \
 	softcams-enigma2-meta \
