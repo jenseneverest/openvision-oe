@@ -23,7 +23,6 @@ start_vpn () {
         mknod /dev/net/tun c 10 200
         chmod 600 /dev/net/tun
     fi
-
     start-stop-daemon --start --quiet --pidfile /var/run/openvpn.$NAME.pid \
             --exec $DAEMON -- \
             --daemon --writepid /var/run/openvpn.$NAME.pid \
