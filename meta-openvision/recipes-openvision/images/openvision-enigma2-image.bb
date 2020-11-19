@@ -91,12 +91,12 @@ IMAGE_INSTALL += "\
 	frequency-xml-list-unicable \
 	libavahi-client \
 	libcrypto-compat \
+	ntpdate \
 	settings-autorestore \
 	tuxbox-links \
 	wget \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
-	${MACHINE_FEATURE_RELATED_PLUGINS} \
-	ntpdate", d)} \
+	${MACHINE_FEATURE_RELATED_PLUGINS}", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	dvbfetool \
 	openssh-sftp-server \

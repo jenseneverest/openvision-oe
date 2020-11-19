@@ -5,7 +5,7 @@ require conf/license/openvision-gplv2.inc
 
 PACKAGES = "${PN}"
 
-PV = "2018102501"
+PV = "2020111701"
 
 SRC_URI = " \
 	file://convert-smbconf.py \
