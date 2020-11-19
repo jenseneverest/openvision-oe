@@ -106,6 +106,7 @@ OPTIONAL_PACKAGES += "\
 	rtorrent \
 	sabnzbd \
 	samba \
+	satpi \
 	screen \
 	sed \
 	shellinabox \
