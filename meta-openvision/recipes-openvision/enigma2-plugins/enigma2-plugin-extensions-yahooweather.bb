@@ -5,7 +5,7 @@ PRIORITY = "optional"
 
 require conf/license/license-gplv2.inc
 
-inherit autotools-brokensep gitpkgv autotools gettext rm_python_pyc no_python_src
+inherit autotools-brokensep ${PYTHONNAMEONLY}native gitpkgv autotools gettext rm_python_pyc no_python_src
 
 PV = "1.2.+git${SRCPV}"
 PKGV = "1.2.+git${GITPKGV}"
