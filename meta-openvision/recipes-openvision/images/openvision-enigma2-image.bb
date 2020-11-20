@@ -45,6 +45,7 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-systemplugins-terrestrialscan", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	enigma2-plugin-extensions-filecommander \
+	enigma2-plugin-extensions-historyzapselector \
 	enigma2-plugin-extensions-keyadder \
 	enigma2-plugin-softcams-oscam \
 	enigma2-plugin-systemplugins-autobouquetsmaker \
