@@ -29,6 +29,7 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-systemplugins-positionersetup \
 	enigma2-plugin-systemplugins-satfinder \
 	enigma2-plugin-systemplugins-softwaremanager \
+	enigma2-plugin-systemplugins-systemtime \
 	${@bb.utils.contains("MACHINE_FEATURES", "videoenhancement", "enigma2-plugin-systemplugins-videoenhancement", "", d)} \
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
