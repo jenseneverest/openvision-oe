@@ -101,12 +101,6 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-rpi
-	echo "Checking out meta-rpi develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
 	cd meta-wetek
 	echo "Checking out meta-wetek develop branch:"
 	git checkout develop
