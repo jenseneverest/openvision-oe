@@ -16,14 +16,6 @@ DEPENDS = "\
 	tuxtxt-enigma2 \
 	"
 
-DEPENDS_append_rpi += "\
-	e2-rpihddevice \
-	ffmpeg \
-	libdvbcsa \
-	libnl \
-	userland \
-	"
-
 RDEPENDS_${PN} = "\
 	alsa-conf \
 	enigma2-data-iso-639-3 \
@@ -36,11 +28,6 @@ RDEPENDS_${PN} = "\
 	openvision-branding \
 	${PYTHON_RDEPS} \
 	${@bb.utils.contains("MACHINE_FEATURES", "emmc", "bzip2 rsync", "", d)} \
-	"
-
-RDEPENDS_${PN}_append_rpi += "\
-	e2-rpihddevice \
-	libdvbcsa \
 	"
 
 RRECOMMENDS_${PN} = "\

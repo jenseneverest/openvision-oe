@@ -4,7 +4,7 @@ BLINDSCAN_CHECK = "${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "enigma2
 
 ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-audiosync \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash nogamma rpi-vision", "", "enigma2-plugin-extensions-backupsuite", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash nogamma", "", "enigma2-plugin-extensions-backupsuite", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "enigma2-plugin-extensions-cacheflush", "", d)} \
 	enigma2-plugin-extensions-cutlisteditor \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash multilib", "", "enigma2-plugin-extensions-e2iplayer", d)} \
@@ -12,7 +12,7 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-extensions-mediaplayer \
 	enigma2-plugin-extensions-mediascanner \
 	enigma2-plugin-extensions-moviecut \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash nogamma rpi-vision", "", "enigma2-plugin-extensions-openmultiboot", d)} \
+	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash nogamma", "", "enigma2-plugin-extensions-openmultiboot", d)} \
 	enigma2-plugin-extensions-openwebif \
 	enigma2-plugin-extensions-pictureplayer \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "enigma2-plugin-extensions-pluginskinmover", "", d)} \

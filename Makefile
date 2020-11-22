@@ -33,7 +33,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-linkdroid \
 	$(CURDIR)/meta-minix \
 	$(CURDIR)/meta-odroid \
-	$(CURDIR)/meta-rpi \
 	$(CURDIR)/meta-wetek
 
 CONFFILES = \

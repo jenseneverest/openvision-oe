@@ -33,13 +33,6 @@
 # Odroid
 * odroidc2
 
-# RPi
-* raspberrypi
-* raspberrypi0
-* raspberrypi2
-* raspberrypi3
-* raspberrypi4
-
 # WeTek
 * wetekhub
 * wetekplay
