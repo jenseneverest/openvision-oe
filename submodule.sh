@@ -54,8 +54,8 @@ fi
 if [ $SUBMODULETYPE = "BitBake" ]
 then
 	cd bitbake
-	echo "Checking out bitbake pyro branch:"
-	git checkout pyro
+	echo "Checking out bitbake 1.34 branch:"
+	git checkout 1.34
 	git pull
 	echo -e "\n"
 	cd ..
