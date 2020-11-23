@@ -7,7 +7,6 @@ ENIGMA2_PLUGINS += "\
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash nogamma", "", "enigma2-plugin-extensions-backupsuite", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "enigma2-plugin-extensions-cacheflush", "", d)} \
 	enigma2-plugin-extensions-cutlisteditor \
-	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash multilib", "", "enigma2-plugin-extensions-e2iplayer", d)} \
 	enigma2-plugin-extensions-graphmultiepg \
 	enigma2-plugin-extensions-mediaplayer \
 	enigma2-plugin-extensions-mediascanner \
@@ -29,7 +28,6 @@ ENIGMA2_PLUGINS += "\
 	enigma2-plugin-systemplugins-positionersetup \
 	enigma2-plugin-systemplugins-satfinder \
 	enigma2-plugin-systemplugins-softwaremanager \
-	enigma2-plugin-systemplugins-systemtime \
 	${@bb.utils.contains("MACHINE_FEATURES", "videoenhancement", "enigma2-plugin-systemplugins-videoenhancement", "", d)} \
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
