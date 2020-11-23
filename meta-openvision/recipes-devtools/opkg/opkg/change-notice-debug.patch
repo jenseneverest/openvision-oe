@@ -1,0 +1,19 @@
+diff -Naur opkg-0.3.6/libopkg/pkg_depends.c opkg-0.3.6-PersianPrince/libopkg/pkg_depends.c
+--- opkg-0.3.6/libopkg/pkg_depends.c	2018-02-19 21:24:22.000000000 +0330
++++ opkg-0.3.6-PersianPrince/libopkg/pkg_depends.c	2020-11-23 23:20:05.976812383 +0330
+@@ -408,13 +408,13 @@
+     /* should these be here to support deprecated designations; dpkg does */
+     else if (strncmp(*str, "<", 1) == 0) {
+         *str += 1;
+-        opkg_msg(NOTICE,
++        opkg_msg(DEBUG,
+                  "Deprecated version constraint '<' was used with the same "
+                  "meaning as '<='. Use '<<' for EARLIER constraint.\n");
+         return EARLIER_EQUAL;
+     } else if (strncmp(*str, ">", 1) == 0) {
+         *str += 1;
+-        opkg_msg(NOTICE,
++        opkg_msg(DEBUG,
+                  "Deprecated version constraint '>' was used with the same "
+                  "meaning as '>='. Use '>>' for LATER constraint.\n");
+         return LATER_EQUAL;

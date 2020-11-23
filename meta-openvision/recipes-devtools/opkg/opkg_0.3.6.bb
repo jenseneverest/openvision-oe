@@ -12,15 +12,16 @@ DEPENDS = "libarchive"
 PE = "2"
 
 SRC_URI = "http://downloads.yoctoproject.org/releases/${BPN}/${BPN}-${PV}.tar.gz \
-           file://opkg-configure.service \
-           file://opkg.conf \
-           file://0001-reuse-the-installed_files-list-when-possible.patch \
-           file://0001-opkg_conf-create-opkg.lock-in-run-instead-of-var-run.patch \
-           file://0002-opkg-symlink-to-directory-workarounds.patch \
-           file://0003-fix-installation-sequence-errors.patch \
-           file://modprobe \
-           ${@bb.utils.contains("MACHINE", "dm800", "file://revert-commit-7a8c2f6.patch", "", d)} \
-"
+	file://opkg-configure.service \
+	file://opkg.conf \
+	file://0001-reuse-the-installed_files-list-when-possible.patch \
+	file://0001-opkg_conf-create-opkg.lock-in-run-instead-of-var-run.patch \
+	file://0002-opkg-symlink-to-directory-workarounds.patch \
+	file://0003-fix-installation-sequence-errors.patch \
+	file://modprobe \
+	${@bb.utils.contains("MACHINE", "dm800", "file://revert-commit-7a8c2f6.patch", "", d)} \
+	file://change-notice-debug.patch \
+	"
 
 SRC_URI[md5sum] = "79e04307f6f54db431c251772d7d987c"
 SRC_URI[sha256sum] = "f607f0e61be8cf8a3bbd0d2dccd9ec9e9b6c21dd4307b671c600d6eeaf84d30b"
@@ -84,4 +85,3 @@ FILES_${PN} += "${systemd_unitdir}/system/"
 BBCLASSEXTEND = "native nativesdk"
 
 CONFFILES_${PN} = "${sysconfdir}/opkg/opkg.conf"
-
