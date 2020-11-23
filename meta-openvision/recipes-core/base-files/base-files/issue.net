@@ -1,5 +1,14 @@
+          *********************************************************
+          **                                                     **
+          ********************** Open Vision **********************
+          **                                                     **
+          *********************************************************
+
 Open Vision enigma2 image for %h
 
-More information: https://openvision.tech
+Report problems to: https://openvision.tech
+
+Sources are available at: https://github.com/OpenVisionE2
 
 %d, %t - (%s %r %m)
+
