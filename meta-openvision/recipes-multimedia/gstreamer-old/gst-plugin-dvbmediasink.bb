@@ -10,6 +10,8 @@ DEPENDS = "gstreamer gst-plugins-base libdca"
 
 SRC_URI = "git://github.com/OpenPLi/${BPN}.git;branch=master;protocol=git"
 
+SRCREV = "${AUTOREV}"
+
 S = "${WORKDIR}/git"
 
 inherit gitpkgv autotools pkgconfig
