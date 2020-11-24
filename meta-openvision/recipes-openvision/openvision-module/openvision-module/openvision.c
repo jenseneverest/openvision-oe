@@ -79,6 +79,7 @@ static const struct proc_ops proc_fops = {
 };
 #else
 static const struct file_operations proc_fops = {
+	.owner		= THIS_MODULE,
 	.open		= proc_openvision_open,
 	.read		= seq_read,
 	.llseek	= seq_lseek,
