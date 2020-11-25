@@ -20,16 +20,16 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-PV = "${GSTVERSION}+git${SRCPV}"
-PKGV = "${GSTVERSION}+git${GITPKGV}"
+PV = "${GST_VERSION}+git${SRCPV}"
+PKGV = "${GST_VERSION}+git${GITPKGV}"
 
 inherit autotools pkgconfig
 
-FILES_${PN} = "${libdir}/gstreamer-${GSTVERSION}/*.so*"
-FILES_${PN}-dev += "${libdir}/gstreamer-${GSTVERSION}/*.la"
-FILES_${PN}-staticdev += "${libdir}/gstreamer-${GSTVERSION}/*.a"
-FILES_${PN}-dbg += "${libdir}/gstreamer-${GSTVERSION}/.debug"
+FILES_${PN} = "${libdir}/gstreamer-${GST_VERSION}/*.so*"
+FILES_${PN}-dev += "${libdir}/gstreamer-${GST_VERSION}/*.la"
+FILES_${PN}-staticdev += "${libdir}/gstreamer-${GST_VERSION}/*.a"
+FILES_${PN}-dbg += "${libdir}/gstreamer-${GST_VERSION}/.debug"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-EXTRA_OECONF = "${DVBMEDIASINK_CONFIG} --with-gstversion=${GSTVERSION} --with-boxtype=${MACHINE} --with-boxbrand=${BOX_BRAND} --with-stbplatform=${STB_PLATFORM}"
+EXTRA_OECONF = "${DVBMEDIASINK_CONFIG} --with-gstversion=${GST_VERSION} --with-boxtype=${MACHINE} --with-boxbrand=${BOX_BRAND} --with-stbplatform=${STB_PLATFORM}"
