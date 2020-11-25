@@ -84,11 +84,13 @@ RDEPENDS_${PN} = "\
 
 SUBSINK = "${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugin-subsink"
 
+DVBMEDIASINK = "${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-dvbmediasink"
+
 RRECOMMENDS_${PN} = "\
 	${@bb.utils.contains("PACKAGECONFIG", "gstreamer", "\
 	glib-networking \
 	${SUBSINK} \
-	virtual/gst-dvbmediasink \
+	virtual/${DVBMEDIASINK} \
 	${GST_BASE_RDEPS} \
 	${GST_GOOD_RDEPS} \
 	${GST_BAD_RDEPS} \

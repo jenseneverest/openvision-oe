@@ -78,10 +78,14 @@ RDEPENDS_${PN} = "\
 	enigma2 \
 	"
 
+SUBSINK = "${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugin-subsink"
+
+DVBMEDIASINK = "${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-dvbmediasink"
+
 RDEPENDS_${PN} = "\
 	glib-networking \
-	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugin-subsink \
-	virtual/gst-dvbmediasink \
+	${SUBSINK} \
+	virtual/${DVBMEDIASINK} \
 	${GST_BASE_RDEPS} \
 	${GST_GOOD_RDEPS} \
 	${GST_BAD_RDEPS} \
