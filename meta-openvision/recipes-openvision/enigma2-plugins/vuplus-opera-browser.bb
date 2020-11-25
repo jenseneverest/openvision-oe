@@ -3,7 +3,7 @@ PRIORITY = "optional"
 LICENSE = "CLOSED"
 SECTION = "base"
 
-DEPENDS = "mpfr gmp gstreamer1.0"
+DEPENDS = "mpfr gmp gstreamer"
 
 RREPLACES_${PN} = "vuplus-opera-browser-util"
 RCONFLICTS_${PN} = "vuplus-opera-browser-util"

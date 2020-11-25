@@ -9,68 +9,68 @@ PROVIDES += "virtual/enigma2-mediaservice"
 RPROVIDES_${PN} += "virtual/enigma2-mediaservice"
 
 GST_BASE_RDEPS = "\
-	gstreamer${GST_VERSION}-plugins-base-alsa \
-	gstreamer${GST_VERSION}-plugins-base-app \
-	gstreamer${GST_VERSION}-plugins-base-audioconvert \
-	gstreamer${GST_VERSION}-plugins-base-audioresample \
-	gstreamer${GST_VERSION}-plugins-base-audiorate \
-	gstreamer${GST_VERSION}-plugins-base-videoconvert \
-	gstreamer${GST_VERSION}-plugins-base-ivorbisdec \
-	gstreamer${GST_VERSION}-plugins-base-ogg \
-	gstreamer${GST_VERSION}-plugins-base-opus \
-	gstreamer${GST_VERSION}-plugins-base-playback \
-	gstreamer${GST_VERSION}-plugins-base-subparse \
-	gstreamer${GST_VERSION}-plugins-base-typefindfunctions \
-	gstreamer${GST_VERSION}-plugins-base-vorbis \
-	gstreamer${GST_VERSION}-plugins-base-rawparse \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-alsa \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-app \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-audioconvert \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-audioresample \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-audiorate \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-videoconvert \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-ivorbisdec \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-ogg \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-opus \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-playback \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-subparse \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-typefindfunctions \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-vorbis \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-rawparse \
 	"
 
 GST_GOOD_RDEPS = "\
-	gstreamer${GST_VERSION}-plugins-good-apetag \
-	gstreamer${GST_VERSION}-plugins-good-audioparsers \
-	gstreamer${GST_VERSION}-plugins-good-autodetect \
-	gstreamer${GST_VERSION}-plugins-good-avi \
-	gstreamer${GST_VERSION}-plugins-good-flac \
-	gstreamer${GST_VERSION}-plugins-good-flv \
-	gstreamer${GST_VERSION}-plugins-good-icydemux \
-	gstreamer${GST_VERSION}-plugins-good-id3demux \
-	gstreamer${GST_VERSION}-plugins-good-isomp4 \
-	gstreamer${GST_VERSION}-plugins-good-matroska \
-	gstreamer${GST_VERSION}-plugins-good-mpg123 \
-	gstreamer${GST_VERSION}-plugins-good-rtp \
-	gstreamer${GST_VERSION}-plugins-good-rtpmanager \
-	gstreamer${GST_VERSION}-plugins-good-rtsp \
-	gstreamer${GST_VERSION}-plugins-good-soup \
-	gstreamer${GST_VERSION}-plugins-good-udp \
-	gstreamer${GST_VERSION}-plugins-good-wavparse \
-	gstreamer${GST_VERSION}-plugins-good-wavpack \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-apetag \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-audioparsers \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-autodetect \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-avi \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-flac \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-flv \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-icydemux \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-id3demux \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-isomp4 \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-matroska \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-mpg123 \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-rtp \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-rtpmanager \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-rtsp \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-soup \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-udp \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-wavparse \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-wavpack \
 	"
 
 GST_BAD_RDEPS = "\
-	gstreamer${GST_VERSION}-plugins-bad-autoconvert \
-	gstreamer${GST_VERSION}-plugins-bad-dashdemux \
-	gstreamer${GST_VERSION}-plugins-bad-mms \
-	gstreamer${GST_VERSION}-plugins-bad-mpegpsdemux \
-	gstreamer${GST_VERSION}-plugins-bad-mpegtsdemux \
-	gstreamer${GST_VERSION}-plugins-bad-rtmp \
-	gstreamer${GST_VERSION}-plugins-bad-smoothstreaming \
-	gstreamer${GST_VERSION}-plugins-bad-faad \
-	gstreamer${GST_VERSION}-plugins-bad-hls \
-	gstreamer${GST_VERSION}-plugins-bad-opusparse \
-	gstreamer${GST_VERSION}-plugins-bad-videoparsersbad \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-autoconvert \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-dashdemux \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-mms \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-mpegpsdemux \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-mpegtsdemux \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-rtmp \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-smoothstreaming \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-faad \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-hls \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-opusparse \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-videoparsersbad \
 	"
 
 GST_UGLY_RDEPS = "\
-	gstreamer${GST_VERSION}-plugins-ugly-amrnb \
-	gstreamer${GST_VERSION}-plugins-ugly-amrwbdec \
-	gstreamer${GST_VERSION}-plugins-ugly-asf \
-	gstreamer${GST_VERSION}-plugins-ugly-cdio \
-	gstreamer${GST_VERSION}-plugins-ugly-dvdsub \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-ugly-amrnb \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-ugly-amrwbdec \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-ugly-asf \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-ugly-cdio \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-ugly-dvdsub \
 	"
 
 DEPENDS = "\
 	enigma2 \
-	gstreamer${GST_VERSION}-plugins-base gstreamer${GST_VERSION} \
+	gst-plugins-base gstreamer \
 	${PYTHONNAMEONLY} \
 	"
 
@@ -80,8 +80,8 @@ RDEPENDS_${PN} = "\
 
 RDEPENDS_${PN} = "\
 	glib-networking \
-	gstreamer${GST_VERSION}-plugin-subsink \
-	virtual/gstreamer${GST_VERSION}-dvbmediasink \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugin-subsink \
+	virtual/gst-dvbmediasink \
 	${GST_BASE_RDEPS} \
 	${GST_GOOD_RDEPS} \
 	${GST_BAD_RDEPS} \

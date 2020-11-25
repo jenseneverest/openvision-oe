@@ -13,7 +13,7 @@ GIT_PV = ""
 
 inherit autotools pkgconfig gettext git-project
 
-SRC_URI = "git://gitlab.freedesktop.org/gstreamer/${PN};protocol=https;branch=0.10"
+SRC_URI = "git://github.com/GStreamer/${PN};branch=0.10;protocol=git"
 
 SRC_URI += "\
 	file://orc.m4-fix-location-of-orcc-when-cross-compiling.patch \
@@ -25,8 +25,8 @@ SRC_URI += "\
 	"
 
 do_common_update() {
-    sed  's!git://anongit.freedesktop.org/gstreamer/common!https://gitlab.freedesktop.org/gstreamer/common.git!' -i ${S}/.git/config
-    sed  's!git://anongit.freedesktop.org/gstreamer/common!https://gitlab.freedesktop.org/gstreamer/common.git!' -i ${S}/.gitmodules
+    sed  's!git://anongit.freedesktop.org/gstreamer/common!https://github.com/GStreamer/common.git!' -i ${S}/.git/config
+    sed  's!git://anongit.freedesktop.org/gstreamer/common!https://github.com/GStreamer/common.git!' -i ${S}/.gitmodules
     cd ${S}
     # Make sure we have common
     if test ! -f common/gst-autogen.sh;
@@ -54,7 +54,7 @@ do_common_update() {
     # GNU gettext automake support doesn't get along with git.
     # https://bugzilla.gnome.org/show_bug.cgi?id=661128
     autopoint || touch config.rpath
-    touch -t 200001010000 po/gst-plugins-base-0.10.pot
+    touch -t 200001010000 po/${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-base-0.10.pot
 }
 addtask common_update after do_unpack before do_patch
 

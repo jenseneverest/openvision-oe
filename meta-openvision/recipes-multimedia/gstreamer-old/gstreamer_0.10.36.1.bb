@@ -26,7 +26,7 @@ EXTRA_OECONF = "--disable-docs-build --disable-dependency-tracking --with-check=
 
 inherit autotools pkgconfig gettext git-project gobject-introspection
 
-SRC_URI = "git://gitlab.freedesktop.org/gstreamer/${PN};protocol=https;branch=0.10"
+SRC_URI = "git://github.com/GStreamer/${PN};branch=0.10;protocol=git"
 
 SRC_URI += "\
 	file://check_fix.patch \
@@ -36,8 +36,8 @@ SRC_URI += "\
 	"
 
 do_common_update() {
-    sed  's!git://anongit.freedesktop.org/gstreamer/common!https://gitlab.freedesktop.org/gstreamer/common.git!' -i ${S}/.git/config
-    sed  's!git://anongit.freedesktop.org/gstreamer/common!https://gitlab.freedesktop.org/gstreamer/common.git!' -i ${S}/.gitmodules
+    sed  's!git://anongit.freedesktop.org/gstreamer/common!https://github.com/GStreamer/common.git!' -i ${S}/.git/config
+    sed  's!git://anongit.freedesktop.org/gstreamer/common!https://github.com/GStreamer/common.git!' -i ${S}/.gitmodules
     cd ${S}
     # Make sure we have common
     if test ! -f common/gst-autogen.sh;
