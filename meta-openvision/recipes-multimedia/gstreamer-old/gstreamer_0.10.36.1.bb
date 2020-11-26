@@ -26,7 +26,7 @@ EXTRA_OECONF = "--disable-docs-build --disable-dependency-tracking --with-check=
 
 inherit autotools pkgconfig gettext git-project gobject-introspection
 
-SRC_URI = "git://github.com/GStreamer/${PN};branch=0.10;protocol=git"
+SRC_URI = "git://github.com/GStreamer/gstreamer.git;branch=0.10;protocol=git"
 
 SRC_URI += "\
 	file://check_fix.patch \

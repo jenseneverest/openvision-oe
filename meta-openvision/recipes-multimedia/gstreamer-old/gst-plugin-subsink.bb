@@ -10,8 +10,7 @@ inherit gitpkgv autotools pkgconfig
 PV = "0.10.0+git${SRCPV}"
 PKGV = "0.10.0+git${GITPKGV}"
 
-GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/gst-plugin-subsink.git"
+SRC_URI = "git://github.com/OpenPLi/gst-plugin-subsink.git"
 
 S = "${WORKDIR}/git"
 

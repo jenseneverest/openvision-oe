@@ -17,7 +17,7 @@ EXTRA_OECONF += "--disable-examples --disable-experimental --disable-sdl --disab
 
 ARM_INSTRUCTION_SET = "arm"
 
-SRC_URI = "git://github.com/GStreamer/${PN};branch=0.10;protocol=git"
+SRC_URI = "git://github.com/GStreamer/gst-plugins-bad.git;branch=0.10;protocol=git"
 
 SRC_URI += "\
 	file://0001-rtmp-seeking-not-working-revert-to-3bd8cf88aa4b9661e.patch \
