@@ -4,7 +4,7 @@ LICENSE = "GPLv2+ & LGPLv2.1+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
                     file://common/coverage/coverage-report.pl;beginline=2;endline=17;md5=622921ffad8cb18ab906c56052788a3f"
 
-DEPENDS += "gst-plugins-base libid3tag libmad mpeg2dec liba52 lame libcdio opencore-amr"
+DEPENDS += "${GSTVNAME}-plugins-base libid3tag libmad mpeg2dec liba52 lame libcdio opencore-amr"
 
 EXTRA_OECONF += "--enable-orc"
 
@@ -47,7 +47,7 @@ do_common_update() {
     # GNU gettext automake support doesn't get along with git.
     # https://bugzilla.gnome.org/show_bug.cgi?id=661128
     autopoint || touch config.rpath
-    touch -t 200001010000 po/gst-plugins-base-0.10.pot
+    touch -t 200001010000 po/${GSTVNAME}-plugins-base-0.10.pot
 }
 addtask common_update after do_unpack before do_patch
 

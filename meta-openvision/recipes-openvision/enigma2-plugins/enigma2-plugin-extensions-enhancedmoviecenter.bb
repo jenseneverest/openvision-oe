@@ -5,7 +5,7 @@ PRIORITY = "optional"
 
 require conf/license/license-gplv2.inc
 
-RDEPENDS_${PN} = "${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-good-flv ${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}", "gst", d)}-plugins-bad-rtmp ${PYTHONNAMEONLY}-json ${PYTHONNAMEONLY}-html ${PYTHONNAMEONLY}-requests python-mutagen rtmpdump"
+RDEPENDS_${PN} = "${GSTVNAME}-plugins-good-flv ${GSTVNAME}-plugins-bad-rtmp ${PYTHONNAMEONLY}-json ${PYTHONNAMEONLY}-html ${PYTHONNAMEONLY}-requests python-mutagen rtmpdump"
 
 inherit gitpkgv ${PYTHONNAMEONLY}native gettext autotools-brokensep rm_python_pyc compile_python_pyo no_python_src
 

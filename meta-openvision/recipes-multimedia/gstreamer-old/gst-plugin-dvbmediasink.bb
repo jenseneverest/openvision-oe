@@ -10,7 +10,7 @@ RPROVIDES_${PN} = "gst-plugin-dvbmediasink"
 PROVIDES += "virtual/gst-mediasink"
 RPROVIDES_${PN} += "virtual/gst-dvbmediasink"
 
-DEPENDS = "gstreamer gst-plugins-base libdca"
+DEPENDS = "gstreamer ${GSTVNAME}-plugins-base libdca"
 
 SRC_URI = "git://github.com/OpenPLi/${PN}.git;branch=master;protocol=git"
 

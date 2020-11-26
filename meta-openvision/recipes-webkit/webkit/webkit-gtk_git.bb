@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = "\
 	"
 
 DEPENDS = "glib-2.0 glib-2.0-native gettext-native zlib enchant libsoup-2.4 curl libxml2 cairo libidn gnutls \
-           gtk+ gstreamer gst-plugins-base flex-native bison-native gperf-native sqlite3 \
+           gtk+ gstreamer ${GSTVNAME}-plugins-base flex-native bison-native gperf-native sqlite3 \
            libxslt zlib libpcre harfbuzz pango atk udev"
 
 PV = "r95199"

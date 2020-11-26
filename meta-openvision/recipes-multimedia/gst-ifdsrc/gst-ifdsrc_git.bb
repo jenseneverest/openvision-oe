@@ -1,7 +1,7 @@
 DESCRIPTION = "A template for writing your own GStreamer plug-in"
 MAINTAINER = "samsamsam"
 
-DEPENDS = "gstreamer gst-plugins-base"
+DEPENDS = "gstreamer ${GSTVNAME}-plugins-base"
 
 require conf/license/openvision-gplv2.inc
 inherit gitpkgv autotools pkgconfig

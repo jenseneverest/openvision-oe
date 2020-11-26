@@ -43,7 +43,7 @@ python set_metapkg_rdepends () {
 }
 
 # each plugin-dev depends on PN-dev, plugin-staticdev on PN-staticdev
-# so we need them even when empty (like in gst-plugins-good case)
+# so we need them even when empty (like in ${GSTVNAME}-plugins-good case)
 ALLOW_EMPTY_${PN} = "1"
 ALLOW_EMPTY_${PN}-dev = "1"
 ALLOW_EMPTY_${PN}-staticdev = "1"
