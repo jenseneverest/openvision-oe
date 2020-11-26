@@ -9,6 +9,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=eb723b61539feef013de476e68b5c50a"
 INITSCRIPT_NAME = "djmount"
 INITSCRIPT_PARAMS = "defaults"
 
+# libupnp make doesn't support it
+PARALLEL_MALE = ""
+
 inherit autotools update-rc.d pkgconfig gettext
 
 EXTRA_OECONF = "--with-external-libupnp --with-fuse-prefix='${STAGING_LIBDIR}'"
