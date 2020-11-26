@@ -7,6 +7,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
 
 SRCREV_FORMAT = "base"
 
-SRC_URI = " git://anongit.freedesktop.org/gstreamer/${GSTVNAME}-plugins-ugly;branch=master;name=base \
+SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-ugly;branch=master;name=base \
 			file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
 			"

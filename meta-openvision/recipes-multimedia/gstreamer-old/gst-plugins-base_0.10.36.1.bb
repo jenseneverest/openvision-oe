@@ -18,7 +18,7 @@ SRC_URI = "git://github.com/GStreamer/${PN};branch=0.10;protocol=git"
 SRC_URI += "\
 	file://orc.m4-fix-location-of-orcc-when-cross-compiling.patch \
 	file://disable-vorbis-encoder.patch \
-	file://${GSTVNAME}-plugins-base-tremor.patch \
+	file://gst-plugins-base-tremor.patch \
 	file://configure.ac-fix-subparse-plugin.patch \
 	file://0035-playbin2-add-custom-user-agent-property.patch \
 	${@bb.utils.contains('MACHINE_BRAND', 'Dreambox', '', 'file://revert-0dfdd9186e143daa568521c4e55c9923e5cbc466.patch', d)} \
@@ -54,7 +54,7 @@ do_common_update() {
     # GNU gettext automake support doesn't get along with git.
     # https://bugzilla.gnome.org/show_bug.cgi?id=661128
     autopoint || touch config.rpath
-    touch -t 200001010000 po/${GSTVNAME}-plugins-base-0.10.pot
+    touch -t 200001010000 po/gst-plugins-base-0.10.pot
 }
 addtask common_update after do_unpack before do_patch
 

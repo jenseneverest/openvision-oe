@@ -15,7 +15,7 @@ EXTRA_OECONF = "--disable-valgrind ${GSTREAMER_DEBUG} --disable-examples "
 
 acpaths = "-I ${S}/common/m4 -I ${S}/m4"
 
-require ${GSTVNAME}-plugins-package.inc
+require gst-plugins-package.inc
 
 PACKAGES_DYNAMIC = "${PN}-*"
 

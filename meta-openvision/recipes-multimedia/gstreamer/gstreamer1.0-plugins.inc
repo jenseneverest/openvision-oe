@@ -10,7 +10,7 @@ inherit autotools pkgconfig upstream-version-is-even gobject-introspection
 acpaths = "-I ${S}/common/m4 -I ${S}/m4"
 
 LIBV = "1.0"
-require ${GSTVNAME}-plugins-package.inc
+require gst-plugins-package.inc
 
 # Orc enables runtime JIT compilation of data processing routines from Orc
 # bytecode to SIMD instructions for various architectures (currently SSE, MMX,
