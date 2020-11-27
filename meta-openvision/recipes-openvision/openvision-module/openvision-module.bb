@@ -13,7 +13,7 @@ SRC_URI = "file://openvision.c file://Makefile"
 
 S = "${WORKDIR}"
 
-inherit module machine_kernel_pr
+inherit module
 
 EXTRA_OEMAKE = "KSRC=${STAGING_KERNEL_BUILDDIR}"
 
