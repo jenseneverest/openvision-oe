@@ -2,6 +2,9 @@ SECTION = "kernel/modules"
 LICENSE = "CLOSED"
 PRIORITY = "required"
 
+PV = "${VISIONVERSION}"
+PR = "${VISIONREVISION}"
+
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RDEPENDS_${PN} = "ovlock"

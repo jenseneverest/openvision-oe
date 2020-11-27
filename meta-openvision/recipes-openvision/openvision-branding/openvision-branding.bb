@@ -7,8 +7,8 @@ require conf/license/openvision-gplv2.inc
 
 inherit autotools-brokensep gitpkgv ${PYTHONNAMEONLY}native
 
-PV = "git${SRCPV}"
-PKGV = "git${GITPKGV}"
+PV = "${VISIONVERSION}"
+PR = "${VISIONREVISION}"
 
 PR[vardepsexclude] += "DATE"
 
