@@ -42,7 +42,6 @@ OPTIONAL_PACKAGES += "\
 	exteplayer3 \
 	fuse-exfat \
 	gdb \
-	google-dns \
 	grep \
 	gstplayer \
 	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}-libav", "", d)} \

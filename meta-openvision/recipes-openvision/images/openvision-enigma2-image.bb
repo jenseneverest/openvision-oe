@@ -77,7 +77,6 @@ MACHINE_FEATURE_RELATED_PLUGINS += "\
 
 IMAGE_INSTALL += "\
 	aio-grab \
-	cloudflare-dns \
 	cronie \
 	dhrystone \
 	enigma2 \
