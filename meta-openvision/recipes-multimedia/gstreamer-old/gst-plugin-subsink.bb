@@ -1,7 +1,7 @@
 DESCRIPTION = "gstreamer subsink plugin"
 SECTION = "multimedia"
 PRIORITY = "optional"
-DEPENDS = "gstreamer ${GSTVNAME}-plugins-base"
+DEPENDS = "gstreamer ${GSTVNAME}-plugins-base glib-2.0-native"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34"
 
