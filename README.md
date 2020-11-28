@@ -9,6 +9,9 @@ You could download some test images from https://openvision.tech/stb-images/
 
 You could use https://sourceforge.net/projects/win32diskimager/ or similar tools to write the image on a sdcard.
 
+# IRC
+* Channel: https://webchat.freenode.net/#openvision
+
 # Login
 
 Username: root
