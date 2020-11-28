@@ -18,7 +18,7 @@ S = "${WORKDIR}/git"
 
 do_compile() {
     cd ${S}/gst-${GST_VERSION}
-    ${CC} *.c ../common/*.c -I../common/ `pkg-config --cflags --libs gstreamer gstreamer-pbutils-${GST_VERSION}` -o gstplayer_gst-${GST_VERSION} ${LDFLAGS}
+    ${CC} *.c ../common/*.c -I../common/ `pkg-config --cflags --libs gstreamer-${GST_VERSION} gstreamer-pbutils-${GST_VERSION}` -o gstplayer_gst-${GST_VERSION} ${LDFLAGS}
 }
 
 do_install() {
