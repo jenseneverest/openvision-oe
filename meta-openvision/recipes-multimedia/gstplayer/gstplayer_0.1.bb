@@ -17,19 +17,19 @@ SRC_URI = "git://gitlab.com/e2i/gstplayer.git;protocol=http \
 S = "${WORKDIR}/git"
 
 do_compile() {
-    cd ${S}/gst-1.0
-    ${CC} *.c ../common/*.c -I../common/ `pkg-config --cflags --libs gstreamer-1.0 gstreamer-pbutils-1.0` -o gstplayer_gst-1.0 ${LDFLAGS}
+    cd ${S}/gst-${GST_VERSION}
+    ${CC} *.c ../common/*.c -I../common/ `pkg-config --cflags --libs gstreamer gstreamer-pbutils-${GST_VERSION}` -o gstplayer_gst-${GST_VERSION} ${LDFLAGS}
 }
 
 do_install() {
     install -d ${D}${bindir}
-    install -m 0755 ${S}/gst-1.0/gstplayer_gst-1.0 ${D}${bindir}/gstplayer
+    install -m 0755 ${S}/gst-${GST_VERSION}/gstplayer_gst-${GST_VERSION} ${D}${bindir}/gstplayer
 }
 
 pkg_postinst_ontarget_${PN}() {
-    ln -sf gstplayer ${bindir}/gstplayer_gst-1.0
+    ln -sf gstplayer ${bindir}/gstplayer_gst-${GST_VERSION}
 }
 
 pkg_prerm_${PN}() {
-    rm -f ${bindir}/gstplayer_gst-1.0
+    rm -f ${bindir}/gstplayer_gst-${GST_VERSION}
 }
