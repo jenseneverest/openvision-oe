@@ -1,10 +1,10 @@
 def gettitle():
     try:
-        f = open('/proc/stb/info/openvision', 'r')
+        f = open('/proc/openvision/distro', 'r')
         data = []
         data = f.readlines()
         for line in data:
-            if 'https://openvision.tech' in line:
+            if 'openvision' in line:
                 return True
 
         return False
