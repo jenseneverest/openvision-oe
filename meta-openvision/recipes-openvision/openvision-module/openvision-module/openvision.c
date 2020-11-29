@@ -15,14 +15,14 @@
 #endif
 
 #define OV_PROC_PERMISSION 0444
-#define OV_MODULE_NAME "openvision"
+#define OV_MODULE_NAME "stb/info/openvision"
 
-static char *dirname1="stb";
-static char *dirname2="info";
+//static char *dirname1="stb";
+//static char *dirname2="info";
 
 static struct proc_dir_entry *proc_openvision;
-static struct proc_dir_entry *proc_parent1;
-static struct proc_dir_entry *proc_parent2;
+//static struct proc_dir_entry *proc_parent1;
+//static struct proc_dir_entry *proc_parent2;
 
 DEFINE_MUTEX(openvision_table_mutex);
 
@@ -63,9 +63,9 @@ static int openvision_read_proc (char *page, char **start, off_t off, int count,
 static int __init init_openvision(void)
 {
 	ov_kernel_info();
-	proc_parent1 = proc_mkdir(dirname1, NULL);
-	proc_parent2 = proc_mkdir(dirname2, proc_parent1);
-	if ((proc_openvision = create_proc_entry(OV_MODULE_NAME, OV_PROC_PERMISSION, proc_parent2)))
+//	proc_parent1 = proc_mkdir(dirname1, NULL);
+//	proc_parent2 = proc_mkdir(dirname2, proc_parent1);
+	if ((proc_openvision = create_proc_entry(OV_MODULE_NAME, OV_PROC_PERMISSION, NULL)))
 	proc_openvision->read_proc = openvision_read_proc;
 	return 0;
 }
@@ -99,9 +99,9 @@ static const struct file_operations proc_fops = {
 static int __init init_openvision(void)
 {
 	ov_kernel_info();
-	proc_parent1 = proc_mkdir(dirname1, NULL);
-	proc_parent2 = proc_mkdir(dirname2, proc_parent1);
-	proc_openvision = proc_create(OV_MODULE_NAME, OV_PROC_PERMISSION, proc_parent2, &proc_fops);
+//	proc_parent1 = proc_mkdir(dirname1, NULL);
+//	proc_parent2 = proc_mkdir(dirname2, proc_parent1);
+	proc_openvision = proc_create(OV_MODULE_NAME, OV_PROC_PERMISSION, NULL, &proc_fops);
         return 0;
 }
 #endif
