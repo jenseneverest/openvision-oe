@@ -15,14 +15,12 @@
 #endif
 
 #define OV_PROC_PERMISSION 0444
-#define OV_MODULE_NAME "stb/info/openvision"
+#define OV_MODULE_NAME "distro"
 
-//static char *dirname1="stb";
-//static char *dirname2="info";
+static char *dirname="openvision";
 
 static struct proc_dir_entry *proc_openvision;
-//static struct proc_dir_entry *proc_parent1;
-//static struct proc_dir_entry *proc_parent2;
+static struct proc_dir_entry *proc_parent;
 
 DEFINE_MUTEX(openvision_table_mutex);
 
@@ -52,7 +50,7 @@ static int openvision_read_proc (char *page, char **start, off_t off, int count,
 
         mutex_lock(&openvision_table_mutex);
 
-        len = sprintf(page, "https://openvision.tech\n");
+        len = sprintf(page, "openvision\n");
         mutex_unlock(&openvision_table_mutex);
         if (off >= len+begin)
                 return 0;
@@ -63,16 +61,15 @@ static int openvision_read_proc (char *page, char **start, off_t off, int count,
 static int __init init_openvision(void)
 {
 	ov_kernel_info();
-//	proc_parent1 = proc_mkdir(dirname1, NULL);
-//	proc_parent2 = proc_mkdir(dirname2, proc_parent1);
-	if ((proc_openvision = create_proc_entry(OV_MODULE_NAME, OV_PROC_PERMISSION, NULL)))
+	proc_parent = proc_mkdir(dirname, NULL);
+	if ((proc_openvision = create_proc_entry(OV_MODULE_NAME, OV_PROC_PERMISSION, proc_parent)))
 	proc_openvision->read_proc = openvision_read_proc;
 	return 0;
 }
 #else
 static int proc_openvision_show(struct seq_file *seq, void *v)
 {
-        seq_printf(seq, "https://openvision.tech\n");
+        seq_printf(seq, "openvision\n");
         return 0;
 }
 
@@ -99,9 +96,8 @@ static const struct file_operations proc_fops = {
 static int __init init_openvision(void)
 {
 	ov_kernel_info();
-//	proc_parent1 = proc_mkdir(dirname1, NULL);
-//	proc_parent2 = proc_mkdir(dirname2, proc_parent1);
-	proc_openvision = proc_create(OV_MODULE_NAME, OV_PROC_PERMISSION, NULL, &proc_fops);
+	proc_parent = proc_mkdir(dirname, NULL);
+	proc_openvision = proc_create(OV_MODULE_NAME, OV_PROC_PERMISSION, proc_parent, &proc_fops);
         return 0;
 }
 #endif
