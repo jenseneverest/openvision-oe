@@ -14,7 +14,15 @@
 #include <linux/seq_file.h>
 #endif
 
+#define OV_PROC_PERMISSION 0444
+#define OV_MODULE_NAME "openvision"
+
+static char *dirname1="stb";
+static char *dirname2="info";
+
 static struct proc_dir_entry *proc_openvision;
+static struct proc_dir_entry *proc_parent1;
+static struct proc_dir_entry *proc_parent2;
 
 DEFINE_MUTEX(openvision_table_mutex);
 
@@ -22,7 +30,7 @@ DEFINE_MUTEX(openvision_table_mutex);
 static int openvision_read_proc (char *page, char **start, off_t off, int count, int *eof, void *data_unused)
 {
         int len;
-        off_t   begin = 0;
+        off_t begin = 0;
 
         mutex_lock(&openvision_table_mutex);
 
@@ -50,14 +58,11 @@ static int __init init_openvision(void)
 	printk(KERN_INFO "architecture=@DEFAULTTUNE@\n");
 	printk(KERN_INFO "socfamily=@SOC_FAMILY@\n");
 	printk(KERN_INFO "compiledby=@DEVELOPER_NAME@\n");
-	if ((proc_openvision = create_proc_entry( "stb/info/openvision", 0666, NULL )))
+	proc_parent1 = proc_mkdir(dirname1, NULL);
+	proc_parent2 = proc_mkdir(dirname2, proc_parent1);
+	if ((proc_openvision = create_proc_entry(OV_MODULE_NAME, OV_PROC_PERMISSION, proc_parent2)))
 	proc_openvision->read_proc = openvision_read_proc;
 	return 0;
-}
-
-static void __exit cleanup_openvision(void)
-{
-        remove_proc_entry( "stb/info/openvision", NULL);
 }
 #else
 static int proc_openvision_show(struct seq_file *seq, void *v)
@@ -102,17 +107,13 @@ static int __init init_openvision(void)
 	printk(KERN_INFO "architecture=@DEFAULTTUNE@\n");
 	printk(KERN_INFO "socfamily=@SOC_FAMILY@\n");
 	printk(KERN_INFO "compiledby=@DEVELOPER_NAME@\n");
-	proc_openvision = proc_create_data( "stb/info/openvision", 0666, NULL, &proc_fops, NULL );
+	proc_parent1 = proc_mkdir(dirname1, NULL);
+	proc_parent2 = proc_mkdir(dirname2, proc_parent1);
+	proc_openvision = proc_create(OV_MODULE_NAME, OV_PROC_PERMISSION, proc_parent2, &proc_fops);
         return 0;
-}
-
-static void __exit cleanup_openvision(void)
-{
-        remove_proc_entry( "stb/info/openvision", NULL);
 }
 #endif
 module_init(init_openvision);
-module_exit(cleanup_openvision);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Open Vision developers");
