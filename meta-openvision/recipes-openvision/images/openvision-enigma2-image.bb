@@ -91,6 +91,7 @@ IMAGE_INSTALL += "\
 	frequency-xml-list-unicable \
 	libavahi-client \
 	libcrypto-compat \
+	${@bb.utils.contains("MACHINE", "wetekplay", "", "kernel-module-ipv6", d)} \
 	ntpdate \
 	settings-autorestore \
 	tuxbox-links \
