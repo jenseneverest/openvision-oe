@@ -91,6 +91,8 @@ IMAGE_INSTALL += "\
 	frequency-xml-list-unicable \
 	libavahi-client \
 	libcrypto-compat \
+	kernel-module-autofs4 \
+	kernel-module-fuse \
 	${@bb.utils.contains("MACHINE", "wetekplay", "", "kernel-module-ipv6", d)} \
 	ntpdate \
 	settings-autorestore \
