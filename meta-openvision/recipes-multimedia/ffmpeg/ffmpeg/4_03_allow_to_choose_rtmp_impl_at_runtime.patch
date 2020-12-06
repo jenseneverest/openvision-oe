@@ -1,8 +1,6 @@
-diff --git a/configure b/configure
-index 0d6ee0abfc..c69b318c04 100755
 --- a/configure
 +++ b/configure
-@@ -3273,10 +3273,8 @@ xv_outdev_deps="xlib"
+@@ -3353,10 +3353,8 @@ xv_outdev_deps="xlib"
  # protocols
  async_protocol_deps="threads"
  bluray_protocol_deps="libbluray"
@@ -13,7 +11,7 @@ index 0d6ee0abfc..c69b318c04 100755
  ffrtmphttp_protocol_select="http_protocol"
  ftp_protocol_select="tcp_protocol"
  gopher_protocol_select="network"
-@@ -3289,20 +3287,20 @@ https_protocol_suggest="zlib"
+@@ -3369,20 +3367,18 @@ https_protocol_suggest="zlib"
  icecast_protocol_select="http_protocol"
  mmsh_protocol_select="http_protocol"
  mmst_protocol_select="network"
@@ -31,12 +29,10 @@ index 0d6ee0abfc..c69b318c04 100755
 -rtmpte_protocol_suggest="zlib"
 -rtmpts_protocol_select="ffrtmphttp_protocol https_protocol"
 -rtmpts_protocol_suggest="zlib"
-+ffrtmp_protocol_conflict="librtmp_protocol"
 +ffrtmp_protocol_select="tcp_protocol"
 +ffrtmp_protocol_suggest="zlib"
 +ffrtmpe_protocol_select="ffrtmpcrypt_protocol"
 +ffrtmpe_protocol_suggest="zlib"
-+ffrtmps_protocol_conflict="librtmp_protocol"
 +ffrtmps_protocol_select="tls_protocol"
 +ffrtmps_protocol_suggest="zlib"
 +ffrtmpt_protocol_select="ffrtmphttp_protocol"
@@ -48,11 +44,9 @@ index 0d6ee0abfc..c69b318c04 100755
  rtp_protocol_select="udp_protocol"
  schannel_conflict="openssl gnutls libtls mbedtls"
  sctp_protocol_deps="struct_sctp_event_subscribe struct_msghdr_msg_flags"
-diff --git a/libavformat/Makefile b/libavformat/Makefile
-index 608f7f1f85..8001e7237b 100644
 --- a/libavformat/Makefile
 +++ b/libavformat/Makefile
-@@ -588,12 +588,12 @@ OBJS-$(CONFIG_MMSH_PROTOCOL)             += mmsh.o mms.o asf.o
+@@ -599,12 +599,12 @@ OBJS-$(CONFIG_MMSH_PROTOCOL)             += mmsh.o mms.o asf.o
  OBJS-$(CONFIG_MMST_PROTOCOL)             += mmst.o mms.o asf.o
  OBJS-$(CONFIG_PIPE_PROTOCOL)             += file.o
  OBJS-$(CONFIG_PROMPEG_PROTOCOL)          += prompeg.o
@@ -71,8 +65,6 @@ index 608f7f1f85..8001e7237b 100644
  OBJS-$(CONFIG_RTP_PROTOCOL)              += rtpproto.o ip.o
  OBJS-$(CONFIG_SCTP_PROTOCOL)             += sctp.o
  OBJS-$(CONFIG_SRTP_PROTOCOL)             += srtpproto.o srtp.o
-diff --git a/libavformat/protocols.c b/libavformat/protocols.c
-index ad95659795..617c7dbace 100644
 --- a/libavformat/protocols.c
 +++ b/libavformat/protocols.c
 @@ -44,12 +44,12 @@ extern const URLProtocol ff_mmst_protocol;
@@ -94,8 +86,6 @@ index ad95659795..617c7dbace 100644
  extern const URLProtocol ff_rtp_protocol;
  extern const URLProtocol ff_sctp_protocol;
  extern const URLProtocol ff_srtp_protocol;
-diff --git a/libavformat/rtmpproto.c b/libavformat/rtmpproto.c
-index b741e421af..3542b71f13 100644
 --- a/libavformat/rtmpproto.c
 +++ b/libavformat/rtmpproto.c
 @@ -2592,7 +2592,7 @@ static int inject_fake_duration_metadata(RTMPContext *rt)
@@ -107,16 +97,18 @@ index b741e421af..3542b71f13 100644
      char *old_app, *qmark, *n, fname_buffer[1024];
      uint8_t buf[2048];
      int port;
-@@ -2603,7 +2603,7 @@ static int rtmp_open(URLContext *s, const char *uri, int flags, AVDictionary **o
+@@ -2603,7 +2603,9 @@ static int rtmp_open(URLContext *s, const char *uri, int flags, AVDictionary **o
  
      rt->is_input = !(flags & AVIO_FLAG_WRITE);
  
 -    av_url_split(proto, sizeof(proto), auth, sizeof(auth),
-+    memset(tmpProto, 0, sizeof(tmpProto)); proto = &tmpProto[2]; av_url_split(tmpProto, sizeof(tmpProto), auth, sizeof(auth),
++    memset(tmpProto, 0, sizeof(tmpProto)); 
++    proto = &tmpProto[2];
++    av_url_split(tmpProto, sizeof(tmpProto), auth, sizeof(auth),
                   hostname, sizeof(hostname), &port,
                   path, sizeof(path), s->filename);
  
-@@ -3137,9 +3137,9 @@ const URLProtocol ff_##flavor##_protocol = {     \
+@@ -3137,9 +3139,9 @@ const URLProtocol ff_##flavor##_protocol = {     \
  };
  
  

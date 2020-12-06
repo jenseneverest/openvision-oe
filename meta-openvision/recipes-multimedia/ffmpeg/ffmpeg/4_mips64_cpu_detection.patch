@@ -13,11 +13,9 @@ failed to merge target specific data of file
 -Khem
 Upstream-Status: Inappropriate [OE-Specific]
 
-diff --git a/configure b/configure
-index 0d6ee0abfc..d400be8193 100755
 --- a/configure
 +++ b/configure
-@@ -5627,12 +5627,9 @@ elif enabled mips; then
+@@ -5762,12 +5762,9 @@ elif enabled mips; then
  
      # Enable minimum ISA based on selected options
      if enabled mips64; then
@@ -30,4 +28,3 @@ index 0d6ee0abfc..d400be8193 100755
          enabled mips32r2 && check_inline_asm_flags mips32r2 '"ext $0, $0, 0, 1"' '-mips32r2'
          disabled mips32r6 && disabled mips32r5 && disabled mips32r2 && check_inline_asm_flags mips32r1 '"addi $0, $0, 0"' '-mips32'
      fi
-

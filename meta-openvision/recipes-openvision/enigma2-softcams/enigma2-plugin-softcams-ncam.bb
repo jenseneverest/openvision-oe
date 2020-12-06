@@ -21,7 +21,8 @@ SRC_URI += "\
 	file://ncam.srvid \
 	file://ncam.user \
 	file://ncam.provid \
-	file://CCcam.cfg"
+	file://CCcam.cfg \
+	file://ncam.fs"
 
 CONFFILES = "${sysconfdir}/tuxbox/config/ncam/ncam.conf ${sysconfdir}/tuxbox/config/ncam/ncam.server ${sysconfdir}/tuxbox/config/ncam/ncam.srvid ${sysconfdir}/tuxbox/config/ncam/ncam.user ${sysconfdir}/tuxbox/config/ncam/ncam.provid ${sysconfdir}/tuxbox/config/ncam/CCcam.cfg"
 

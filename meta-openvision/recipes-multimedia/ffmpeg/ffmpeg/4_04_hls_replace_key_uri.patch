@@ -1,6 +1,5 @@
-diff -Naur FFmpeg-release-4.3/libavformat/hls.c FFmpeg-release-4.3-PersianPrince/libavformat/hls.c
---- FFmpeg-release-4.3/libavformat/hls.c	2020-06-15 23:11:15.000000000 +0430
-+++ FFmpeg-release-4.3-PersianPrince/libavformat/hls.c	2020-06-18 18:57:26.840584655 +0430
+--- a/libavformat/hls.c
++++ b/libavformat/hls.c
 @@ -209,6 +209,8 @@
      AVDictionary *avio_opts;
      char *allowed_extensions;
