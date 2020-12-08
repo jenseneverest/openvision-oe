@@ -167,19 +167,26 @@ if [ -n ${HAS_SAMBA} ]; then
 	fi
 fi
 
+# fix possible resolv.conf symlink recursion
+find -L /etc/resolv.conf
+if [ $? -eq 1 ]; then
+	rm -f /etc/resolv.conf
+	touch /etc/resolv.conf
+fi
+
 # if we have NFS, check for exports and restart it
-if [ ${HAS_NFS} ]; then
+if [ -n ${HAS_NFS} ]; then
 	if [ -f /etc/exports -a -s /etc/exports ]; then
 		/etc/init.d/nfsserver restart
 	fi
 fi
 
 # if we have dropbear installed, check for  an outdated hostkey
-if [ ${HAS_DROPBEAR} ]; then
+if [ -n ${HAS_DROPBEAR} ]; then
 	# get the encoding type of the current key
-	$TYPE=$(strings $HOSTKEY | head -n 1)
+	TYPE=$(strings $HOSTKEY | head -n 1)
 	# if an old one was restored
-	if [ ${TYPE} == "ssh-rsa" ]; then
+	if [ "${TYPE}" == "ssh-rsa" ]; then
 		# restore the original
 		mv ${HOSTKEY} ${HOSTKEY}.old
 		mv ${HOSTKEY}.tmp ${HOSTKEY}
