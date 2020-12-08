@@ -1,9 +1,9 @@
-PV = "2020c"
+PV = "2020a"
 
-SRC_URI[tzcode.md5sum] = "f6631485211c8a2ac1d6a8a3f59ba974"
-SRC_URI[tzcode.sha256sum] = "9aa97f40f7b5d90c76c1af80295194daef9c427302f50c278d10ca31c3ccbfe4"
-SRC_URI[tzdata.md5sum] = "43309518079463377086aa67e87389e6"
-SRC_URI[tzdata.sha256sum] = "7890ac105f1aa4a5d15c5be2409580af401ee2f3fffe2a1e4748af589e194bd9"
+SRC_URI[tzcode.md5sum] = "f87c3477e85a5c4b00df0def6c6a0055"
+SRC_URI[tzcode.sha256sum] = "7d2af7120ee03df71fbca24031ccaf42404752e639196fe93c79a41b38a6d669"
+SRC_URI[tzdata.md5sum] = "96a985bb8eeab535fb8aa2132296763a"
+SRC_URI[tzdata.sha256sum] = "547161eca24d344e0b5f96aff6a76b454da295dc14ed4ca50c2355043fb899a2"
 
 do_compile () {
         for zone in ${TZONES}; do \
