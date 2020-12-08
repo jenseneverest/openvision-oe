@@ -65,3 +65,9 @@ do_install() {
 
 	install -d ${D}${localstatedir}/share/empty
 }
+
+INITSCRIPT_PACKAGES = ""
+
+do_install_append() {
+    chown root:root ${D}${sysconfdir}/vsftpd.conf
+}
