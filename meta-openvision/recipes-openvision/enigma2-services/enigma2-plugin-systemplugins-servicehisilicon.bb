@@ -25,6 +25,9 @@ EXTRA_OECONF = "\
 	HOST_SYS=${HOST_SYS} \
 	STAGING_INCDIR=${STAGING_INCDIR} \
 	STAGING_LIBDIR=${STAGING_LIBDIR} \
+	--with-boxtype=${MACHINE} \
+	--with-boxbrand=${BOX_BRAND} \
+	--with-stbplatform=${STB_PLATFORM} \
 	"
 
 FILES_${PN} += "\
