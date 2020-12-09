@@ -67,7 +67,3 @@ do_install() {
 }
 
 INITSCRIPT_PACKAGES = ""
-
-do_install_append() {
-    chown root:root ${D}${sysconfdir}/vsftpd.conf
-}
