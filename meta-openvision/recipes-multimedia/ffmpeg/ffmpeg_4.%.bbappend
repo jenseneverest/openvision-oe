@@ -29,7 +29,7 @@ EXTRA_FFCONF = " \
     --prefix=${prefix} \
     --disable-static \
     --disable-runtime-cpudetect \
-    --enable-ffprobe \
+    ${@bb.utils.contains("TARGET_ARCH", "mipsel", "--disable-programs", "--enable-ffprobe", d)} \
     --disable-altivec \
     --disable-amd3dnow \
     --disable-amd3dnowext \
@@ -46,13 +46,13 @@ EXTRA_FFCONF = " \
     --disable-fma3 \
     --disable-fma4 \
     --disable-avx2 \
-    --disable-inline-asm \
-    --disable-yasm \
+    ${@bb.utils.contains("TARGET_ARCH", "mipsel", "--enable-inline-asm --enable-asm", "--disable-inline-asm --disable-yasm", d)} \
     --disable-x86asm \
     --disable-fast-unaligned \
     --enable-protocol=http \
-    \
     --disable-muxers \
+    --disable-encoders \
+    ${@bb.utils.contains("TARGET_ARCH", "mipsel", "--disable-decoders --disable-decoders --enable-decoder=wmapro --enable-decoder=wmav1 --enable-decoder=wmav2 --enable-decoder=wmavoice --enable-decoder=dca --disable-demuxers --disable-parsers --disable-bsfs --disable-protocols --disable-devices --disable-filters --disable-zlib", " \
     --enable-muxer=mpeg1video \
     --enable-muxer=h264 \
     --enable-muxer=mp4 \
@@ -65,7 +65,6 @@ EXTRA_FFCONF = " \
     --enable-muxer=image2pipe \
     --enable-muxer=apng \
     --enable-muxer=mpegts \
-    --disable-encoders \
     --enable-encoder=mpeg1video \
     --enable-encoder=png \
     --enable-encoder=libx264 \
@@ -75,8 +74,7 @@ EXTRA_FFCONF = " \
     --enable-encoder=jpegls \
     --enable-encoder=rawvideo \
     --disable-decoder=truehd \
-    --disable-decoder=mlp \
-    \
+    --disable-decoder=mlp", d)} \
     --disable-debug \
     --disable-doc \
     --disable-htmlpages \
@@ -86,6 +84,7 @@ EXTRA_FFCONF = " \
     ${@bb.utils.contains("TARGET_ARCH", "mipsel", "${MIPSFPU} --disable-vfp --disable-neon --disable-mipsdsp --disable-mipsdspr2", "", d)} \
     ${@bb.utils.contains("TARGET_ARCH", "arm", "--enable-armv6 --enable-armv6t2 --enable-vfp --enable-neon", "", d)} \
     ${@bb.utils.contains("TUNE_FEATURES", "aarch64", "--enable-armv8 --enable-vfp --enable-neon", "", d)} \
+    ${@bb.utils.contains("TARGET_ARCH", "sh4", "--disable-vfp --disable-neon", "", d)} \
     --extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS} -ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
     --extra-ldflags="${TARGET_LDFLAGS},--gc-sections -Wl,--print-gc-sections,-lrt" \
 "
