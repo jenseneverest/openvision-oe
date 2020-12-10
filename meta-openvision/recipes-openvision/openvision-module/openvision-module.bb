@@ -9,7 +9,7 @@ PR = "${VISIONREVISION}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-RDEPENDS_${PN} = "ovlock"
+RDEPENDS_${PN} = "ovlock multibootflag"
 
 SRC_URI = "git://github.com/OpenVisionE2/openvision-module.git;protocol=git"
 
