@@ -7,8 +7,8 @@ INSANE_SKIP_${PN} = "arch"
 
 SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/linux-firmwares/master/rpi-firmwares.tar.xz"
 
-SRC_URI[md5sum] = "15269a73ef045f5e540f729c694c7b55"
-SRC_URI[sha256sum] = "ebb945c8c25366950aa755cd97b554a0c6974e2910da871c7d50404420793fc0"
+SRC_URI[md5sum] = "05f96a009748858353080b4567e05eb4"
+SRC_URI[sha256sum] = "a09f4a307692dda2900590b50d3c2f7e46f5686afaa81e340f73ab7ca3d85369"
 
 S = "${WORKDIR}/rpi-firmwares"
 
