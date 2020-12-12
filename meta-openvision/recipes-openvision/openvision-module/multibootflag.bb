@@ -1,4 +1,4 @@
-DESCRIPTION = "Multiboot flag tool by Persian Prince for Open Vision module."
+DESCRIPTION = "Multiboot flag tool by Persian Prince for Open Vision information module."
 LICENSE = "CLOSED"
 
 SRC_URI = "file://multibootflag.zip"
@@ -9,6 +9,10 @@ inherit upx_compress update-rc.d
 
 INITSCRIPT_NAME = "multibootflag-loader"
 INITSCRIPT_PARAMS = "start 05 S ."
+
+do_configure_prepend(){
+	find ${S}/ -type f -name "*.cpp" | xargs -r -L1 sed -i "s|@DISTRO_NAME@|${DISTRO_NAME}|g"
+}
 
 do_compile() {
          ${CXX} multibootflag.cpp -o multibootflag

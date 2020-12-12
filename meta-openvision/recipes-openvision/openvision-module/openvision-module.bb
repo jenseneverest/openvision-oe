@@ -1,4 +1,4 @@
-SUMMARY = "Open Vision module for ${MACHINE}"
+SUMMARY = "Open Vision information module for ${MACHINE}"
 SECTION = "base"
 PRIORITY = "required"
 LICENSE = "GPLv3"
