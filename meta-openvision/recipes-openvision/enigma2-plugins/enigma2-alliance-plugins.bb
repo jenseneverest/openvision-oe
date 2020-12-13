@@ -32,6 +32,7 @@ PROVIDES = "\
 	enigma2-plugin-extensions-usbsafe \
 	enigma2-plugin-extensions-webbrowser \
 	enigma2-plugin-systemplugins-abmcustommiximporter \
+	enigma2-plugin-systemplugins-aboutboxbranding \
 	enigma2-plugin-systemplugins-audioeffect \
 	enigma2-plugin-systemplugins-blindscan \
 	enigma2-plugin-systemplugins-channelsimporter \
