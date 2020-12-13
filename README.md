@@ -35,6 +35,7 @@ Please use our forum at https://forum.openvision.tech or our issue page at https
 * Do we need more Vision Developers? Absolutely yes! Contribute to our git and we will contact you!
 * Do we need more Vision Testers? Absolutely yes! Test our images and report bugs, help us grow you'll see the title flows.
 * Do we support our image in multiboot situations? No! Check about screen and if our module is not loaded then you're on your own!
+* Nobody is allowed to distribute our images on linuxsat-support.com, if you don’t respect this wish your “Vision Tester” access will be revoked.
 
 If you see your model in https://github.com/OpenVisionE2/openvision-oe/blob/develop/Vision-metas.md it means there will be Open Vision for it otherwise read https://forum.openvision.tech/viewtopic.php?f=2&t=30 and don't spam the board!
 
@@ -87,3 +88,4 @@ If you support them they will grow but we need to fight this kind of behavior to
 * PurE2 team which are using everyone's work and trying to close things like using .so libraries, they don't publish their changes.
 * VITMOD which is stealing our sources even our procfs driver + using so many GPL licensed sources like amlogic kernel without publishing his changes.
 * VTi team which are using Vu+'s sources but they don't publish their changes.
+* linuxsat-support.com, somewhere people don’t respect others.
