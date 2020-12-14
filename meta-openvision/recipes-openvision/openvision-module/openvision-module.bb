@@ -52,6 +52,7 @@ do_configure_prepend(){
 	find ${S}/ -type f -name "*.c" | xargs -r -L1 sed -i "s|@MKUBIFS_ARGS@|${MKUBIFS_ARGS}|g"
 	find ${S}/ -type f -name "*.c" | xargs -r -L1 sed -i "s|@UBINIZE_ARGS@|${UBINIZE_ARGS}|g"
 	find ${S}/ -type f -name "*.c" | xargs -r -L1 sed -i "s|@FORCE@|${FORCE}|g"
+	find ${S}/ -type f -name "*.c" | xargs -r -L1 sed -i "s|@DATETIME@|${DATE}|g"
 }
 
 do_compile() {
@@ -60,6 +61,7 @@ do_compile() {
 }
 
 do_configure[nostamp] = "1"
+do_install[vardepsexclude] += "DATE"
 
 do_install() {
 	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/openvision

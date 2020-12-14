@@ -41,7 +41,7 @@ do_install() {
 	echo "feedsurl=${DISTRO_FEED_URI}" >> ${D}${sysconfdir}/image-version
 	echo "${DISTRO_FEED_URI}" > ${D}${sysconfdir}/openvision/feedsurl
 	echo "build=${VISIONREVISION}" >> ${D}${sysconfdir}/image-version
-	echo "date=${DATETIME}" >> ${D}${sysconfdir}/image-version
+	echo "date=${DATE}" >> ${D}${sysconfdir}/image-version
 	echo "comment=Open Vision" >> ${D}${sysconfdir}/image-version
 	echo "target=9" >> ${D}${sysconfdir}/image-version
 	echo "creator=Open Vision developers" >> ${D}${sysconfdir}/image-version
@@ -152,4 +152,4 @@ if ! grep -qs "config.plugins.CacheFlush" cat /etc/enigma2/settings ; then
 fi
 }
 
-do_install[vardepsexclude] += "DATETIME"
+do_install[vardepsexclude] += "DATE"
