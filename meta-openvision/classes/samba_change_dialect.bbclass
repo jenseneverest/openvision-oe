@@ -15,8 +15,8 @@
 # dialect (for old servers) by choosing "vers=1.0" on the cifs
 # mount e.g. to take advantage of Samba's "CIFS POSIX Extensions".
 
-do_openvisionsambachangedialect(){
-    find ${S}/ -type f -name "connect.c" | xargs -r -L1 sed -i '0,/smb1_operations/! {0,/smb1_operations/ s/smb1_operations/smb30_operations/}'
-    find ${S}/ -type f -name "connect.c" | xargs -r -L1 sed -i '0,/smb1_values/! {0,/smb1_values/ s/smb1_values/smb30_values/}'
-}
-addtask openvisionsambachangedialect before do_configure after do_unpack
+#do_openvision_samba_change_dialect(){
+#    find ${S}/ -type f -name "connect.c" | xargs -r -L1 sed -i '0,/smb1_operations/! {0,/smb1_operations/ s/smb1_operations/smb30_operations/}'
+#    find ${S}/ -type f -name "connect.c" | xargs -r -L1 sed -i '0,/smb1_values/! {0,/smb1_values/ s/smb1_values/smb30_values/}'
+#}
+#addtask openvision_samba_change_dialect before do_configure after do_unpack
