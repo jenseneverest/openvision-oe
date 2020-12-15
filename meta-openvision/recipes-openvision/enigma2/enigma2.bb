@@ -21,6 +21,7 @@ RDEPENDS_${PN} = "\
 	enigma2-data-iso-639-3 \
 	enigma2-fonts \
 	enigma2-plugin-extensions-pespeedup \
+	enigma2-timezones \
 	ethtool \
 	glibc-gconv-iso8859-15 \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "glibc-gconv-cp1250", d)} \

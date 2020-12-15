@@ -9,6 +9,10 @@ do_compile () {
         for zone in ${TZONES}; do \
             ${STAGING_BINDIR_NATIVE}/zic -d ${WORKDIR}${datadir}/zoneinfo -L /dev/null \
                 -y ${S}/yearistype.sh ${S}/${zone} ; \
+            ${STAGING_BINDIR_NATIVE}/zic -d ${WORKDIR}${datadir}/zoneinfo/posix -L /dev/null \
+                -y ${S}/yearistype.sh ${S}/${zone} ; \
+            ${STAGING_BINDIR_NATIVE}/zic -d ${WORKDIR}${datadir}/zoneinfo/right -L ${S}/leapseconds \
+                -y ${S}/yearistype.sh ${S}/${zone} ; \
         done
 }
 
