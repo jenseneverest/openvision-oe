@@ -97,10 +97,10 @@ RDEPENDS_enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools 
 RDEPENDS_enigma2-plugin-extensions-dvdplayer = "kernel-module-udf"
 RDEPENDS_enigma2-plugin-systemplugins-hotplug = "hotplug-e2-helper"
 
-DESCRIPTION_enigma2-plugin-font-wqy-microhei = "wqy-microhei font supports Chinese EPG"
-PACKAGES += "enigma2-plugin-font-wqy-microhei"
-FILES_enigma2-plugin-font-wqy-microhei = "${datadir}/fonts/wqy-microhei.ttc ${datadir}/fonts/fallback.font"
-ALLOW_EMPTY_enigma2-plugin-font-wqy-microhei = "1"
+DESCRIPTION_enigma2-plugin-fonts-wqy-microhei = "wqy-microhei font supports Chinese EPG"
+PACKAGES += "enigma2-plugin-fonts-wqy-microhei"
+FILES_enigma2-plugin-fonts-wqy-microhei = "${datadir}/fonts/wqy-microhei.ttc ${datadir}/fonts/fallback.font"
+ALLOW_EMPTY_enigma2-plugin-fonts-wqy-microhei = "1"
 
 # Fake package that doesn't actually get built, but allows OE to detect
 # the RDEPENDS for the plugins above, preventing [build-deps] warnings.

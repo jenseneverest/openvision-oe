@@ -9,12 +9,12 @@ LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=7246f848faa4e9c9fc0ea91122d6e680"
 
 DEPENDS = "libxml2 bash-completion"
 
-PV = "2020.12.09"
+PV = "2020.12.14"
 
 SRC_URI = "https://github.com/ytdl-org/youtube-dl/releases/download/${PV}/youtube-dl-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "d364913b8c4282e876b74c3847c6bcc2"
-SRC_URI[sha256sum] = "0ac76347bf455b4e80a026638f9406aa28df3d2b6e445c705ad43809808eb961"
+SRC_URI[md5sum] = "37ad92ca740ee918b57e6567d3e64670"
+SRC_URI[sha256sum] = "9681a5a515cb44ef23c28bd77f6d79d531fdbc7325bdf4bbb7966260b7b64273"
 
 S = "${WORKDIR}/youtube-dl"
 
