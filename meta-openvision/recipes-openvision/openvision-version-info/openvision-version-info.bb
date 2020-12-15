@@ -42,6 +42,7 @@ do_install() {
 	echo "${DISTRO_FEED_URI}" > ${D}${sysconfdir}/openvision/feedsurl
 	echo "build=${VISIONREVISION}" >> ${D}${sysconfdir}/image-version
 	echo "date=${DATE}" >> ${D}${sysconfdir}/image-version
+	echo "${DATE}" > ${D}${sysconfdir}/openvision/compiledate
 	echo "comment=Open Vision" >> ${D}${sysconfdir}/image-version
 	echo "target=9" >> ${D}${sysconfdir}/image-version
 	echo "creator=Open Vision developers" >> ${D}${sysconfdir}/image-version
@@ -67,7 +68,9 @@ do_install() {
 	echo "socfamily=${SOC_FAMILY}" >> ${D}${sysconfdir}/image-version
 	echo "${SOC_FAMILY}" > ${D}${sysconfdir}/openvision/socfamily
 	echo "fpu=${TARGET_FPU}" >> ${D}${sysconfdir}/image-version
-	echo "display-type=${DISPLAY_TYPE}" >> ${D}${sysconfdir}/image-version
+	echo "${TARGET_FPU}" > ${D}${sysconfdir}/openvision/fpu
+	echo "displaytype=${DISPLAY_TYPE}" >> ${D}${sysconfdir}/image-version
+	echo "${DISPLAY_TYPE}" > ${D}${sysconfdir}/openvision/displaytype
 	echo "blindscanbinary=${BLINDSCAN_BINARY}" >> ${D}${sysconfdir}/image-version
 	echo "${BLINDSCAN_BINARY}" > ${D}${sysconfdir}/openvision/blindscanbinary
 	echo "rctype=${RCTYPE}" >> ${D}${sysconfdir}/image-version
@@ -86,46 +89,62 @@ do_install() {
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "transcoding", "1", "0", d)}" = "1" ]; then
 		echo "transcoding=${HAVE_TRANSCODING}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_TRANSCODING}" >> ${D}${sysconfdir}/openvision/transcoding
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "multitranscoding", "1", "0", d)}" = "1" ]; then
 		echo "multitranscoding=${HAVE_MULTITRANSCODING}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_MULTITRANSCODING}" >> ${D}${sysconfdir}/openvision/multitranscoding
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "HDMI", "1", "0", d)}" = "1" ]; then
 		echo "HDMI=${HAVE_HDMI}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_HDMI}" >> ${D}${sysconfdir}/openvision/hdmi
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "YUV", "1", "0", d)}" = "1" ]; then
 		echo "YUV=${HAVE_YUV}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_YUV}" >> ${D}${sysconfdir}/openvision/yuv
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "RCA", "1", "0", d)}" = "1" ]; then
 		echo "RCA=${HAVE_RCA}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_RCA}" >> ${D}${sysconfdir}/openvision/rca
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "AV_JACK", "1", "0", d)}" = "1" ]; then
 		echo "AV_JACK=${HAVE_AV_JACK}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_AV_JACK}" >> ${D}${sysconfdir}/openvision/avjack
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "SCART", "1", "0", d)}" = "1" ]; then
 		echo "SCART=${HAVE_SCART}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_SCART}" >> ${D}${sysconfdir}/openvision/scart
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "DVI", "1", "0", d)}" = "1" ]; then
 		echo "DVI=${HAVE_DVI}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_DVI}" >> ${D}${sysconfdir}/openvision/dvi
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "SVIDEO", "1", "0", d)}" = "1" ]; then
 		echo "SVIDEO=${HAVE_SVIDEO}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_SVIDEO}" >> ${D}${sysconfdir}/openvision/svideo
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "HDMI-IN-HD", "1", "0", d)}" = "1" ]; then
 		echo "HDMI-IN-HD=${HAVE_HDMI_IN_HD}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_HDMI_IN_HD}" >> ${D}${sysconfdir}/openvision/hdmihdin
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "HDMI-IN-FHD", "1", "0", d)}" = "1" ]; then
 		echo "HDMI-IN-FHD=${HAVE_HDMI_IN_FHD}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_HDMI_IN_FHD}" >> ${D}${sysconfdir}/openvision/hdmifhdin
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "wol", "1", "0", d)}" = "1" ]; then
 		echo "wol=${HAVE_WOL}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_WOL}" >> ${D}${sysconfdir}/openvision/wol
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "ci", "1", "0", d)}" = "1" ]; then
 		echo "ci=${HAVE_CI}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_CI}" >> ${D}${sysconfdir}/openvision/ci
 	fi
 	if [ "${@bb.utils.contains("MACHINE_FEATURES", "vfdsymbol", "1", "0", d)}" = "1" ]; then
 		echo "vfdsymbol=${HAVE_VFDSYMBOL}" >> ${D}${sysconfdir}/image-version
+		echo "${HAVE_VFDSYMBOL}" >> ${D}${sysconfdir}/openvision/vfdsymbol
 	fi
+	echo "fhdskin=${HAVE_FHDSKIN}" >> ${D}${sysconfdir}/image-version
+	echo "${HAVE_FHDSKIN}" >> ${D}${sysconfdir}/openvision/fhdskin
 	echo "${IMAGEDIR}" > ${D}${sysconfdir}/openvision/imagedir
 	echo "${IMAGE_FSTYPES}" > ${D}${sysconfdir}/openvision/imagefs
 	echo "${MTD_BOOTFS}" > ${D}${sysconfdir}/openvision/mtdbootfs
