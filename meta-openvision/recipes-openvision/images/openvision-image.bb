@@ -2,9 +2,7 @@ require conf/license/openvision-gplv2.inc
 
 inherit image
 
-DEPENDS += "\
-	zip-native \
-	"
+DEPENDS += "zip-native"
 
 IMAGE_INSTALL = "\
 	${ROOTFS_PKGMANAGE} \
@@ -71,4 +69,8 @@ ssh_allow_empty_password () {
 license_create_manifest() {
 }
 
-ROOTFS_POSTPROCESS_COMMAND += "rootfs_removeopkgleftovers; rootfs_speedup_dropbearkey; "
+do_openvision_chwon_root_image(){
+        chown -R root:root ${IMAGE_ROOTFS}
+}
+
+ROOTFS_POSTPROCESS_COMMAND += "rootfs_removeopkgleftovers; rootfs_speedup_dropbearkey; do_openvision_chwon_root_image; "
