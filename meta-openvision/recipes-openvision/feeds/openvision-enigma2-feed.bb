@@ -33,7 +33,6 @@ OPTIONAL_PACKAGES += "\
 	diffutils \
 	djmount \
 	dosfstools \
-	${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "dreamci", "", d)} \
 	dvblast \
 	dvbsnoop \
 	dvdfs \
@@ -100,7 +99,6 @@ OPTIONAL_PACKAGES += "\
 	python-ujson \
 	${PYTHONNAMEONLY}-websocket \
 	python-youtube-dl \
-	rclone \
 	rsync \
 	rtorrent \
 	sabnzbd \
@@ -116,7 +114,6 @@ OPTIONAL_PACKAGES += "\
 	tcpdump \
 	tmux \
 	transmission \
-	udpxy \
 	unrar \
 	unzip \
 	upx \
@@ -242,7 +239,6 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-skins-kravenhd \
 	enigma2-plugin-skins-kravenvb \
 	enigma2-plugin-skins-maxfhdxta-raed \
-	enigma2-plugin-skins-metrix-vision \
 	enigma2-plugin-skins-multibox-raed \
 	enigma2-plugin-skins-mxblack-raed \
 	enigma2-plugin-skins-mxhq9b-raed \

@@ -10,9 +10,11 @@ inherit gitpkgv
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
-SRC_URI = "git://gitlab.com/e2i/f4mdump.git;protocol=http"
+SRC_URI = "git://gitlab.com/e2i/f4mdump.git;protocol=http \
+	file://fix-build-openssl111x.patch \
+	"
 
-S = "${WORKDIR}/git/"
+S = "${WORKDIR}/git"
 
 SRCRTMP = "ext/librtmp/amf.c"
 SRCRTMP =+ "ext/librtmp/hashswf.c"

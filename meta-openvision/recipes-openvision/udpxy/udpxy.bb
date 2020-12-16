@@ -30,4 +30,3 @@ do_install() {
 
 INITSCRIPT_NAME = "udpxy.sh"
 INITSCRIPT_PARAMS = "defaults"
-
