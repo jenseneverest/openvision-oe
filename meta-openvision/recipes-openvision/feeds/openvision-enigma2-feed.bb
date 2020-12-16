@@ -77,9 +77,11 @@ OPTIONAL_PACKAGES += "\
 	procps \
 	pv \
 	pyload \
+	${PYTHONNAMEONLY}-attr \
 	${PYTHONNAMEONLY}-attrs \
 	${PYTHONNAMEONLY}-beautifulsoup4 \
 	${PYTHONNAMEONLY}-bluetool \
+	${PYTHONNAMEONLY}-future \
 	${PYTHONNAMEONLY}-futures \
 	${PYTHONNAMEONLY}-iso3166 \
 	${PYTHONNAMEONLY}-iso639 \
@@ -97,7 +99,7 @@ OPTIONAL_PACKAGES += "\
 	python-soco \
 	python-singledispatch \
 	python-ujson \
-	${PYTHONNAMEONLY}-websocket \
+	${PYTHONNAMEONLY}-websocket-client \
 	python-youtube-dl \
 	rsync \
 	rtorrent \

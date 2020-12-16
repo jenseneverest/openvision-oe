@@ -63,10 +63,8 @@ PYTHON_RDEPS = "\
 	${PYTHONNAMEONLY}-xml \
 	${PYTHONNAMEONLY}-zopeinterface \
 	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", " \
-	python-importlib \
 	python-lang \
 	python-re \
-	python-utf8-hack \
 	python-zlib", d)} \
 	"
 
