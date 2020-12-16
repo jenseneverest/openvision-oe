@@ -13,17 +13,21 @@ PACKAGECONFIG[wavpack] = "--enable-libwavpack,--disable-libwavpack,wavpack"
 
 MIPSFPU = "${@bb.utils.contains('TARGET_FPU', 'soft', '--disable-mipsfpu', '--enable-mipsfpu', d)}"
 
-SRC_URI_append = " \
-        file://4_02_fix_mpegts.patch \
-        file://4_03_allow_to_choose_rtmp_impl_at_runtime.patch \
-        file://4_04_hls_replace_key_uri.patch \
-        file://4_06_optimize_aac.patch \
-        file://4_07_increase_buffer_size.patch \
-        file://4_08_recheck_discard_flags.patch \
-        file://4_09_ffmpeg_fix_edit_list_parsing.patch \
-        file://4_11_rtsp.patch \
-        file://4_12_dxva2.patch \
+SRC_URI = "git://github.com/FFmpeg/FFmpeg.git;branch=release/4.3 \
+	file://mips64_cpu_detection.patch \
+	file://0001-libavutil-include-assembly-with-full-path-from-sourc.patch \	
+	file://4_02_fix_mpegts.patch \
+	file://4_03_allow_to_choose_rtmp_impl_at_runtime.patch \
+	file://4_04_hls_replace_key_uri.patch \
+	file://4_06_optimize_aac.patch \
+	file://4_07_increase_buffer_size.patch \
+	file://4_08_recheck_discard_flags.patch \
+	file://4_09_ffmpeg_fix_edit_list_parsing.patch \
+	file://4_11_rtsp.patch \
+	file://4_12_dxva2.patch \
         "
+
+S = "${WORKDIR}/git"
 
 EXTRA_FFCONF = " \
     --prefix=${prefix} \
@@ -86,6 +90,7 @@ EXTRA_FFCONF = " \
     ${@bb.utils.contains("TARGET_ARCH", "mipsel", "${MIPSFPU} --disable-vfp --disable-neon --disable-mipsdsp --disable-mipsdspr2", "", d)} \
     ${@bb.utils.contains("TARGET_ARCH", "arm", "--enable-armv6 --enable-armv6t2 --enable-vfp --enable-neon", "", d)} \
     ${@bb.utils.contains("TUNE_FEATURES", "aarch64", "--enable-armv8 --enable-vfp --enable-neon", "", d)} \
+    ${@bb.utils.contains("TARGET_ARCH", "sh4", "--disable-vfp --disable-neon", "", d)} \
     --extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS} -ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
     --extra-ldflags="${TARGET_LDFLAGS},--gc-sections -Wl,--print-gc-sections,-lrt" \
 "
