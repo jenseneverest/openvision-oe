@@ -16,7 +16,7 @@ do_compile () {
         done
 }
 
-TZONES_remove = "systemv"
+TZONES += "systemv"
 
 TZ_PACKAGES_remove = "tzdata-posix tzdata-right"
 
