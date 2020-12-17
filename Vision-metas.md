@@ -1,4 +1,4 @@
-# Here is the list of what 7.5 supports:
+# Here is the list of what 7.6 supports:
 
 # AZ
 * azboxhd
