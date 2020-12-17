@@ -70,7 +70,7 @@ GST_UGLY_RDEPS = "\
 
 DEPENDS = "\
 	enigma2 \
-	${GSTVNAME}-plugins-base gstreamer \
+	${GSTVNAME}-plugins-base ${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer1.0", "gstreamer", d)} \
 	${PYTHONNAMEONLY} \
 	"
 

@@ -9,9 +9,6 @@ PYPI_PACKAGE_EXT = "zip"
 
 inherit pypi
 
-SRC_URI[md5sum] = "379642a4f17214071fdc1894255d8d11"
-SRC_URI[sha256sum] = "94dc566247f35009ed42c0f4422f2b4f0a032fab1372c8308b864c8f26d93388"
-
 DEPENDS += "${PYTHON_PN}"
 DEPENDS_class-native += "${PYTHON_PN}-native"
 DEPENDS_class-nativesdk += "nativesdk-${PYTHON_PN}"
@@ -46,3 +43,14 @@ do_install_prepend() {
 }
 
 BBCLASSEXTEND = "native nativesdk"
+
+# The pkg-resources module can be used by itself, without the package downloader
+# and easy_install. Ship it in a separate package so that it can be used by
+# minimal distributions.
+PACKAGES =+ "${PYTHON_PN}-pkg-resources "
+FILES_${PYTHON_PN}-pkg-resources = "${PYTHON_SITEPACKAGES_DIR}/pkg_resources/*"
+# Due to the way OE-Core implemented native recipes, the native class cannot
+# have a dependency on something that is not a recipe name. Work around that by
+# manually setting RPROVIDES.
+RDEPENDS_${PN}_append = " ${PYTHON_PN}-pkg-resources"
+RPROVIDES_append_class-native = " ${PYTHON_PN}-pkg-resources-native"

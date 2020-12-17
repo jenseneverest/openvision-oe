@@ -11,12 +11,12 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv autotools pkgconfig
 
-PV = "${GST_VERSION}+git${SRCPV}"
-PKGV = "${GST_VERSION}+git${GITPKGV}"
+PV = "1.0+git${SRCPV}"
+PKGV = "1.0+git${GITPKGV}"
 
-EXTRA_OECONF = "--with-gstversion=${GST_VERSION}"
+EXTRA_OECONF = "--with-gstversion=1.0"
 
-FILES_${PN} = "${libdir}/gstreamer-${GST_VERSION}/*.so*"
-FILES_${PN}-dev += "${libdir}/gstreamer-${GST_VERSION}/*.la"
-FILES_${PN}-staticdev += "${libdir}/gstreamer-${GST_VERSION}/*.a"
-FILES_${PN}-dbg += "${libdir}/gstreamer-${GST_VERSION}/.debug"
+FILES_${PN} = "${libdir}/gstreamer-1.0/*.so*"
+FILES_${PN}-dev += "${libdir}/gstreamer-1.0/*.la"
+FILES_${PN}-staticdev += "${libdir}/gstreamer-1.0/*.a"
+FILES_${PN}-dbg += "${libdir}/gstreamer-1.0/.debug"
