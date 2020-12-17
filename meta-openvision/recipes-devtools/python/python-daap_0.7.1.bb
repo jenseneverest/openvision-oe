@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fbc093901857fcd118f065f900982c24"
 inherit ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "distutils3", "distutils", d)}
 
 SRC_URI = " \
-	http://jerakeen.org/files/PythonDaap-${PV}.tar.gz \
+	http://ftp.corbina.net/gentoo-distfiles/87/PythonDaap-${PV}.tar.gz \
 	file://python-daap.patch \
 "
 

@@ -17,8 +17,5 @@ inherit distutils
 
 RDEPENDS_${PN} = "python-core"
 RDEPENDS_{PN}-src = "${PN}"
-FILES_${PN}-src = " \
-	${libdir}/${PYTHON_DIR}/site-packages/*.py \
-	${libdir}/${PYTHON_DIR}/site-packages/*.egg-info \
-	"
 
+include python-package-split.inc

@@ -10,4 +10,5 @@ PV = "2.0.1+git${SRCPV}"
 PKGV = "2.0.1+git${GITPKGV}"
 
 SRC_URI = "git://github.com/giampaolo/pysendfile.git"
+
 S = "${WORKDIR}/git"
