@@ -2,7 +2,7 @@ require recipes-devtools/python/python3.inc
 
 DEPENDS = "python3-native libffi bzip2 gdbm openssl \
            sqlite3 zlib virtual/libintl xz qemu-native \
-           qemu-helper-native virtual/crypt"
+           qemu-helper-native"
 
 DISTRO_SRC_URI ?= "file://sitecustomize.py"
 DISTRO_SRC_URI_linuxstdbase = ""
@@ -222,6 +222,7 @@ PACKAGES_remove = "${PN}"
 RPROVIDES_${PN}-modules = "${PN}"
 RRECOMMENDS_${PN}-core_append_class-nativesdk = " nativesdk-python3-modules"
 RRECOMMENDS_${PN}-crypt = "openssl ca-certificates"
+RRECOMMENDS_${PN}-crypt_class-nativesdk = "nativesdk-openssl"
 
 FILES_${PN}-2to3 += "${bindir}/2to3-${PYTHON_MAJMIN}"
 FILES_${PN}-pydoc += "${bindir}/pydoc${PYTHON_MAJMIN} ${bindir}/pydoc3"

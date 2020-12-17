@@ -1,7 +1,7 @@
 require python.inc
 
 DEPENDS = "libffi bzip2 gdbm openssl \
-           readline sqlite3 zlib virtual/crypt"
+           readline sqlite3 zlib"
 
 DISTRO_SRC_URI ?= "file://sitecustomize.py"
 DISTRO_SRC_URI_linuxstdbase = ""
@@ -153,7 +153,7 @@ PACKAGES_remove = "${PN}"
 # manual dependency additions
 RPROVIDES_${PN}-modules = "${PN}"
 RRECOMMENDS_${PN}-core_append_class-nativesdk = " nativesdk-python-modules"
-RRECOMMENDS_${PN}-crypt = "${MLPREFIX}openssl"
+RRECOMMENDS_${PN}-crypt = "openssl"
 
 # package libpython2
 PACKAGES =+ "lib${BPN}2"
