@@ -5,4 +5,4 @@ SRC_URI_append = " \
 	${@bb.utils.contains("MACHINE_FEATURES", "oldkernel", "file://old_kernel.patch", "", d)} \
 	"
 
-SRC_URI_remove = "file://0001-tools-Add-support-for-rtk_h5-type.patch"
+SRC_URI_remove += "file://0001-tools-Add-support-for-rtk_h5-type.patch"

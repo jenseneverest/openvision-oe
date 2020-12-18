@@ -12,7 +12,7 @@ SRC_URI += "file://0004-rtmp-hls-tsdemux-fix.patch \
 
 DEPENDS += "libva"
 
-EXTRA_OEMESON += " \
-    ${GSTREAMER1_DEBUG} \
-    ${@bb.utils.contains("MACHINE", "dm800", "-Duvch264=disabled -Ddecklink=disabled", "", d)} \
-"
+EXTRA_OEMESON += "\
+	${GSTREAMER1_DEBUG} \
+	${@bb.utils.contains("MACHINE", "dm800", "-Duvch264=disabled -Ddecklink=disabled", "", d)} \
+	"

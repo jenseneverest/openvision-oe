@@ -1,4 +1,5 @@
-# Just a comment line to avoid PAK archive (application/x-pak)
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+
 PACKAGECONFIG = "openssl"
 
 DEPENDS += "openssl"
@@ -44,5 +45,3 @@ do_install_append() {
         ln -s ../../wpa_supplicant/ifupdown.sh ${D}${sysconfdir}/network/if-pre-up.d/${PN}
         ln -s ../../wpa_supplicant/ifupdown.sh ${D}${sysconfdir}/network/if-up.d/${PN}
 }
-
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"

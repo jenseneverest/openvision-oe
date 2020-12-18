@@ -83,4 +83,8 @@ do_install[vardepsexclude] += "DATE"
 do_install() {
 	install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/openvision
 	install -m 0644 ${S}/openvision.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/openvision/
+	install -d ${D}${sysconfdir}/modules-load.d
+	echo "openvision" > ${D}${sysconfdir}/modules-load.d/zzzzopenvision.conf
 }
+
+FILES_${PN} += "${nonarch_base_libdir} ${sysconfdir}"
