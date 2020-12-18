@@ -25,7 +25,7 @@ SRC_URI_append_class-nativesdk = " \
 
 SRC_URI[sha256sum] = "5c9ca8774bd7b03e5784f26ae9e9e6d749c9da2438545077e6b3d755a06595d9"
 
-inherit lib_package multilib_header multilib_script ptest
+inherit lib_package multilib_header multilib_script ptest upx_compress
 MULTILIB_SCRIPTS = "${PN}-bin:${bindir}/c_rehash"
 
 PACKAGECONFIG ?= ""

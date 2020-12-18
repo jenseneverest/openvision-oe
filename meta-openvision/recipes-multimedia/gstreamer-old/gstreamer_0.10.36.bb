@@ -22,11 +22,7 @@ SRC_URI[sha256sum] = "e556a529e0a8cf1cd0afd0cab2af5488c9524e7c3f409de29b5d82bb41
 
 inherit autotools pkgconfig gettext
 
-EXTRA_OECONF = "--disable-docbook --disable-gtk-doc \
-            --disable-dependency-tracking --disable-check \
-            --disable-examples --disable-tests \
-            --disable-valgrind ${GSTREAMER_DEBUG} \
-            "
+EXTRA_OECONF = "${GSTREAMER_DEBUG}"
 
 CACHED_CONFIGUREVARS += "ac_cv_header_valgrind_valgrind_h=no"
 

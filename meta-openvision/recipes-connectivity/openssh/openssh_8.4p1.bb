@@ -33,7 +33,7 @@ CVE_CHECK_WHITELIST += "CVE-2014-9278"
 
 PAM_SRC_URI = "file://sshd"
 
-inherit manpages useradd update-rc.d update-alternatives systemd
+inherit manpages useradd update-rc.d update-alternatives systemd upx_compress
 
 USERADD_PACKAGES = "${PN}-sshd"
 USERADD_PARAM_${PN}-sshd = "--system --no-create-home --home-dir /var/run/sshd --shell /bin/false --user-group sshd"

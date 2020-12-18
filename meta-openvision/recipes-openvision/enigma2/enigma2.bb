@@ -118,6 +118,8 @@ PKGV = "develop+git${GITPKGV}"
 
 SRC_URI = "git://github.com/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH}"
 
+SRC_URI_append_dm800 = " file://get-rid-of-HAVE-OLDE2-API-condition.patch"
+
 LDFLAGS_prepend = " -lxml2 "
 
 S = "${WORKDIR}/git"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH=/sbin:/bin:/usr/sbin:/usr/bin
+PATH=/sbin:/bin:/usr/sbin:${bindir}
 
 DAEMON=/usr/sbin/wpa_supplicant
 CONFIG="/etc/wpa_supplicant.conf"

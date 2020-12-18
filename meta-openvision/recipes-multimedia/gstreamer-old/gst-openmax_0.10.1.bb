@@ -22,7 +22,7 @@ inherit autotools pkgconfig
 # -Werror (hopefully fixed in 0.10.2)
 export GST_CVS="no"
 
-EXTRA_OECONF += "--disable-valgrind"
+EXTRA_OECONF += "${GSTREAMER_DEBUG}"
 
 FILES_${PN} += "${libdir}/gstreamer-0.10/libgstomx.so"
 FILES_${PN}-dev += "${libdir}/gstreamer-0.10/libgstomx.la"

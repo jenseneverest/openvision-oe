@@ -7,6 +7,12 @@ SRC_URI += "file://0004-rtmp-hls-tsdemux-fix.patch \
 	file://0001-Revert-tsdemux-Limit-the-maximum-PES-payload-size.patch \
 	file://0002-Revert-tsdemux-always-take-the-seek-segment-stop-int.patch \
 	file://0003-Revert-tsdemux-Use-gst_segment_do_seek.patch \
+	${@bb.utils.contains("MACHINE", "dm800", "file://006-fix-build-with-glibc219.patch file://allow-api.patch", "", d)} \
 	"
 
 DEPENDS += "libva"
+
+EXTRA_OEMESON += " \
+    ${GSTREAMER1_DEBUG} \
+    ${@bb.utils.contains("MACHINE", "dm800", "-Duvch264=disabled -Ddecklink=disabled", "", d)} \
+"

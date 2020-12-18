@@ -1,16 +1,7 @@
-From 344b6a92bb2138d81be002dd8846979a5f648ada Mon Sep 17 00:00:00 2001
-From: Captain <captain.onboard@web.de>
-Date: Sat, 24 Dec 2016 21:48:54 +0100
-
----
- sys/dvb/gstdvbsrc.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/sys/dvb/gstdvbsrc.c b/sys/dvb/gstdvbsrc.c
-index 2edd9fa..0b38c8b 100644
---- a/sys/dvb/gstdvbsrc.c
-+++ b/sys/dvb/gstdvbsrc.c
-@@ -306,7 +306,9 @@ gst_dvbsrc_modulation_get_type (void)
+diff -Naur gst-plugins-bad-1.18.2/sys/dvb/gstdvbsrc.c gst-plugins-bad-1.18.2-PersianPrince/sys/dvb/gstdvbsrc.c
+--- gst-plugins-bad-1.18.2/sys/dvb/gstdvbsrc.c	2020-12-18 16:37:22.349018818 +0330
++++ gst-plugins-bad-1.18.2-PersianPrince/sys/dvb/gstdvbsrc.c	2020-12-18 16:39:29.904072569 +0330
+@@ -306,7 +306,9 @@
      {APSK_16, "16APSK", "16apsk"},
      {APSK_32, "32APSK", "32apsk"},
      {DQPSK, "DQPSK", "dqpsk"},
@@ -20,3 +11,79 @@ index 2edd9fa..0b38c8b 100644
      {0, NULL, NULL},
    };
  
+@@ -461,8 +463,8 @@
+     {SYS_CMMB, "CMMB", "cmmb"},
+     {SYS_DAB, "DAB", "dab"},
+     {SYS_DVBT2, "DVB-T2", "dvb-t2"},
+-    {SYS_TURBO, "TURBO", "turbo"},
+ #if HAVE_V5_MINOR(6)
++    {SYS_TURBO, "TURBO", "turbo"},
+     {SYS_DVBC_ANNEX_C, "DVB-C-C", "dvb-c-c"},
+ #endif
+     {0, NULL, NULL},
+@@ -1620,12 +1622,13 @@
+   }
+ 
+   GST_DEBUG_OBJECT (object, "Get list of supported delivery systems");
+-
++#if HAVE_V5_MINOR(5)
+   dvb_prop[0].cmd = DTV_ENUM_DELSYS;
+   props.num = 1;
+   props.props = dvb_prop;
+ 
+   LOOP_WHILE_EINTR (err, ioctl (object->fd_frontend, FE_GET_PROPERTY, &props));
++#endif
+   if (err) {
+     GST_ELEMENT_ERROR (object, RESOURCE, SETTINGS,
+         (_("Cannot enumerate delivery systems from frontend device \"%s\"."),
+@@ -1759,13 +1762,14 @@
+     gst_structure_set (adapter_structure, "dvb-t2", G_TYPE_STRING, "DVB-T2",
+         NULL);
+   }
+-
++#if HAVE_V5_MINOR(6)
+   if (gst_dvbsrc_check_delsys (&dvb_prop[0], SYS_TURBO)) {
+     object->supported_delsys = g_list_append (object->supported_delsys,
+         GINT_TO_POINTER (SYS_TURBO));
+     gst_structure_set (adapter_structure, "turbo", G_TYPE_STRING, "TURBO",
+         NULL);
+   }
++#endif
+ #if HAVE_V5_MINOR(6)
+   if (gst_dvbsrc_check_delsys (&dvb_prop[0], SYS_DVBC_ANNEX_C)) {
+     object->supported_delsys = g_list_append (object->supported_delsys,
+@@ -2520,6 +2524,7 @@
+   switch (object->delsys) {
+     case SYS_DVBS:
+     case SYS_DVBS2:
++#if HAVE_V5_MINOR(6)
+     case SYS_TURBO:
+       if (freq > 2200000) {
+         /* this must be an absolute frequency */
+@@ -2579,6 +2584,7 @@
+         set_prop (props->props, &n, DTV_STREAM_ID, object->stream_id);
+       }
+       break;
++#endif
+     case SYS_DVBT:
+     case SYS_DVBT2:
+       set_prop (props->props, &n, DTV_BANDWIDTH_HZ, object->bandwidth);
+diff -Naur gst-plugins-bad-1.18.2/sys/dvb/parsechannels.c gst-plugins-bad-1.18.2-PersianPrince/sys/dvb/parsechannels.c
+--- gst-plugins-bad-1.18.2/sys/dvb/parsechannels.c	2020-12-06 16:54:13.758427000 +0330
++++ gst-plugins-bad-1.18.2-PersianPrince/sys/dvb/parsechannels.c	2020-12-18 16:52:29.042676192 +0330
+@@ -40,6 +40,15 @@
+ GST_DEBUG_CATEGORY_EXTERN (dvb_base_bin_debug);
+ #define GST_CAT_DEFAULT dvb_base_bin_debug
+ 
++#include <linux/dvb/version.h>
++
++#define HAVE_V5_MINOR(minor) ((DVB_API_VERSION > 5) || \
++			      (DVB_API_VERSION_MINOR >= (minor)))
++
++#if !HAVE_V5_MINOR(6)
++#define SYS_DVBC_ANNEX_A SYS_DVBC_ANNEX_AC
++#endif
++
+ typedef enum
+ {
+   CHANNEL_CONF_FORMAT_NONE,
