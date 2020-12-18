@@ -87,4 +87,4 @@ do_install() {
 	echo "openvision" > ${D}${sysconfdir}/modules-load.d/zzzzopenvision.conf
 }
 
-FILES_${PN} += "${nonarch_base_libdir} ${sysconfdir}"
+FILES_${PN} += "${sysconfdir}"
