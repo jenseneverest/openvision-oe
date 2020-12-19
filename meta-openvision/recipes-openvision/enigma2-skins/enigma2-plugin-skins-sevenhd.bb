@@ -20,5 +20,5 @@ FILES_${PN} = "${prefix}/*"
 require skin-python.inc
 
 do_install() {
-	cp -r --preserve=mode,links ${S}/data${prefix} ${D}/
+	cp -fr --preserve=links ${S}/data${prefix} ${D}/
 }

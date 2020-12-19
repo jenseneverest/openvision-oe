@@ -16,6 +16,6 @@ PACKAGES = "${PN}"
 FILES_${PN} += "${nonarch_base_libdir}/firmware"
 
 do_install() {
-    install -d ${D}${nonarch_base_libdir}/firmware
-    cp -r  --preserve=mode,links ${S}/* ${D}${nonarch_base_libdir}/firmware/
+	install -d ${D}${nonarch_base_libdir}/firmware
+	cp -fr --preserve=links ${S}/* ${D}${nonarch_base_libdir}/firmware/
 }

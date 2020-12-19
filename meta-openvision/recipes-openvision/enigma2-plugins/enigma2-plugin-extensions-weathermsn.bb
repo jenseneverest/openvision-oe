@@ -18,6 +18,6 @@ S = "${WORKDIR}/git"
 
 do_install() {
 	install -d ${D}${libdir}/enigma2/python/Plugins/Extensions
-	cp -r --preserve=mode,links ${S}/python/Plugins/Extensions/WeatherMSN ${D}${libdir}/enigma2/python/Plugins/Extensions/
+	cp -fr --preserve=links ${S}/python/Plugins/Extensions/WeatherMSN ${D}${libdir}/enigma2/python/Plugins/Extensions/
 	chmod -R a+rX ${D}${libdir}/enigma2/
 }
