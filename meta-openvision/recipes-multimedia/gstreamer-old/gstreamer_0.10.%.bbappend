@@ -1,1 +1,1 @@
-COMPATIBLE_MACHINE = "^(wetekplay|wetekplay2|wetekhub|x8hp|odroidc2)$"
+COMPATIBLE_MACHINE = "^(wetekplay|wetekplay2|wetekhub|odroidc2)$"

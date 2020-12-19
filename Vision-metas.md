@@ -27,9 +27,6 @@
 * k2prov2
 * k3pro
 
-# MINIX
-* x8hp
-
 # Odroid
 * odroidc2
 

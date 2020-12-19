@@ -185,12 +185,6 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-minix
-	echo "Checking out meta-minix develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
 	cd meta-odroid
 	echo "Checking out meta-odroid develop branch:"
 	git checkout develop
