@@ -25,7 +25,6 @@ IMAGE_INSTALL = "\
 	openvision-version-info \
 	openvision-video-bootlogo \
 	opkg \
-	ov-permission-helper \
 	packagegroup-base \
 	packagegroup-core-boot \
 	parted \
