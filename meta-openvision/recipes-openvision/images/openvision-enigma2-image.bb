@@ -59,6 +59,7 @@ DEPENDS += "\
 	enigma2-alliance-plugins \
 	enigma2-locale-meta \
 	enigma2-plugins \
+	openvision-bootlogo \
 	"
 
 RDEPENDS += "\
