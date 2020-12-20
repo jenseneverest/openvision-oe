@@ -3,15 +3,11 @@ HOMEPAGE = "http://www.python.org"
 LICENSE = "PSFv2"
 SECTION = "devel/python"
 
-# TODO Remove this when we upgrade
-INC_PR = "r1"
-PR = "${INC_PR}.0"
-
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b6ec515b22618f55fa07276b897bacea"
 
 # TODO consolidate patch set
-SRC_URI[md5sum] = "f5a99f765e765336a3ebbb2a24ca2be3"
-SRC_URI[sha256sum] = "f55cde04f521f273c7cba08912921cc5642cfc15ca7b22d5829f0aff4371155f"
+SRC_URI[md5sum] = "75c9c268703654aa6f6f2ae67303dde4"
+SRC_URI[sha256sum] = "0f0fa8685c1dc1f1dacb0b4e7779796b90aef99dc1fa4967a71b9da7b57d4a28"
 
 # exclude pre-releases for both python 2.x and 3.x
 UPSTREAM_CHECK_REGEX = "[Pp]ython-(?P<pver>\d+(\.\d+)+).tar"

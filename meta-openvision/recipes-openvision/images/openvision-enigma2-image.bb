@@ -100,7 +100,8 @@ IMAGE_INSTALL += "\
 	tuxbox-links \
 	wget \
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
-	${MACHINE_FEATURE_RELATED_PLUGINS}", d)} \
+	${MACHINE_FEATURE_RELATED_PLUGINS} \
+	openvision-video-bootlogo", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
 	dvbfetool \
 	openssh-sftp-server \

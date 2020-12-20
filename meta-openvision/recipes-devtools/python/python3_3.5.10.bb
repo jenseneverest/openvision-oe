@@ -6,46 +6,49 @@ DEPENDS = "python3-native libffi bzip2 gdbm openssl \
 
 DISTRO_SRC_URI ?= "file://sitecustomize.py"
 DISTRO_SRC_URI_linuxstdbase = ""
+
 SRC_URI = "http://www.python.org/ftp/python/${PV}/Python-${PV}.tar.xz \
-file://python-config.patch \
-file://030-fixup-include-dirs.patch \
-file://130-readline-setup.patch \
-file://150-fix-setupterm.patch \
-file://0001-h2py-Fix-issue-13032-where-it-fails-with-UnicodeDeco.patch \
-file://tweak-MULTIARCH-for-powerpc-linux-gnuspe.patch \
-file://tweak-MULTIARCH-for-powerpc-linux-musl.patch \
-file://support_SOURCE_DATE_EPOCH_in_py_compile.patch \
-${DISTRO_SRC_URI} \
-"
+	file://python-config.patch \
+	file://030-fixup-include-dirs.patch \
+	file://130-readline-setup.patch \
+	file://150-fix-setupterm.patch \
+	file://0001-h2py-Fix-issue-13032-where-it-fails-with-UnicodeDeco.patch \
+	file://tweak-MULTIARCH-for-powerpc-linux-gnuspe.patch \
+	file://tweak-MULTIARCH-for-powerpc-linux-musl.patch \
+	file://support_SOURCE_DATE_EPOCH_in_py_compile.patch \
+	${DISTRO_SRC_URI} \
+	"
 
 SRC_URI += "\
-            file://03-fix-tkinter-detection.patch \
-            ${@bb.utils.contains('PACKAGECONFIG', 'tk', '', 'file://avoid_warning_about_tkinter.patch', d)} \
-            file://cgi_py.patch \
-            file://host_include_contamination.patch \
-            file://python-3.3-multilib.patch \
-            file://sysroot-include-headers.patch \
-            file://unixccompiler.patch \
-            file://avoid-ncursesw-include-path.patch \
-            file://python3-use-CROSSPYTHONPATH-for-PYTHON_FOR_BUILD.patch \
-            file://sysconfig.py-add-_PYTHON_PROJECT_SRC.patch \
-            file://setup.py-check-cross_compiling-when-get-FLAGS.patch \
-            file://configure.ac-fix-LIBPL.patch \
-            file://0001-Issue-21272-Use-_sysconfigdata.py-to-initialize-dist.patch \
-            file://pass-missing-libraries-to-Extension-for-mul.patch \
-            file://Use-correct-CFLAGS-for-extensions-when-cross-compili.patch \
-            file://0002-Makefile-add-target-to-split-profile-generation.patch \
-            file://float-endian.patch \
-            file://ftplib.patch \
-            file://signal.patch \
-            file://0001-Issue-28043-SSLContext-has-improved-default-settings.patch \
-            file://0002-bpo-29136-Add-TLS-1.3-cipher-suites-and-OP_NO_TLSv1_.patch \
-            file://0003-bpo-32947-Fixes-for-TLS-1.3-and-OpenSSL-1.1.1-GH-876.patch \
-            file://0004-bpo-33570-TLS-1.3-ciphers-for-OpenSSL-1.1.1-GH-6976.patch \
-            file://0005-bpo-30714-ALPN-changes-for-OpenSSL-1.1.0f-2305.patch \
-            file://run-ptest \
-            file://0001-python3-use-cc_basename-to-replace-CC-for-checking-c.patch \
-           "
+	file://03-fix-tkinter-detection.patch \
+	${@bb.utils.contains('PACKAGECONFIG', 'tk', '', 'file://avoid_warning_about_tkinter.patch', d)} \
+	file://cgi_py.patch \
+	file://host_include_contamination.patch \
+	file://python-3.3-multilib.patch \
+	file://sysroot-include-headers.patch \
+	file://unixccompiler.patch \
+	file://avoid-ncursesw-include-path.patch \
+	file://python3-use-CROSSPYTHONPATH-for-PYTHON_FOR_BUILD.patch \
+	file://sysconfig.py-add-_PYTHON_PROJECT_SRC.patch \
+	file://setup.py-check-cross_compiling-when-get-FLAGS.patch \
+	file://configure.ac-fix-LIBPL.patch \
+	file://0001-Issue-21272-Use-_sysconfigdata.py-to-initialize-dist.patch \
+	file://pass-missing-libraries-to-Extension-for-mul.patch \
+	file://Use-correct-CFLAGS-for-extensions-when-cross-compili.patch \
+	file://0002-Makefile-add-target-to-split-profile-generation.patch \
+	file://float-endian.patch \
+	file://ftplib.patch \
+	file://run-ptest \
+	file://0001-python3-use-cc_basename-to-replace-CC-for-checking-c.patch \
+	"
+
+# After upgrading from 3.5.6 to 3.5.10 I'm not sure if we need these patches.
+# Also some won't apply without update.
+# 0001-Issue-28043-SSLContext-has-improved-default-settings.patch
+# 0002-bpo-29136-Add-TLS-1.3-cipher-suites-and-OP_NO_TLSv1_.patch
+# 0003-bpo-32947-Fixes-for-TLS-1.3-and-OpenSSL-1.1.1-GH-876.patch
+# 0004-bpo-33570-TLS-1.3-ciphers-for-OpenSSL-1.1.1-GH-6976.patch
+# 0005-bpo-30714-ALPN-changes-for-OpenSSL-1.1.0f-2305.patch
 
 inherit multilib_header python3native update-alternatives qemu ptest
 

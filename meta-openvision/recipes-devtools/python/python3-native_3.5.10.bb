@@ -2,31 +2,36 @@ require recipes-devtools/python/python3.inc
 
 DISTRO_SRC_URI ?= "file://sitecustomize.py"
 DISTRO_SRC_URI_linuxstdbase = ""
+
 SRC_URI = "http://www.python.org/ftp/python/${PV}/Python-${PV}.tar.xz \
-file://12-distutils-prefix-is-inside-staging-area.patch \
-file://python-config.patch \
-file://030-fixup-include-dirs.patch \
-file://080-distutils-dont_adjust_files.patch \
-file://130-readline-setup.patch \
-file://150-fix-setupterm.patch \
-file://python-3.3-multilib.patch \
-file://03-fix-tkinter-detection.patch \
-${@bb.utils.contains('PACKAGECONFIG', 'tk', '', 'file://avoid_warning_about_tkinter.patch', d)} \
-file://0001-h2py-Fix-issue-13032-where-it-fails-with-UnicodeDeco.patch \
-file://sysroot-include-headers.patch \
-file://unixccompiler.patch \
-${DISTRO_SRC_URI} \
-file://sysconfig.py-add-_PYTHON_PROJECT_SRC.patch \
-file://setup.py-check-cross_compiling-when-get-FLAGS.patch \
-file://0001-Do-not-use-the-shell-version-of-python-config-that-w.patch \
-file://support_SOURCE_DATE_EPOCH_in_py_compile.patch \
-file://regen-all.patch \
-file://0001-Issue-28043-SSLContext-has-improved-default-settings.patch \
-file://0002-bpo-29136-Add-TLS-1.3-cipher-suites-and-OP_NO_TLSv1_.patch \
-file://0003-bpo-32947-Fixes-for-TLS-1.3-and-OpenSSL-1.1.1-GH-876.patch \
-file://0004-bpo-33570-TLS-1.3-ciphers-for-OpenSSL-1.1.1-GH-6976.patch \
-file://0005-bpo-30714-ALPN-changes-for-OpenSSL-1.1.0f-2305.patch \
-"
+	file://12-distutils-prefix-is-inside-staging-area.patch \
+	file://python-config.patch \
+	file://030-fixup-include-dirs.patch \
+	file://080-distutils-dont_adjust_files.patch \
+	file://130-readline-setup.patch \
+	file://150-fix-setupterm.patch \
+	file://python-3.3-multilib.patch \
+	file://03-fix-tkinter-detection.patch \
+	${@bb.utils.contains('PACKAGECONFIG', 'tk', '', 'file://avoid_warning_about_tkinter.patch', d)} \
+	file://0001-h2py-Fix-issue-13032-where-it-fails-with-UnicodeDeco.patch \
+	file://sysroot-include-headers.patch \
+	file://unixccompiler.patch \
+	${DISTRO_SRC_URI} \
+	file://sysconfig.py-add-_PYTHON_PROJECT_SRC.patch \
+	file://setup.py-check-cross_compiling-when-get-FLAGS.patch \
+	file://0001-Do-not-use-the-shell-version-of-python-config-that-w.patch \
+	file://support_SOURCE_DATE_EPOCH_in_py_compile.patch \
+	file://regen-all.patch \
+	"
+
+# After upgrading from 3.5.6 to 3.5.10 I'm not sure if we need these patches.
+# Also some won't apply without update.
+# 0001-Issue-28043-SSLContext-has-improved-default-settings.patch
+# 0002-bpo-29136-Add-TLS-1.3-cipher-suites-and-OP_NO_TLSv1_.patch
+# 0003-bpo-32947-Fixes-for-TLS-1.3-and-OpenSSL-1.1.1-GH-876.patch
+# 0004-bpo-33570-TLS-1.3-ciphers-for-OpenSSL-1.1.1-GH-6976.patch
+# 0005-bpo-30714-ALPN-changes-for-OpenSSL-1.1.0f-2305.patch
+
 PACKAGECONFIG[tk] = ",,tk-native"
 
 EXTRANATIVEPATH += "bzip2-native"

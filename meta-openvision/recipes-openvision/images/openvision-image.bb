@@ -23,7 +23,6 @@ IMAGE_INSTALL = "\
 	openvision-extra-feed-config \
 	openvision-module \
 	openvision-version-info \
-	openvision-video-bootlogo \
 	opkg \
 	packagegroup-base \
 	packagegroup-core-boot \

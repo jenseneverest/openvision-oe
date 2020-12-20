@@ -23,7 +23,8 @@ SRC_URI_append_class-nativesdk = " \
            file://environment.d-openssl.sh \
            "
 
-SRC_URI[sha256sum] = "5c9ca8774bd7b03e5784f26ae9e9e6d749c9da2438545077e6b3d755a06595d9"
+SRC_URI[md5sum] = "08987c3cf125202e2b0840035efb392c"
+SRC_URI[sha256sum] = "e8be6a35fe41d10603c3cc635e93289ed00bf34b79671a3a4de64fcee00d5242"
 
 inherit lib_package multilib_header multilib_script ptest upx_compress
 MULTILIB_SCRIPTS = "${PN}-bin:${bindir}/c_rehash"
@@ -113,6 +114,9 @@ do_configure () {
 	linux-sparc | linux-supersparc)
 		target=linux-sparcv9
 		;;
+	mingw32-x86_64)
+		target=mingw64
+		;;
 	esac
 
 	useprefix=${prefix}
@@ -195,6 +199,8 @@ FILES_openssl-conf = "${sysconfdir}/ssl/openssl.cnf \
                       ${libdir}/ssl-1.1/openssl.cnf* \
                       "
 FILES_${PN}-engines = "${libdir}/engines-1.1"
+# ${prefix} comes from what we pass into --prefix at configure time (which is used for INSTALLTOP)
+FILES_${PN}-engines_append_mingw32_class-nativesdk = " ${prefix}${libdir}/engines-1_1"
 FILES_${PN}-misc = "${libdir}/ssl-1.1/misc ${bindir}/c_rehash"
 FILES_${PN} =+ "${libdir}/ssl-1.1/*"
 FILES_${PN}_append_class-nativesdk = " ${SDKPATHNATIVE}/environment-setup.d/openssl.sh"
