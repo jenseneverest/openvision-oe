@@ -69,7 +69,7 @@ license_create_manifest() {
 }
 
 do_openvision_chwon_root_image(){
-   chown -R root:root ${IMAGE_ROOTFS}
+   chown -hR root:root ${IMAGE_ROOTFS}
 }
 
 ROOTFS_POSTPROCESS_COMMAND_append = " \
