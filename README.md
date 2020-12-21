@@ -22,6 +22,10 @@ Password: openvision
 
 Please use our forum at https://forum.openvision.tech or our issue page at https://github.com/OpenVisionE2/openvision-oe/issues
 
+# Donate
+
+https://forum.openvision.tech/app.php/donate
+
 # Distribution
 
 * Are you allowed to compile development versions? Yes!
