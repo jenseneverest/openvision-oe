@@ -5,6 +5,7 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
+rm -f build/bitbake.lock
 if grep -Fqi "ubuntu 20.04" /etc/*-release
 then
     echo -e "${GREEN}You have Ubuntu 20.04.x LTS, great!${NC}"
