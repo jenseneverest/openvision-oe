@@ -108,6 +108,7 @@ sleep 0.1
 echo -e ""
 echo -e "${BLUE}Updated.${NC}"
 echo -e ""
+begin=$(date +"%s")
 echo -e "${BLUE}Compiling${GREEN} $META ${BLUE}images, please wait ...${NC}"
 echo -e ""
 if [ $IMAGETYPE = "Vision" ]
@@ -216,3 +217,8 @@ fi
 echo -e ""
 echo -e "${BLUE}Done, the compiled image is in ${NC}build/tmp/deploy/images/${GREEN}$MACHINE$MACHINESPECIFIC ${BLUE}folder!"
 echo -e "It's a zipped file like ${NC}openvision-enigma2-develop-english|multilanguage|extralanguage-${GREEN}${VISIONVERSION}-r${VISIONREVISION}${NC}-${RED}$MACHINE$MACHINESPECIFIC${NC}.zip"
+echo -e ""
+finish=$(date +"%s")
+timediff=$(($finish-$begin))
+echo -e "Compile time was $(($timediff / 60)) minutes and $(($timediff % 60)) seconds."
+echo -e "Fast compiling would be less than 60 minutes."
