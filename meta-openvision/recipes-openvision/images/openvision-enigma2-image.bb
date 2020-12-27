@@ -104,7 +104,9 @@ IMAGE_INSTALL += "\
 	${MACHINE_FEATURE_RELATED_PLUGINS} \
 	openvision-video-bootlogo", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
+	cifs-utils \
 	dvbfetool \
+	nfs-utils \
 	openssh-sftp-server \
 	openvision-core-plugin", d)} \
 	"

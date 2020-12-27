@@ -45,6 +45,7 @@ OPTIONAL_PACKAGES += "\
 	gstplayer \
 	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}-libav", "", d)} \
 	hddtemp \
+	htop \
 	inadyn-mt \
 	inetutils \
 	iperf3 \
