@@ -105,7 +105,7 @@ ALLOW_EMPTY_enigma2-plugin-fonts-wqy-microhei = "1"
 # the RDEPENDS for the plugins above, preventing [build-deps] warnings.
 RDEPENDS_${PN}-build-dependencies = "\
 	aio-grab \
-	dvd+rw-tools dvdauthor mjpegtools cdrkit ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging", d)} ${DEMUXTOOL} \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging", d)} ${DEMUXTOOL} \
 	${PYTHONNAMEONLY}-twisted-web \
 	wpa-supplicant wireless-tools python-wifi \
 	"
