@@ -64,7 +64,7 @@ else
 	git config --global user.name "${GITUSERNAME}"
 	echo "DEVELOPER_NAME = '${GITUSERNAME}'" > meta-openvision/conf/distro/developer.conf
 fi
-echo -e "Check ${NC}Vision-metas.md ${BLUE}and enter a meta or a specific machine to compile."
+echo -e "${BLUE}Check ${NC}Vision-metas.md ${BLUE}and enter a meta or a specific machine to compile."
 echo -e "Answers are in ${GREEN}green:${NC}"
 echo -e ""
 echo -e "${GREEN}AZ ${NC}- ${GREEN}Cube ${NC}- ${GREEN}DM ${NC}- ${GREEN}GB ${NC}- ${GREEN}HyperCube"
