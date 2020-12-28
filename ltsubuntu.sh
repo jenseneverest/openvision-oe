@@ -43,7 +43,7 @@ sudo apt --fix-broken install
 sudo apt install -f
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7 --slave /usr/bin/gcov gcov /usr/bin/gcov-7
 #sudo update-alternatives --config gcc
-gcc --version
+echo -e "gcc version: ${RED}$(gcc -dumpfullversion)${NC}"
 echo -e ""
 echo -e "Remove useless packages ..."
 echo -e ""
