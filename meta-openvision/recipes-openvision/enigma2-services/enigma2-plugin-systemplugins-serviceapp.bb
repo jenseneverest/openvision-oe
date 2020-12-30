@@ -48,3 +48,7 @@ FILES_${PN} = "\
 
 FILES_${PN}-dev = "\
 	${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/serviceapp.la"
+
+
+CXXFLAGS_append_cube = " -std=c++11 -fPIC -fno-strict-aliasing"
+CXXFLAGS_append_su980 = " -std=c++11 -fPIC -fno-strict-aliasing"

@@ -15,4 +15,8 @@ DEPENDS += "libva"
 EXTRA_OEMESON += "\
 	${GSTREAMER1_DEBUG} \
 	${@bb.utils.contains("MACHINE", "dm800", "-Duvch264=disabled -Ddecklink=disabled", "", d)} \
+	${@bb.utils.contains_any("MACHINE", "cube su980", "-Dc_std=gnu99", "", d)} \
 	"
+
+CFLAGS_append_cube = " -std=gnu99"
+CFLAGS_append_su980 = " -std=gnu99"

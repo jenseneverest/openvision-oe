@@ -8,4 +8,10 @@ do_configure_prepend() {
 	find ${S}/ -type f -name "*.wrap" | xargs -r -L1 sed -i "s|https://gitlab.freedesktop.org/gstreamer/meson-ports|https://github.com/persianpros|g"
 }
 
-EXTRA_OEMESON += "${GSTREAMER1_DEBUG}"
+EXTRA_OEMESON += "\
+	${GSTREAMER1_DEBUG} \
+	${@bb.utils.contains_any("MACHINE", "cube su980", "-Dc_std=gnu99", "", d)} \
+	"
+
+CFLAGS_append_cube = " -std=gnu99"
+CFLAGS_append_su980 = " -std=gnu99"
