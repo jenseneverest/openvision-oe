@@ -20,18 +20,3 @@ do_install_append() {
                 -pe 's:(\s)(hwclock --systohc):$1/sbin/stb-$2:;' \
                  ${D}${bindir}/ntpdate-sync
 }
-
-pkg_postinst_ntpdate() {
-#!/bin/sh
-
-if [ -n "$D" ]; then
-    $INTERCEPT_DIR/postinst_intercept delay_to_first_boot ntpdate mlprefix=
-    exit 0
-fi
-set +e
-if ! grep -q -s ntpdate ${localstatedir}/spool/cron/crontabs/root; then
-    echo "adding crontab"
-    test -d $D${localstatedir}/spool/cron/crontabs || mkdir -p ${localstatedir}/spool/cron/crontabs
-    echo "30 * * * *    ${bindir}/ntpdate-sync silent" >> ${localstatedir}/spool/cron/crontabs/root
-fi
-}
