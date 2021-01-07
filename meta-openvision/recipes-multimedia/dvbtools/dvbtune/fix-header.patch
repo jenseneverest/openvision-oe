@@ -1,0 +1,11 @@
+diff -Naur dvbtune-org/dvbtune.c dvbtune-PersianPrince/dvbtune.c
+--- dvbtune-org/dvbtune.c	2005-06-29 00:04:05.000000000 +0430
++++ dvbtune-PersianPrince/dvbtune.c	2021-01-07 21:51:56.871997786 +0330
+@@ -45,6 +45,7 @@
+ #include <sys/poll.h>
+ #include <fcntl.h>
+ #include <unistd.h>
++#include <stdint.h>
+ 
+ // DVB includes:
+ #include <linux/dvb/osd.h>
