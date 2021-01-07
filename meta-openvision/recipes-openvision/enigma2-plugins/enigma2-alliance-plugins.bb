@@ -2,8 +2,6 @@ SUMMARY = "OE-A plugins for Open Vision"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 inherit autotools-brokensep gitpkgv ${PYTHONNAMEONLY}native gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
@@ -45,14 +43,12 @@ PROVIDES = "\
 	enigma2-plugin-systemplugins-gigabluevfdcontrol \
 	enigma2-plugin-systemplugins-inivfdcontrol \
 	enigma2-plugin-systemplugins-micomupgrade \
-	enigma2-plugin-systemplugins-misplslcnscan \
 	enigma2-plugin-systemplugins-multitranscodingsetup \
 	enigma2-plugin-systemplugins-odinm7vfdcontrol \
 	enigma2-plugin-systemplugins-remotecontrolcode \
 	${@bb.utils.contains("MACHINE", "dm800", "", "enigma2-plugin-systemplugins-satipclient", d)} \
 	enigma2-plugin-systemplugins-sf8vfdcontrol \
 	enigma2-plugin-systemplugins-simplefancontrol \
-	enigma2-plugin-systemplugins-terrestrialscan \
 	enigma2-plugin-systemplugins-transcodingsetup \
 	enigma2-plugin-systemplugins-ventonfancontrol \
 	enigma2-plugin-systemplugins-vpledcontrol \
@@ -80,8 +76,8 @@ DEPENDS = "\
 	libupnp \
 	minidlna \
 	neon \
+	pydpflib \
 	${PYTHONNAMEONLY}-beautifulsoup4 ${PYTHONNAMEONLY}-dnspython ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-gdata python-pyamf", d)} ${PYTHONNAMEONLY}-icalendar ${PYTHONNAMEONLY}-lxml ${PYTHONNAMEONLY}-pexpect ${PYTHONNAMEONLY}-pyusb ${PYTHONNAMEONLY}-simplejson \
-	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-six", "python-six-native", d)} \
 	${@bb.utils.contains("MACHINE", "dm800", "", "satipclient", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "streamproxy transcoding multitranscoding", "streamproxy", "", d)} \
 	"
@@ -97,7 +93,7 @@ DESCRIPTION_enigma2-plugin-extensions-gbipboxclient = "GigaBlue IPBox Client"
 RDEPENDS_enigma2-plugin-extensions-gbipboxclient = "cifs-utils"
 DESCRIPTION_enigma2-plugin-extensions-lcd4linux = "Web/DPF/Samsung LCD control"
 DEPENDS_enigma2-plugin-extensions-lcd4linux = "bitratecalc lcd4linux png-util"
-RDEPENDS_enigma2-plugin-extensions-lcd4linux = "bitratecalc lcd4linux ${PYTHONNAMEONLY}-icalendar ${PYTHONNAMEONLY}-pyusb ${PYTHONNAMEONLY}-codecs ${PYTHONNAMEONLY}-datetime ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging python-zlib python-subprocess python-textutils", d)} ${PYTHONNAMEONLY}-twisted-web ${PYTHONNAMEONLY}-shell ${PYTHONNAMEONLY}-ctypes libusb1 python-mutagen ${PYTHONNAMEONLY}-email ${PYTHONNAMEONLY}-simplejson python-soco"
+RDEPENDS_enigma2-plugin-extensions-lcd4linux = "bitratecalc lcd4linux pydpflib ${PYTHONNAMEONLY}-icalendar ${PYTHONNAMEONLY}-pyusb ${PYTHONNAMEONLY}-codecs ${PYTHONNAMEONLY}-datetime ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging python-zlib python-subprocess python-textutils", d)} ${PYTHONNAMEONLY}-twisted-web ${PYTHONNAMEONLY}-shell ${PYTHONNAMEONLY}-ctypes libusb1 python-mutagen ${PYTHONNAMEONLY}-email ${PYTHONNAMEONLY}-simplejson python-soco"
 FILES_enigma2-plugin-extensions-lcd4linux_append = " ${libdir}/enigma2/python/Components/Renderer/*.${PYTHONEXTENSION} ${libdir}/enigma2/python/Plugins/Extensions/LCD4linux/plugin.py"
 FILES_enigma2-plugin-extensions-lcd4linux-src_append = " ${libdir}/enigma2/python/Components/Renderer/*.py"
 DESCRIPTION_enigma2-plugin-extensions-ondemand = "Watch on demand TV."
@@ -128,7 +124,6 @@ DEPENDS_enigma2-plugin-systemplugins-satipclient = "satipclient"
 DESCRIPTION_enigma2-plugin-systemplugins-satipclient = "Satip Client setup"
 REPLACES_enigma2-plugin-systemplugins-satipclient = "enigma2-plugin-extensions-satipclient"
 RDEPENDS_enigma2-plugin-systemplugins-satipclient = "satipclient"
-DESCRIPTION_enigma2-plugin-systemplugins-terrestrialscan = "Selects the strongest transponders where there are duplicates and allows filtering by network id."
 DESCRIPTION_enigma2-plugin-systemplugins-transcodingsetup = "Setup transcoding"
 DESCRIPTION_enigma2-plugin-systemplugins-wirelessaccesspoint = "Using a Wireless module as AP."
 RDEPENDS_enigma2-plugin-systemplugins-wirelessaccesspoint = "bridge-utils hostapd"

@@ -5,8 +5,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=c9e255efa454e0155c1fd758df7dcaf3"
 
 DEPENDS = "python-native"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 inherit gitpkgv rm_python_pyc compile_python_pyo no_python_src no_python_src
  
 PV = "git${SRCPV}"

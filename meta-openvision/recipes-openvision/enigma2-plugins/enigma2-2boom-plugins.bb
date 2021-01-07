@@ -2,8 +2,6 @@ SUMMARY = "2boom plugins for Open Vision"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 inherit autotools-brokensep gitpkgv ${PYTHONNAMEONLY}native gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"

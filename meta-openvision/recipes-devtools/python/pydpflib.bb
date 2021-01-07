@@ -17,3 +17,5 @@ PKGV = "0.14+git${GITPKGV}"
 do_compile_prepend() {
     $MAKE -C ./dpf-ax/dpflib all
 }
+
+include python-package-split.inc

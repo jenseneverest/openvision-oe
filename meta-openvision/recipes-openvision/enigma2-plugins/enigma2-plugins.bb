@@ -2,8 +2,6 @@ SUMMARY = "Original plugins for Enigma2"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 inherit autotools-brokensep gitpkgv ${PYTHONNAMEONLY}native pkgconfig gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
@@ -69,7 +67,6 @@ PROVIDES = "\
 	enigma2-plugin-extensions-merlinmusicplayer \
 	enigma2-plugin-extensions-meteoitalia \
 	enigma2-plugin-extensions-mosaic \
-	enigma2-plugin-extensions-moviecut \
 	enigma2-plugin-extensions-movieepg \
 	enigma2-plugin-extensions-movielistpreview \
 	enigma2-plugin-extensions-movieretitle \
@@ -86,7 +83,6 @@ PROVIDES = "\
 	enigma2-plugin-extensions-orfteletext \
 	enigma2-plugin-extensions-partnerbox \
 	enigma2-plugin-extensions-permanentclock \
-	enigma2-plugin-extensions-permanenttimeshift \
 	enigma2-plugin-extensions-pespeedup \
 	enigma2-plugin-extensions-pipzap \
 	enigma2-plugin-extensions-pluginhider \
@@ -135,7 +131,6 @@ PROVIDES = "\
 	enigma2-plugin-systemplugins-automaticvolumeadjustment \
 	enigma2-plugin-systemplugins-autoresolution \
 	enigma2-plugin-systemplugins-mphelp \
-	enigma2-plugin-systemplugins-networkbrowser \
 	enigma2-plugin-systemplugins-pipservicerelation \
 	enigma2-plugin-systemplugins-recordinfobar \
 	enigma2-plugin-systemplugins-setpasswd \
@@ -144,7 +139,6 @@ PROVIDES = "\
 	enigma2-plugin-systemplugins-toolkit \
 	enigma2-plugin-systemplugins-vfdcontrol \
 	enigma2-plugin-systemplugins-videocolorspace \
-	enigma2-plugin-systemplugins-vps \
 	enigma2-plugin-systemplugins-weathercomponenthandler \
 	"
 
@@ -154,11 +148,9 @@ DEPENDS = "\
 	cdrkit \
 	cdtextinfo \
 	dvdbackup \
-	enigma2 \
 	hdparm \
 	libdvdread \
 	libshowiframe \
-	libtirpc \
 	openssl \
 	ntp \
 	parted \
@@ -169,16 +161,11 @@ DEPENDS = "\
 	${PYTHONNAMEONLY}-pyopenssl \
 	${PYTHONNAMEONLY}-transmissionrpc \
 	${PYTHONNAMEONLY}-twisted \
-	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-six", " \
-	python-gdata \
-	python-six-native", d)} \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-gdata", d)} \
 	smartmontools \
 	streamripper \
 	transmission \
 	"
-
-CFLAGS += "-I${STAGING_INCDIR}/tirpc"
-LDFLAGS += "-ltirpc"
 
 RDEPENDS_enigma2-plugin-extensions-ardmediathek = "${PYTHONNAMEONLY}-twisted-web"
 RDEPENDS_enigma2-plugin-extensions-autotimer = "${PYTHONNAMEONLY}-codecs python-difflib python-re ${PYTHONNAMEONLY}-threading ${PYTHONNAMEONLY}-xml enigma2-plugin-systemplugins-mphelp enigma2-plugin-systemplugins-toolkit"
@@ -241,7 +228,6 @@ RDEPENDS_enigma2-plugin-extensions-youtubeplayer = "enigma2-plugin-extensions-vl
 RDEPENDS_enigma2-plugin-extensions-yttrailer = "${PYTHONNAMEONLY}-twisted-web python-gdata ${GSTVNAME}-plugins-good-flv"
 RDEPENDS_enigma2-plugin-extensions-zdfmediathek = "${PYTHONNAMEONLY}-html ${PYTHONNAMEONLY}-twisted-web"
 RDEPENDS_enigma2-plugin-systemplugins-mphelp = "${PYTHONNAMEONLY}-xml"
-#RDEPENDS_enigma2-plugin-systemplugins-networkbrowser = "autofs smbclient"
 RDEPENDS_enigma2-plugin-systemplugins-systemtime = "ntpdate"
 RDEPENDS_enigma2-plugin-systemplugins-toolkit = "${PYTHONNAMEONLY}-twisted-core ${PYTHONNAMEONLY}-threading ${PYTHONNAMEONLY}-html python-re"
 RDEPENDS_enigma2-plugin-systemplugins-weathercomponenthandler = "enigma2-plugin-extensions-weatherplugin enigma2-plugin-skincomponents-weathercomponent"

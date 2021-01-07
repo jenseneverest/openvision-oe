@@ -56,6 +56,7 @@ ENIGMA2_PLUGINS += "\
 DEPENDS += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "blindscan-tbs", "blindscan-s2" , "", d)} \
 	enigma2 \
+	enigma2-c-plugins \
 	enigma2-alliance-plugins \
 	enigma2-locale-meta \
 	enigma2-plugins \
