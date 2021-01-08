@@ -116,9 +116,11 @@ ENIGMA2_BRANCH = "develop"
 PV = "develop+git${SRCPV}"
 PKGV = "develop+git${GITPKGV}"
 
-SRC_URI = "git://github.com/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH}"
-
-SRC_URI_append_dm800 = " file://get-rid-of-HAVE-OLDE2-API-condition.patch"
+SRC_URI = "\
+	git://github.com/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH} \
+	${@bb.utils.contains("MACHINE_FEATURES", "oldkernel", "file://old-gcc.patch", "", d)} \
+	${@bb.utils.contains("MACHINE", "dm800", "file://get-rid-of-HAVE-OLDE2-API-condition.patch", "", d)} \
+	"
 
 LDFLAGS_prepend = " -lxml2 "
 
