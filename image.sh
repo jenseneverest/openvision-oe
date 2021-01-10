@@ -212,7 +212,7 @@ then
 fi
 echo -e ""
 echo -e "${BLUE}Done, the compiled image is in ${NC}build/tmp/deploy/images/${GREEN}$MACHINE$MACHINESPECIFIC ${BLUE}folder!"
-echo -e "It's a zipped file like ${NC}openvision-enigma2-develop-english|multilanguage|extralanguage-${GREEN}${VISIONVERSION}-r${VISIONREVISION}${NC}-${RED}$MACHINE$MACHINESPECIFIC${NC}.zip"
+echo -e "It's a zipped file like ${NC}openvision-enigma2-extralanguage-${GREEN}${VISIONVERSION}-r${VISIONREVISION}${NC}-${RED}$MACHINE$MACHINESPECIFIC${NC}.zip"
 echo -e ""
 finish=$(date +"%s")
 timediff=$(($finish-$begin))
