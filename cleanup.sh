@@ -5,8 +5,10 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
-echo "Welcome to Open Vision's OE cleanup script!"
-echo "After using this script the size of the build folder will be reduced."
+rm -f build/bitbake.lock
+echo -e "Welcome to Open Vision's OE cleanup script!"
+echo -e ""
+echo -e "After using this script the size of the build folder will be reduced."
 echo -e ""
 echo -e "First tell us what kind of cleanup do you want?"
 echo -e ""

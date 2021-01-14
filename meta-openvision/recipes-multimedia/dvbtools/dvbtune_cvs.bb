@@ -5,7 +5,10 @@ DEPENDS = "libxml2"
 SRCDATE = "20090621"
 PV = "0.0+cvs${SRCDATE}"
 
-SRC_URI = "cvs://anonymous@dvbtools.cvs.sourceforge.net/cvsroot/dvbtools;module=dvbtune"
+SRC_URI = "\
+	cvs://anonymous@dvbtools.cvs.sourceforge.net/cvsroot/dvbtools;module=dvbtune \
+	file://fix-header.patch \
+	"
 
 S = "${WORKDIR}/dvbtune"
 

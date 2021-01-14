@@ -1,0 +1,12 @@
+diff -Naur gst-plugins-bad-1.18.2/sys/dvb/meson.build gst-plugins-bad-1.18.2-PersianPrince/sys/dvb/meson.build
+--- gst-plugins-bad-1.18.2/sys/dvb/meson.build	2020-12-06 16:54:13.758427000 +0330
++++ gst-plugins-bad-1.18.2-PersianPrince/sys/dvb/meson.build	2020-12-18 14:42:09.777316722 +0330
+@@ -21,7 +21,7 @@
+ 
+ dvb_check_code = '''
+ #include <linux/dvb/version.h>
+-#if DVB_API_VERSION < 5 || (DVB_API_VERSION == 5 && DVB_API_VERSION_MINOR <= 4)
++#if DVB_API_VERSION < 1 || (DVB_API_VERSION == 1 && DVB_API_VERSION_MINOR <= 1)
+ #error "Incompatible dvb API"
+ #endif'
+ '''

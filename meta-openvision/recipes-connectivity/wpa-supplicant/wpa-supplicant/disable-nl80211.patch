@@ -1,0 +1,111 @@
+diff -Naur wpa_supplicant-2.6/src/drivers/drivers.mak wpa_supplicant-2.6-PersianPrince/src/drivers/drivers.mak
+--- wpa_supplicant-2.6/src/drivers/drivers.mak	2016-10-02 22:21:11.000000000 +0330
++++ wpa_supplicant-2.6-PersianPrince/src/drivers/drivers.mak	2020-12-18 13:32:49.529264297 +0330
+@@ -22,55 +22,6 @@
+ DRV_OBJS += ../src/drivers/driver_macsec_qca.o
+ endif
+ 
+-ifdef CONFIG_DRIVER_NL80211
+-DRV_CFLAGS += -DCONFIG_DRIVER_NL80211
+-DRV_OBJS += ../src/drivers/driver_nl80211.o
+-DRV_OBJS += ../src/drivers/driver_nl80211_capa.o
+-DRV_OBJS += ../src/drivers/driver_nl80211_event.o
+-DRV_OBJS += ../src/drivers/driver_nl80211_monitor.o
+-DRV_OBJS += ../src/drivers/driver_nl80211_scan.o
+-ifdef CONFIG_DRIVER_NL80211_QCA
+-DRV_CFLAGS += -DCONFIG_DRIVER_NL80211_QCA
+-endif
+-NEED_SME=y
+-NEED_AP_MLME=y
+-NEED_NETLINK=y
+-NEED_LINUX_IOCTL=y
+-NEED_RFKILL=y
+-NEED_RADIOTAP=y
+-
+-ifdef CONFIG_LIBNL32
+-  DRV_LIBS += -lnl-3
+-  DRV_LIBS += -lnl-genl-3
+-  DRV_CFLAGS += -DCONFIG_LIBNL20
+-  ifdef LIBNL_INC
+-    DRV_CFLAGS += -I$(LIBNL_INC)
+-  else
+-    PKG_CONFIG ?= pkg-config
+-    DRV_CFLAGS += $(shell $(PKG_CONFIG) --cflags libnl-3.0)
+-  endif
+-ifdef CONFIG_LIBNL3_ROUTE
+-  DRV_LIBS += -lnl-route-3
+-  DRV_CFLAGS += -DCONFIG_LIBNL3_ROUTE
+-endif
+-else
+-  ifdef CONFIG_LIBNL_TINY
+-    DRV_LIBS += -lnl-tiny
+-  else
+-    ifndef CONFIG_OSX
+-      DRV_LIBS += -lnl
+-    endif
+-  endif
+-
+-  ifdef CONFIG_LIBNL20
+-    ifndef CONFIG_LIBNL_TINY
+-      DRV_LIBS += -lnl-genl
+-    endif
+-    DRV_CFLAGS += -DCONFIG_LIBNL20
+-  endif
+-endif
+-endif
+-
+ ifdef CONFIG_DRIVER_BSD
+ ifndef CONFIG_L2_PACKET
+ CONFIG_L2_PACKET=freebsd
+diff -Naur wpa_supplicant-2.6/src/drivers/drivers.mk wpa_supplicant-2.6-PersianPrince/src/drivers/drivers.mk
+--- wpa_supplicant-2.6/src/drivers/drivers.mk	2016-10-02 22:21:11.000000000 +0330
++++ wpa_supplicant-2.6-PersianPrince/src/drivers/drivers.mk	2020-12-18 13:33:03.197513040 +0330
+@@ -17,48 +17,6 @@
+ DRV_OBJS += src/drivers/driver_wired.c
+ endif
+ 
+-ifdef CONFIG_DRIVER_NL80211
+-DRV_CFLAGS += -DCONFIG_DRIVER_NL80211
+-DRV_OBJS += src/drivers/driver_nl80211.c
+-DRV_OBJS += src/drivers/driver_nl80211_android.c
+-DRV_OBJS += src/drivers/driver_nl80211_capa.c
+-DRV_OBJS += src/drivers/driver_nl80211_event.c
+-DRV_OBJS += src/drivers/driver_nl80211_monitor.c
+-DRV_OBJS += src/drivers/driver_nl80211_scan.c
+-ifdef CONFIG_DRIVER_NL80211_QCA
+-DRV_CFLAGS += -DCONFIG_DRIVER_NL80211_QCA
+-endif
+-NEED_SME=y
+-NEED_AP_MLME=y
+-NEED_NETLINK=y
+-NEED_LINUX_IOCTL=y
+-NEED_RFKILL=y
+-NEED_RADIOTAP=y
+-
+-ifdef CONFIG_LIBNL32
+-  DRV_LIBS += -lnl-3
+-  DRV_LIBS += -lnl-genl-3
+-  DRV_CFLAGS += -DCONFIG_LIBNL20 -I/usr/include/libnl3
+-ifdef CONFIG_LIBNL3_ROUTE
+-  DRV_LIBS += -lnl-route-3
+-  DRV_CFLAGS += -DCONFIG_LIBNL3_ROUTE
+-endif
+-else
+-  ifdef CONFIG_LIBNL_TINY
+-    DRV_LIBS += -lnl-tiny
+-  else
+-    DRV_LIBS += -lnl
+-  endif
+-
+-  ifdef CONFIG_LIBNL20
+-    ifndef CONFIG_LIBNL_TINY
+-      DRV_LIBS += -lnl-genl
+-    endif
+-    DRV_CFLAGS += -DCONFIG_LIBNL20
+-  endif
+-endif
+-endif
+-
+ ifdef CONFIG_DRIVER_BSD
+ ifndef CONFIG_L2_PACKET
+ CONFIG_L2_PACKET=freebsd

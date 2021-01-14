@@ -2,8 +2,6 @@ SUMMARY = "Persian Empire plugins for Open Vision"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 inherit autotools-brokensep gitpkgv ${PYTHONNAMEONLY}native gettext rm_python_pyc compile_python_pyo no_python_src
 
 PV = "git${SRCPV}"
@@ -14,7 +12,6 @@ SRC_URI = "git://github.com/OpenVisionE2/persianempire-plugins.git;protocol=http
 S = "${WORKDIR}/git"
 
 PROVIDES = "\
-	enigma2-plugin-extensions-airplayer \
 	enigma2-plugin-extensions-blockcontent \
 	enigma2-plugin-extensions-camrestart \
 	enigma2-plugin-extensions-deviceinfo \
@@ -41,13 +38,10 @@ PROVIDES = "\
 
 DEPENDS = "\
 	${@bb.utils.contains("MACHINE", "dm800", "", "dvb-apps", d)} \
-	hairtunes \
 	hddtemp \
-	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-subprocess", d)} \
 	unrar \
 	"
 
-RDEPENDS_enigma2-plugin-extensions-airplayer = "${PYTHONNAMEONLY}-ctypes ${PYTHONNAMEONLY}-misc ${PYTHONNAMEONLY}-shell ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", "python-subprocess", d)} ${GSTVNAME}-plugins-bad-fragmented hairtunes"
 DESCRIPTION_enigma2-plugin-extensions-blockcontent = "Block Content for enigma2"
 FILES_enigma2-plugin-extensions-deviceinfo_append = " ${libdir}/enigma2/python/Components/Converter/ProgressDiskSpaceInfo.${PYTHONEXTENSION} "
 FILES_enigma2-plugin-extensions-deviceinfo-src_append = " ${libdir}/enigma2/python/Components/Converter/ProgressDiskSpaceInfo.py"

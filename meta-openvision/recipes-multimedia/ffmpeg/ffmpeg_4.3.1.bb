@@ -23,9 +23,12 @@ LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
                     file://COPYING.LGPLv2.1;md5=bd7a443320af8c812e4c18d1b79df004 \
                     file://COPYING.LGPLv3;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
-SRC_URI = "git://github.com/FFmpeg/FFmpeg.git;branch=release/4.3 \
-           file://4_mips64_cpu_detection.patch \
+SRC_URI = "https://www.ffmpeg.org/releases/${BP}.tar.xz \
+           file://mips64_cpu_detection.patch \
+           file://0001-lavf-srt-fix-build-fail-when-used-the-libsrt-1.4.1.patch \
+           file://0001-libavutil-include-assembly-with-full-path-from-sourc.patch \
            "
+SRC_URI[sha256sum] = "ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb"
 
 # Build fails when thumb is enabled: https://bugzilla.yoctoproject.org/show_bug.cgi?id=7717
 ARM_INSTRUCTION_SET_armv4 = "arm"
@@ -37,8 +40,6 @@ ARM_INSTRUCTION_SET_armv6 = "arm"
 PROVIDES = "libav libpostproc"
 
 DEPENDS = "nasm-native"
-
-S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig
 
@@ -124,8 +125,15 @@ EXTRA_OECONF_append_linux-gnux32 = " --disable-asm"
 
 LDFLAGS_append_x86 = "${@bb.utils.contains('DISTRO_FEATURES', 'ld-is-gold', ' -fuse-ld=bfd ', '', d)}"
 
+EXTRA_OEMAKE = "V=1"
+
 do_configure() {
     ${S}/configure ${EXTRA_OECONF}
+}
+
+# patch out build host paths for reproducibility
+do_compile_prepend_class-target() {
+        sed -i -e "s,${WORKDIR},,g" ${B}/config.h
 }
 
 PACKAGES =+ "libavcodec \
@@ -147,3 +155,14 @@ FILES_libavutil = "${libdir}/libavutil${SOLIBS}"
 FILES_libpostproc = "${libdir}/libpostproc${SOLIBS}"
 FILES_libswresample = "${libdir}/libswresample${SOLIBS}"
 FILES_libswscale = "${libdir}/libswscale${SOLIBS}"
+
+# ffmpeg disables PIC on some platforms (e.g. x86-32)
+INSANE_SKIP_${MLPREFIX}libavcodec = "textrel"
+INSANE_SKIP_${MLPREFIX}libavdevice = "textrel"
+INSANE_SKIP_${MLPREFIX}libavfilter = "textrel"
+INSANE_SKIP_${MLPREFIX}libavformat = "textrel"
+INSANE_SKIP_${MLPREFIX}libavutil = "textrel"
+INSANE_SKIP_${MLPREFIX}libavresample = "textrel"
+INSANE_SKIP_${MLPREFIX}libswscale = "textrel"
+INSANE_SKIP_${MLPREFIX}libswresample = "textrel"
+INSANE_SKIP_${MLPREFIX}libpostproc = "textrel"

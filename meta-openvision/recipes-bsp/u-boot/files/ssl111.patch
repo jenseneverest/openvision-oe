@@ -1,0 +1,67 @@
+diff -Naur u-boot-old/lib/rsa/rsa-sign.c u-boot-PersianPrince/lib/rsa/rsa-sign.c
+--- u-boot-old/lib/rsa/rsa-sign.c	2017-01-09 20:27:05.000000000 +0330
++++ u-boot-PersianPrince/lib/rsa/rsa-sign.c	2020-12-28 14:20:54.619049392 +0330
+@@ -210,7 +210,13 @@
+ 		ret = rsa_err("Could not obtain signature");
+ 		goto err_sign;
+ 	}
+-	EVP_MD_CTX_cleanup(context);
++
++	#if OPENSSL_VERSION_NUMBER < 0x10100000L || \
++		(defined(LIBRESSL_VERSION_NUMBER) && LIBRESSL_VERSION_NUMBER < 0x02070000fL)
++		EVP_MD_CTX_cleanup(context);
++	#else
++		EVP_MD_CTX_reset(context);
++	#endif
+ 	EVP_MD_CTX_destroy(context);
+ 	EVP_PKEY_free(key);
+ 
+@@ -268,6 +274,7 @@
+ {
+ 	int ret;
+ 	BIGNUM *bn_te;
++	const BIGNUM *key_e;
+ 	uint64_t te;
+ 
+ 	ret = -EINVAL;
+@@ -276,17 +283,18 @@
+ 	if (!e)
+ 		goto cleanup;
+ 
+-	if (BN_num_bits(key->e) > 64)
++	RSA_get0_key(key, NULL, &key_e, NULL);
++	if (BN_num_bits(key_e) > 64)
+ 		goto cleanup;
+ 
+-	*e = BN_get_word(key->e);
++	*e = BN_get_word(key_e);
+ 
+-	if (BN_num_bits(key->e) < 33) {
++	if (BN_num_bits(key_e) < 33) {
+ 		ret = 0;
+ 		goto cleanup;
+ 	}
+ 
+-	bn_te = BN_dup(key->e);
++	bn_te = BN_dup(key_e);
+ 	if (!bn_te)
+ 		goto cleanup;
+ 
+@@ -316,6 +324,7 @@
+ {
+ 	BIGNUM *big1, *big2, *big32, *big2_32;
+ 	BIGNUM *n, *r, *r_squared, *tmp;
++	const BIGNUM *key_n;
+ 	BN_CTX *bn_ctx = BN_CTX_new();
+ 	int ret = 0;
+ 
+@@ -337,7 +346,8 @@
+ 	if (0 != rsa_get_exponent(key, exponent))
+ 		ret = -1;
+ 
+-	if (!BN_copy(n, key->n) || !BN_set_word(big1, 1L) ||
++	RSA_get0_key(key, &key_n, NULL, NULL);
++	if (!BN_copy(n, key_n) || !BN_set_word(big1, 1L) ||
+ 	    !BN_set_word(big2, 2L) || !BN_set_word(big32, 32L))
+ 		ret = -1;
+ 

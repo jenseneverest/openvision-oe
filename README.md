@@ -1,4 +1,4 @@
-Open Vision 7.5 (Old) enigma2 images [![Build Status](https://travis-ci.org/OpenVisionE2/openvision-oe.svg?branch=develop)](https://travis-ci.org/OpenVisionE2/openvision-oe) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+Open Vision 7.6 (Old) enigma2 images [![Build Status](https://travis-ci.org/OpenVisionE2/openvision-oe.svg?branch=develop)](https://travis-ci.org/OpenVisionE2/openvision-oe) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ==========================
 ![alt tag](https://raw.github.com/OpenVisionE2/openvision-oe/develop/meta-openvision/recipes-openvision/bootlogo/openvision-bootlogo/bootlogo.jpg)
 
@@ -22,6 +22,10 @@ Password: openvision
 
 Please use our forum at https://forum.openvision.tech or our issue page at https://github.com/OpenVisionE2/openvision-oe/issues
 
+# Donate
+
+https://forum.openvision.tech/app.php/donate
+
 # Distribution
 
 * Are you allowed to compile development versions? Yes!
@@ -35,7 +39,6 @@ Please use our forum at https://forum.openvision.tech or our issue page at https
 * Do we need more Vision Developers? Absolutely yes! Contribute to our git and we will contact you!
 * Do we need more Vision Testers? Absolutely yes! Test our images and report bugs, help us grow you'll see the title flows.
 * Do we support our image in multiboot situations? No! Check about screen and if our module is not loaded then you're on your own!
-* Nobody is allowed to distribute our images on linuxsat-support.com, if you don’t respect this wish your “Vision Tester” access will be revoked.
 
 If you see your model in https://github.com/OpenVisionE2/openvision-oe/blob/develop/Vision-metas.md it means there will be Open Vision for it otherwise read https://forum.openvision.tech/viewtopic.php?f=2&t=30 and don't spam the board!
 
@@ -46,6 +49,7 @@ If you see your model in https://github.com/OpenVisionE2/openvision-oe/blob/deve
 You could compile Open Vision for so many brands/models:
 * Vision-metas: https://github.com/OpenVisionE2/openvision-oe/blob/develop/Vision-metas.md
 * You need Ubuntu Desktop 20.04.x LTS x64 (Native): https://releases.ubuntu.com/
+* Needed hardwares/softwares for a compiler machine: https://forum.openvision.tech/viewtopic.php?f=15&t=900
 
 # How to build an Open Vision image
 

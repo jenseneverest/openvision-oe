@@ -46,6 +46,6 @@ deltask package_qa
 FILES_${PN} += "${sysconfdir}"
 
 do_install_append() {
-    install -d ${D}${sysconfdir}
-    cp -r  --preserve=mode,links ${S}/vk ${D}${sysconfdir}/vk
+	install -d ${D}${sysconfdir}
+	cp -fr ${S}/vk ${D}${sysconfdir}/vk
 }

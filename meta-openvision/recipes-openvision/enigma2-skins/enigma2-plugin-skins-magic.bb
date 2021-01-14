@@ -24,7 +24,7 @@ S = "${WORKDIR}/git"
 
 do_install() {
 	install -d ${D}${datadir}
-	cp -r --preserve=mode,links ${S}${datadir}/* ${D}${datadir}/
+	cp -fr --preserve=links ${S}${datadir}/* ${D}${datadir}/
 	chmod -R a+rX ${D}${datadir}/enigma2/
 	chmod 644 ${D}${datadir}/fonts/*.ttf
 }

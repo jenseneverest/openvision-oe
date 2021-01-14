@@ -40,7 +40,7 @@ then
 	git add meta-${SUBMODULENAME}
 	git commit --dry-run
 	read -p "The above changes will be committed and pushed to Open Vision, [A]bort [P]roceed: " choice
-	if [ "$choice" = "P" -o "$choice" = "p" ];then
+	if [ "$choice" = "P" ];then
 		git commit -S -m "Update meta-${SUBMODULENAME} submodule using submodule.sh"
 		echo "Stage 3: git push for new changes"
 		echo ""
@@ -64,7 +64,7 @@ then
 	git add bitbake
 	git commit --dry-run
 	read -p "This is serious, if you don't know what is this or you're not 100% sure about it just [A]bort otherwise the above changes will be committed and pushed to Open Vision and the result could be catastrophic, [P]roceed? " choice
-	if [ "$choice" = "P" -o "$choice" = "p" ];then
+	if [ "$choice" = "P" ];then
 		git commit -S -m "Update bitbake submodule using submodule.sh"
 		echo "Stage 3: git push for new changes"
 		echo ""
@@ -88,7 +88,7 @@ then
 	git add meta-openembedded
 	git commit --dry-run
 	read -p "This is serious, if you don't know what is this or you're not 100% sure about it just [A]bort otherwise the above changes will be committed and pushed to Open Vision and the result could be catastrophic, [P]roceed? " choice
-	if [ "$choice" = "P" -o "$choice" = "p" ];then
+	if [ "$choice" = "P" ];then
 		git commit -S -m "Update meta-openembedded submodule using submodule.sh"
 		echo "Stage 3: git push for new changes"
 		echo ""
@@ -112,7 +112,7 @@ then
 	git add openembedded-core
 	git commit --dry-run
 	read -p "This is serious, if you don't know what is this or you're not 100% sure about it just [A]bort otherwise the above changes will be committed and pushed to Open Vision and the result could be catastrophic, [P]roceed? " choice
-	if [ "$choice" = "P" -o "$choice" = "p" ];then
+	if [ "$choice" = "P" ];then
 		git commit -S -m "Update openembedded-core submodule using submodule.sh"
 		echo "Stage 3: git push for new changes"
 		echo ""
@@ -136,7 +136,7 @@ then
 	git add meta-qt5
 	git commit --dry-run
 	read -p "This is serious, if you don't know what is this or you're not 100% sure about it just [A]bort otherwise the above changes will be committed and pushed to Open Vision and the result could be catastrophic, [P]roceed? " choice
-	if [ "$choice" = "P" -o "$choice" = "p" ];then
+	if [ "$choice" = "P" ];then
 		git commit -S -m "Update meta-qt5 submodule using submodule.sh"
 		echo "Stage 3: git push for new changes"
 		echo ""
@@ -185,12 +185,6 @@ then
 	git pull
 	echo -e "\n"
 	cd ..
-	cd meta-minix
-	echo "Checking out meta-minix develop branch:"
-	git checkout develop
-	git pull
-	echo -e "\n"
-	cd ..
 	cd meta-odroid
 	echo "Checking out meta-odroid develop branch:"
 	git checkout develop
@@ -208,7 +202,7 @@ then
 	git add meta-*
 	git commit --dry-run
 	read -p "The above changes will be committed and pushed to Open Vision, [A]bort [P]roceed: " choice
-	if [ "$choice" = "P" -o "$choice" = "p" ];then
+	if [ "$choice" = "P" ];then
 		git commit -S -m "Update submodules using submodule.sh"
 		echo "Stage 3: git push for new changes"
 		echo ""

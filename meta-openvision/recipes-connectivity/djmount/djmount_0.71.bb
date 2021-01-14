@@ -10,7 +10,7 @@ INITSCRIPT_NAME = "djmount"
 INITSCRIPT_PARAMS = "defaults"
 
 # libupnp make doesn't support it
-PARALLEL_MALE = ""
+PARALLEL_MAKE = ""
 
 inherit autotools update-rc.d pkgconfig gettext
 

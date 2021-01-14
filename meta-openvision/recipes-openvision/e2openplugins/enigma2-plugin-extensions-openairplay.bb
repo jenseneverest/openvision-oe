@@ -16,7 +16,7 @@ require openplugins.inc
 PLUGINPATH = "${libdir}/enigma2/python/Plugins/Extensions/${MODULE}"
 do_install() {
 	install -d ${D}${PLUGINPATH}
-	cp -r --preserve=mode,links ${S}/plugin/* ${D}${PLUGINPATH}
+	cp -fr --preserve=links ${S}/plugin/* ${D}${PLUGINPATH}
 }
 
 FILES_${PN} = "${PLUGINPATH}"

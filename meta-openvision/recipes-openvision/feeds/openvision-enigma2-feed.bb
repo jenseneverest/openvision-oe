@@ -33,7 +33,6 @@ OPTIONAL_PACKAGES += "\
 	diffutils \
 	djmount \
 	dosfstools \
-	${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "dreamci", "", d)} \
 	dvblast \
 	dvbsnoop \
 	dvdfs \
@@ -46,6 +45,7 @@ OPTIONAL_PACKAGES += "\
 	gstplayer \
 	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer${GST_VERSION}-libav", "", d)} \
 	hddtemp \
+	htop \
 	inadyn-mt \
 	inetutils \
 	iperf3 \
@@ -78,9 +78,11 @@ OPTIONAL_PACKAGES += "\
 	procps \
 	pv \
 	pyload \
+	${PYTHONNAMEONLY}-attr \
 	${PYTHONNAMEONLY}-attrs \
 	${PYTHONNAMEONLY}-beautifulsoup4 \
 	${PYTHONNAMEONLY}-bluetool \
+	${PYTHONNAMEONLY}-future \
 	${PYTHONNAMEONLY}-futures \
 	${PYTHONNAMEONLY}-iso3166 \
 	${PYTHONNAMEONLY}-iso639 \
@@ -98,9 +100,8 @@ OPTIONAL_PACKAGES += "\
 	python-soco \
 	python-singledispatch \
 	python-ujson \
-	${PYTHONNAMEONLY}-websocket \
+	${PYTHONNAMEONLY}-websocket-client \
 	python-youtube-dl \
-	rclone \
 	rsync \
 	rtorrent \
 	sabnzbd \
@@ -116,7 +117,6 @@ OPTIONAL_PACKAGES += "\
 	tcpdump \
 	tmux \
 	transmission \
-	udpxy \
 	unrar \
 	unzip \
 	upx \
@@ -242,7 +242,6 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-skins-kravenhd \
 	enigma2-plugin-skins-kravenvb \
 	enigma2-plugin-skins-maxfhdxta-raed \
-	enigma2-plugin-skins-metrix-vision \
 	enigma2-plugin-skins-multibox-raed \
 	enigma2-plugin-skins-mxblack-raed \
 	enigma2-plugin-skins-mxhq9b-raed \
@@ -250,6 +249,7 @@ ENIGMA2_OPTIONAL += "\
 	enigma2-plugin-skins-mx-hq9w \
 	enigma2-plugin-skins-mxsline-raed \
 	enigma2-plugin-skins-octetfhd \
+	enigma2-plugin-skins-overlayhd \
 	enigma2-plugin-skins-pli-hd-fullnight \
 	enigma2-plugin-skins-sevenhd \
 	enigma2-plugin-skins-simple-gray-hd \

@@ -56,9 +56,11 @@ ENIGMA2_PLUGINS += "\
 DEPENDS += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "blindscan-tbs", "blindscan-s2" , "", d)} \
 	enigma2 \
+	enigma2-c-plugins \
 	enigma2-alliance-plugins \
 	enigma2-locale-meta \
 	enigma2-plugins \
+	openvision-bootlogo \
 	"
 
 RDEPENDS += "\
@@ -102,7 +104,9 @@ IMAGE_INSTALL += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", " \
 	${MACHINE_FEATURE_RELATED_PLUGINS}", d)} \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", " \
+	cifs-utils \
 	dvbfetool \
+	nfs-utils \
 	openssh-sftp-server \
 	openvision-core-plugin", d)} \
 	"

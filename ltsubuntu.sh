@@ -30,7 +30,7 @@ sudo apt install -y --install-recommends linux-generic-hwe-20.04
 echo -e ""
 echo -e "Now install what we need, answer yes and wait for complete download"
 echo -e ""
-sudo apt install -y autoconf automake bison bzip2 cvs diffstat flex g++ gawk gcc gettext git git-lfs gzip help2man ncurses-bin libncurses5-dev libc6-dev libtool make texinfo patch perl pkg-config subversion tar texi2html wget chrpath libxml2-utils xsltproc python-setuptools libc6 genromfs mtd-utils dpkg-dev sshpass poedit translate-toolkit xclip linux-firmware linux-headers-`uname -r` linux-headers-`uname -r` linux-image-`uname -r` linux-tools-`uname -r` linux-libc-dev linux-source u-boot-tools upx-ucl doxygen optipng python-dev libglib2.0-dev pngquant default-jdk android-tools-fastboot android-tools-adb libssl-dev libc6-dev-i386 lib32z1 m4 intltool ccache zlib1g zlib1g-dev liblzo2-dev tcl dpkg asciidoc texlive-latex-base dblatex xutils-dev gparted openssh-server nfs-common nfs-kernel-server lintian git-doc git-gui gitk indent tofrodos fakeroot meld atftpd sharutils manpages-dev manpages-posix manpages-posix-dev libgdk-pixbuf2.0-dev linux-doc python3-autopep8 build-essential socat libsdl1.2-dev xterm gcc-multilib libopenmpi-dev parted mercurial binutils imagemagick librsvg2-bin jq linux-libc-dev:i386 linux-headers-generic python3-autopep8 python3-pip python3-autopep8 python3-six python-six libnl-3-dev libnl-genl-3-dev ttf-dejavu-core linux-image-generic libimage-exiftool-perl dos2unix ffmpeg
+sudo apt install -y autoconf automake bison bzip2 cvs diffstat flex g++ g++-multilib gawk gcc gettext git git-lfs gzip help2man ncurses-bin libncurses5-dev libc6-dev libtool make texinfo patch perl pkg-config subversion tar texi2html wget chrpath libxml2-utils xsltproc python-setuptools libc6 genromfs mtd-utils dpkg-dev sshpass poedit translate-toolkit xclip linux-firmware linux-headers-`uname -r` linux-headers-`uname -r` linux-image-`uname -r` linux-tools-`uname -r` linux-libc-dev linux-source u-boot-tools upx-ucl doxygen optipng python-dev libglib2.0-dev pngquant default-jdk android-tools-fastboot android-tools-adb libssl-dev libc6-dev-i386 lib32z1 m4 intltool ccache zlib1g zlib1g-dev liblzo2-dev tcl dpkg asciidoc texlive-latex-base dblatex xutils-dev gparted openssh-server nfs-common nfs-kernel-server lintian git-doc git-gui gitk indent tofrodos fakeroot meld atftpd sharutils manpages-dev manpages-posix manpages-posix-dev libgdk-pixbuf2.0-dev linux-doc python3-autopep8 build-essential socat libsdl1.2-dev xterm gcc-multilib libopenmpi-dev parted mercurial binutils imagemagick librsvg2-bin jq linux-libc-dev:i386 linux-headers-generic python3-autopep8 python3-pip python3-autopep8 python3-six python-six libnl-3-dev libnl-genl-3-dev ttf-dejavu-core linux-image-generic libimage-exiftool-perl dos2unix ffmpeg
 echo -e ""
 echo -e "Add GCC 7 to Ubuntu which is needed for old OE!"
 echo -e ""
@@ -43,7 +43,7 @@ sudo apt --fix-broken install
 sudo apt install -f
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7 --slave /usr/bin/gcov gcov /usr/bin/gcov-7
 #sudo update-alternatives --config gcc
-gcc --version
+echo -e "Active GCC version: ${RED}$(gcc -dumpfullversion)${NC}"
 echo -e ""
 echo -e "Remove useless packages ..."
 echo -e ""

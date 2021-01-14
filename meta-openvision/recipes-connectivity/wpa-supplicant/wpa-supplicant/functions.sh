@@ -101,7 +101,7 @@ wpa_msg () {
 		shift
 		case "$WPA_ACTION" in
 			"CONNECTED"|"DISCONNECTED")
-				[ -x /usr/bin/logger ] || return
+				[ -x ${bindir}/logger ] || return
 				if [ "$#" -gt 0 ]; then
 					logger -t "wpa_action" "$@"
 				else

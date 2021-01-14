@@ -35,18 +35,4 @@ RDEPENDS_${PN} = "ca-certificates"
 
 RDEPENDS_{PN}-src = "${PN}"
 
-FILES_${PN}-src = " \
-    ${PYTHON_SITEPACKAGES_DIR}/*.py \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*.py \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*.py \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.py \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.py \
-    "
-
-FILES_${PN}-dbg += "\
-    ${PYTHON_SITEPACKAGES_DIR}/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/.debug \
-    ${PYTHON_SITEPACKAGES_DIR}/*.egg-info \
-    "
+include python-package-split.inc

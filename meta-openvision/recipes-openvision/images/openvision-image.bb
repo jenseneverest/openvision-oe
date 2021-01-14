@@ -2,9 +2,7 @@ require conf/license/openvision-gplv2.inc
 
 inherit image
 
-DEPENDS += "\
-	zip-native \
-	"
+DEPENDS += "zip-native"
 
 IMAGE_INSTALL = "\
 	${ROOTFS_PKGMANAGE} \
@@ -22,7 +20,6 @@ IMAGE_INSTALL = "\
 	modutils-loadscript \
 	nfs-utils-client \
 	openssh-sftp \
-	openvision-bootlogo \
 	openvision-extra-feed-config \
 	openvision-module \
 	openvision-version-info \
@@ -47,14 +44,14 @@ IMAGE_FEATURES += "package-management"
 # of the installer that populates the rootfs. I wanted to call this
 # rootfs_remove_opkg_leftovers but that fails to parse.
 rootfs_removeopkgleftovers() {
-	rm -r ${IMAGE_ROOTFS}${localstatedir}/lib/opkg/lists
+   rm -r ${IMAGE_ROOTFS}${localstatedir}/lib/opkg/lists
 }
 
 # Speedup boot by reducing the host key size. The time it takes grows
 # exponentially by key size, the default is 2k which takes several
 # seconds on most boxes.
 rootfs_speedup_dropbearkey() {
-	echo 'DROPBEAR_RSAKEY_ARGS="-s 1024"' >> ${IMAGE_ROOTFS}${sysconfdir}/default/dropbear
+   echo 'DROPBEAR_RSAKEY_ARGS="-s 1024"' >> ${IMAGE_ROOTFS}${sysconfdir}/default/dropbear
 }
 
 # Some features in image.bbclass we do NOT want, so override them
@@ -64,11 +61,15 @@ zap_root_password () {
 	true
 }
 
-ssh_allow_empty_password () {
-	true
-}
-
 license_create_manifest() {
 }
 
-ROOTFS_POSTPROCESS_COMMAND += "rootfs_removeopkgleftovers; rootfs_speedup_dropbearkey; "
+do_openvision_chwon_root_image(){
+   chown -hR root:root ${IMAGE_ROOTFS}
+}
+
+ROOTFS_POSTPROCESS_COMMAND_append = " \
+  rootfs_removeopkgleftovers; \
+  rootfs_speedup_dropbearkey; \
+  do_openvision_chwon_root_image; \
+"

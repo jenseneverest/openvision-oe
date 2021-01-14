@@ -11,6 +11,10 @@ SRC_URI = " \
 
 S = "${WORKDIR}/backports.lzma-${PV}"
 
+do_configure_prepend() {
+	rm -f ${S}/backports/__init__.py
+}
+
 inherit setuptools
 
 SRC_URI[md5sum] = "ce194b48429f51778e2c391ca4fd1fd4"

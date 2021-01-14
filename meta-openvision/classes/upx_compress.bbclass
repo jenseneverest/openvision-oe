@@ -1,4 +1,4 @@
-DEPENDS += " upx-native"
+DEPENDS += "upx-native"
 
 do_upx() {
 	if echo "${MACHINE_FEATURES}" | grep -q '\(smallflash\|middleflash\)'

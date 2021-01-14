@@ -5,6 +5,7 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
+rm -f build/bitbake.lock
 if grep -Fqi "ubuntu 20.04" /etc/*-release
 then
     echo -e "${GREEN}You have Ubuntu 20.04.x LTS, great!${NC}"
@@ -39,16 +40,12 @@ else
 	/bin/sh ltsubuntu.sh
 	echo "once" > user.ovstep
 fi
-gcc --version | sed -nr '/Ubuntu [0-9]+/ s/.*Ubuntu +([0-9]+).*/\1/p' > /tmp/vision-gcc-version
-VISIONGCCVERSION=`cat /tmp/vision-gcc-version`
-if [ "${VISIONGCCVERSION}" != '7' ]; then
+if [ $(gcc -dumpversion) != '7' ]; then
 	echo -e "${RED}GCC version is wrong!"
 	echo -e "It means you need to choose version 7 of GCC!"
 	sudo update-alternatives --config gcc
 	sudo ln -s /usr/include/asm-generic /usr/include/asm
-	gcc --version | sed -nr '/Ubuntu [0-9]+/ s/.*Ubuntu +([0-9]+).*/\1/p' > /tmp/vision-gcc-version
-	VISIONGCCVERSION=`cat /tmp/vision-gcc-version`
-	echo -e "Done, now GCC version is: ${VISIONGCCVERSION} ${NC}"
+	echo -e "Done, now GCC version is: $(gcc -dumpfullversion) ${NC}"
 	echo -e ""
 else
 	echo -e "${GREEN}You enabled GCC 7 for OV 7.x, great!${NC}"
@@ -67,11 +64,11 @@ else
 	git config --global user.name "${GITUSERNAME}"
 	echo "DEVELOPER_NAME = '${GITUSERNAME}'" > meta-openvision/conf/distro/developer.conf
 fi
-echo -e "Check ${NC}Vision-metas.md ${BLUE}and enter a meta or a specific machine to compile."
+echo -e "${BLUE}Check ${NC}Vision-metas.md ${BLUE}and enter a meta or a specific machine to compile."
 echo -e "Answers are in ${GREEN}green:${NC}"
 echo -e ""
-echo -e "${GREEN}AZ ${NC}- ${GREEN}Cube ${NC}- ${GREEN}DM ${NC}- ${GREEN}GB ${NC}- ${GREEN}HyperCube ${NC}- ${GREEN}Linkdroid"
-echo -e "MINIX ${NC}- ${GREEN}Odroid ${NC}- ${GREEN}WeTek ${NC}- ${GREEN}Specific"
+echo -e "${GREEN}AZ ${NC}- ${GREEN}Cube ${NC}- ${GREEN}DM ${NC}- ${GREEN}GB ${NC}- ${GREEN}HyperCube"
+echo -e "Linkdroid ${NC}- ${GREEN}Odroid ${NC}- ${GREEN}WeTek ${NC}- ${GREEN}Specific"
 echo -e ""
 echo -e "${GREEN}Specific${BLUE}: You have a specific machine in mind, Check ${NC}Vision-metas.md"
 echo -e ""
@@ -79,7 +76,7 @@ echo -e "${BLUE}Enter the meta name:${NC}"
 echo -e "${GREEN}"
 read META
 echo -e "${NC}"
-if [ $META != "AZ" -a $META != "Cube" -a $META != "DM" -a $META != "GB" -a $META != "HyperCube" -a $META != "Linkdroid" -a $META != "MINIX" -a $META != "Odroid" -a $META != "WeTek" -a $META != "Specific" ]
+if [ $META != "AZ" -a $META != "Cube" -a $META != "DM" -a $META != "GB" -a $META != "HyperCube" -a $META != "Linkdroid" -a $META != "Odroid" -a $META != "WeTek" -a $META != "Specific" ]
 then
 	echo -e "${RED}Not a valid answer!${NC}"
 	echo -e ""
@@ -107,6 +104,7 @@ sleep 0.1
 echo -e ""
 echo -e "${BLUE}Updated.${NC}"
 echo -e ""
+begin=$(date +"%s")
 echo -e "${BLUE}Compiling${GREEN} $META ${BLUE}images, please wait ...${NC}"
 echo -e ""
 if [ $IMAGETYPE = "Vision" ]
@@ -202,10 +200,6 @@ then
 	MACHINE=k2prov2 $IMAGECMD
 	MACHINE=k3pro $IMAGECMD
 fi
-if [ $META = "MINIX" ]
-then
-	MACHINE=x8hp $IMAGECMD
-fi
 if [ $META = "Odroid" ]
 then
 	MACHINE=odroidc2 $IMAGECMD
@@ -218,4 +212,9 @@ then
 fi
 echo -e ""
 echo -e "${BLUE}Done, the compiled image is in ${NC}build/tmp/deploy/images/${GREEN}$MACHINE$MACHINESPECIFIC ${BLUE}folder!"
-echo -e "It's a zipped file like ${NC}openvision-enigma2-develop-english|multilanguage|extralanguage-${GREEN}${VISIONVERSION}-r${VISIONREVISION}${NC}-${RED}$MACHINE$MACHINESPECIFIC${NC}.zip"
+echo -e "It's a zipped file like ${NC}openvision-enigma2-extralanguage-${GREEN}${VISIONVERSION}-r${VISIONREVISION}${NC}-${RED}$MACHINE$MACHINESPECIFIC${NC}.zip"
+echo -e ""
+finish=$(date +"%s")
+timediff=$(($finish-$begin))
+echo -e "Compile time was $(($timediff / 60)) minutes and $(($timediff % 60)) seconds."
+echo -e "Fast compiling would be less than 60 minutes."

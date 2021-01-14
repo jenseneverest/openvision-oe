@@ -15,8 +15,8 @@ SRC_URI = "git://github.com/OpenVisionE2/enigma2-fonts.git;protocol=git"
 S = "${WORKDIR}/git/${FONTNAME}"
 
 do_install() {
-    install -d ${D}${datadir}/fonts
-    cp -r  --preserve=mode,links ${S}/*.ttf ${D}${datadir}/fonts
+	install -d ${D}${datadir}/fonts
+	cp -fr --preserve=links ${S}/*.ttf ${D}${datadir}/fonts
 }
 
 do_package_qa[noexec] = "1"

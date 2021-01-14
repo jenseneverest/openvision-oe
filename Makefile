@@ -31,7 +31,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-gb \
 	$(CURDIR)/meta-hypercube \
 	$(CURDIR)/meta-linkdroid \
-	$(CURDIR)/meta-minix \
 	$(CURDIR)/meta-odroid \
 	$(CURDIR)/meta-wetek
 

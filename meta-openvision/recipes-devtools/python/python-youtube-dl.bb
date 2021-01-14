@@ -9,12 +9,12 @@ LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=7246f848faa4e9c9fc0ea91122d6e680"
 
 DEPENDS = "libxml2 bash-completion"
 
-PV = "2020.12.09"
+PV = "2021.01.03"
 
 SRC_URI = "https://github.com/ytdl-org/youtube-dl/releases/download/${PV}/youtube-dl-${PV}.tar.gz"
 
-SRC_URI[md5sum] = "d364913b8c4282e876b74c3847c6bcc2"
-SRC_URI[sha256sum] = "0ac76347bf455b4e80a026638f9406aa28df3d2b6e445c705ad43809808eb961"
+SRC_URI[md5sum] = "dd0c12f4e082613548c185885dca58a5"
+SRC_URI[sha256sum] = "91de98ce1ad5d53c912eb810dd747ed30825dbf7eacb09a385ce227232eb1163"
 
 S = "${WORKDIR}/youtube-dl"
 
@@ -45,12 +45,6 @@ RDEPENDS_${PN} = " \
 
 RDEPENDS_{PN}-src = "${PN}"
 
-FILES_${PN}-src = " \
-	${libdir}/${PYTHON_DIR}/site-packages/*/*.py \
-	${libdir}/${PYTHON_DIR}/site-packages/*/*/*.py \
-	${libdir}/${PYTHON_DIR}/site-packages/*/*/*/*.py \
-	${libdir}/${PYTHON_DIR}/site-packages/*/*/*/*/*.py \
-	${datadir}${sysconfdir}/* \
-	"
+include python-package-split.inc
 
 FILES_${PN} += "${sysconfdir}"

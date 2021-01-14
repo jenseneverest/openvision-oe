@@ -21,6 +21,7 @@ RDEPENDS_${PN} = "\
 	enigma2-data-iso-639-3 \
 	enigma2-fonts \
 	enigma2-plugin-extensions-pespeedup \
+	enigma2-timezones \
 	ethtool \
 	glibc-gconv-iso8859-15 \
 	${@bb.utils.contains_any("MACHINE_FEATURES", "smallflash middleflash", "", "glibc-gconv-cp1250", d)} \
@@ -62,10 +63,8 @@ PYTHON_RDEPS = "\
 	${PYTHONNAMEONLY}-xml \
 	${PYTHONNAMEONLY}-zopeinterface \
 	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "", " \
-	python-importlib \
 	python-lang \
 	python-re \
-	python-utf8-hack \
 	python-zlib", d)} \
 	"
 
@@ -97,16 +96,16 @@ RDEPENDS_enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools 
 RDEPENDS_enigma2-plugin-extensions-dvdplayer = "kernel-module-udf"
 RDEPENDS_enigma2-plugin-systemplugins-hotplug = "hotplug-e2-helper"
 
-DESCRIPTION_enigma2-plugin-font-wqy-microhei = "wqy-microhei font supports Chinese EPG"
-PACKAGES += "enigma2-plugin-font-wqy-microhei"
-FILES_enigma2-plugin-font-wqy-microhei = "${datadir}/fonts/wqy-microhei.ttc ${datadir}/fonts/fallback.font"
-ALLOW_EMPTY_enigma2-plugin-font-wqy-microhei = "1"
+DESCRIPTION_enigma2-plugin-fonts-wqy-microhei = "wqy-microhei font supports Chinese EPG"
+PACKAGES += "enigma2-plugin-fonts-wqy-microhei"
+FILES_enigma2-plugin-fonts-wqy-microhei = "${datadir}/fonts/wqy-microhei.ttc ${datadir}/fonts/fallback.font"
+ALLOW_EMPTY_enigma2-plugin-fonts-wqy-microhei = "1"
 
 # Fake package that doesn't actually get built, but allows OE to detect
 # the RDEPENDS for the plugins above, preventing [build-deps] warnings.
 RDEPENDS_${PN}-build-dependencies = "\
 	aio-grab \
-	dvd+rw-tools dvdauthor mjpegtools cdrkit ${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging", d)} ${DEMUXTOOL} \
+	${@bb.utils.contains("PYTHONEXACTVERSION", "python3", "python3-pillow", "python-imaging", d)} ${DEMUXTOOL} \
 	${PYTHONNAMEONLY}-twisted-web \
 	wpa-supplicant wireless-tools python-wifi \
 	"
@@ -117,7 +116,11 @@ ENIGMA2_BRANCH = "develop"
 PV = "develop+git${SRCPV}"
 PKGV = "develop+git${GITPKGV}"
 
-SRC_URI = "git://github.com/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH}"
+SRC_URI = "\
+	git://github.com/OpenVisionE2/enigma2-openvision.git;branch=${ENIGMA2_BRANCH} \
+	file://gcc6.patch \
+	${@bb.utils.contains("MACHINE", "dm800", "file://get-rid-of-HAVE-OLDE2-API-condition.patch", "", d)} \
+	"
 
 LDFLAGS_prepend = " -lxml2 "
 
@@ -164,6 +167,7 @@ EXTRA_OECONF = "\
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "osdanimation", "--with-osdanimation" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "olde2api", "--with-olde2api" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "hisiltuner", "--with-hisiltuner" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "fcc", "--with-fcc" , "", d)} \
 	"
 

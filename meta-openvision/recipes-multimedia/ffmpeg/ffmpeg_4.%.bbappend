@@ -13,17 +13,21 @@ PACKAGECONFIG[wavpack] = "--enable-libwavpack,--disable-libwavpack,wavpack"
 
 MIPSFPU = "${@bb.utils.contains('TARGET_FPU', 'soft', '--disable-mipsfpu', '--enable-mipsfpu', d)}"
 
-SRC_URI_append = " \
-        file://4_02_fix_mpegts.patch \
-        file://4_03_allow_to_choose_rtmp_impl_at_runtime.patch \
-        file://4_04_hls_replace_key_uri.patch \
-        file://4_06_optimize_aac.patch \
-        file://4_07_increase_buffer_size.patch \
-        file://4_08_recheck_discard_flags.patch \
-        file://4_09_ffmpeg_fix_edit_list_parsing.patch \
-        file://4_11_rtsp.patch \
-        file://4_12_dxva2.patch \
+SRC_URI = "git://github.com/FFmpeg/FFmpeg.git;branch=release/4.3 \
+	file://mips64_cpu_detection.patch \
+	file://0001-libavutil-include-assembly-with-full-path-from-sourc.patch \	
+	file://4_02_fix_mpegts.patch \
+	file://4_03_allow_to_choose_rtmp_impl_at_runtime.patch \
+	file://4_04_hls_replace_key_uri.patch \
+	file://4_06_optimize_aac.patch \
+	file://4_07_increase_buffer_size.patch \
+	file://4_08_recheck_discard_flags.patch \
+	file://4_09_ffmpeg_fix_edit_list_parsing.patch \
+	file://4_11_rtsp.patch \
+	file://4_12_dxva2.patch \
         "
+
+S = "${WORKDIR}/git"
 
 EXTRA_FFCONF = " \
     --prefix=${prefix} \
